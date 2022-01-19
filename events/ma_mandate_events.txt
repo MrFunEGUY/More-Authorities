@@ -1,0 +1,175 @@
+###############################
+# Mandate Events
+# by Maximilian Olbers
+###############################
+
+namespace = mandate
+
+#########################
+# General events
+# id 000
+#########################
+
+# Mandate added
+country_event = {
+	id = mandate.1
+	title = mandate.1.title
+	desc = mandate.1.desc
+	picture = GFX_evt_throne_room
+	show_sound = event_default
+
+	is_triggered_only = yes
+
+	# "ruler X elected, check sitch log for their mandate"
+
+	trigger = {
+		exists = ruler
+		NOT = {
+			has_authority = auth_democratic_dictatorship
+		}
+		ruler = {
+			has_mandate = yes
+		}
+	}
+
+	option = {
+		name = OK
+	}
+}
+
+# Mandate failed/expired
+country_event = {
+	id = mandate.2
+	title = mandate.2.title
+	desc = mandate.2.desc
+	picture = GFX_evt_civil_action
+	show_sound = event_assembly_fight
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_authority = auth_democratic_dictatorship
+		}
+		OR = {
+			has_event_chain = mandate_separatist_chain
+			has_event_chain = mandate_emancipation_chain
+			has_event_chain = mandate_emancipation2_chain
+			has_event_chain = mandate_orbresearch_chain
+			has_event_chain = mandate_miner_chain
+			has_event_chain = mandate_shipwright_chain
+			has_event_chain = mandate_peacemaker_chain
+			has_event_chain = mandate_slaver_chain
+			has_event_chain = mandate_xenopurge_chain
+			has_event_chain = mandate_nationalist_chain
+			has_event_chain = mandate_monthly_energy_chain
+			has_event_chain = mandate_monthly_minerals_chain
+			has_event_chain = mandate_monthly_food_chain
+			has_event_chain = mandate_monthly_alloys_chain
+			has_event_chain = mandate_monthly_consumer_goods_chain
+			has_event_chain = mandate_district_city_chain
+			has_event_chain = mandate_district_generator_chain
+			has_event_chain = mandate_district_mining_chain
+			has_event_chain = mandate_district_farming_chain
+		}
+	}
+
+	immediate = {
+		switch = {
+			trigger = has_event_chain
+			
+			mandate_separatist_chain = {
+				end_event_chain = mandate_separatist_chain
+			}
+			
+			mandate_emancipation_chain = {
+				end_event_chain = mandate_emancipation_chain
+			}
+			
+			mandate_emancipation2_chain = {
+				end_event_chain = mandate_emancipation2_chain
+			}
+			
+			mandate_orbresearch_chain = {
+				end_event_chain = mandate_orbresearch_chain
+			}
+			
+			mandate_miner_chain = {
+				end_event_chain = mandate_miner_chain
+			}
+			
+			mandate_shipwright_chain = {
+				end_event_chain = mandate_shipwright_chain
+			}
+			
+			mandate_peacemaker_chain = {
+				end_event_chain = mandate_peacemaker_chain
+			}
+			
+			mandate_slaver_chain = {
+				end_event_chain = mandate_slaver_chain
+			}
+			
+			mandate_xenopurge_chain = {
+				end_event_chain = mandate_xenopurge_chain
+			}
+			
+			mandate_nationalist_chain = {
+				end_event_chain = mandate_nationalist_chain
+			}
+
+			mandate_monthly_energy_chain = {
+				end_event_chain = mandate_monthly_energy_chain
+			}
+
+			mandate_monthly_minerals_chain = {
+				end_event_chain = mandate_monthly_minerals_chain
+			}
+
+			mandate_monthly_alloys_chain = {
+				end_event_chain = mandate_monthly_alloys_chain
+			}
+
+			mandate_monthly_food_chain = {
+				end_event_chain = mandate_monthly_food_chain
+			}
+
+			mandate_monthly_consumer_goods_chain = {
+				end_event_chain = mandate_monthly_consumer_goods_chain
+			}
+
+			mandate_district_city_chain = { end_event_chain = mandate_district_city_chain }
+
+			mandate_district_generator_chain = { end_event_chain = mandate_district_generator_chain }
+
+			mandate_district_mining_chain = { end_event_chain = mandate_district_mining_chain }
+
+			mandate_district_farming_chain = { end_event_chain = mandate_district_farming_chain }
+		}
+	}
+
+	option = {
+		name = OK
+	}
+}
+
+# On leader death
+country_event = {
+	id = mandate.21
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			has_authority = auth_democratic_dictatorship
+		}
+		from = {
+			is_same_value = root.ruler
+		}
+	}
+
+	immediate = {
+		country_event = { id = mandate.2 }
+	}
+}

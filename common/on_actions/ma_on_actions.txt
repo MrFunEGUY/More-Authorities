@@ -1,0 +1,51 @@
+# Triggers when the game starts
+on_game_start = {
+	events = {
+		moreauthorities.1			# Set mod Global Flag
+	}
+}
+
+on_game_start_country = {
+	events = {
+		moreauthorities.10			# To get ride of mandate for Dem Autocracies.
+	}
+}
+
+# Called when an election starts
+# scope: country
+on_election_started = {
+	events = {
+		moreauthorities.4			# Signle Term Authority is up
+	}
+}
+
+# Called when an election ends
+# scope: country
+on_election_ended = {
+	events = {
+		moreauthorities.3			# Set Term Limit Flags
+		moreauthorities.10			# Clear Mandate
+	}
+}
+
+# this = country
+on_decade_pulse_country = {
+	events = {
+		moreauthorities.2			# Set Term Limit Flags (in case a country reformed)
+	}
+}
+
+# this = country
+on_game_start_country = {
+	events = {
+		moreauthorities.2			# Set Term Limit Flags (in case a country reformed)
+	}
+}
+
+# The Merger of Rules
+
+on_game_start = {
+	events = {
+		moreauthstart.1 			# Set Global Flag
+	}
+}

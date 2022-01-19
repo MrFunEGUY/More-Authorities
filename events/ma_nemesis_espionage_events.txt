@@ -1,0 +1,178 @@
+################################
+#
+# Nemesis Espionage Events
+# Written by Gemma Thomson
+#
+###############################
+
+namespace = espionage
+
+@AssetReceivedTimer = 250 #Days until an empire which has randomly received an Asset is eligible to receive one again
+
+#######################################
+# STRAY COMMUNIQUÉ (encryption debuff)
+#######################################
+
+country_event = {
+    id = espionage.1060
+    title = espionage.1060.name
+    desc = {
+        trigger = { NOT = { is_megacorp = yes } }
+        text = espionage.1060.desc
+    }
+    desc = {
+        trigger = { is_megacorp = yes }
+        text = espionage.1060.desc.corp
+    }
+    picture = GFX_evt_intelligence_report
+    show_sound = event_encrypted_comms
+    is_triggered_only = yes
+
+    trigger = {
+        is_regular_empire = yes
+        NOT = { has_country_flag = recently_dropped_finderskeepers }
+    }
+
+    immediate = {
+        if = {
+            limit = {
+                any_playable_country = {
+                    has_communications = root
+                    has_spynetwork = yes
+                    any_spynetwork = {
+                        target = {
+                            is_same_value = root
+                            relative_encryption_decryption = { target = prev.owner value < 0.7 }
+                        }
+                    }
+                }
+            }
+            random_playable_country = {
+                limit = {
+                    has_communications = root
+                    NOT = { is_same_value = root }
+                    has_spynetwork = yes
+                    any_spynetwork = {
+                        target = {
+                            is_same_value = root
+                            relative_encryption_decryption = { target = prev.owner value < 0.7 }
+                        }
+                    }
+                }
+                save_event_target_as = finderskeepers_country #Used in espionage.1050
+                country_event = { id = espionage.1050 } #Finders Keepers
+            }
+        }
+        set_timed_country_flag = {
+            flag = recently_dropped_finderskeepers
+            days = 7920 #22 years
+        }
+    }
+
+    option = { #Accept the loss
+        name = {
+            trigger = {
+                NOR = {
+                    is_authoritarian = yes
+                    is_militarist = yes
+                    is_megacorp = yes
+                }
+            }
+            text = OOPS
+        }
+        name = {
+            trigger = {
+                OR = {
+                    is_authoritarian = yes
+                    is_militarist = yes
+                    is_megacorp = yes
+                }
+            }
+            text = CURSES
+        }
+        root = {
+            add_modifier = {
+                modifier = espionage_straycomm
+                days = 360
+            }
+        }
+        ai_chance = {
+            factor = 10
+        }
+    }
+
+    option = { #Sack an administrator
+        name = espionage.1060.a
+        trigger = {
+            NOT = { is_megacorp = yes }
+            capital_scope = {
+                any_owned_pop = { has_job = administrator }
+            }
+        }
+        allow = {
+            resource_stockpile_compare = { resource = energy value > 250 }
+        }
+        add_resource = { energy = -250 }
+        custom_tooltip = espionage.1060.a.tooltip
+        capital_scope = {
+            random_owned_pop = {
+                limit = { has_job = administrator }
+                unemploy_pop = yes
+                clear_pop_category = yes #Drops them to worker-class
+            }
+        }
+        root = {
+            add_modifier = {
+                modifier = espionage_straycomm
+                days = 160
+            }
+        }
+        ai_chance = {
+            factor = 5
+            modifier = {
+                factor = 3
+                OR = {
+                    is_authoritarian = yes
+                    is_militarist = yes
+                }
+            }
+        }
+    }
+    option = { #Sack an executive (corporates)
+        name = espionage.1060.b
+        trigger = {
+            is_megacorp = yes
+            capital_scope = {
+                any_owned_pop = { has_job = executive }
+            }
+        }
+        allow = {
+            resource_stockpile_compare = { resource = energy value > 250 }
+        }
+        add_resource = { energy = -250 }
+        custom_tooltip = espionage.1060.b.tooltip
+        capital_scope = {
+            random_owned_pop = {
+                limit = { has_job = executive }
+                unemploy_pop = yes
+                clear_pop_category = yes #Drops them to worker-class
+            }
+        }
+        root = {
+            add_modifier = {
+                modifier = espionage_straycomm
+                days = 160
+            }
+        }
+        ai_chance = {
+            factor = 5
+            modifier = {
+                factor = 3
+                OR = {
+                    is_authoritarian = yes
+                    is_militarist = yes
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,162 @@
+###########################################
+#
+# Nemesis Espionage Events
+# Written by Gemma Thomson
+#
+###########################################
+
+namespace = operation
+
+# SUBTERFUGE (.1XXX)
+# SABOTAGE (.2XXX)
+# MANIPULATION (.3XXX)
+# PROVOCATION (.4XXX)
+# RANDOM EVENTS (.5XXX)
+# CUSTODIAN (.6XXX)
+# INTEL (.7XXX)
+
+@OperationBribeCost1 = -400
+@OperationBribeCost2 = -600
+@OperationBribeCost3 = -800
+@OperationBribeThreshold1 = 400
+@OperationBribeThreshold2 = 600
+@OperationBribeThreshold3 = 800
+
+@StealTechnologyAmount = 1000 #Amount of science research in every discipline which will be granted if the operation cannot steal a Technology
+@StealTechnologyTimer = 2160 #days (6 years) until Steal Technology can be repeated. Referenced in tooltip strings "operation.1026.tooltip.cooldown" and "operation_steal_technology_too_recent".
+@SabotageStarbaseTimer = 1440 #days (4 years) until Sabotage Starbase can be repeated against this target.
+@CrisisBeaconTimer = 1440 #days (4 years) until Crisis Beacon can be attempted again. Referenced in tooltip string "operation_crisis_beacon_too_recent".
+
+# Number of days before a single event should (ideally) stand a chance of coming up again.
+@RandomOperationEventTimer = 600
+@RandomOperationEventTimerLong = 1000
+
+# Campaign drafted
+espionage_operation_event = {
+    id = operation.3001
+    title = operation.3001.name
+    espionage_operation = yes
+    desc = { #Flags set in immediate, below
+        trigger = {
+            hidden:event_target:smear_campaign_recipient = {
+                switch = {
+                    trigger = has_country_flag
+                    smear_spiritualist_ridic@root.target = { text = operation.3001.desc.spirit.ridic }
+                    smear_spiritualist_merch@root.target = { text = operation.3001.desc.spirit.merch }
+                    smear_spiritualist_deity@root.target = { text = operation.3001.desc.spirit.deity }
+                    smear_militarist_study@root.target = { text = operation.3001.desc.milit.study }
+                    smear_militarist_priso@root.target = { text = operation.3001.desc.milit.priso }
+                    smear_militarist_armsd@root.target = { text = operation.3001.desc.milit.armsd }
+                    smear_militarist_pacif@root.target = { text = operation.3001.desc.milit.pacif }
+                    smear_militarist_satir@root.target = { text = operation.3001.desc.milit.satir }
+                    smear_xenophobe_genes@root.target = { text = operation.3001.desc.phobe.genes }
+                    smear_xenophobe_abduc@root.target = { text = operation.3001.desc.phobe.abduc }
+                    smear_egalitarian_migra@root.target = { text = operation.3001.desc.egal.migra }
+                    smear_egalitarian_galco@root.target = { text = operation.3001.desc.egal.galco }
+                    smear_egalitarian_elect@root.target = { text = operation.3001.desc.egal.elect }
+                    smear_materialist_theft@root.target = { text = operation.3001.desc.mat.theft }
+                    smear_materialist_droid@root.target = { text = operation.3001.desc.mat.droid }
+                    smear_materialist_singu@root.target = { text = operation.3001.desc.mat.singu }
+                    smear_materialist_sabot@root.target = { text = operation.3001.desc.mat.sabot }
+                    smear_pacifist_gunrun@root.target = { text = operation.3001.desc.pacif.gunrun }
+                    smear_pacifist_vassal@root.target = { text = operation.3001.desc.pacif.vassal }
+                    smear_pacifist_weapon@root.target = { text = operation.3001.desc.pacif.weapon }
+                    smear_pacifist_border@root.target = { text = operation.3001.desc.pacif.border }
+                    smear_xenophile_commerc@root.target = { text = operation.3001.desc.phile.commerc }
+                    smear_xenophile_slavery@root.target = { text = operation.3001.desc.phile.slavery }
+                    smear_xenophile_motives@root.target = { text = operation.3001.desc.phile.motives }
+                    smear_xenophile_contact@root.target = { text = operation.3001.desc.phile.contact }
+                    smear_authoritarian_mockery@root.target = { text = operation.3001.desc.auth.mockery }
+                    smear_authoritarian_discord@root.target = { text = operation.3001.desc.auth.discord }
+                    smear_authoritarian_experim@root.target = { text = operation.3001.desc.auth.experim }
+                    smear_authoritarian_extorts@root.target = { text = operation.3001.desc.auth.extorts }
+                    smear_corporate_criment@root.target = { text = operation.3001.desc.corp.criment }
+                    smear_corporate_resells@root.target = { text = operation.3001.desc.corp.resells }
+                    smear_corporate_machine@root.target = { text = operation.3001.desc.corp.machine }
+                    smear_corporate_knockof@root.target = { text = operation.3001.desc.corp.knockof }
+                    smear_hive_asset@root.target = { text = operation.3001.desc.hive.asset }
+                    smear_hive_necro@root.target = { text = operation.3001.desc.hive.necro }
+                    smear_hive_toxin@root.target = { text = operation.3001.desc.hive.toxin }
+                    smear_machine_asset@root.target = { text = operation.3001.desc.machine.asset }
+                    smear_machine_milit@root.target = { text = operation.3001.desc.machine.milit }
+                    smear_machine_steal@root.target = { text = operation.3001.desc.machine.steal }
+                }
+            }
+        }
+    }
+    picture = GFX_evt_smear_campaign
+    show_sound = event_default
+    is_triggered_only = yes
+
+    trigger = {
+        any_playable_country = {
+            has_country_flag = smear_campaign_recipient@root
+        }
+    }
+
+    immediate = {
+        random_playable_country = {
+            limit = {
+                has_country_flag = smear_campaign_recipient@root
+            }
+            save_event_target_as = smear_campaign_recipient #One-time, extensive use in loc
+            if = {
+                limit = {
+                    is_regular_empire = yes
+                }
+                random_list = {
+                    1 = {
+                        modifier = { factor = 0 is_spiritualist = no }
+                        espionage_smear_campaign_spiritualist = yes
+                    }
+                    1 = {
+                        modifier = { factor = 0 is_militarist = no }
+                        espionage_smear_campaign_militarist = yes
+                    }
+                    1 = {
+                        modifier = { factor = 0 is_xenophobe = no }
+                        espionage_smear_campaign_xenophobe = yes
+                    }
+                    1 = {
+                        modifier = { factor = 0 is_egalitarian = no }
+                        espionage_smear_campaign_egalitarian = yes
+                    }
+                    1 = {
+                        modifier = { factor = 0 is_materialist = no }
+                        espionage_smear_campaign_materialist = yes
+                    }
+                    1 = {
+                        modifier = { factor = 0 is_pacifist = no }
+                        espionage_smear_campaign_pacifist = yes
+                    }
+                    1 = {
+                        modifier = { factor = 0 is_xenophile = no }
+                        espionage_smear_campaign_xenophile = yes
+                    }
+                    1 = {
+                        modifier = { factor = 0 is_authoritarian = no }
+                        espionage_smear_campaign_authoritarian = yes
+                    }
+                    1 = {
+                        modifier = {
+                            factor = 0
+                            NOT = { is_megacorp = yes }
+                        }
+                        espionage_smear_campaign_corporate = yes
+                    }
+                }
+            }
+            else = {
+                if = {
+                    limit = { has_authority = auth_hive_mind }
+                    espionage_smear_campaign_hive = yes
+                }
+                else = { espionage_smear_campaign_machine = yes }
+            }
+        }
+    }
+
+    option = {
+        name = OK
+    }
+}

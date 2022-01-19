@@ -1,0 +1,238 @@
+@resolution_weight_hated = 3
+@resolution_weight_disliked = 4
+@resolution_weight_unpopular = 5
+@resolution_weight_normal = 6
+@resolution_weight_popular = 6.5
+@resolution_weight_loved = 7
+
+@resolution_cost_t1 = 100
+@resolution_cost_t2 = 150
+@resolution_cost_t3 = 200
+@resolution_cost_t4 = 250
+@resolution_cost_t5 = 300
+@resolution_cost_denounce = 25
+
+@resolution_flag_timer = 360
+
+#example_resolution = {
+#	icon = "name of the icon key"
+#	resources = {} # cost and category
+#	target = yes/no # if this resolution requires a target country
+#	harmful = yes/no # if the AI should consider this harmful when choosing target
+#	modifier = {} # modifier to be applied to all community members if passed
+#	triggered_modifier = {} # triggered modifier to be applied, scope is country
+#	effect = {} # effect to be applied if passed, scope is proposer unless there is a target country - then scope is target country, with proposer in from scope
+#	fail_effects = {} # effect to be applied if failed, scope is proposer unless there is a target country - then scope is target country, with proposer in from scope
+#	potential = {} # potential trigger, scope is country
+#	allow = {} # allow trigger, scope is country
+#	active = {} # Enacted sesolutions are cancelled if this trigger fails
+#	ai_weight = {} # ai weight modifiers, scope is country. from scope is the target country for targeted resolutions
+#	valid_target = {} # valid targets trigger, scope is country
+#}
+
+# NOTE: Remember to add Resolutions to a Resolution Category!
+
+# Galactic Market Resolutions
+resolution_galactic_market_form = {
+	icon = "GFX_resolution_form_galactic_market"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t1
+		}
+	}
+	target = no
+
+	effect = {
+		custom_tooltip = resolution_galactic_market_form_effect_success
+		hidden_effect = {
+			# Kickoff the Forming the Market event chain
+			country_event = { id = action.96 }
+
+			set_global_flag = galactic_community_resolution_passed
+
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_general days = @resolution_flag_timer }
+
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_general days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	modifier = {
+		country_resource_max_add = 10000
+	}
+
+	potential = {
+		NOR = {
+			has_global_flag = galactic_market_founded
+			has_global_flag = ongoing_market_nomination
+		}
+
+		is_gestalt = no
+		is_homicidal = no
+		count_relation = {
+			limit = {
+				is_country_type = default
+				is_homicidal = no
+			}
+			count >= 3
+		}
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_popular
+
+		modifier = {
+			factor = 2
+			is_megacorp = yes
+		}
+
+		modifier = {
+			factor = 1.25
+			OR = {
+				has_ai_personality = peaceful_traders
+				has_ai_personality = ruthless_capitalists
+			}
+		}
+
+		modifier = {
+			factor = 0.5
+			has_ai_personality = xenophobic_isolationists
+		}
+
+		modifier = {
+			factor = 0.8
+			is_xenophobe = yes
+		}
+
+		modifier = {
+			factor = 2
+			years_passed > 50
+		}
+
+		modifier = {
+			factor = 2
+			years_passed > 100
+		}
+
+		modifier = {
+			factor = 2
+			years_passed > 150
+		}
+	}
+}
+
+resolution_galactic_market_relocate = {
+	icon = "GFX_resolution_relocate_galactic_market"
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t1
+		}
+	}
+	target = no
+
+	allow = {
+		custom_tooltip = {
+			fail_text = "resolution_galactic_market_relocate_trigger_fail"
+			NOT = {
+				has_global_flag = "resolution_galactic_market_relocated_recently"
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = resolution_galactic_market_relocate_effect_success
+		hidden_effect = {
+			country_event = { id = galcom.64 }
+
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_general days = @resolution_flag_timer }
+
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+
+			set_timed_global_flag = { flag = resolution_galactic_market_relocated_recently days = 18000 }
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_general days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	potential = {
+		has_federations_dlc = yes
+		host_has_dlc = "Megacorp"
+		has_global_flag = galactic_market_founded
+		NOT = {
+			has_global_flag = ongoing_market_relocation_nomination
+		}
+		NOT = { has_modifier = galactic_market_founder }
+		is_gestalt = no
+		is_homicidal = no
+	}
+
+	ai_weight = {
+		weight = @resolution_weight_disliked
+
+		modifier = {
+			factor = 0
+			has_modifier = galactic_market_founder
+		}
+
+		modifier = {
+			factor = 0
+			any_federation_ally = {
+				has_modifier = galactic_market_founder
+			}
+		}
+
+		modifier = {
+			factor = 0.5
+			is_gestalt = no
+			has_resource = { type = influence amount < 400 }
+		}
+
+		modifier = {
+			factor = 1.5
+			is_gestalt = no
+			has_resource = { type = influence amount > 700 }
+		}
+
+		modifier = {
+			factor = 2
+			is_megacorp = yes
+			NOT = { has_modifier = galactic_market_founder }
+		}
+
+		modifier = {
+			factor = 1.25
+			OR = {
+				has_ai_personality = peaceful_traders
+				has_ai_personality = ruthless_capitalists
+			}
+			NOT = { has_modifier = galactic_market_founder }
+		}
+	}
+}

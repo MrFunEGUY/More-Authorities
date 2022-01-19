@@ -1,0 +1,312 @@
+#############################
+# ESPIONAGE SCRIPTED EFFECTS
+#############################
+
+@AssetCategoryDownWeight = 0.4 #Factor for however *less* likely you are to receive an Asset which is in the same category as the current Operation
+@AssetTypeWeight = 10 #Factor for however more or less likely you are to receive an Asset in the same category as one which is assigned to Acquire Asset
+
+#Operation scope | root = operation; target = operation target
+espionage_smear_campaign_spiritualist = {
+	if = {
+		limit = {
+			root.target = {
+				OR = {
+					is_democracy = yes
+					has_authority = auth_oligarchic
+					has_authority = auth_imperial
+				}
+			}
+		}
+		set_country_flag = smear_spiritualist_ridic@root.target
+		set_country_flag = smear_campaign_insulted@root.owner
+	}
+	else_if = {
+		limit = {
+			root.target = { is_megacorp = yes }
+		}
+		set_country_flag = smear_spiritualist_merch@root.target
+		set_country_flag = smear_campaign_insulted@root.owner
+	}
+	else = {
+		set_country_flag = smear_spiritualist_deity@root.target
+		set_country_flag = smear_campaign_espionage@root.owner
+	}
+}
+#Operation scope | root = operation; target = operation target
+espionage_smear_campaign_militarist = {
+	if = {
+		limit = {
+			root.target = { is_gestalt = yes }
+		}
+		set_country_flag = smear_militarist_study@root.target
+		set_country_flag = smear_campaign_espionage@root.owner
+	}
+	else_if = {
+		limit = {
+			has_truce = root.target
+		}
+		set_country_flag = smear_militarist_priso@root.target
+		set_country_flag = smear_campaign_deceived@root.owner
+	}
+	else_if = {
+		limit = {
+			root.target = {
+				OR = {
+					is_militarist = yes
+					is_megacorp = yes
+					has_valid_civic = civic_merchant_guilds
+				}
+			}
+		}
+		set_country_flag = smear_militarist_armsd@root.target
+		set_country_flag = smear_campaign_deceived@root.owner
+	}
+	else_if = {
+		limit = {
+			root.target = { is_pacifist = yes }
+		}
+		set_country_flag = smear_militarist_pacif@root.target
+		set_country_flag = smear_campaign_espionage@root.owner
+	}
+	else = {
+		set_country_flag = smear_militarist_satir@root.target
+		set_country_flag = smear_campaign_insulted@root.owner
+	}
+}
+#Operation scope | root = operation; target = operation target
+espionage_smear_campaign_xenophobe = {
+	if = {
+		limit = {
+			root.target = {
+				OR = {
+					is_megacorp = yes
+					has_valid_civic = civic_merchant_guilds
+				}
+				has_technology = tech_gene_tailoring
+			}
+		}
+		set_country_flag = smear_xenophobe_genes@root.target
+		set_country_flag = smear_campaign_insulted@root.owner
+	}
+	else = {
+		set_country_flag = smear_xenophobe_abduc@root.target
+		set_country_flag = smear_campaign_deceived@root.owner
+	}
+}
+#Operation scope | root = operation; target = operation target
+espionage_smear_campaign_egalitarian = {
+	if = {
+		limit = {
+			has_diplo_migration_treaty = root.target
+		}
+		set_country_flag = smear_egalitarian_migra@root.target
+		set_country_flag = smear_campaign_insulted@root.owner
+	}
+	else = {
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						is_galactic_community_noncouncil_member = no
+						root.target = { is_galactic_community_noncouncil_member = no }
+					}
+				}
+				set_country_flag = smear_egalitarian_galco@root.target
+				set_country_flag = smear_campaign_espionage@root.owner
+			}
+			1 = {
+				modifier = {
+					factor = 3
+					is_xenophobe = yes
+				}
+				set_country_flag = smear_egalitarian_elect@root.target
+				set_country_flag = smear_campaign_espionage@root.owner
+			}
+		}
+	}
+}
+#Operation scope | root = operation; target = operation target
+espionage_smear_campaign_materialist = {
+	random_list = {
+		2 = {
+			modifier = {
+				factor = 2
+				root.target = { is_materialist = yes }
+			}
+			set_country_flag = smear_materialist_theft@root.target
+			set_country_flag = smear_campaign_espionage@root.owner
+		}
+		1 = {
+			modifier = {
+				factor = 0
+				NOT = { has_technology = tech_droid_workers }
+				root.target = {
+					NOT = { has_technology = tech_droid_workers }
+				}
+			}
+			set_country_flag = smear_materialist_droid@root.target
+			set_country_flag = smear_campaign_espionage@root.owner
+		}
+		1 = {
+			modifier = {
+				factor = 0
+				root.target = { is_machine_empire = no }
+			}
+			set_country_flag = smear_materialist_singu@root.target
+			set_country_flag = smear_campaign_deceived@root.owner
+		}
+		2 = {
+			set_country_flag = smear_materialist_sabot@root.target
+			set_country_flag = smear_campaign_espionage@root.owner
+		}
+	}
+}
+#Operation scope | root = operation; target = operation target
+espionage_smear_campaign_pacifist = {
+	if = {
+		limit = {
+			root.target = {
+				OR = {
+					is_megacorp = yes
+					has_valid_civic = civic_merchant_guilds
+				}
+			}
+		}
+		set_country_flag = smear_pacifist_gunrun@root.target
+		set_country_flag = smear_campaign_deceived@root.owner
+	}
+	else_if = {
+		limit = {
+			root.target = {
+				OR = {
+					vassals > 0
+					AND = {
+						has_federation = yes
+						federation = {
+							OR = {
+                                has_federation_type = hegemony_federation
+                                has_federation_type = vf_ef_federation
+                            }
+						}
+					}
+				}
+			}
+			root.target = { is_xenophile = no } #They seem less believable as meddlers
+		}
+		set_country_flag = smear_pacifist_vassal@root.target
+		set_country_flag = smear_campaign_espionage@root.owner
+	}
+	else_if = {
+		limit = {
+			root.target = { is_militarist = yes }
+		}
+		set_country_flag = smear_pacifist_weapon@root.target
+		set_country_flag = smear_campaign_espionage@root.owner
+	}
+	else = {
+		set_country_flag = smear_pacifist_border@root.target
+		set_country_flag = smear_campaign_espionage@root.owner
+	}
+}
+#Operation scope | root = operation; target = operation target
+espionage_smear_campaign_xenophile = {
+	if = {
+		limit = {
+			root.target = {
+				OR = {
+					is_megacorp = yes
+					has_valid_civic = civic_merchant_guilds
+					has_commercial_pact = event_target:smear_campaign_recipient
+				}
+			}
+		}
+		set_country_flag = smear_xenophile_commerc@root.target
+		set_country_flag = smear_campaign_espionage@root.owner
+	}
+	else_if = {
+		limit = {
+			root.target = { allows_slavery = yes } #Includes gestalts
+		}
+		set_country_flag = smear_xenophile_slavery@root.target
+		set_country_flag = smear_campaign_insulted@root.owner
+	}
+	else_if = {
+		limit = {
+			root.target = {
+				is_xenophile = yes
+				has_diplo_migration_treaty = event_target:smear_campaign_recipient
+			}
+		}
+		set_country_flag = smear_xenophile_motives@root.target
+		set_country_flag = smear_campaign_insulted@root.owner
+	}
+	else = {
+		set_country_flag = smear_xenophile_contact@root.target
+		set_country_flag = smear_campaign_deceived@root.owner
+	}
+}
+
+#Operation scope | root = operation; target = operation target
+espionage_smear_campaign_spiritualist = {
+	if = {
+		limit = {
+			root.target = {
+				OR = {
+					is_democracy = yes
+					has_authority = auth_oligarchic
+					has_authority = auth_imperial
+				}
+			}
+		}
+		set_country_flag = smear_spiritualist_ridic@root.target
+		set_country_flag = smear_campaign_insulted@root.owner
+	}
+	else_if = {
+		limit = {
+			root.target = { has_authority = auth_corporate }
+		}
+		set_country_flag = smear_spiritualist_merch@root.target
+		set_country_flag = smear_campaign_insulted@root.owner
+	}
+	else = {
+		set_country_flag = smear_spiritualist_deity@root.target
+		set_country_flag = smear_campaign_espionage@root.owner
+	}
+}
+
+#Operation scope | root = operation; target = operation target
+espionage_smear_campaign_authoritarian = {
+	if = {
+		limit = {
+			has_authority = auth_dictatorial
+			root.target = {
+				OR = {
+					is_democracy = yes
+					has_authority = auth_oligarchic
+					has_authority = auth_imperial
+				}
+			}
+		}
+		set_country_flag = smear_authoritarian_mockery@root.target
+		set_country_flag = smear_campaign_insulted@root.owner
+	}
+	else_if = {
+		limit = {
+			has_diplo_migration_treaty = root.target
+		}
+		set_country_flag = smear_authoritarian_discord@root.target
+		set_country_flag = smear_campaign_espionage@root.owner
+	}
+	else_if = {
+		limit = {
+			root.target = { is_authoritarian = yes }
+		}
+		set_country_flag = smear_authoritarian_experim@root.target
+		set_country_flag = smear_campaign_deceived@root.owner
+	}
+	else = {
+		set_country_flag = smear_authoritarian_extorts@root.target
+		set_country_flag = smear_campaign_espionage@root.owner
+	}
+}

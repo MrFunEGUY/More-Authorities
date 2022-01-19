@@ -1,0 +1,78 @@
+opinion_dc_vs_autocracy = {
+	opinion = {
+		modifier = {
+			add = -100
+			has_ai_personality = democratic_crusaders	
+			FROM = { 
+				is_autocracy = yes
+			}
+		}
+	}
+}
+
+triggered_opinion_democratic_authority = {
+	trigger = {
+		is_country_type = default
+		is_democracy = yes
+		FROM = {
+			is_country_type = default
+			is_democracy = yes
+		}
+	}
+
+	opinion = {
+		base = 10
+	}
+}
+
+opinion_dc_vs_democratic = {
+	opinion = {
+		modifier = {
+			add = 25
+			has_ai_personality = democratic_crusaders 
+			FROM = { is_democracy = yes }
+		}		
+	}
+}
+
+triggered_opinion_dictatorial_authority = {
+	trigger = {
+		is_country_type = default
+		OR = {
+			has_authority = auth_dictatorial
+			AND = {
+				has_authority = auth_democratic_dictatorship
+				is_authoritarian = yes
+			}
+		}
+		FROM = {
+			is_country_type = default
+			has_authority = auth_dictatorial
+		}
+	}
+
+	opinion = {
+		base = 10
+	}
+}
+
+triggered_opinion_imperial_authority = {
+	trigger = {
+		is_country_type = default
+		OR = {
+			has_authority = auth_imperial
+			has_authority = auth_corporate_imperial
+		}
+		FROM = {
+			is_country_type = default
+			OR = {
+				has_authority = auth_imperial
+				has_authority = auth_corporate_imperial
+			}
+		}
+	}
+
+	opinion = {
+		base = 10
+	}
+}

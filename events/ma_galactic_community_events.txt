@@ -1,0 +1,141 @@
+################################
+#
+# Galactic Community Events
+#
+###############################
+
+namespace = galcom
+
+#Notification of last event for other members
+country_event = {
+	id = galcom.63
+	title = galcom.63.name
+	desc = galcom.63.desc
+	picture = GFX_evt_financial_instruments
+	show_sound = event_galactic_market
+
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = market_nomination_eligible
+		begin_event_chain = {
+			event_chain = market_founding_chain
+			target = this
+		}
+	}
+
+	after = {
+		tooltip = {
+			begin_event_chain = {
+				event_chain = market_founding_chain
+				target = this
+			}
+		}
+	}
+
+	option = {
+		name = galcom.63.A
+		trigger = { is_megacorp = yes }
+		custom_tooltip = enable_decision_market_nomination
+	}
+
+	option = {
+		name = galcom.63.B
+		trigger = { NOT = { is_megacorp = yes } }
+		custom_tooltip = enable_decision_market_nomination
+	}
+}
+
+### RELOCATE GALACTIC MARKET RESOLUTION EVEN
+# Scope country is whoever proposed the Resolution
+# Message about a new round of Galactic Market nominations
+# This event also fires an event (galcom.65) that notifies all other concerned countries.
+country_event = {
+	id = galcom.64
+	title = galcom.64.name
+	desc = galcom.64.desc
+	picture = GFX_evt_financial_instruments
+	show_sound = event_galactic_market
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = ongoing_market_relocation_nomination
+		set_country_flag = market_nomination_eligible
+		event_target:global_event_country = {
+			country_event = { id = galcom.66 days = 1800 }	# Event that nukes prior Market "owner"
+		}
+		begin_event_chain = {
+			event_chain = market_relocation_chain
+			target = this
+		}
+		every_playable_country = {
+			limit = {
+				NOT = { is_same_value = root }
+				is_galactic_community_member = yes
+			}
+			begin_event_chain = {
+				event_chain = market_relocation_chain
+				target = this
+			}
+			country_event = { id = galcom.65 }
+		}
+	}
+
+	after = {
+		custom_tooltip = enable_decision_market_nomination
+		# Notification
+		tooltip = {
+			begin_event_chain = {
+				event_chain = market_relocation_chain
+				target = this
+			}
+		}
+	}
+
+	option = {
+		name = action.96.a
+		trigger = { is_megacorp = yes }
+	}
+
+	option = {
+		name = action.96.b
+		trigger = { NOT = { is_megacorp = yes } }
+	}
+}
+
+# Galactic Market Nomination Period started notification event
+country_event = {
+	id = galcom.65
+	title = galcom.64.name
+	desc = galcom.64.desc
+	picture = GFX_evt_financial_instruments
+	show_sound = event_galactic_market
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = market_nomination_eligible
+	}
+
+	after = {
+		tooltip = {
+			begin_event_chain = {
+				event_chain = market_relocation_chain
+				target = this
+			}
+		}
+	}
+
+	option = {
+		name = action.96.a
+		trigger = { is_megacorp = yes }
+		custom_tooltip = enable_decision_market_nomination
+	}
+
+	option = {
+		name = action.96.b
+		trigger = { NOT = { is_megacorp = yes } }
+		custom_tooltip = enable_decision_market_nomination
+	}
+}

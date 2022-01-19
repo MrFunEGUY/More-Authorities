@@ -1,0 +1,57 @@
+##########################################################################
+# Empire edicts
+##########################################################################
+
+edict_strict_democracy = {
+	length = 1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 0
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 0
+		}
+	}
+	
+	potential = {
+		NOT = {
+			has_authority = auth_strict_democratic
+		}
+	}
+	
+	effect = {
+		country_event = { id = moreauthorities.5 }
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+edict_strict_democracy_undo = {
+	length = 1
+	icon = "GFX_edict_type_policy"
+	edict_cap_usage = 0
+
+	resources = {
+		category = edicts
+		cost = {
+			influence = 0
+		}
+	}
+	
+	potential = {
+			has_authority = auth_strict_democratic
+	}
+	
+	effect = {
+		country_event = { id = moreauthorities.6 }
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+

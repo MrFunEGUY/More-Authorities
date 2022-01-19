@@ -1,0 +1,8 @@
+﻿l_default:
+
+ # More Authorities
+
+ format.monopolistic_trade_crime_fam.1: "[This.GetSpeciesName] <criminal_league>"
+ format.monopolistic_trade_crime_fam.2: "[This.GetAdj] <criminal_league>"
+ format.monopolistic_trade_crime_fam.3: "<criminal_league> of [This.Capital.GetName]"
+ format.monopolistic_trade_crime_fam.4: "<criminal_league> of [This.Capital.System.GetName]"

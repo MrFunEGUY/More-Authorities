@@ -1,0 +1,180 @@
+﻿l_english:
+
+ auth_democratic_dictatorship:0 "Democratic Autocracy"
+ auth_democratic_dictatorship_desc:0 "Democratic Autocracies are ruled by a single, democratically-elected, individual that wields absolute control over the state until their death."
+ 
+ auth_strict_democratic:0 "Single Term"
+ auth_strict_democratic_desc:0 "Single Term governments elect a ruler for one 15-year term."
+
+ AUTHORITY_ELECTION_STRICT_DEMOCRATIC:0 "Holds an election every §H15§! years to select a new ruler. Rulers are limited to one term."
+ AUTHORITY_HAS_HEIR_CORP:0 "Upon Ruler death, a designated successor takes over the family business."
+
+ auth_corporate_imperial:0 "Private Corporate"
+ auth_corporate_imperial_desc:0 "Private Corporate governments are organized as a family-owned massive commercial enterprise that has completely supplanted the role of the state."
+
+ gov_democratic_dictatorship:0 "Elective Dictatorship"
+ gov_democratic_dictatorship_desc:0 "This government is a dictatorship where a single individual has been democratically granted absolute powers to preserve the state."
+ 
+ gov_strict_democracy:0 "Single Term Democracy"
+ gov_strict_democracy_desc:0 "This government is a representative democracy, where citizens vote on officials who are elected to represent them. Most offices have term limits, with the Head of State being limited to one term."
+
+ moreauthorities.5.title:0 "Reform Government: Single Term"
+ moreauthorities.5.desc:0 "This decision will reform our government into a government where the ruler is elected for a single 15-year term. The political capital required to implment term limits into our society means that once this action is taken, it it will be very difficult to undo."
+
+ moreauthorities.5.a: "Are you sure?"
+ moreauthorities.5.b: "Nevermind."
+ 
+ edict_edict_strict_democracy:0 "Reform Government: Single Term"
+ edict_edict_strict_democracy_desc:1 "This edict will reform our government into a government where the ruler is elected for a single 15-year term."
+
+ moreauthorities.6.title:0 "Reform Government: Eliminate Term Limits"
+ moreauthorities.6.desc:0 "It'll take a tremendous amount of political capital, but we have the ability to eliminate term limits. You will be able to run in the next election, and any after that."
+
+ moreauthorities.6.a: "I will run again."
+ moreauthorities.6.b: "Nevermind."
+
+ edict_edict_strict_democracy_undo:0 "Reform Government: Eliminate Term Limits"
+ edict_edict_strict_democracy_undo_desc:0 "It'll take a tremendous amount of political capital, but we have the ability to eliminate term limits."
+
+ influencefail_text_ma_1:0 "§RRequires§! §Y450§! £influence£ §HInfluence§!"
+ influencefail_text_ma_2:0 "§RRequires§! §Y1000§! £influence£ §HInfluence§!"
+
+ ACTION_RECIPIENT_NOT_YOUR_CORP:1 "$TRIGGER_FAIL$§RBranch Offices can only be built on Megacorporations if they are our subsidiary.§!"
+
+ ### Governments
+
+ gov_military_corp_fam:0 "Private Military Corporation"
+ gov_military_corp_fam_desc:0 "This government is operated by a family-owned, massive military-industrial holding."
+
+ gov_subversive_cult_fam:0 "Subversive Cult"
+ gov_subversive_cult_fam_desc:0 "This government is structured as a religious cult, with the rulng family seen as merchant-mystics. This family operates through a variety of criminal and corporate enterprises."
+
+ gov_criminal_syndicate_fam:0 "Criminal Syndicate"
+ gov_criminal_syndicate_fam_desc:0 "This government is an enormous and ruthless business syndicate, owned and operated by one family. It shares many of its operating practises with organized crime."
+
+ gov_trade_league_crime_fam:0 "Criminal Clans"
+ gov_trade_league_crime_fam_desc:0 "This is a feudalistic state run by multiple crime families. The head family rules indirectly, with their rule enforced through racketeering and the granting of territory to other smaller criminal clans. In exchange, these clans agree to provide both stability in their territory and military support to the head family."
+
+ gov_trade_league_fam:0 "Trading Clans"
+ gov_trade_league_fam_desc:0 "This government operates under a form of corporate feudalism, where almost all businesses are family-owned. The monarch rules indirectly, granting business licenses and properties to a myriad of merchants, guilds, and smaller corporations in exchange for obligations in the form of taxes and military provisions."
+
+ gov_megacorporation_fam:0 "Family Business"
+ gov_megacorporation_fam_desc:0 "This government operates under a form of corporate imperialism, where the entire state has been organized as a massive commercial enterprise overseen by a board of directors controlled by one family."
+
+ gov_megachurch_fam:0 "Megachurch"
+ gov_megachurch_fam_desc:0 "This government is a corporate monarchy based on a curious blend of commercial and spiritualistic values, in which the monarch holds the positions of supreme ordained minister and head corporate officer simultaneously."
+
+ RT_DIRECTOR_GEN:0 "Director-General"
+ HT_DEPUTY_FAM:0 "Deputy"
+
+ RT_DON:0 "Don"
+ HT_UNDER:0 "Underboss"
+
+ RT_CHIEF_DON:0 "Chief Don"
+ HT_HEAD_UNDER:0 "Head Underboss"
+
+ HT_SEER:0 "Seer"
+
+ HT_FOFF:0 "First Officer"
+
+ HT_HI_GEN:0 "High General"
+
+ RT_ARCHIMANDRITE:0 "Archimandrite"
+ HT_CHIEF_CARD:0 "Chief Cardinal"
+
+ RT_ASST_CHAIRMAN:0 "Assistant Chairman"
+ HT_ASST_CHAIRWOMAN:0 "Assistant Chairwoman"
+
+ RT_LORD_EXEC:0 "Lord Executive"
+
+ HT_HIGH_EXEC:0 "High Executive"
+
+
+ # Venture Politics
+ gov_optimized_venture_fam:0 "Optimized Venture"
+ gov_optimized_venture_fam_desc:0 "This government operates under a form of corporate imperialism. The entire state has been subsumed by one, massive family-owned streamlined commercial enterprise that seeks profits, efficiency, and peace - in that order."
+ 
+ HT_CHIEF_COO:0 "Coordinator"
+
+ gov_industrial_consortium_fam:0 "Industrial Consortium"
+ gov_industrial_consortium_fam_desc:0 "This government operates under a form of corporate feudalism, where a combination of family-owned heavy industrial interests swear fealty to the largest corporation in return for lucrative contracts and property."
+
+ HT_SEN_MAN:0 "Senior Manager"
+
+ gov_stellar_bancorp_fam:0 "Avaricious Bancorp"
+ gov_stellar_bancorp_fam_desc:0 "This government is run by a banking family which has organized the state into a massive financial operation seeking to extract profits across the stars."
+
+ RT_CHIEF_CEO:0 "Chief Executive"
+ HT_SEN_CEO:0 "Senior Executive"
+
+ gov_industrial_monopoly_fam:0 "Industrial Monopoly"
+ gov_industrial_monopoly_fam_desc:0 "This government operates under a fanatical form of corporate imperialism, and is seeking to be the galaxy's dominant manufacturer - by being the only manufacturer."
+
+ RT_LORD_CHAIRMAN:0 "Lord Chairman"
+ RT_LORD_CHAIRWOMAN:0 "Lord Chairwoman" 
+
+ HT_HIGH_CHAIR:0 "High Chairman"
+ HT_HIGH_CHAIR_FE:0 "High Chairwoman"
+
+ gov_optimized_monopoly_fam:0 "Optimized Monopoly"
+ gov_optimized_monopoly_fam_desc:0 "This government operates under a fanatical form of corporate imperialism, which sees its competition as a stumbling block to realizing a more efficient enterprise."
+ 
+ HT_SENIOR_VICE:0 "Senior Vice President"
+
+ ## Ethics and Civics Fix
+
+ opinion_capitalists_vs_collectivists:0 "Socialist Loons"
+ opinion_industrialist_vs_ecologist:0 "Tree-Huggers"
+
+
+ ##############################
+ # Government Variety Pack
+ ##############################
+ 
+ HT_STELLAR_EXEC:0 "Stellar Operations Officer"
+
+ HT_FIRST_CAPTAIN:0 "First Captain"
+
+ HT_VICE_DEAN:0 "Vice Dean"
+
+ HT_HIGH_MYSTIC:0 "High Mystic"
+
+ HT_DEPUTY_MINISTER:0 "Deputy-Minister"
+
+ HT_DEPUTY_CHAPLAIN:0 "Deputy-Chaplain"
+
+ HT_FIRST_OFFICER:0 "Vice Enforcement Officer"
+
+ HT_VICE_EXEC:0 "Vice Executive Director"
+
+ HT_OPERATIONS_MANAGER:0 "Operations Manager"
+
+ lrsk_gov_var_gov_galactic_cartel_fam:0 "Cosmic Cartel"
+ lrsk_gov_var_gov_galactic_cartel_fam_desc:0 "This government is a staggeringly ambitious business with designs on total monopoly. Its selection is unbelievably diverse, its stock value soaring, its employees productive and courteous. Any who are not yet loyal customers feel an emptiness they don't yet know how to fill, or so the stockholders believe."
+
+ lrsk_gov_var_gov_rationalist_managerial_firm_fam:0 "Rationalist-Managerial Firm"
+ lrsk_gov_var_gov_rationalist_managerial_firm_fam_desc:0 "This government is actually a kind of business enterprise that operates according to a principle of rationally planned efficiency for profit maximization. Every aspect of the lives of citizen-workers has been designed according to best practices. Local and regional governments have had their roles reduced to enforcement of waste-reduction measures."
+
+ lrsk_gov_var_gov_private_intel_agency_fam:0 "Private Intelligence Agency"
+ lrsk_gov_var_gov_private_intel_agency_fam_desc:0 "If knowledge is power, then selling control over the flow and content of knowledge was this corporation's road to capturing sovereign power. Its indispensable security and spying operations have subsumed any formal state."
+
+ lrsk_gov_var_gov_protection_racket_fam:0 "Protection Racket"
+ lrsk_gov_var_gov_protection_racket_fam_desc:0 "Criminals, as a rule, can't depend on the law, and the criminal underworld has its own rules enforced by brutality. This enterprise mastered enforcement of the informal criminal codes until it was powerful enough to define its own predations as the law."
+
+ lrsk_gov_var_gov_crusading_company_fam:0 "Crusading Company"
+ lrsk_gov_var_gov_crusading_company_fam_desc:0 "An odd amalgamation of mercenary company and megachurch, this corporation believes in God, gold, and glory, not necessarily in that order. To them, nothing pleases the Divine more than enlightening others to their gospel of prosperity... and if some potential customer-congregants prove stubborn, then their missionaries may simply use some paradigm-breaking aggressive marketing tactics."
+
+ lrsk_gov_var_gov_colonial_viceroyalty_cmp_fam:0 "Viceroyal Company"
+ lrsk_gov_var_gov_colonial_viceroyalty_cmp_fam_desc:0 "This government is a commercial venture which officially has a fiduciary duty to enrich the monarchy $LRSK_GOV_VAR_GOV_COLONIAL_FOUNDERS_COMMON$"
+
+ lrsk_gov_var_gov_evangelical_franchise_fam:0 "Evangelical Franchise"
+ lrsk_gov_var_gov_evangelical_franchise_fam_desc:0 "This government is actually an entrepreneurial religious organization that has swollen to the point that it dominates secular politics both due to its popularity and its vast wealth."
+
+ lrsk_gov_var_gov_occult_franchise_fam:0 "Occult Cartel"
+ lrsk_gov_var_gov_occult_franchise_fam_desc:0 "This government is what happens when something like a cross between a pyramid scheme and a cult gains political power. Its adherents/customers/citizens are either indentured seekers, penitent laborers, or enthusiastic donors."
+
+ lrsk_gov_var_gov_innovation_initiative_fam:0 "Innovation Initiative"
+ lrsk_gov_var_gov_innovation_initiative_fam_desc:0 "This government, from the outside, seems to be like a university or laboratory that has absorbed the functions of a state. Internally, its politics are like a series of experiments in governmental and social organizational forms."
+
+ lrsk_gov_var_gov_private_military_contractor_fam:0 "Private Military Contractor"
+ lrsk_gov_var_gov_private_military_contractor_fam_desc:0 "This government is actually a mercenary company that has been contracted by local and regional governments to provide police, national defense, and foreign relations services for the empire. Rank in government typically requires enlistment as a soldier for hire, but the internal structure of the company may be fairly democratic."
