@@ -15,7 +15,8 @@ on_game_start_country = {
 # scope: country
 on_election_started = {
 	events = {
-		moreauthorities.4			# Signle Term Authority is up
+		moreauthorities.4			# Single Term Authority is up
+		moreauthorities.20			# Democratic Autocracy - Kill ruler on election (to simulate retirement)
 	}
 }
 

@@ -54,7 +54,6 @@ country_event = {
 	}
 }
 
-
 # Term is up
 country_event = {
 	id = moreauthorities.4
@@ -334,6 +333,25 @@ country_event = {
 			mandate_individual_freedom_chain = { end_event_chain = mandate_individual_freedom_chain }
 			mandate_no_xeno_citizens_chain = { end_event_chain = mandate_no_xeno_citizens_chain }
 			mandate_no_crime_chain = { end_event_chain = mandate_no_crime_chain }
+		}
+	}
+}
+
+# Democratic Autocracy - Kill ruler on election (to simulate retirement)
+country_event = {
+	id = moreauthorities.20
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_authority = auth_democratic_dictatorship
+		exists = ruler
+	}
+	
+	
+	immediate = {
+		ruler = {
+			kill_leader = { show_notification = no }
 		}
 	}
 }
