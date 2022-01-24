@@ -6,6 +6,8 @@
 
 - This authority doesn't require egalitarian or authoritarian ethics, makings it very versatile. You can also hold emergency elections, but remember that they will be democratic elections where you can't guarantee the winner.
 
+- You can choose to have a new election at any time with this authority, like in normal democracies, if you want to change your ruler. If you do so, your current leader will disappear. This simulates retirement.
+
 ----
 
 - Single Term Democracy:
@@ -38,6 +40,8 @@
 [h1]Patches:[/h1]
 
 - Please ask me if you would like me to make a patch for this and another mod. I will likely do it.
+
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2725772362]- Planetary Diversity: More Arcologies[/url]
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2626671579]- Fatherland: Colonial Empires[/url]
 

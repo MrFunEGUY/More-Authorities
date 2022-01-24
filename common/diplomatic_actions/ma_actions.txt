@@ -187,7 +187,9 @@ action_demand_vassalization = {
 	action_type = aggressive
 
 	potential = {
-		NOT = { is_megacorp = yes }
+		hidden_trigger = {
+			NOT = { is_megacorp = yes }
+		}
 	}
 
 	possible = {
@@ -319,7 +321,9 @@ action_demand_protectorate = {
 	action_type = aggressive
 
 	potential = {
-		NOT = { is_megacorp = yes }
+		hidden_trigger = {
+			NOT = { is_megacorp = yes }
+		}
 	}
 
 	possible = {
@@ -445,7 +449,9 @@ action_demand_tributary = {
 	action_type = aggressive
 
 	potential = {
-		NOT = { is_megacorp = yes }
+		hidden_trigger = {
+			NOT = { is_megacorp = yes }
+		}
 	}
 
 	possible = {
@@ -570,7 +576,9 @@ action_demand_subsidiary = {
 	action_type = aggressive
 
 	potential = {
-		is_megacorp = yes
+		hidden_trigger = {
+			is_megacorp = yes
+		}
 	}
 
 	possible = {
@@ -640,7 +648,9 @@ action_ask_to_become_vassalized = {
 	action_type = positive
 
 	potential = {
-		NOT = { from = { is_megacorp = yes } }
+		hidden_trigger = {
+			NOT = { from = { is_megacorp = yes } }
+		}
 	}
 
 	possible = {
@@ -782,7 +792,9 @@ action_ask_to_become_protectorate = {
 	action_type = positive
 
 	potential = {
-		NOT = { from = { is_megacorp = yes } }
+		hidden_trigger = {
+			NOT = { from = { is_megacorp = yes } }
+		}
 	}
 
 	possible = {
@@ -930,7 +942,9 @@ action_ask_to_become_tributary = {
 	action_type = positive
 
 	potential = {
-		NOT = { from = { is_megacorp = yes } }
+		hidden_trigger = {
+			NOT = { from = { is_megacorp = yes } }
+		}
 	}
 
 	possible = {
@@ -1057,7 +1071,9 @@ action_ask_to_become_subsidiary = {
 	action_type = positive
 
 	potential = {
-		from = { is_megacorp = yes }
+		hidden_trigger = {
+			from = { is_megacorp = yes }
+		}
 	}
 
 	possible = {
