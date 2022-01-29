@@ -12,8 +12,6 @@ ap_shared_destiny = {
 			has_valid_civic = civic_inwards_perfection
 			has_valid_civic = civic_machine_terminator
 			is_megacorp = yes
-		}
-		NOT = {
 			has_ascension_perk = ap_shared_destiny
 		}
 	}
