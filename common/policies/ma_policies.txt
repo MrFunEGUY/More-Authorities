@@ -13,11 +13,7 @@ border_policy = {
 
 		valid = {
 			is_country_type = default
-			NOR = {
-				has_valid_civic = civic_machine_terminator
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_fanatic_purifiers
-			}
+			is_homicidal = no
 		}
 	}
 
@@ -50,10 +46,7 @@ border_policy = {
 			modifier = {
 				factor = 0
 				has_valid_ai_personality = no
-				NOR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = no
 			}
 			modifier = {
 				factor = 10

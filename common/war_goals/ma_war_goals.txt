@@ -149,7 +149,7 @@ wg_tribute = {
 	surrender_acceptance = -75
 
 	potential = {
-		NOT = { is_megacorp = yes }
+		is_megacorp = no
 		has_total_war_cb = no
 		NAND = {
 			is_galactic_emperor = yes

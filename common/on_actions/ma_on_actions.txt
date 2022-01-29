@@ -15,7 +15,7 @@ on_game_start_country = {
 # scope: country
 on_election_started = {
 	events = {
-		moreauthorities.4			# Single Term Authority is up
+		moreauthorities.2			# Single Term Authority is up
 		moreauthorities.20			# Democratic Autocracy - Kill ruler on election (to simulate retirement)
 	}
 }
@@ -24,22 +24,7 @@ on_election_started = {
 # scope: country
 on_election_ended = {
 	events = {
-		moreauthorities.3			# Set Term Limit Flags
 		moreauthorities.10			# Clear Mandate
-	}
-}
-
-# this = country
-on_decade_pulse_country = {
-	events = {
-		moreauthorities.2			# Set Term Limit Flags (in case a country reformed)
-	}
-}
-
-# this = country
-on_game_start_country = {
-	events = {
-		moreauthorities.2			# Set Term Limit Flags (in case a country reformed)
 	}
 }
 

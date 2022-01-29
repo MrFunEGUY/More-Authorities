@@ -185,10 +185,10 @@ resolution_galactic_market_relocate = {
 		has_federations_dlc = yes
 		host_has_dlc = "Megacorp"
 		has_global_flag = galactic_market_founded
-		NOT = {
+		NOR = {
 			has_global_flag = ongoing_market_relocation_nomination
+			has_modifier = galactic_market_founder
 		}
-		NOT = { has_modifier = galactic_market_founder }
 		is_gestalt = no
 		is_homicidal = no
 	}

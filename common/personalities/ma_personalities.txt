@@ -94,17 +94,10 @@ ruthless_capitalists = {
 
 	allow = {
 		is_country_type = default
-		NOR = {
-			has_ethic = "ethic_pacifist"
-			has_ethic = "ethic_fanatic_pacifist"
-		}
+		is_pacifist = no
 		OR = {
-			has_ethic = "ethic_militarist"
-			has_ethic = "ethic_fanatic_militarist"
-			NOR = {
-				has_ethic = "ethic_xenophile"
-				has_ethic = "ethic_fanatic_xenophile"					
-			}		
+			is_militarist = yes
+			is_xenophile = no		
 		}
 		OR = {
 			is_megacorp = yes
@@ -167,17 +160,10 @@ peaceful_traders = {
 	allow = {
 		is_country_type = default
 		OR = {
-			has_ethic = "ethic_pacifist"
-			has_ethic = "ethic_fanatic_pacifist"
+			is_pacifist = yes
 			AND = {
-				NOR = {
-					has_ethic = "ethic_militarist"
-					has_ethic = "ethic_fanatic_militarist"
-				}
-				OR = {
-					has_ethic = "ethic_xenophile"
-					has_ethic = "ethic_fanatic_xenophile"				
-				}				
+				is_militarist = no
+				is_xenophile = yes				
 			}
 		}		
 		OR = {

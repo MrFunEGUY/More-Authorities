@@ -78,10 +78,7 @@ action_invite_to_federation = {
 				AND = {
 					has_civic = civic_machine_terminator
 					from = {
-						OR = {
-							has_country_flag = synthetic_empire
-							has_authority = auth_machine_intelligence
-						}
+						is_synthetic_empire = yes
 					}
 				}
 			}
@@ -94,10 +91,7 @@ action_invite_to_federation = {
 				from = { NOT = { has_civic = civic_machine_terminator } }
 				AND = {
 					from = { has_civic = civic_machine_terminator }
-					OR = {
-						has_country_flag = synthetic_empire
-						has_authority = auth_machine_intelligence
-					}
+					is_synthetic_empire = yes
 				}
 			}
 		}
@@ -188,7 +182,7 @@ action_demand_vassalization = {
 
 	potential = {
 		hidden_trigger = {
-			NOT = { is_megacorp = yes }
+			is_megacorp = no
 		}
 	}
 
@@ -223,10 +217,7 @@ action_demand_vassalization = {
 				AND = {
 					has_civic = civic_machine_terminator
 					from = {
-						OR = {
-							has_country_flag = synthetic_empire
-							has_authority = auth_machine_intelligence
-						}
+						is_synthetic_empire = yes
 					}
 				}
 			}
@@ -238,10 +229,7 @@ action_demand_vassalization = {
 				from = { NOT = { has_civic = civic_machine_terminator } }
 				AND = {
 					from = { has_civic = civic_machine_terminator }
-					OR = {
-						has_country_flag = synthetic_empire
-						has_authority = auth_machine_intelligence
-					}
+					is_synthetic_empire = yes
 				}
 			}
 		}
@@ -322,7 +310,7 @@ action_demand_protectorate = {
 
 	potential = {
 		hidden_trigger = {
-			NOT = { is_megacorp = yes }
+			is_megacorp = no
 		}
 	}
 
@@ -357,10 +345,7 @@ action_demand_protectorate = {
 				AND = {
 					has_civic = civic_machine_terminator
 					from = {
-						OR = {
-							has_country_flag = synthetic_empire
-							has_authority = auth_machine_intelligence
-						}
+						is_synthetic_empire = yes
 					}
 				}
 			}
@@ -372,10 +357,7 @@ action_demand_protectorate = {
 				from = { NOT = { has_civic = civic_machine_terminator } }
 				AND = {
 					from = { has_civic = civic_machine_terminator }
-					OR = {
-						has_country_flag = synthetic_empire
-						has_authority = auth_machine_intelligence
-					}
+					is_synthetic_empire = yes
 				}
 			}
 		}
@@ -450,7 +432,7 @@ action_demand_tributary = {
 
 	potential = {
 		hidden_trigger = {
-			NOT = { is_megacorp = yes }
+			is_megacorp = no
 		}
 	}
 
@@ -485,10 +467,7 @@ action_demand_tributary = {
 				AND = {
 					has_civic = civic_machine_terminator
 					from = {
-						OR = {
-							has_country_flag = synthetic_empire
-							has_authority = auth_machine_intelligence
-						}
+						is_synthetic_empire = yes
 					}
 				}
 			}
@@ -500,10 +479,7 @@ action_demand_tributary = {
 				from = { NOT = { has_civic = civic_machine_terminator } }
 				AND = {
 					from = { has_civic = civic_machine_terminator }
-					OR = {
-						has_country_flag = synthetic_empire
-						has_authority = auth_machine_intelligence
-					}
+					is_synthetic_empire = yes
 				}
 			}
 		}
@@ -678,10 +654,7 @@ action_ask_to_become_vassalized = {
 				AND = {
 					has_civic = civic_machine_terminator
 					from = {
-						OR = {
-							has_country_flag = synthetic_empire
-							has_authority = auth_machine_intelligence
-						}
+						is_synthetic_empire = yes
 					}
 				}
 			}
@@ -693,10 +666,7 @@ action_ask_to_become_vassalized = {
 				from = { NOT = { has_civic = civic_machine_terminator } }
 				AND = {
 					from = { has_civic = civic_machine_terminator }
-					OR = {
-						has_country_flag = synthetic_empire
-						has_authority = auth_machine_intelligence
-					}
+					is_synthetic_empire = yes
 				}
 			}
 		}
@@ -828,10 +798,7 @@ action_ask_to_become_protectorate = {
 				AND = {
 					has_civic = civic_machine_terminator
 					from = {
-						OR = {
-							has_country_flag = synthetic_empire
-							has_authority = auth_machine_intelligence
-						}
+						is_synthetic_empire = yes
 					}
 				}
 			}
@@ -843,10 +810,7 @@ action_ask_to_become_protectorate = {
 				from = { NOT = { has_civic = civic_machine_terminator } }
 				AND = {
 					from = { has_civic = civic_machine_terminator }
-					OR = {
-						has_country_flag = synthetic_empire
-						has_authority = auth_machine_intelligence
-					}
+					is_synthetic_empire = yes
 				}
 			}
 		}
@@ -978,10 +942,7 @@ action_ask_to_become_tributary = {
 				AND = {
 					has_civic = civic_machine_terminator
 					from = {
-						OR = {
-							has_country_flag = synthetic_empire
-							has_authority = auth_machine_intelligence
-						}
+						is_synthetic_empire = yes
 					}
 				}
 			}
@@ -993,10 +954,7 @@ action_ask_to_become_tributary = {
 				from = { NOT = { has_civic = civic_machine_terminator } }
 				AND = {
 					from = { has_civic = civic_machine_terminator }
-					OR = {
-						has_country_flag = synthetic_empire
-						has_authority = auth_machine_intelligence
-					}
+					is_synthetic_empire = yes
 				}
 			}
 		}
@@ -1101,10 +1059,7 @@ action_ask_to_become_subsidiary = {
 				AND = {
 					has_civic = civic_machine_terminator
 					from = {
-						OR = {
-							has_country_flag = synthetic_empire
-							has_authority = auth_machine_intelligence
-						}
+						is_synthetic_empire = yes
 					}
 				}
 			}
@@ -1116,10 +1071,7 @@ action_ask_to_become_subsidiary = {
 				from = { NOT = { has_civic = civic_machine_terminator } }
 				AND = {
 					from = { has_civic = civic_machine_terminator }
-					OR = {
-						has_country_flag = synthetic_empire
-						has_authority = auth_machine_intelligence
-					}
+					is_synthetic_empire = yes
 				}
 			}
 		}

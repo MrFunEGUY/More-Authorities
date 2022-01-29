@@ -122,7 +122,7 @@ subsidiary = {
 		}
 		if = {
 			limit = {
-				from = { NOT = { is_megacorp = yes } }
+				from = { is_megacorp = no }
 			}
 			set_subject_of = {
 				who = from

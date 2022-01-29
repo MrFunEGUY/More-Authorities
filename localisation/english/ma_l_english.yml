@@ -19,9 +19,9 @@
  gov_strict_democracy_desc:0 "This government is a representative democracy, where citizens vote on officials who are elected to represent them. Most offices have term limits, with the Head of State being limited to one term."
 
  moreauthorities.5.title:0 "Reform Government: Single Term"
- moreauthorities.5.desc:0 "This decision will reform our government into a government where the ruler is elected for a single 15-year term. The political capital required to implment term limits into our society means that once this action is taken, it it will be very difficult to undo."
+ moreauthorities.5.desc:0 "This decision will reform our system of government into one where the ruler is elected for a single 15-year term. The political capital required to implment term limits into our society means that once this action is taken, it it will be very difficult to undo. Are you sure?"
 
- moreauthorities.5.a: "Are you sure?"
+ moreauthorities.5.a: "I'm sure."
  moreauthorities.5.b: "Nevermind."
  
  edict_edict_strict_democracy:0 "Reform Government: Single Term"

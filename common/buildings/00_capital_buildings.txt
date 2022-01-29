@@ -295,7 +295,7 @@ building_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 				is_regular_empire = yes
 			}
 		}
@@ -814,7 +814,7 @@ building_system_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 				is_regular_empire = yes
 			}
 		}
@@ -1569,7 +1569,7 @@ building_hab_capital = {
 		potential = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 				is_regular_empire = yes
 			}
 		}
@@ -1620,7 +1620,7 @@ building_hab_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 				is_regular_empire = yes
 			}
 		}
@@ -1916,7 +1916,7 @@ building_hab_major_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 				is_regular_empire = yes
 			}
 		}
@@ -2051,7 +2051,7 @@ building_resort_capital = {
 		potential = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 			}
 		}
 		job_administrator_add = 1
@@ -2071,7 +2071,7 @@ building_resort_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 			}
 		}
 		text = job_administrator_effect_desc
@@ -2173,7 +2173,7 @@ building_resort_major_capital = {
 		potential = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 			}
 		}
 		job_administrator_add = 1
@@ -2204,7 +2204,7 @@ building_resort_major_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 			}
 		}
 		text = job_administrator_effect_desc
@@ -2274,7 +2274,7 @@ building_slave_capital = {
 		potential = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 			}
 		}
 		job_administrator_add = 2
@@ -2294,7 +2294,7 @@ building_slave_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 			}
 		}
 		text = job_administrator_effect_desc
@@ -2372,7 +2372,7 @@ building_slave_major_capital = {
 		potential = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 			}
 		}
 		job_administrator_add = 2
@@ -2403,7 +2403,7 @@ building_slave_major_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 			}
 		}
 		text = job_administrator_effect_desc
@@ -2647,7 +2647,7 @@ building_imperial_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				is_megacorp = no
 				is_regular_empire = yes
 			}
 		}

@@ -16,9 +16,7 @@ cb_galatron = {
 		is_subject = no
 		NOR = { 
 			is_berserk_fallen_machine_empire = yes
-			has_valid_civic = civic_fanatic_purifiers
-			has_valid_civic = civic_machine_terminator	
-			has_valid_civic = civic_hive_devouring_swarm	
+			is_homicidal = yes	
 			has_valid_civic = civic_machine_assimilator	
 		}
 	}
@@ -77,12 +75,14 @@ cb_expel_corp = {
 	show_notification = yes
 	potential = {
 		is_country_type = default
-		NOT = { is_megacorp = yes }
+		is_megacorp = no
 		is_subject = no
 	}
 	is_valid = { 
-		NOT = { has_commercial_pact = from }
-		NOT = { is_in_federation_with = from }
+		NOR = {
+			has_commercial_pact = from
+			is_in_federation_with = from
+		}
 		any_owned_planet = {
 			has_branch_office = from
 		}

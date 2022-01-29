@@ -27,10 +27,10 @@ country_event = {
 
 	trigger = {
 		caravaneer_fleet_events_valid = yes
-		NOT = {
+		NOR = {
 			has_country_flag = hulk_caravan_recent
+			has_country_flag = caravan_recent_event
 		}
-		NOT = { has_country_flag = caravan_recent_event }
 	}
 
 	immediate = {

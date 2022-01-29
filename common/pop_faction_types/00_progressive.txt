@@ -19,8 +19,10 @@ progressive = {
 	is_potential = {
 		years_passed > 10
 		has_encountered_other_species = yes
-		NOT = { has_authority = auth_hive_mind }
-		NOT = { has_country_flag = suppress_vanilla_factions }
+		NOR = {
+			has_authority = auth_hive_mind
+			has_country_flag = suppress_vanilla_factions
+		}
 		count_owned_pop = {
 			count >= 5
 			limit = {
@@ -46,10 +48,7 @@ progressive = {
 	can_join_faction = {
 		is_shackled_robot = no
 		NOT = { has_trait = trait_nerve_stapled }
-		OR = {
-			has_ethic = ethic_egalitarian
-			has_ethic = ethic_fanatic_egalitarian
-		}
+		is_egalitarian = yes
 	}
 
 	attraction = {

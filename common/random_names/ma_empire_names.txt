@@ -36,8 +36,7 @@ empire_name_format = {
 			has_government = "gov_strict_democracy"
 			is_pirate = no
 			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
+			is_fallen_empire = no
 		}
 	}
 	format = "format.dem_gen.1"
@@ -55,8 +54,7 @@ empire_name_format = {
 			has_government = "gov_democratic_dictatorship"
 			is_pirate = no
 			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
+			is_fallen_empire = no
 		}
 	}
 	format = "format.dem_gen.1"
@@ -74,8 +72,7 @@ empire_name_format = {
 			has_government = "gov_trade_league_crime_fam"
 			is_pirate = no
 			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
+			is_fallen_empire = no
 		}
 	}
 	format = "format.monopolistic_trade_crime_fam.1"
@@ -93,8 +90,7 @@ empire_name_format = {
 			has_government = "gov_trade_league_crime_fam"
 			is_pirate = no
 			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
+			is_fallen_empire = no
 		}
 	}
 	format = "format.monopolistic_trade_crime_fam.2"
@@ -112,8 +108,7 @@ empire_name_format = {
 			has_government = "gov_trade_league_crime_fam"
 			is_pirate = no
 			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
+			is_fallen_empire = no
 		}
 	}
 	format = "format.monopolistic_trade_crime_fam.3"
@@ -131,8 +126,7 @@ empire_name_format = {
 			has_government = "gov_trade_league_crime_fam"
 			is_pirate = no
 			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
+			is_fallen_empire = no
 		}
 	}
 	format = "format.monopolistic_trade_crime_fam.4"

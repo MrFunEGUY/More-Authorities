@@ -61,12 +61,9 @@ manifesti = {
 			has_pop_flag = manifesti_bored
 		}
 		OR = {
-			has_ethic = ethic_egalitarian
-			has_ethic = ethic_fanatic_egalitarian
-            has_ethic = ethic_xenophile
-            has_ethic = ethic_fanatic_xenophile
-            has_ethic = ethic_pacifist
-            has_ethic = ethic_fanatic_pacifist
+			is_egalitarian = yes
+            is_xenophile = yes
+            is_pacifist = yes
 		}
 	}
 
