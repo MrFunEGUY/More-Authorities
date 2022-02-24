@@ -1,0 +1,32 @@
+
+#####################################
+### More Authorities by MrFunEGUY ###
+#####################################
+
+# More Authorities
+get_leader_clone = {
+	if = {
+	    limit = {
+			species = {
+				species_gender = not_set
+				NOR = {
+					is_species_class = MACHINE
+					is_species_class = ROBOT
+				}
+			}
+		}
+	    if = {
+	        limit = { event_target:current_president = { gender = female } }
+	        set_is_female = yes
+	    }
+	    else_if = {
+	        limit = { event_target:current_president = { gender = male } }
+	        set_is_female = no
+	    }
+	}
+    change_leader_portrait = event_target:current_president
+    set_name = event_target:current_president
+    set_age = event_target:current_president.trigger:leader_age
+    set_skill = event_target:current_president.trigger:has_skill # or has_level
+    add_experience = event_target:current_president.trigger:has_experience
+}

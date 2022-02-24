@@ -1,6 +1,6 @@
 [h1]3 New Authorities:[/h1]
 
-- Democratic Autocracy:
+[b]Democratic Autocracy:[/b]
 
 - This system of government democratically elects a dictator for life. When your ruler  dies, a new one will be elected the same as in democracies, with faction support mattering and whatnot.
 
@@ -10,9 +10,11 @@
 
 ----
 
-- Single Term Democracy:
+[b]Single Term:[/b]
 
-- This government form elects a ruler for a single 15-year term. After their term, leaders will go back to whatever job they had before (scientist, governor, admiral, general). If it's the initial leader, they will become a governor. This government cannot be reformed out of easily. Read more about that farther down. My logic with this was that I wanted a government with such tight checks on power that it would be stupidly difficult for any one leader to remove term limits within their 15-year term.
+- This government form elects a ruler for a single 15-year term.After their term, leaders will go back to whatever job they had before (scientist, governor, admiral, general). However, their portrait may be changed. This is an issue in 3.2 right now that may be resolved in the future.
+
+- This government cannot be reformed out of easily. Read more about that farther down. My logic with this was that I wanted a government with such tight checks on power that it would be stupidly difficult for any one leader to remove term limits within their 15-year term.
 
 - The only way to reform out of a Single Term government is to use another new edict. It'll cost you 1000 Influence.
 
@@ -26,7 +28,7 @@
 
 ----
 
-- Private Corporate
+[b]Private Corporate:[/b]
 
 - This government is a megacorp that has a monarchy. It's a megacorp, but with Rulers for life and Heirs, just like Imperial authority.
 
@@ -124,6 +126,8 @@ Let me know about any bugs or anything else, this took way longer to make than I
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2493028212]- End Truce & Close Borders[/url]
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2452302093]- We Require Borders[/url]
+
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2732567565]- No More Exclaves[/url]
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2183551683]- Vassals Expanded and Reworked - FunEFork[/url]
 

@@ -56,7 +56,7 @@ auth_democratic_dictatorship = {
 }
 
 auth_strict_democratic = {
-	election_term_years = 1
+	election_term_years = 15
 	re_election_allowed = no
 	election_type = democratic
 	

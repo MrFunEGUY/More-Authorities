@@ -151,10 +151,6 @@ wg_tribute = {
 	potential = {
 		is_megacorp = no
 		has_total_war_cb = no
-		NAND = {
-			is_galactic_emperor = yes
-			from = { is_galactic_community_member = yes }
-		}
 	}
 	possible = {
 		custom_tooltip = {

@@ -27,7 +27,6 @@ event = {
 # Term is up
 country_event = {
 	id = moreauthorities.2
-	picture = GFX_evt_alien_propaganda
 	hide_window = yes
 	
 	is_triggered_only = yes
@@ -38,59 +37,43 @@ country_event = {
 	}
 	
 	immediate = {
+
+		ruler = { save_event_target_as = current_president }
+		
+		if = {
+			limit = { ruler = { pre_ruler_leader_class = scientist } }
+			clone_leader = {
+				target = event_target:current_president
+				class = scientist
+				event_leader = yes
+			}
+		}
+		else_if = {
+			limit = { ruler = { pre_ruler_leader_class = general } }
+			clone_leader = {
+				target = event_target:current_president
+				class = general
+				event_leader = yes
+			}
+		}
+		else_if = {
+			limit = { ruler = { pre_ruler_leader_class = admiral } }
+			clone_leader = {
+				target = event_target:current_president
+				class = admiral
+				event_leader = yes
+			}
+		}
+		else = {
+			clone_leader = {
+				target = event_target:current_president
+				class = governor
+				event_leader = yes
+			}
+		}
 		ruler = {
 			kill_leader = { show_notification = no }
 		}
-
-		# This used to work but is broken now. Until Paradox allows me to set cloned_leaders as event_leaders,
-		# the leader will just need to be removed.
-
-		# random_owned_leader = {
-		# 	limit = {
-		# 		has_leader_flag = one_term
-		# 	}
-		# 	save_event_target_as = current_president
-		# }
-		# if = {
-		# 	limit = { event_target:current_president = { pre_ruler_leader_class = scientist } }
-		# 	clone_leader = {
-		# 		target = event_target:current_president
-		# 		class = scientist
-		# 		event_leader = yes
-		# 	}
-		# 	log = "1"
-		# }
-		# else_if = {
-		# 	limit = { event_target:current_president = { pre_ruler_leader_class = general } }
-		# 	clone_leader = {
-		# 		target = event_target:current_president
-		# 		class = general
-		# 		event_leader = yes
-		# 	}
-		# 	log = "2"
-		# }
-		# else_if = {
-		# 	limit = { event_target:current_president = { pre_ruler_leader_class = admiral } }
-		# 	clone_leader = {
-		# 		target = event_target:current_president
-		# 		class = admiral
-		# 		event_leader = yes
-		# 	}
-		# 	log = "3"
-		# }
-		# else = {
-		# 	clone_leader = {
-		# 		target = event_target:current_president
-		# 		class = governor
-		# 		effect = {
-		# 			event_leader = yes
-		# 		}
-		# 	}
-		# 	log = "4"
-		# }
-		# event_target:current_president = {
-		# 	kill_leader = { show_notification = no }
-		# }
 	}
 }
 
