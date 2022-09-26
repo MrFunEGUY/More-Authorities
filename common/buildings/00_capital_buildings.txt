@@ -1348,6 +1348,16 @@ building_hive_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
+			owner = { has_origin = origin_progenitor_hive }
+			is_planet_class = pc_hive
+		}
+		job_spawning_drone_add = -1
+		job_offspring_drone_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
@@ -1437,6 +1447,16 @@ building_hive_major_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
+			owner = { has_origin = origin_progenitor_hive }
+			is_planet_class = pc_hive
+		}
+		job_spawning_drone_add = -1
+		job_offspring_drone_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
@@ -1508,7 +1528,7 @@ building_hab_capital = {
 	category = government
 
 	potential = {
-		is_planet_class = pc_habitat
+		uses_habitat_capitals = yes
 		exists = owner
 		owner = { is_fallen_empire = no }
 	}
@@ -1574,7 +1594,10 @@ building_hab_capital = {
 		potential = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				NOR = {
+					is_megacorp = yes
+					has_origin = origin_void_dwellers
+				}
 				is_regular_empire = yes
 			}
 		}
@@ -1584,10 +1607,26 @@ building_hab_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_megacorp = yes }
+			owner = {
+				is_megacorp = yes
+				NOT = { has_origin = origin_void_dwellers }
+			}
 		}
 		modifier = {
 			job_executive_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_void_dwellers
+				is_regular_empire = yes
+			}
+		}
+		modifier = {
+			job_colonist_add = 2
 		}
 	}
 
@@ -1625,7 +1664,21 @@ building_hab_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				NOT = { is_megacorp = yes }
+				has_origin = origin_void_dwellers
+				is_regular_empire = yes
+			}
+		}
+		text = job_colonist_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOR = {
+					is_megacorp = yes
+					has_origin = origin_void_dwellers
+				}
 				is_regular_empire = yes
 			}
 		}
@@ -1645,6 +1698,7 @@ building_hab_capital = {
 			exists = owner
 			owner = {
 				is_megacorp = yes
+				NOT = { has_origin = origin_void_dwellers }
 			}
 		}
 		text = job_executive_effect_desc
@@ -1703,7 +1757,7 @@ building_hab_major_capital = {
 	category = government
 
 	potential = {
-		is_planet_class = pc_habitat
+		uses_habitat_capitals = yes
 		exists = owner
 		owner = { is_fallen_empire = no }
 	}
@@ -1747,21 +1801,6 @@ building_hab_major_capital = {
 		potential = {
 			exists = owner
 			owner = {
-				any_situation = {
-				is_situation_type = situation_alloys_deficit
-				current_situation_approach = deficit_approach_cut_maintenance
-				}
-			}
-		}
-		modifier = {
-			planet_stability_add = -50
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
 				has_active_tradition = tr_domination_imperious_architecture
 			}
 		}
@@ -1776,16 +1815,8 @@ building_hab_major_capital = {
 			owner = { has_active_tradition = tr_prosperity_void_works }
 		}
 		modifier = {
-			 planet_max_buildings_add = 1
+			planet_max_buildings_add = 1
 		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		job_enforcer_add = 1
 	}
 
 	triggered_planet_modifier = {
@@ -1829,6 +1860,10 @@ building_hab_major_capital = {
 					has_civic = civic_technocracy
 				}
 			}
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
 		}
 		modifier = {
 			job_politician_add = 2
@@ -1837,6 +1872,21 @@ building_hab_major_capital = {
 
 	triggered_planet_modifier = {
 		potential = {
+			has_planet_flag = toxic_knights_habitat
+			exists = owner
+			owner = {
+				has_origin = origin_toxic_knights
+			}
+		}
+		modifier = {
+			job_knight_commander_add = 1
+			job_knight_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			NOT = { has_planet_flag = toxic_knights_habitat }
 			exists = owner
 			owner = { is_megacorp = yes }
 		}
@@ -1849,6 +1899,10 @@ building_hab_major_capital = {
 		potential = {
 			exists = owner
 			owner = { has_civic = civic_exalted_priesthood }
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
 		}
 		modifier = {
 			job_politician_add = 1
@@ -1860,6 +1914,10 @@ building_hab_major_capital = {
 		potential = {
 			exists = owner
 			owner = { has_civic = civic_aristocratic_elite }
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
 		}
 		modifier = {
 			job_politician_add = 1
@@ -1871,6 +1929,10 @@ building_hab_major_capital = {
 		potential = {
 			exists = owner
 			owner = { has_civic = civic_technocracy }
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
 		}
 		modifier = {
 			job_head_researcher_add = 1
@@ -1882,6 +1944,10 @@ building_hab_major_capital = {
 		potential = {
 			exists = owner
 			owner = { has_civic = civic_merchant_guilds }
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
 		}
 		modifier = {
 			job_politician_add = 1
@@ -1892,10 +1958,18 @@ building_hab_major_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		job_enforcer_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
 			owner = { has_ascension_perk = ap_voidborn }
 		}
 		modifier = {
-			 planet_max_buildings_add = 2
+			planet_max_buildings_add = 2
 		}
 	}
 
@@ -1916,6 +1990,10 @@ building_hab_major_capital = {
 			owner = {
 				has_civic = civic_exalted_priesthood
 			}
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
 		}
 		text = job_high_priest_effect_desc
 	}
@@ -1925,6 +2003,10 @@ building_hab_major_capital = {
 			owner = {
 				has_civic = civic_aristocratic_elite
 			}
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
 		}
 		text = job_noble_effect_desc
 	}
@@ -1933,6 +2015,10 @@ building_hab_major_capital = {
 			exists = owner
 			owner = {
 				has_civic = civic_merchant_guilds
+			}
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
 			}
 		}
 		text = job_merchant_effect_desc
@@ -1944,8 +2030,55 @@ building_hab_major_capital = {
 				NOT = { is_megacorp = yes }
 				is_regular_empire = yes
 			}
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
 		}
 		text = job_politician_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_origin = origin_toxic_knights
+				NOR = {
+					has_country_flag = toxoids_7011_b
+					has_country_flag = toxoids_7040_b
+					has_country_flag = toxoids_7130_b
+				}
+			}
+			has_planet_flag = toxic_knights_habitat
+		}
+		text = job_knight_commander_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_origin = origin_toxic_knights
+				OR = {
+					has_country_flag = toxoids_7011_b
+					has_country_flag = toxoids_7040_b
+					has_country_flag = toxoids_7130_b
+				}
+			}
+			has_planet_flag = toxic_knights_habitat
+		}
+		text = job_knight_commander_research_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_origin = origin_toxic_knights
+			}
+			has_planet_flag = toxic_knights_habitat
+		}
+		text = job_knight_effect_desc
 	}
 
 	triggered_desc = {
@@ -1961,6 +2094,10 @@ building_hab_major_capital = {
 			exists = owner
 			owner = {
 				is_megacorp = yes
+			}
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
 			}
 		}
 		text = job_executive_effect_desc
@@ -2881,6 +3018,15 @@ building_imperial_hive_capital = {
 		job_patrol_drone_add = 4
 		planet_max_buildings_add = 11
 		planet_max_branch_office_buildings_add = 3
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { has_origin = origin_progenitor_hive }
+			is_planet_class = pc_hive
+		}
+		job_spawning_drone_add = -1
+		job_offspring_drone_add = 1
 	}
 
 	triggered_planet_modifier = {

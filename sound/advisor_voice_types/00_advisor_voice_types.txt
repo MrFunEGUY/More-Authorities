@@ -417,3 +417,20 @@ l_aqu_vir = {
 		}
 	}
 }
+
+l_tox_vir = {
+	name = "vo_toxoids_voice"
+	icon = "gfx/interface/icons/traits/trait_noxious.dds"
+
+	playable = {
+		local_has_dlc = "Toxoids Species Pack"
+	}
+
+	weight = {
+		base = 0
+		modifier = {
+			add = 10
+			toxoids_portrait = yes
+		}
+	}
+}
