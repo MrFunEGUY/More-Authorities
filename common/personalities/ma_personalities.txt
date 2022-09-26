@@ -93,11 +93,18 @@ ruthless_capitalists = {
 	}
 
 	allow = {
-		is_country_type = default
-		is_pacifist = no
+		is_country_type_with_subjects = yes
+		NOR = {
+			has_ethic = "ethic_pacifist"
+			has_ethic = "ethic_fanatic_pacifist"
+		}
 		OR = {
-			is_militarist = yes
-			is_xenophile = no		
+			has_ethic = "ethic_militarist"
+			has_ethic = "ethic_fanatic_militarist"
+			NOR = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+			}
 		}
 		OR = {
 			is_megacorp = yes
@@ -158,14 +165,21 @@ peaceful_traders = {
 	}
 
 	allow = {
-		is_country_type = default
+		is_country_type_with_subjects = yes
 		OR = {
-			is_pacifist = yes
+			has_ethic = "ethic_pacifist"
+			has_ethic = "ethic_fanatic_pacifist"
 			AND = {
-				is_militarist = no
-				is_xenophile = yes				
+				NOR = {
+					has_ethic = "ethic_militarist"
+					has_ethic = "ethic_fanatic_militarist"
+				}
+				OR = {
+					has_ethic = "ethic_xenophile"
+					has_ethic = "ethic_fanatic_xenophile"
+				}
 			}
-		}		
+		}
 		OR = {
 			is_megacorp = yes
 			has_valid_civic = civic_corporate_dominion

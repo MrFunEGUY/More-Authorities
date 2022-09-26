@@ -1,0 +1,191 @@
+@resolution_weight_hated = 3
+@resolution_weight_disliked = 4
+@resolution_weight_unpopular = 5
+@resolution_weight_normal = 6
+@resolution_weight_popular = 6.5
+@resolution_weight_loved = 7
+
+@resolution_cost_t1 = 100
+@resolution_cost_t2 = 150
+@resolution_cost_t3 = 200
+@resolution_cost_t4 = 250
+@resolution_cost_t5 = 300
+@resolution_cost_denounce = 25
+
+@resolution_flag_timer = 360
+
+resolution_defenseprivatization_defense_contracts = {
+	icon = "GFX_resolution_defence_privatization"
+
+	potential = {
+		has_overlord_dlc = yes
+	}
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t1
+		}
+	}
+	target = no
+	level = 1
+
+	modifier = {
+		resolution_defenseprivatization_defense_contracts = 1
+	}
+
+	effect = {
+		custom_tooltip = resolution_defenseprivatization_defense_contracts_tooltip
+		hidden_effect = {
+			set_global_flag = galactic_community_resolution_passed
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_defenseprivatization days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+			every_country = {
+				limit = {
+					is_country_type = enclave_mercenary
+				}
+				add_modifier = {
+					modifier = resolution_defenseprivatization_defense_contracts_merc_naval_cap
+				}
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_defenseprivatization days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = "resolution_already_active"
+			NOR = {
+				is_active_resolution = "resolution_defenseprivatization_defense_contracts"
+				is_active_resolution = "resolution_defenseprivatization_private_support_troops"
+				is_active_resolution = "resolution_defenseprivatization_condottieri"
+				is_active_resolution = "resolution_defenseprivatization_security_business"
+				is_active_resolution = "resolution_defenseprivatization_corporate_warlords"
+			}
+		}
+	}
+
+	ai_weight = { 
+		base = @resolution_weight_loved
+
+		modifier = {
+			factor = 2
+			is_militarist = yes
+			desc = ethic_militarist
+		}
+
+		modifier = {
+			factor = 2
+			is_megacorp = yes
+			desc = auth_corporate
+		}
+
+		modifier = {
+			factor = 0.8
+			is_gestalt = yes
+			desc = ethic_gestalt_consciousness
+		}
+
+		modifier = {
+			factor = 0.8
+			is_pacifist = yes
+			desc = ethic_pacifist
+		}
+	}  
+}
+
+resolution_defenseprivatization_private_support_troops = {
+	icon = "GFX_resolution_defence_privatization"
+
+	potential = {
+		has_overlord_dlc = yes
+	}
+
+	resources = {
+		category = resolutions
+		cost = {
+			influence = @resolution_cost_t2
+		}
+	}
+	target = no
+	level = 2
+
+	modifier = {
+		resolution_defenseprivatization_defense_contracts = 1
+		resolution_defenseprivatization_private_support_troops = 1
+	}
+
+	effect = {
+		custom_tooltip = resolution_defenseprivatization_private_support_troops_tooltip
+		hidden_effect = {
+			set_global_flag = resolution_with_breach_effect_passed
+			set_timed_country_flag = { flag = galactic_community_resolution_passed_defenseprivatization days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_passed_diplomatic_weight
+				days = 2200
+			}
+			every_country = {
+				limit = {
+					is_country_type = enclave_mercenary
+				}
+				add_modifier = {
+					modifier = resolution_defenseprivatization_private_support_troops_merc_naval_cap
+				}
+			}
+		}
+	}
+
+	fail_effects = {
+		hidden_effect = {
+			set_timed_country_flag = { flag = galactic_community_resolution_failed_defenseprivatization days = @resolution_flag_timer }
+			add_modifier = {
+				modifier = resolution_failed_diplomatic_weight
+				days = 2200
+			}
+		}
+	}
+
+	allow = {
+		is_active_resolution = "resolution_defenseprivatization_defense_contracts"
+	}
+
+	ai_weight = {
+		base = @resolution_weight_popular
+
+		modifier = {
+			factor = 2
+			is_militarist = yes
+			desc = ethic_militarist
+		}
+
+		modifier = {
+			factor = 2
+			is_megacorp = yes
+			desc = auth_corporate
+		}
+
+		modifier = {
+			factor = 0.5
+			is_gestalt = yes
+			desc = ethic_gestalt_consciousness
+		}
+
+		modifier = {
+			factor = 0.5
+			is_pacifist = yes
+			desc = ethic_pacifist
+		}
+	}
+}

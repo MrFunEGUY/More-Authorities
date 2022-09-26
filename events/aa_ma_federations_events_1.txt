@@ -34,7 +34,7 @@ country_event = {
 			}
 			random_playable_country = {
 				limit = {
-					is_country_type = default
+					is_country_type_with_subjects = yes
 					is_synthetic_empire = no
 					is_gestalt = no
 					is_galactic_community_member = yes
@@ -268,8 +268,7 @@ country_event = {
 
 		trigger = {
 			OR = {
-				has_authority = auth_imperial
-				has_authority = auth_corporate_imperial
+				is_imperial = yes
 				is_xenophobe = yes
 				AND = {
 					is_hive_empire = yes

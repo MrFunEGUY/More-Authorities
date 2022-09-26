@@ -1,0 +1,199 @@
+############################
+#
+# Observation Post Events
+#
+# Written by Henrik Thyrwall
+#
+############################
+
+namespace = observation
+
+# Gains Egalitarian
+country_event = {
+	id = observation.2041
+	title = "observation.2031.name"
+	desc = "observation.2041.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			owner = {
+				random_list = {
+					75 = { shift_ethic = "ethic_egalitarian" }
+					25 = { shift_ethic = "ethic_fanatic_egalitarian" }
+				}
+				every_owned_pop = { pop_change_ethic = "ethic_egalitarian" }
+				if = {
+					limit = {
+						is_autocracy = yes
+					}
+					random_list = {
+						50 = { change_government = { authority = auth_democratic } }
+						50 = { change_government = { authority = auth_strict_democratic } }
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "INTERESTING"
+		tooltip = {
+			FROM = {
+				owner = { shift_ethic = "ethic_egalitarian" }
+			}
+		}
+	}
+}
+
+# Societal Shift towards Egalitarian
+country_event = {
+	id = observation.3140
+	hide_window = yes
+
+	trigger = {
+		is_country_type = primitive
+		NOT = { has_ethic = ethic_fanatic_egalitarian }
+		NOT = { has_country_flag = indoctrination_cooldown }
+		capital_scope = {
+			has_observation_outpost = yes
+			observation_outpost = { has_mission = native_indoctrination }
+			observation_outpost_owner = {
+				OR = {
+					has_ethic = ethic_fanatic_egalitarian
+					has_ethic = ethic_egalitarian
+				}
+			}
+			any_owned_pop = {
+				has_ethic = ethic_egalitarian
+			}
+			OR = {
+				root = { NOT = { has_ethic = ethic_egalitarian } }
+				count_owned_pop = {
+					limit = { has_ethic = ethic_egalitarian }
+					count > 1
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	immediate = {
+		set_timed_country_flag = { flag = indoctrination_cooldown days = 540 }
+		shift_ethic = "ethic_egalitarian"
+		if = {
+			limit = {
+				is_autocracy = yes
+			}
+			random_list = {
+				50 = { change_government = { authority = auth_democratic } }
+				50 = { change_government = { authority = auth_strict_democratic } }
+			}
+		}
+		capital_scope = {
+			observation_outpost_owner = { country_event = { id = observation.3141 } }
+		}
+	}
+}
+
+# Gains Authoritarian
+country_event = {
+	id = observation.2039
+	title = "observation.2031.name"
+	desc = "observation.2039.desc"
+	picture = GFX_evt_physics_research
+	show_sound = event_conversation
+	location = FROM
+
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			owner = {
+				random_list = {
+					75 = { shift_ethic = "ethic_authoritarian" }
+					25 = { shift_ethic = "ethic_fanatic_authoritarian" }
+				}
+				every_owned_pop = { pop_change_ethic = "ethic_authoritarian" }
+				if = {
+					limit = {
+						OR = {
+							is_democracy = yes
+							has_authority = auth_oligarchic
+						}
+					}
+					change_government = { authority = auth_imperial }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "INTERESTING"
+		tooltip = {
+			FROM = {
+				owner = { shift_ethic = "ethic_authoritarian" }
+			}
+		}
+	}
+}
+
+# Societal Shift towards Authoritarian
+country_event = {
+	id = observation.3138
+	hide_window = yes
+
+	trigger = {
+		is_country_type = primitive
+		NOT = { has_ethic = ethic_fanatic_authoritarian }
+		NOT = { has_country_flag = indoctrination_cooldown }
+		capital_scope = {
+			has_observation_outpost = yes
+			observation_outpost = { has_mission = native_indoctrination }
+			observation_outpost_owner = {
+				OR = {
+					has_ethic = ethic_fanatic_authoritarian
+					has_ethic = ethic_authoritarian
+				}
+			}
+			any_owned_pop = {
+				has_ethic = ethic_authoritarian
+			}
+			OR = {
+				root = { NOT = { has_ethic = ethic_authoritarian } }
+				count_owned_pop = {
+					limit = { has_ethic = ethic_authoritarian }
+					count > 1
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	immediate = {
+		set_timed_country_flag = { flag = indoctrination_cooldown days = 540 }
+		shift_ethic = "ethic_authoritarian"
+		if = {
+			limit = {
+				OR = {
+					is_democracy = yes
+					has_authority = auth_oligarchic
+				}
+			}
+			change_government = { authority = auth_imperial }
+		}
+		capital_scope = {
+			observation_outpost_owner = { country_event = { id = observation.3139 } }
+		}
+	}
+}

@@ -4,5 +4,5 @@ tags={
 	"Government"
 }
 name="More Authorities"
-supported_version="3.3.*"
+supported_version="3.5.*"
 remote_file_id="2158334880"

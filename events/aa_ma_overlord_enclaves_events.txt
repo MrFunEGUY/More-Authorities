@@ -1,0 +1,118 @@
+###################################################
+#
+# "Overlord" Enclave Events
+# By Gemma Thomson, Hadrien Buytaers & Chad Inglis
+#
+###################################################
+namespace = enclave
+
+# enclave.1xxx	general-purpose
+# enclave.2xxx	Mercenary enclave
+# enclave.3xxx	Salvager enclave
+# enclave.4xxx	Shroudwalker enclave
+# enclave.5xxx	Divination events
+# enclave.6xxx	Shroud Tunnel events
+# enclave.7xxx	Shroudwalker enclave (appendix)
+
+# Spawn Mercenary enclave
+fleet_event = {
+	id = enclave.2
+	title = "enclave.2.name"
+	desc = "enclave.2.desc"
+	picture = GFX_evt_mercenary_enclave
+	show_sound = event_cityscape
+	is_triggered_only = yes
+
+	trigger = {
+		is_merc_enclave_founding_allowed = yes
+	}
+
+	immediate = {
+		set_event_locked = yes
+	}
+
+	option = {
+		name = DEAL
+		custom_tooltip = "enclave.2.a.tooltip"
+		allow = {
+			is_merc_enclave_founding_allowed = yes
+			owner = {
+				resource_stockpile_compare = { resource = energy value >= 1500 }
+				resource_stockpile_compare = { resource = alloys value >= 2000 }
+				resource_stockpile_compare = { resource = influence value >= 100 }
+			}
+		}
+		owner = {
+			add_resource = {
+				energy = -1500
+				alloys = -2000
+				influence = -100
+			}
+		}
+
+		hidden_effect = {
+			owner = {
+				set_country_flag = tutorial_met_mercenary_enclave
+			}
+			fleet_event = { id = enclave.21 }
+		}
+
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				owner = {
+					has_ethic = ethic_fanatic_pacifist
+				}
+			}
+			modifier = {
+				factor = 0.1
+				owner = {
+					has_ethic = ethic_pacifist
+				}
+			}
+			modifier = {
+				factor = 5
+				owner = {
+					has_ethic = ethic_militarist
+				}
+			}
+			modifier = {
+				factor = 10
+				owner = {
+					has_ethic = ethic_fanatic_militarist
+				}
+			}
+			modifier = {
+				factor = 5
+				owner = {
+					is_megacorp = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = NODEAL
+
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0.1
+				owner = {
+					OR = {
+						has_ethic = ethic_militarist
+						has_ethic = ethic_fanatic_militarist
+					}
+					NOT = { has_ethic = ethic_fanatic_pacifist }
+				}
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			set_event_locked = no
+		}
+	}
+}

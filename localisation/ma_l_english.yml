@@ -10,8 +10,8 @@
  auth_democratic_dictatorship:0 "Democratic Autocracy"
  auth_democratic_dictatorship_desc:0 "Democratic Autocracies are ruled by a single, democratically-elected, individual that wields absolute control over the state until their death."
  
- auth_strict_democratic:0 "Single Term"
- auth_strict_democratic_desc:0 "Single Term governments elect a ruler for one 15-year term."
+ auth_strict_democratic:0 "Term Limited"
+ auth_strict_democratic_desc:0 "Term Limited governments elect a ruler for one 15-year term."
 
  AUTHORITY_ELECTION_STRICT_DEMOCRATIC:0 "Holds an election every §H15§! years to select a new ruler. Rulers are limited to one term."
  AUTHORITY_HAS_HEIR_CORP:0 "Upon Ruler death, a designated successor takes over the family business."
@@ -22,16 +22,16 @@
  gov_democratic_dictatorship:0 "Elective Dictatorship"
  gov_democratic_dictatorship_desc:0 "This government is a dictatorship where a single individual has been democratically granted absolute powers to preserve the state."
  
- gov_strict_democracy:0 "Single Term Democracy"
+ gov_strict_democracy:0 "Term Limited Democracy"
  gov_strict_democracy_desc:0 "This government is a representative democracy, where citizens vote on officials who are elected to represent them. Most offices have term limits, with the Head of State being limited to one term."
 
- moreauthorities.5.title:0 "Reform Government: Single Term"
+ moreauthorities.5.title:0 "Reform Government: Term Limited"
  moreauthorities.5.desc:0 "This decision will reform our system of government into one where the ruler is elected for a single 15-year term. The political capital required to implment term limits into our society means that once this action is taken, it it will be very difficult to undo. Are you sure?"
 
  moreauthorities.5.a: "I'm sure."
  moreauthorities.5.b: "Nevermind."
  
- edict_edict_strict_democracy:0 "Reform Government: Single Term"
+ edict_edict_strict_democracy:0 "Reform Government: Term Limited"
  edict_edict_strict_democracy_desc:1 "This edict will reform our government into a government where the ruler is elected for a single 15-year term."
 
  moreauthorities.6.title:0 "Reform Government: Eliminate Term Limits"
@@ -185,3 +185,18 @@
 
  lrsk_gov_var_gov_private_military_contractor_fam:0 "Private Military Contractor"
  lrsk_gov_var_gov_private_military_contractor_fam_desc:0 "This government is actually a mercenary company that has been contracted by local and regional governments to provide police, national defense, and foreign relations services for the empire. Rank in government typically requires enlistment as a soldier for hire, but the internal structure of the company may be fairly democratic."
+
+ # Empire Names
+
+ format.adjective: "[This.GetAdj"
+
+ format.monopolistic_trade_crime_fam.1: "[This.GetSpeciesName] <criminal_league>"
+ prefix_format.monopolistic_trade_crime_fam.1: "[This.GetSpeciesName] <criminal_league>"
+
+ format.monopolistic_trade_crime_fam.2: "[This.GetAdj] <criminal_league>"
+ prefix_format.monopolistic_trade_crime_fam.2: "[This.GetAdj] <criminal_league>"
+
+ format.monopolistic_trade_crime_fam.3: "<criminal_league> of [This.Capital.GetName]"
+ prefix_format.monopolistic_trade_crime_fam.3: "[This.Capital.System.GetName] <criminal_league>"
+ 
+ format.monopolistic_trade_crime_fam.4: "<criminal_league> of [This.Capital.System.GetName]"

@@ -45,14 +45,16 @@ greetings = {
 	# Hostile Generic 3
 	03_HOSTILE_GREETING = {
 		trigger = {
-			NOR = {
-				has_ethic = ethic_gestalt_consciousness
-				is_xenophile = yes
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			NOT = {
+				OR = {
+					is_xenophile = yes
 					is_xenophobe = yes
 					is_megacorp = yes
-				is_same_species = FROM
-				is_at_war_with = FROM
+				}
 			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_domineering_to = FROM
@@ -63,11 +65,13 @@ greetings = {
 	# Hostile Generic Same Species
 	04_HOSTILE_GREETING = {
 		trigger = {
-			NOR = {
-				has_ethic = ethic_gestalt_consciousness
-				is_xenophile = yes
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			NOT = {
+				OR = {
+					is_xenophile = yes
 					is_xenophobe = yes
 					is_megacorp = yes
+				}
 			}
 			is_same_species = FROM
 			NOT = { is_at_war_with = FROM }
@@ -103,9 +107,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_pacifist = yes
-			FROM = {
-				is_militarist = yes
-			}
+			FROM = { is_militarist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -140,9 +142,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_militarist = yes
-			FROM = {
-				is_pacifist = yes
-			}
+			FROM = { is_pacifist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -177,9 +177,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_spiritualist = yes
-			FROM = {
-				is_materialist = yes
-			}
+			FROM = { is_materialist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -214,9 +212,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_materialist = yes
-			FROM = {
-				is_spiritualist = yes
-			}
+			FROM = { is_spiritualist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -251,9 +247,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_egalitarian = yes
-			FROM = {
-				is_authoritarian = yes
-			}
+			FROM = { is_authoritarian = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -288,9 +282,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_authoritarian = yes
-			FROM = {
-				is_egalitarian = yes
-			}
+			FROM = { is_egalitarian = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -521,11 +513,13 @@ greetings = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				is_megacorp = yes
-				is_xenophile = yes
-					is_xenophobe = yes
-				is_same_species = FROM
-				is_at_war_with = FROM
 			}
+			NOR = {
+				is_xenophile = yes
+				is_xenophobe = yes
+			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_neutral_to = FROM
 				is_threatened_to = FROM
@@ -538,11 +532,13 @@ greetings = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				is_megacorp = yes
-				is_xenophile = yes
-					is_xenophobe = yes
-				is_same_species = FROM
-				is_at_war_with = FROM
 			}
+			NOR = {
+				is_xenophile = yes
+				is_xenophobe = yes
+			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_neutral_to = FROM
 				is_threatened_to = FROM
@@ -555,11 +551,13 @@ greetings = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				is_megacorp = yes
-				is_xenophile = yes
-					is_xenophobe = yes
-				is_same_species = FROM
-				is_at_war_with = FROM
 			}
+			NOR = {
+				is_xenophile = yes
+				is_xenophobe = yes
+			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_neutral_to = FROM
 				is_threatened_to = FROM
@@ -572,8 +570,10 @@ greetings = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				is_megacorp = yes
+			}
+			NOR = {
 				is_xenophile = yes
-					is_xenophobe = yes
+				is_xenophobe = yes
 			}
 			is_same_species = FROM
 			NOT = { is_at_war_with = FROM }
@@ -607,9 +607,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_pacifist = yes
-			FROM = {
-				is_militarist = yes
-			}
+			FROM = { is_militarist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -642,9 +640,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_militarist = yes
-			FROM = {
-				is_pacifist = yes
-			}
+			FROM = { is_pacifist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -677,9 +673,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_spiritualist = yes
-			FROM = {
-				is_materialist = yes
-			}
+			FROM = { is_materialist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -712,9 +706,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_materialist = yes
-			FROM = {
-				is_spiritualist = yes
-			}
+			FROM = { is_spiritualist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -747,9 +739,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_egalitarian = yes
-			FROM = {
-				is_authoritarian = yes
-			}
+			FROM = { is_authoritarian = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -782,9 +772,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_authoritarian = yes
-			FROM = {
-				is_egalitarian = yes
-			}
+			FROM = { is_egalitarian = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -957,14 +945,14 @@ greetings = {
 	# Friendly Generic 1
 	01_FRIENDLY_GREETING = {
 		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
 			NOR = {
-				has_ethic = ethic_gestalt_consciousness
 				is_xenophile = yes
-					is_xenophobe = yes
-					is_megacorp = yes
-				is_same_species = FROM
-				is_at_war_with = FROM
+				is_xenophobe = yes
+				is_megacorp = yes
 			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
 				is_cordial_to = FROM
@@ -975,14 +963,14 @@ greetings = {
 	# Friendly Generic 2
 	02_FRIENDLY_GREETING = {
 		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
 			NOR = {
-				has_ethic = ethic_gestalt_consciousness
 				is_xenophile = yes
-					is_xenophobe = yes
-					is_megacorp = yes
-				is_same_species = FROM
-				is_at_war_with = FROM
+				is_xenophobe = yes
+				is_megacorp = yes
 			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
 				is_cordial_to = FROM
@@ -993,14 +981,14 @@ greetings = {
 	# Friendly Generic 3
 	03_FRIENDLY_GREETING = {
 		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
 			NOR = {
-				has_ethic = ethic_gestalt_consciousness
 				is_xenophile = yes
-					is_xenophobe = yes
-					is_megacorp = yes
-				is_same_species = FROM
-				is_at_war_with = FROM
+				is_xenophobe = yes
+				is_megacorp = yes
 			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
 				is_cordial_to = FROM
@@ -1011,11 +999,11 @@ greetings = {
 	# Friendly Generic Same Species
 	04_FRIENDLY_GREETING = {
 		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
 			NOR = {
-				has_ethic = ethic_gestalt_consciousness
 				is_xenophile = yes
-					is_xenophobe = yes
-					is_megacorp = yes
+				is_xenophobe = yes
+				is_megacorp = yes
 			}
 			is_same_species = FROM
 			NOT = { is_at_war_with = FROM }
@@ -1048,9 +1036,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_pacifist = yes
-			FROM = {
-				is_militarist = yes
-			}
+			FROM = { is_militarist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -1085,9 +1071,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_militarist = yes
-			FROM = {
-				is_pacifist = yes
-			}
+			FROM = { is_pacifist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -1122,9 +1106,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_spiritualist = yes
-			FROM = {
-				is_materialist = yes
-			}
+			FROM = { is_materialist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -1159,9 +1141,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_materialist = yes
-			FROM = {
-				is_spiritualist = yes
-			}
+			FROM = { is_spiritualist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -1196,9 +1176,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_egalitarian = yes
-			FROM = {
-				is_authoritarian = yes
-			}
+			FROM = { is_authoritarian = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -1233,9 +1211,7 @@ greetings = {
 				is_megacorp = yes
 			}
 			is_authoritarian = yes
-			FROM = {
-				is_egalitarian = yes
-			}
+			FROM = { is_egalitarian = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -1418,54 +1394,58 @@ greetings = {
 	# War Generic 1
 	01_WAR_GREETING = {
 		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 			NOR = {
-				has_ethic = ethic_gestalt_consciousness
-				is_fallen_empire = yes
 				is_xenophile = yes
-					is_xenophobe = yes
-					is_megacorp = yes
-				is_same_species = FROM
+				is_xenophobe = yes
+				is_megacorp = yes
 			}
+			NOT = { is_same_species = FROM }
 			is_at_war_with = FROM
 		}
 	}
 	# War Generic 2
 	02_WAR_GREETING = {
 		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 			NOR = {
-				has_ethic = ethic_gestalt_consciousness
-				is_fallen_empire = yes
 				is_xenophile = yes
-					is_xenophobe = yes
-					is_megacorp = yes
-				is_same_species = FROM
+				is_xenophobe = yes
+				is_megacorp = yes
 			}
+			NOT = { is_same_species = FROM }
 			is_at_war_with = FROM
 		}
 	}
 	# War Generic 3
 	03_WAR_GREETING = {
 		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 			NOR = {
-				has_ethic = ethic_gestalt_consciousness
-				is_fallen_empire = yes
 				is_xenophile = yes
-					is_xenophobe = yes
-					is_megacorp = yes
-				is_same_species = FROM
+				is_xenophobe = yes
+				is_megacorp = yes
 			}
+			NOT = { is_same_species = FROM }
 			is_at_war_with = FROM
 		}
 	}
 	# War Generic Same Species
 	04_WAR_GREETING = {
 		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 			NOR = {
-				has_ethic = ethic_gestalt_consciousness
-				is_fallen_empire = yes
 				is_xenophile = yes
-					is_xenophobe = yes
-					is_megacorp = yes
+				is_xenophobe = yes
+				is_megacorp = yes
 			}
 			is_same_species = FROM
 			is_at_war_with = FROM
@@ -1477,8 +1457,9 @@ greetings = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				is_megacorp = yes
-				is_fallen_empire = yes
 			}
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 			is_pacifist = yes
 			NOT = { is_same_species = FROM }
 			is_at_war_with = FROM
@@ -1490,8 +1471,9 @@ greetings = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				is_megacorp = yes
-				is_fallen_empire = yes
 			}
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 			is_militarist = yes
 			NOT = { is_same_species = FROM }
 			is_at_war_with = FROM
@@ -1503,8 +1485,9 @@ greetings = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				is_megacorp = yes
-				is_fallen_empire = yes
 			}
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 			is_spiritualist = yes
 			NOT = { is_same_species = FROM }
 			is_at_war_with = FROM
@@ -1516,8 +1499,9 @@ greetings = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				is_megacorp = yes
-				is_fallen_empire = yes
 			}
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 			is_materialist = yes
 			NOT = { is_same_species = FROM }
 			is_at_war_with = FROM
@@ -1529,8 +1513,9 @@ greetings = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				is_megacorp = yes
-				is_fallen_empire = yes
 			}
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 			is_egalitarian = yes
 			NOT = { is_same_species = FROM }
 			is_at_war_with = FROM
@@ -1542,8 +1527,9 @@ greetings = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				is_megacorp = yes
-				is_fallen_empire = yes
 			}
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 			is_authoritarian = yes
 			NOT = { is_same_species = FROM }
 			is_at_war_with = FROM
@@ -1555,8 +1541,9 @@ greetings = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				is_megacorp = yes
-				is_fallen_empire = yes
 			}
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 			is_xenophobe = yes
 			NOT = { is_same_species = FROM }
 			is_at_war_with = FROM
@@ -1574,8 +1561,9 @@ greetings = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				is_megacorp = yes
-				is_fallen_empire = yes
 			}
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 			is_xenophobe = yes
 			is_same_species = FROM
 			is_at_war_with = FROM
@@ -1587,8 +1575,9 @@ greetings = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				is_megacorp = yes
-				is_fallen_empire = yes
 			}
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 			is_xenophile = yes
 			NOT = { is_same_species = FROM }
 			is_at_war_with = FROM
@@ -1600,8 +1589,9 @@ greetings = {
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				is_megacorp = yes
-				is_fallen_empire = yes
 			}
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 			is_xenophile = yes
 			is_same_species = FROM
 			is_at_war_with = FROM
@@ -1678,8 +1668,7 @@ greetings = {
 			is_overlord_to = FROM
 			OR = {
 				has_ethic = ethic_authoritarian
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
+				is_materialist = yes
 				is_egalitarian = yes
 				has_ethic = ethic_militarist
 			}
@@ -1711,10 +1700,7 @@ greetings = {
 		weight = { weight = 100 }
 		trigger = {
 			is_overlord_to = FROM
-			OR = {
-				has_ethic = ethic_fanatic_authoritarian
-				has_ethic = ethic_fanatic_militarist
-			}
+			is_authoritarian = yes
 		}
 	}
 	HM_OVERLORD_GREETING_01 = {
@@ -2268,7 +2254,10 @@ greetings = {
 			NOT = { is_at_war_with = FROM }
 			is_enigmatic_to = FROM
 			from = {
-				is_synthetic_empire = no
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_country_flag = synthetic_empire
+				}
 			 }
 		}
 	}
@@ -2278,7 +2267,10 @@ greetings = {
 			NOT = { is_at_war_with = FROM }
 			is_enigmatic_to = FROM
 			from = {
-				is_synthetic_empire = no
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_country_flag = synthetic_empire
+				}
 			 }
 		}
 	}
@@ -2288,7 +2280,10 @@ greetings = {
 			NOT = { is_at_war_with = FROM }
 			is_enigmatic_to = FROM
 			from = {
-				is_synthetic_empire = no
+				NOR = {
+					has_authority = auth_machine_intelligence
+					has_country_flag = synthetic_empire
+				}
 			 }
 		}
 	}
@@ -2298,7 +2293,10 @@ greetings = {
 			NOT = { is_at_war_with = FROM }
 			is_enigmatic_to = FROM
 			from = {
-				is_synthetic_empire = yes
+				OR = {
+					has_authority = auth_machine_intelligence
+					has_country_flag = synthetic_empire
+				}
 			 }
 		}
 	}
@@ -2308,7 +2306,10 @@ greetings = {
 			NOT = { is_at_war_with = FROM }
 			is_enigmatic_to = FROM
 			from = {
-				is_synthetic_empire = yes
+				OR = {
+					has_authority = auth_machine_intelligence
+					has_country_flag = synthetic_empire
+				}
 			 }
 		}
 	}
@@ -2318,7 +2319,10 @@ greetings = {
 			NOT = { is_at_war_with = FROM }
 			is_enigmatic_to = FROM
 			from = {
-				is_synthetic_empire = yes
+				OR = {
+					has_authority = auth_machine_intelligence
+					has_country_flag = synthetic_empire
+				}
 			 }
 		}
 	}
@@ -2429,9 +2433,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = honorbound_warriors
-			FROM = {
-				is_pacifist = yes
-			}
+			FROM = { is_pacifist = yes }
 			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
@@ -2457,10 +2459,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = honorbound_warriors
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
 	}
@@ -2470,10 +2470,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = honorbound_warriors
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
 	}
@@ -2483,9 +2481,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = honorbound_warriors
-			FROM = {
-				is_pacifist = yes
-			}
+			FROM = { is_pacifist = yes }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
@@ -2496,9 +2492,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = honorbound_warriors
-			FROM = {
-				is_militarist = yes
-			}
+			FROM = { is_militarist = yes }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
@@ -2533,10 +2527,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = honorbound_warriors
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			is_at_war = no
 			OR = {
 				is_friendly_to = FROM
@@ -2551,10 +2543,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = honorbound_warriors
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			is_at_war = yes
 			OR = {
 				is_friendly_to = FROM
@@ -2569,9 +2559,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = honorbound_warriors
-			FROM = {
-				is_pacifist = yes
-			}
+			FROM = { is_pacifist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -2588,10 +2576,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = honorbound_warriors
 			is_in_federation_with = FROM
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
 				is_cordial_to = FROM
@@ -2675,9 +2661,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = ruthless_capitalists
-			FROM = {
-				is_spiritualist = yes
-			}
+			FROM = { is_spiritualist = yes }
 			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
@@ -2724,9 +2708,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = ruthless_capitalists
-			FROM = {
-				is_spiritualist = yes
-			}
+			FROM = { is_spiritualist = yes }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
@@ -2891,10 +2873,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = peaceful_traders
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -2908,11 +2888,7 @@ greetings = {
 		trigger = {
 			has_ai_personality = peaceful_traders
 			NOT = { is_at_war_with = FROM }
-			FROM = {
-				OR = {
-					is_xenophobe = yes
-				}
-			}
+			FROM = { is_xenophobe = yes }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -2947,10 +2923,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = peaceful_traders
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
 	}
@@ -2960,9 +2934,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = peaceful_traders
-			FROM = {
-				is_spiritualist = yes
-			}
+			FROM = { is_spiritualist = yes }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
@@ -3079,10 +3051,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = hegemonic_imperialists
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -3108,10 +3078,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = hegemonic_imperialists
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_domineering_to = FROM
 			}
@@ -3209,9 +3177,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = hegemonic_imperialists
-			FROM = {
-				is_pacifist = yes
-			}
+			FROM = { is_pacifist = yes }
 			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
@@ -3285,10 +3251,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = federation_builders
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -3315,9 +3279,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = federation_builders
-			FROM = {
-				is_militarist = yes
-			}
+			FROM = { is_militarist = yes }
 			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
@@ -3385,9 +3347,7 @@ greetings = {
 		trigger = {
 			has_ai_personality = federation_builders
 			NOT = { is_in_federation_with = FROM }
-			FROM = {
-				is_pacifist = yes
-			}
+			FROM = { is_pacifist = yes }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
@@ -3533,10 +3493,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = xenophobic_isolationists
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -3549,10 +3507,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = xenophobic_isolationists
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -3565,9 +3521,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = xenophobic_isolationists
-			FROM = {
-				is_xenophile = yes
-			}
+			FROM = { is_xenophile = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -3620,11 +3574,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = xenophobic_isolationists
-			FROM = {
-				OR = {
-					is_xenophobe = yes
-				}
-			}
+			FROM = { is_xenophobe = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
@@ -3646,10 +3596,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = xenophobic_isolationists
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
 				is_cordial_to = FROM
@@ -3663,10 +3611,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = xenophobic_isolationists
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
 				is_cordial_to = FROM
@@ -3681,9 +3627,7 @@ greetings = {
 		trigger = {
 			has_ai_personality = xenophobic_isolationists
 			FROM = {
-				OR = {
-					is_xenophobe = yes
-				}
+				is_xenophobe = yes
 				NOT = {
 					has_authority = auth_machine_intelligence
 				}
@@ -3703,9 +3647,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = xenophobic_isolationists
-			FROM = {
-				is_xenophile = yes
-			}
+			FROM = { is_xenophile = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -3757,9 +3699,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = xenophobic_isolationists
-			FROM = {
-				is_militarist = yes
-			}
+			FROM = { is_militarist = yes }
 			NOT = { is_same_species = FROM }
 			is_at_war_with = FROM
 		}
@@ -3822,9 +3762,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = hive_mind
-			FROM = {
-				is_authoritarian = yes
-			}
+			FROM = { is_authoritarian = yes }
 			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
@@ -3838,9 +3776,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = hive_mind
-			FROM = {
-				is_egalitarian = yes
-			}
+			FROM = { is_egalitarian = yes }
 			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_domineering_to = FROM
@@ -3873,9 +3809,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = hive_mind
-			FROM = {
-				is_authoritarian = yes
-			}
+			FROM = { is_authoritarian = yes }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
@@ -3886,9 +3820,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = hive_mind
-			FROM = {
-				is_egalitarian = yes
-			}
+			FROM = { is_egalitarian = yes }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
@@ -3938,9 +3870,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = hive_mind
-			FROM = {
-				is_authoritarian = yes
-			}
+			FROM = { is_authoritarian = yes }
 			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
@@ -3955,7 +3885,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = hive_mind
-				FROM = {
+			FROM = {
 				is_egalitarian = yes
 				NOT = { is_species_class = ROBOT }
 			}
@@ -4059,10 +3989,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = migrating_flock
-			NOR = {
-				is_at_war_with = FROM
-				is_same_species = FROM
-			}
+			NOT = { is_at_war_with = FROM }
+			NOT = { is_same_species = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -4081,11 +4009,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = migrating_flock
-			FROM = {
-				OR = {
-					is_xenophobe = yes
-				}
-			}
+			FROM = { is_xenophobe = yes }
 			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
@@ -4099,10 +4023,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = migrating_flock
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
 	}
@@ -4122,11 +4044,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = migrating_flock
-			FROM = {
-				OR = {
-					is_xenophobe = yes
-				}
-			}
+			FROM = { is_xenophobe = yes }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
@@ -4137,9 +4055,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = migrating_flock
-			FROM = {
-				is_xenophile = yes
-			}
+			FROM = { is_xenophile = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
@@ -4151,10 +4067,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = migrating_flock
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			is_threatened_to = FROM
 		}
 	}
@@ -4164,10 +4078,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = migrating_flock
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
 				is_cordial_to = FROM
@@ -4187,10 +4099,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = migrating_flock
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
 				is_cordial_to = FROM
@@ -4263,9 +4173,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = migrating_flock
-			FROM = {
-				is_militarist = yes
-			}
+			FROM = { is_militarist = yes }
 			is_at_war_with = FROM
 		}
 	}
@@ -4327,9 +4235,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = evangelising_zealots
-			FROM = {
-				is_spiritualist = yes
-			}
+			FROM = { is_spiritualist = yes }
 			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
@@ -4343,9 +4249,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = evangelising_zealots
-			FROM = {
-				is_materialist = yes
-			}
+			FROM = { is_materialist = yes }
 			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
@@ -4435,10 +4339,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = evangelising_zealots
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
 				is_cordial_to = FROM
@@ -4472,9 +4374,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = evangelising_zealots
-			FROM = {
-				is_spiritualist = yes
-			}
+			FROM = { is_spiritualist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -4577,10 +4477,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = devouring_swarm
 			is_lithoid_empire = no
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -4600,10 +4498,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = devouring_swarm
 			is_lithoid_empire = no
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -4623,10 +4519,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = devouring_swarm
 			is_lithoid_empire = no
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -4646,10 +4540,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = devouring_swarm
 			is_lithoid_empire = no
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -4670,10 +4562,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = devouring_swarm
 			is_lithoid_empire = no
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -4693,10 +4583,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = devouring_swarm
 			is_lithoid_empire = no
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -4718,10 +4606,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = devouring_swarm
 			is_lithoid_empire = no
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			is_threatened_to = FROM
 			FROM = {
 				NOT = {
@@ -4856,10 +4742,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = devouring_swarm
 			is_lithoid_empire = yes
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -4879,10 +4763,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = devouring_swarm
 			is_lithoid_empire = yes
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -4902,10 +4784,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = devouring_swarm
 			is_lithoid_empire = yes
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -4925,10 +4805,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = devouring_swarm
 			is_lithoid_empire = yes
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -4949,10 +4827,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = devouring_swarm
 			is_lithoid_empire = yes
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -4972,10 +4848,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = devouring_swarm
 			is_lithoid_empire = yes
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -4997,10 +4871,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = devouring_swarm
 			is_lithoid_empire = yes
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			is_threatened_to = FROM
 			FROM = {
 				NOT = {
@@ -5134,10 +5006,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = fanatic_purifiers
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -5150,10 +5020,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = fanatic_purifiers
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -5171,10 +5039,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = fanatic_purifiers
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -5188,10 +5054,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = fanatic_purifiers
 			is_spiritualist = yes
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -5204,10 +5068,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = fanatic_purifiers
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			is_threatened_to = FROM
 		}
 	}
@@ -5312,10 +5174,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = democratic_crusaders
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -5666,10 +5526,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = slaving_despots
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -5682,10 +5540,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = slaving_despots
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -5719,10 +5575,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = slaving_despots
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_domineering_to = FROM
 			}
@@ -5779,10 +5633,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = slaving_despots
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
 				is_cordial_to = FROM
@@ -5800,10 +5652,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = slaving_despots
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
 				is_cordial_to = FROM
@@ -5963,10 +5813,8 @@ greetings = {
 		trigger = {
 			has_ai_personality = decadent_hierarchy
 			is_xenophile = yes
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
 	}
@@ -5997,10 +5845,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = decadent_hierarchy
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
 				is_cordial_to = FROM
@@ -6124,10 +5970,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = erudite_explorers
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
 				is_unfriendly_to = FROM
@@ -6146,9 +5990,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = erudite_explorers
-			FROM = {
-				is_spiritualist = yes
-			}
+			FROM = { is_spiritualist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -6163,9 +6005,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = erudite_explorers
-			FROM = {
-				is_authoritarian = yes
-			}
+			FROM = { is_authoritarian = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -6218,9 +6058,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = erudite_explorers
-			FROM = {
-				is_spiritualist = yes
-			}
+			FROM = { is_spiritualist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
@@ -6256,10 +6094,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = erudite_explorers
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
 				is_cordial_to = FROM
@@ -6273,9 +6109,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = erudite_explorers
-			FROM = {
-				is_materialist = yes
-			}
+			FROM = { is_materialist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -6325,9 +6159,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = erudite_explorers
-			FROM = {
-				is_spiritualist = yes
-			}
+			FROM = { is_spiritualist = yes }
 			NOT = { is_same_species = FROM }
 			is_at_war_with = FROM
 		}
@@ -6414,9 +6246,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = spiritual_seekers
-			FROM = {
-				is_materialist = yes
-			}
+			FROM = { is_materialist = yes }
 			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_hostile_to = FROM
@@ -6442,10 +6272,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = spiritual_seekers
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
 	}
@@ -6455,10 +6283,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = spiritual_seekers
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
 	}
@@ -6468,9 +6294,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = spiritual_seekers
-			FROM = {
-				is_materialist = yes
-			}
+			FROM = { is_materialist = yes }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
@@ -6497,10 +6321,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = spiritual_seekers
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
 				is_cordial_to = FROM
@@ -6528,9 +6350,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = spiritual_seekers
-			FROM = {
-				is_spiritualist = yes
-			}
+			FROM = { is_spiritualist = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -6585,9 +6405,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = spiritual_seekers
-			FROM = {
-				is_materialist = yes
-			}
+			FROM = { is_materialist = yes }
 			is_at_war_with = FROM
 		}
 	}
@@ -6664,9 +6482,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = harmonious_hierarchy
-			FROM = {
-				is_egalitarian = yes
-			}
+			FROM = { is_egalitarian = yes }
 			NOT = { is_same_species = FROM }
 			NOT = { is_at_war_with = FROM }
 			OR = {
@@ -6693,10 +6509,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = harmonious_hierarchy
-			NOR = {
-				is_same_species = FROM
-				is_at_war_with = FROM
-			}
+			NOT = { is_same_species = FROM }
+			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
 	}
@@ -6723,11 +6537,9 @@ greetings = {
 			has_ai_personality = harmonious_hierarchy
 			FROM = {
 				is_egalitarian = yes
-				FROM = {
-					NOT = {
-						has_authority = auth_machine_intelligence
-						is_species_class = ROBOT
-					}
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_species_class = ROBOT
 				}
 			}
 			NOT = { is_at_war_with = FROM }
@@ -6740,9 +6552,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = harmonious_hierarchy
-			FROM = {
-				is_pacifist = yes
-			}
+			FROM = { is_pacifist = yes }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
@@ -6791,9 +6601,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = harmonious_hierarchy
-			FROM = {
-				is_authoritarian = yes
-			}
+			FROM = { is_authoritarian = yes }
 			NOT = { is_at_war_with = FROM }
 			OR = {
 				is_friendly_to = FROM
@@ -6826,9 +6634,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = harmonious_hierarchy
-			FROM = {
-				is_egalitarian = yes
-			}
+			FROM = { is_egalitarian = yes }
 			is_at_war_with = FROM
 		}
 	}
@@ -7259,8 +7065,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = fanatic_befrienders
-			NOR = {
-				is_at_war_with = FROM
+			NOT = { is_at_war_with = FROM }
+			NOT = {
 				is_hostile_to = FROM
 				is_domineering_to = FROM
 				is_unfriendly_to = FROM
@@ -7273,8 +7079,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = fanatic_befrienders
-			NOR = {
-				is_at_war_with = FROM
+			NOT = { is_at_war_with = FROM }
+			NOT = {
 				is_hostile_to = FROM
 				is_domineering_to = FROM
 				is_unfriendly_to = FROM
@@ -7287,8 +7093,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = fanatic_befrienders
-			NOR = {
-				is_at_war_with = FROM
+			NOT = { is_at_war_with = FROM }
+			NOT = {
 				is_hostile_to = FROM
 				is_domineering_to = FROM
 				is_unfriendly_to = FROM
@@ -7301,8 +7107,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = fanatic_befrienders
-			NOR = {
-				is_at_war_with = FROM
+			NOT = { is_at_war_with = FROM }
+			NOT = {
 				is_hostile_to = FROM
 				is_domineering_to = FROM
 				is_unfriendly_to = FROM
@@ -7315,8 +7121,8 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = fanatic_befrienders
-			NOR = {
-				is_at_war_with = FROM
+			NOT = { is_at_war_with = FROM }
+			NOT = {
 				is_hostile_to = FROM
 				is_domineering_to = FROM
 				is_unfriendly_to = FROM
@@ -7789,7 +7595,7 @@ greetings = {
 			weight = 1000
 		}
 		trigger = {
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			NOR = {
 				has_civic = civic_machine_terminator
@@ -7808,7 +7614,7 @@ greetings = {
 			weight = 1000
 		}
 		trigger = {
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			NOR = {
 				has_civic = civic_machine_terminator
@@ -7830,7 +7636,7 @@ greetings = {
 			weight = 1000
 		}
 		trigger = {
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			NOR = {
 				has_civic = civic_machine_terminator
@@ -7849,7 +7655,7 @@ greetings = {
 			weight = 1000
 		}
 		trigger = {
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			NOR = {
 				has_civic = civic_machine_terminator
@@ -8247,7 +8053,7 @@ greetings = {
 			weight = 1000
 		}
 		trigger = {
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			OR = {
 				has_authority = auth_machine_intelligence
 				is_species_class = ROBOT
@@ -8268,7 +8074,7 @@ greetings = {
 			weight = 1000
 		}
 		trigger = {
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			NOR = {
 				has_civic = civic_machine_terminator
@@ -8286,7 +8092,7 @@ greetings = {
 			weight = 1000
 		}
 		trigger = {
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			NOR = {
 				has_civic = civic_machine_terminator
@@ -8304,7 +8110,7 @@ greetings = {
 			weight = 1000
 		}
 		trigger = {
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			OR = {
 				has_authority = auth_machine_intelligence
 				is_species_class = ROBOT
@@ -8328,7 +8134,7 @@ greetings = {
 			weight = 1000
 		}
 		trigger = {
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			NOR = {
 				has_civic = civic_machine_terminator
@@ -8349,7 +8155,7 @@ greetings = {
 			weight = 500
 		}
 		trigger = {
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			NOR = {
 				has_civic = civic_machine_terminator
@@ -8370,7 +8176,7 @@ greetings = {
 			weight = 100
 		}
 		trigger = {
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			NOR = {
 				has_civic = civic_machine_terminator
@@ -8391,7 +8197,7 @@ greetings = {
 			weight = 9000
 		}
 		trigger = {
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			exists = overlord
 			overlord = { is_same_value = FROM }
@@ -8414,7 +8220,7 @@ greetings = {
 			weight = 9000
 		}
 		trigger = {
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			exists = overlord
 			overlord = { is_same_value = FROM }
@@ -11318,7 +11124,7 @@ greetings = {
 		}
 		trigger = {
 			is_at_war_with = from
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			from = {
 				has_country_flag = synthetic_empire
@@ -11332,7 +11138,7 @@ greetings = {
 		}
 		trigger = {
 			is_at_war_with = from
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			from = {
 				has_country_flag = synthetic_empire
@@ -11346,7 +11152,7 @@ greetings = {
 		}
 		trigger = {
 			is_at_war_with = from
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			from = {
 				has_country_flag = synthetic_empire
@@ -11360,7 +11166,7 @@ greetings = {
 		}
 		trigger = {
 			is_at_war_with = from
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			has_authority = auth_machine_intelligence
 			from = {
 				has_country_flag = synthetic_empire
@@ -11534,8 +11340,7 @@ greetings = {
 				has_authority = auth_machine_intelligence
 				is_species_class = ROBOT
 				is_spiritualist = yes
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 				is_at_war_with = FROM
 				AND = {
 					exists = event_target:ratling_country
@@ -13113,13 +12918,12 @@ greetings = {
 	# Colossus Greetings
 	FRIENDLY_COLOSSUS_GREETING_01 = {
 		trigger = {
-			any_owned_ship = { is_ship_size = colossus }
+			any_controlled_ship = { is_ship_size = colossus }
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 			}
 			OR = {
 				is_friendly_to = FROM
@@ -13131,13 +12935,12 @@ greetings = {
 
 	FRIENDLY_COLOSSUS_GREETING_02 = {
 		trigger = {
-			any_owned_ship = { is_ship_size = colossus }
+			any_controlled_ship = { is_ship_size = colossus }
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 			}
 			OR = {
 				is_friendly_to = FROM
@@ -13150,15 +12953,14 @@ greetings = {
 	FRIENDLY_COLOSSUS_REACT_GREETING_01 = {
 		trigger = {
 			from = {
-				any_owned_ship = { is_ship_size = colossus }
+				any_controlled_ship = { is_ship_size = colossus }
 			}
 			NOR = {
-				any_owned_ship = { is_ship_size = colossus }
+				any_controlled_ship = { is_ship_size = colossus }
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 			}
 			OR = {
 				is_friendly_to = FROM
@@ -13171,15 +12973,14 @@ greetings = {
 	FRIENDLY_COLOSSUS_REACT_GREETING_02 = {
 		trigger = {
 			from = {
-				any_owned_ship = { is_ship_size = colossus }
+				any_controlled_ship = { is_ship_size = colossus }
 			}
 			NOR = {
-				any_owned_ship = { is_ship_size = colossus }
+				any_controlled_ship = { is_ship_size = colossus }
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 			}
 			OR = {
 				is_friendly_to = FROM
@@ -13191,13 +12992,12 @@ greetings = {
 
 	NEUTRAL_COLOSSUS_GREETING_01 = {
 		trigger = {
-			any_owned_ship = { is_ship_size = colossus }
+			any_controlled_ship = { is_ship_size = colossus }
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 			}
 			OR = {
 				is_neutral_to = FROM
@@ -13208,13 +13008,12 @@ greetings = {
 
 	NEUTRAL_COLOSSUS_GREETING_02 = {
 		trigger = {
-			any_owned_ship = { is_ship_size = colossus }
+			any_controlled_ship = { is_ship_size = colossus }
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 			}
 			OR = {
 				is_neutral_to = FROM
@@ -13226,15 +13025,14 @@ greetings = {
 	NEUTRAL_COLOSSUS_REACT_GREETING_01 = {
 		trigger = {
 			from = {
-				any_owned_ship = { is_ship_size = colossus }
+				any_controlled_ship = { is_ship_size = colossus }
 			}
 			NOR = {
-				any_owned_ship = { is_ship_size = colossus }
+				any_controlled_ship = { is_ship_size = colossus }
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 			}
 			OR = {
 				is_neutral_to = FROM
@@ -13246,15 +13044,14 @@ greetings = {
 	NEUTRAL_COLOSSUS_REACT_GREETING_02 = {
 		trigger = {
 			from = {
-				any_owned_ship = { is_ship_size = colossus }
+				any_controlled_ship = { is_ship_size = colossus }
 			}
 			NOR = {
-				any_owned_ship = { is_ship_size = colossus }
+				any_controlled_ship = { is_ship_size = colossus }
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 			}
 			OR = {
 				is_neutral_to = FROM
@@ -13265,13 +13062,12 @@ greetings = {
 
 	HOSTILE_COLOSSUS_GREETING_01 = {
 		trigger = {
-			any_owned_ship = { is_ship_size = colossus }
+			any_controlled_ship = { is_ship_size = colossus }
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 			}
 			OR = {
 				is_hostile_to = FROM
@@ -13283,13 +13079,12 @@ greetings = {
 
 	HOSTILE_COLOSSUS_GREETING_02 = {
 		trigger = {
-			any_owned_ship = { is_ship_size = colossus }
+			any_controlled_ship = { is_ship_size = colossus }
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 			}
 			OR = {
 				is_hostile_to = FROM
@@ -13302,15 +13097,14 @@ greetings = {
 	HOSTILE_COLOSSUS_REACT_GREETING_01 = {
 		trigger = {
 			from = {
-				any_owned_ship = { is_ship_size = colossus }
+				any_controlled_ship = { is_ship_size = colossus }
 			}
 			NOR = {
-				any_owned_ship = { is_ship_size = colossus }
+				any_controlled_ship = { is_ship_size = colossus }
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 			}
 			OR = {
 				is_hostile_to = FROM
@@ -13323,15 +13117,14 @@ greetings = {
 	HOSTILE_COLOSSUS_REACT_GREETING_02 = {
 		trigger = {
 			from = {
-				any_owned_ship = { is_ship_size = colossus }
+				any_controlled_ship = { is_ship_size = colossus }
 			}
 			NOR = {
-				any_owned_ship = { is_ship_size = colossus }
+				any_controlled_ship = { is_ship_size = colossus }
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 			}
 			OR = {
 				is_hostile_to = FROM
@@ -13343,92 +13136,81 @@ greetings = {
 
 	PACIFIST_COLOSSUS_GREETING_01 = {
 		trigger = {
-			any_owned_ship = { is_ship_size = colossus }
+			any_controlled_ship = { is_ship_size = colossus }
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
 			}
-			OR = {
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
-			}
+			is_pacifist = yes
 		}
 	}
 
 	SPIRITUALIST_COLOSSUS_GREETING_01 = {
 		trigger = {
-			any_owned_ship = { is_ship_size = colossus }
+			any_controlled_ship = { is_ship_size = colossus }
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
 			}
-			OR = {
-				has_ethic = ethic_fanatic_spiritualist
-				has_ethic = ethic_spiritualist
-			}
+			is_spiritualist = yes
 		}
 	}
 
 	MATERIALIST_COLOSSUS_GREETING_01 = {
 		trigger = {
-			any_owned_ship = { is_ship_size = colossus }
+			any_controlled_ship = { is_ship_size = colossus }
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
 				is_at_war_with = FROM
 			}
-			OR = {
-				has_ethic = ethic_fanatic_materialist
-				has_ethic = ethic_materialist
-			}
+			is_materialist = yes
 		}
 	}
 
 	PURIFIER_COLOSSUS_GREETING_01 = {
 		trigger = {
-			any_owned_ship = { is_ship_size = colossus }
+			any_controlled_ship = { is_ship_size = colossus }
 			has_valid_civic = civic_fanatic_purifiers
 		}
 	}
 
 	EXTERMINATOR_COLOSSUS_GREETING_01 = {
 		trigger = {
-			any_owned_ship = { is_ship_size = colossus }
+			any_controlled_ship = { is_ship_size = colossus }
 			has_government = gov_machine_terminator
 		}
 	}
 
 	HIVE_COLOSSUS_GREETING_01 = {
 		trigger = {
-			any_owned_ship = { is_ship_size = colossus }
+			any_controlled_ship = { is_ship_size = colossus }
 			has_authority = auth_hive_mind
 		}
 	}
 
 	WAR_COLOSSUS_GREETING_01 = {
 		trigger = {
-			any_owned_ship = { is_ship_size = colossus }
+			any_controlled_ship = { is_ship_size = colossus }
 			is_at_war_with = FROM
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 			}
 		}
 	}
 
 	WAR_COLOSSUS_GREETING_02 = {
 		trigger = {
-			any_owned_ship = { is_ship_size = colossus }
+			any_controlled_ship = { is_ship_size = colossus }
 			is_at_war_with = FROM
 			NOR = {
 				has_ethic = ethic_gestalt_consciousness
 				has_valid_civic = civic_fanatic_purifiers
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
+				is_pacifist = yes
 			}
 		}
 	}
@@ -14126,12 +13908,16 @@ greetings = {
 			weight = 100000
 		}
 		trigger = {
-			
-				is_fallen_empire = yes
+			OR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
 			is_overlord_to = FROM
 			FROM = {
 				has_origin = origin_scion
-				is_subject_type = scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
 			}
 		}
 	}
@@ -14140,12 +13926,16 @@ greetings = {
 			weight = 100000
 		}
 		trigger = {
-			
-				is_fallen_empire = yes
+			OR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
 			is_overlord_to = FROM
 			FROM = {
 				has_origin = origin_scion
-				is_subject_type = scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
 			}
 		}
 	}
@@ -14154,12 +13944,16 @@ greetings = {
 			weight = 100000
 		}
 		trigger = {
-			
-				is_fallen_empire = yes
+			OR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
 			is_overlord_to = FROM
 			FROM = {
 				has_origin = origin_scion
-				is_subject_type = scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
 			}
 		}
 	}
@@ -14168,12 +13962,16 @@ greetings = {
 			weight = 100000
 		}
 		trigger = {
-			
-				is_fallen_empire = yes
+			OR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
 			is_overlord_to = FROM
 			FROM = {
 				has_origin = origin_scion
-				is_subject_type = scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
 			}
 		}
 	}
@@ -14182,12 +13980,16 @@ greetings = {
 			weight = 100000
 		}
 		trigger = {
-			
-				is_fallen_empire = yes
+			OR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
 			is_overlord_to = FROM
 			FROM = {
 				has_origin = origin_scion
-				is_subject_type = scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
 			}
 		}
 	}
@@ -14196,12 +13998,16 @@ greetings = {
 			weight = 100000
 		}
 		trigger = {
-			
-				is_fallen_empire = yes
+			OR = {
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
 			is_overlord_to = FROM
 			FROM = {
 				has_origin = origin_scion
-				is_subject_type = scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
 			}
 		}
 	}
@@ -14213,17 +14019,23 @@ greetings = {
 		}
 		trigger = {
 			any_country = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				is_overlord_to = FROM
 				is_overlord_to = ROOT
 			}
 			FROM = {
 				has_origin = origin_scion
-				is_subject_type = scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
 			}
 			has_origin = origin_scion
-			is_subject_type = scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
 		}
 	}
 	SCION_TO_SCION_GREETING_02 = {
@@ -14232,17 +14044,23 @@ greetings = {
 		}
 		trigger = {
 			any_country = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				is_overlord_to = FROM
 				is_overlord_to = ROOT
 			}
 			FROM = {
 				has_origin = origin_scion
-				is_subject_type = scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
 			}
 			has_origin = origin_scion
-			is_subject_type = scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
 		}
 	}
 	SCION_TO_SCION_GREETING_03 = {
@@ -14251,17 +14069,23 @@ greetings = {
 		}
 		trigger = {
 			any_country = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				is_overlord_to = FROM
 				is_overlord_to = ROOT
 			}
 			FROM = {
 				has_origin = origin_scion
-				is_subject_type = scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
 			}
 			has_origin = origin_scion
-			is_subject_type = scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
 		}
 	}
 	SCION_TO_SCION_GREETING_04 = {
@@ -14270,17 +14094,23 @@ greetings = {
 		}
 		trigger = {
 			any_country = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				is_overlord_to = FROM
 				is_overlord_to = ROOT
 			}
 			FROM = {
 				has_origin = origin_scion
-				is_subject_type = scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
 			}
 			has_origin = origin_scion
-			is_subject_type = scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
 		}
 	}
 	SCION_TO_SCION_GREETING_05 = {
@@ -14289,17 +14119,23 @@ greetings = {
 		}
 		trigger = {
 			any_country = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				is_overlord_to = FROM
 				is_overlord_to = ROOT
 			}
 			FROM = {
 				has_origin = origin_scion
-				is_subject_type = scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
 			}
 			has_origin = origin_scion
-			is_subject_type = scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
 		}
 	}
 	SCION_TO_SCION_GREETING_06 = {
@@ -14308,17 +14144,23 @@ greetings = {
 		}
 		trigger = {
 			any_country = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				is_overlord_to = FROM
 				is_overlord_to = ROOT
 			}
 			FROM = {
 				has_origin = origin_scion
-				is_subject_type = scion
+				any_agreement = {
+					agreement_preset = preset_scion
+				}
 			}
 			has_origin = origin_scion
-			is_subject_type = scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
 		}
 	}
 
@@ -14329,13 +14171,17 @@ greetings = {
 		}
 		trigger = {
 			any_country = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				NOT = { is_overlord_to = FROM }
 				is_overlord_to = ROOT
 			}
 			has_origin = origin_scion
-			is_subject_type = scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
 			NOT = { is_at_war_with = FROM }
 		}
 	}
@@ -14345,13 +14191,17 @@ greetings = {
 		}
 		trigger = {
 			any_country = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				NOT = { is_overlord_to = FROM }
 				is_overlord_to = ROOT
 			}
 			has_origin = origin_scion
-			is_subject_type = scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
 			NOT = { is_at_war_with = FROM }
 		}
 	}
@@ -14361,13 +14211,17 @@ greetings = {
 		}
 		trigger = {
 			any_country = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				NOT = { is_overlord_to = FROM }
 				is_overlord_to = ROOT
 			}
 			has_origin = origin_scion
-			is_subject_type = scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
 			NOT = { is_at_war_with = FROM }
 		}
 	}
@@ -14377,13 +14231,17 @@ greetings = {
 		}
 		trigger = {
 			any_country = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				NOT = { is_overlord_to = FROM }
 				is_overlord_to = ROOT
 			}
 			has_origin = origin_scion
-			is_subject_type = scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
 			NOT = { is_at_war_with = FROM }
 		}
 	}
@@ -14393,13 +14251,17 @@ greetings = {
 		}
 		trigger = {
 			any_country = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				NOT = { is_overlord_to = FROM }
 				is_overlord_to = ROOT
 			}
 			has_origin = origin_scion
-			is_subject_type = scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
 			NOT = { is_at_war_with = FROM }
 		}
 	}
@@ -14409,13 +14271,17 @@ greetings = {
 		}
 		trigger = {
 			any_country = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				NOT = { is_overlord_to = FROM }
 				is_overlord_to = ROOT
 			}
 			has_origin = origin_scion
-			is_subject_type = scion
+			any_agreement = {
+				agreement_preset = preset_scion
+			}
 			NOT = { is_at_war_with = FROM }
 		}
 	}
@@ -17244,8 +17110,8 @@ greetings = {
 			weight = 500
 		}
 		trigger = {
-			FROM = { has_crisis_level = crisis_level_5 }
-			is_materialist = yes
+			has_crisis_level = crisis_level_5
+			FROM = { is_materialist = yes }
 		}
 	}
 	CRISIS_SPIRITUALIST_GREETING_01 = {
@@ -17253,8 +17119,8 @@ greetings = {
 			weight = 500
 		}
 		trigger = {
-			FROM = { has_crisis_level = crisis_level_5 }
-			is_spiritualist = yes
+			has_crisis_level = crisis_level_5
+			FROM = { is_spiritualist = yes }
 		}
 	}
 	CRISIS_PACIFIST_GREETING_01 = {
@@ -17262,9 +17128,8 @@ greetings = {
 			weight = 500
 		}
 		trigger = {
-			FROM = { has_crisis_level = crisis_level_5 }
-			is_pacifist = yes
-
+			has_crisis_level = crisis_level_5
+			FROM = { is_pacifist = yes }
 		}
 	}
 	CRISIS_MILITARIST_GREETING_01 = {
@@ -17272,8 +17137,8 @@ greetings = {
 			weight = 500
 		}
 		trigger = {
-			FROM = { has_crisis_level = crisis_level_5 }
-			is_militarist = yes
+			has_crisis_level = crisis_level_5
+			FROM = { is_militarist = yes }
 		}
 	}
 	CRISIS_AUTHORITARIAN_GREETING_01 = {
@@ -17281,8 +17146,8 @@ greetings = {
 			weight = 500
 		}
 		trigger = {
-			FROM = { has_crisis_level = crisis_level_5 }
-			is_authoritarian = yes
+			has_crisis_level = crisis_level_5
+			FROM = { is_authoritarian = yes }
 		}
 	}
 	CRISIS_EGALITARIAN_GREETING_01 = {
@@ -17290,8 +17155,8 @@ greetings = {
 			weight = 500
 		}
 		trigger = {
-			FROM = { has_crisis_level = crisis_level_5 }
-			is_egalitarian = yes
+			has_crisis_level = crisis_level_5
+			FROM = { is_egalitarian = yes }
 		}
 	}
 	CRISIS_XENOPHOBE_GREETING_01 = {
@@ -17299,8 +17164,8 @@ greetings = {
 			weight = 500
 		}
 		trigger = {
-			FROM = { has_crisis_level = crisis_level_5 }
-			is_xenophobe = yes
+			has_crisis_level = crisis_level_5
+			FROM = { is_xenophobe = yes }
 		}
 	}
 	CRISIS_XENOPHILE_GREETING_01 = {
@@ -17308,8 +17173,8 @@ greetings = {
 			weight = 500
 		}
 		trigger = {
-			FROM = { has_crisis_level = crisis_level_5 }
-			is_xenophile = yes
+			has_crisis_level = crisis_level_5
+			FROM = { is_xenophile = yes }
 		}
 	}
 	CRISIS_MACHINE_GREETING_01 = {
@@ -17317,8 +17182,8 @@ greetings = {
 			weight = 500
 		}
 		trigger = {
-			FROM = { has_crisis_level = crisis_level_5 }
-			has_authority = auth_machine_intelligence
+			has_crisis_level = crisis_level_5
+			FROM = { has_authority = auth_machine_intelligence }
 		}
 	}
 	CRISIS_HIVE_GREETING_01 = {
@@ -17326,8 +17191,8 @@ greetings = {
 			weight = 500
 		}
 		trigger = {
-			FROM = { has_crisis_level = crisis_level_5 }
-			has_authority = auth_hive_mind	
+			has_crisis_level = crisis_level_5
+			FROM = { has_authority = auth_hive_mind }
 		}
 	}
 
@@ -17342,10 +17207,7 @@ action_declare_war = {
 		#		NOT = { has_ai_personality = fanatic_purifiers }
 		#		NOT = {
 		#			is_same_species = FROM
-		#			OR = {
-		#				has_ethic = ethic_pacifist
-		#				has_ethic = ethic_fanatic_pacifist
-		#			}
+		#			is_pacifist = yes
 		#		}
 		#		OR = {
 		#			is_hostile_to = FROM
@@ -17361,10 +17223,7 @@ action_declare_war = {
 		#		NOT = { has_ai_personality = fanatic_purifiers }
 		#		NOT = {
 		#			is_same_species = FROM
-		#			OR = {
-		#				has_ethic = ethic_pacifist
-		#				has_ethic = ethic_fanatic_pacifist
-		#			}
+		#			is_pacifist = yes
 		#		}
 		#		OR = {
 		#			is_hostile_to = FROM
@@ -17380,10 +17239,7 @@ action_declare_war = {
 		#		NOT = { has_ai_personality = fanatic_purifiers }
 		#		NOT = {
 		#			is_same_species = FROM
-		#			OR = {
-		#				has_ethic = ethic_pacifist
-		#				has_ethic = ethic_fanatic_pacifist
-		#			}
+		#			is_pacifist = yes
 		#		}
 		#		OR = {
 		#			is_hostile_to = FROM
@@ -17399,10 +17255,7 @@ action_declare_war = {
 		#		NOT = { has_ai_personality = fanatic_purifiers }
 		#		NOT = {
 		#			is_same_species = FROM
-		#			OR = {
-		#				has_ethic = ethic_pacifist
-		#				has_ethic = ethic_fanatic_pacifist
-		#			}
+		#			is_pacifist = yes
 		#		}
 		#		OR = {
 		#			is_neutral_to = FROM
@@ -17417,10 +17270,7 @@ action_declare_war = {
 		#		NOT = { has_ai_personality = fanatic_purifiers }
 		#		NOT = {
 		#			is_same_species = FROM
-		#			OR = {
-		#				has_ethic = ethic_pacifist
-		#				has_ethic = ethic_fanatic_pacifist
-		#			}
+		#			is_pacifist = yes
 		#		}
 		#		OR = {
 		#			is_neutral_to = FROM
@@ -17435,10 +17285,7 @@ action_declare_war = {
 		#		NOT = { has_ai_personality = fanatic_purifiers }
 		#		NOT = {
 		#			is_same_species = FROM
-		#			OR = {
-		#				has_ethic = ethic_pacifist
-		#				has_ethic = ethic_fanatic_pacifist
-		#			}
+		#			is_pacifist = yes
 		#		}
 		#		OR = {
 		#			is_neutral_to = FROM
@@ -17453,10 +17300,7 @@ action_declare_war = {
 		#		NOT = { has_ai_personality = fanatic_purifiers }
 		#		NOT = {
 		#			is_same_species = FROM
-		#			OR = {
-		#				has_ethic = ethic_pacifist
-		#				has_ethic = ethic_fanatic_pacifist
-		#			}
+		#			is_pacifist = yes
 		#		}
 		#		OR = {
 		#			is_friendly_to = FROM
@@ -17472,10 +17316,7 @@ action_declare_war = {
 		#		NOT = { has_ai_personality = fanatic_purifiers }
 		#		NOT = {
 		#			is_same_species = FROM
-		#			OR = {
-		#				has_ethic = ethic_pacifist
-		#				has_ethic = ethic_fanatic_pacifist
-		#			}
+		#			is_pacifist = yes
 		#		}
 		#		OR = {
 		#			is_friendly_to = FROM
@@ -17491,10 +17332,7 @@ action_declare_war = {
 		#		NOT = { has_ai_personality = fanatic_purifiers }
 		#		NOT = {
 		#			is_same_species = FROM
-		#			OR = {
-		#				has_ethic = ethic_pacifist
-		#				has_ethic = ethic_fanatic_pacifist
-		#			}
+		#			is_pacifist = yes
 		#		}
 		#		OR = {
 		#			is_friendly_to = FROM
@@ -17508,10 +17346,7 @@ action_declare_war = {
 		#	trigger = {
 		#		NOT = { has_ethic = ethic_gestalt_consciousness }
 		#		NOT = { has_ai_personality = fanatic_purifiers }
-		#		OR = {
-		#			has_ethic = ethic_pacifist
-		#			has_ethic = ethic_fanatic_pacifist
-		#		}
+		#		is_pacifist = yes
 		#		OR = {
 		#			is_hostile_to = FROM
 		#			is_domineering_to = FROM
@@ -17524,10 +17359,7 @@ action_declare_war = {
 		#	trigger = {
 		#		NOT = { has_ethic = ethic_gestalt_consciousness }
 		#		NOT = { has_ai_personality = fanatic_purifiers }
-		#		OR = {
-		#			has_ethic = ethic_pacifist
-		#			has_ethic = ethic_fanatic_pacifist
-		#		}
+		#		is_pacifist = yes
 		#		OR = {
 		#			is_neutral_to = FROM
 		#			is_threatened_to = FROM
@@ -17539,10 +17371,7 @@ action_declare_war = {
 		#	trigger = {
 		#		NOT = { has_ethic = ethic_gestalt_consciousness }
 		#		NOT = { has_ai_personality = fanatic_purifiers }
-		#		OR = {
-		#			has_ethic = ethic_pacifist
-		#			has_ethic = ethic_fanatic_pacifist
-		#		}
+		#		is_pacifist = yes
 		#		OR = {
 		#			is_friendly_to = FROM
 		#			is_cordial_to = FROM
@@ -17695,9 +17524,9 @@ action_declare_war = {
 				FROM = {
 					has_ai_personality = honorbound_warriors
 					NOR = {
-							is_xenophobe = yes
-							is_megacorp = yes
-}
+						is_xenophobe = yes
+						is_megacorp = yes
+					}
 				}
 			}
 		}
@@ -17713,9 +17542,9 @@ action_declare_war = {
 						has_ai_personality = democratic_crusaders
 					}
 					NOR = {
-							is_xenophobe = yes
-							is_megacorp = yes
-}
+						is_xenophobe = yes
+						is_megacorp = yes
+					}
 				}
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 			}
@@ -17729,9 +17558,9 @@ action_declare_war = {
 				FROM = {
 					has_ai_personality = hegemonic_imperialists
 					NOR = {
-							is_xenophobe = yes
-							is_megacorp = yes
-}
+						is_xenophobe = yes
+						is_megacorp = yes
+					}
 				}
 			}
 		}
@@ -17755,9 +17584,9 @@ action_declare_war = {
 				FROM = {
 					has_ai_personality = erudite_explorers
 					NOR = {
-							is_xenophobe = yes
-							is_megacorp = yes
-}
+						is_xenophobe = yes
+						is_megacorp = yes
+					}
 				}
 			}
 		}
@@ -17984,9 +17813,9 @@ action_declare_war = {
 				FROM = {
 					has_ai_personality = migrating_flock
 					NOR = {
-							is_xenophobe = yes
-							is_megacorp = yes
-}
+						is_xenophobe = yes
+						is_megacorp = yes
+					}
 				}
 			}
 		}
@@ -17999,9 +17828,9 @@ action_declare_war = {
 				FROM = {
 					has_ai_personality = ruthless_capitalists
 					NOR = {
-							is_xenophobe = yes
-							is_megacorp = yes
-}
+						is_xenophobe = yes
+						is_megacorp = yes
+					}
 				}
 			}
 		}
@@ -18160,8 +17989,8 @@ action_declare_war = {
 		# Hostile 1
 		01_DOW_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
 					is_same_species = FROM
 					is_pacifist = yes
 					is_megacorp = yes
@@ -18176,8 +18005,8 @@ action_declare_war = {
 		# Hostile 2
 		02_DOW_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
 					is_same_species = FROM
 					is_pacifist = yes
 					is_megacorp = yes
@@ -18192,8 +18021,8 @@ action_declare_war = {
 		# Hostile 3
 		03_DOW_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
 					is_same_species = FROM
 					is_pacifist = yes
 					is_megacorp = yes
@@ -18208,8 +18037,8 @@ action_declare_war = {
 		# Neutral 1
 		04_DOW_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
 					is_same_species = FROM
 					is_pacifist = yes
 					is_megacorp = yes
@@ -18223,8 +18052,8 @@ action_declare_war = {
 		# Neutral 2
 		05_DOW_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
 					is_same_species = FROM
 					is_pacifist = yes
 					is_megacorp = yes
@@ -18238,8 +18067,8 @@ action_declare_war = {
 		# Neutral 3
 		06_DOW_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
 					is_same_species = FROM
 					is_pacifist = yes
 					is_megacorp = yes
@@ -18253,8 +18082,8 @@ action_declare_war = {
 		# Friendly 1
 		07_DOW_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
 					is_same_species = FROM
 					is_pacifist = yes
 					is_megacorp = yes
@@ -18269,8 +18098,8 @@ action_declare_war = {
 		# Friendly 2
 		08_DOW_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
 					is_same_species = FROM
 					is_pacifist = yes
 					is_megacorp = yes
@@ -18285,8 +18114,8 @@ action_declare_war = {
 		# Friendly 3
 		09_DOW_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = {
 					is_same_species = FROM
 					is_pacifist = yes
 					is_megacorp = yes
@@ -18304,8 +18133,8 @@ action_declare_war = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
-					is_same_species = FROM
 				}
+				NOT = { is_same_species = FROM }
 				is_pacifist = yes
 				OR = {
 					is_hostile_to = FROM
@@ -18320,8 +18149,8 @@ action_declare_war = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
-					is_same_species = FROM
 				}
+				NOT = { is_same_species = FROM }
 				is_pacifist = yes
 				OR = {
 					is_neutral_to = FROM
@@ -18335,8 +18164,8 @@ action_declare_war = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
-					is_same_species = FROM
 				}
+				NOT = { is_same_species = FROM }
 				is_pacifist = yes
 				OR = {
 					is_friendly_to = FROM
@@ -18865,10 +18694,7 @@ action_offer_peace = {
 		#		NOT = { has_ai_personality = fanatic_purifiers }
 		#		NOT = { is_same_species = FROM }
 		#		NOT = {
-		#			OR = {
-		#				has_ethic = ethic_pacifist
-		#				has_ethic = ethic_fanatic_pacifist
-		#			}
+		#			is_pacifist = yes
 		#		}
 		#	}
 		#}
@@ -18879,10 +18705,7 @@ action_offer_peace = {
 		#		NOT = { has_ai_personality = fanatic_purifiers }
 		#		NOT = { is_same_species = FROM }
 		#		NOT = {
-		#			OR = {
-		#				has_ethic = ethic_pacifist
-		#				has_ethic = ethic_fanatic_pacifist
-		#			}
+		#			is_pacifist = yes
 		#		}
 		#	}
 		#}
@@ -18893,10 +18716,7 @@ action_offer_peace = {
 		#		NOT = { has_ai_personality = fanatic_purifiers }
 		#		NOT = { is_same_species = FROM }
 		#		NOT = {
-		#			OR = {
-		#				has_ethic = ethic_pacifist
-		#				has_ethic = ethic_fanatic_pacifist
-		#			}
+		#			is_pacifist = yes
 		#		}
 		#	}
 		#}
@@ -18905,10 +18725,7 @@ action_offer_peace = {
 		#	trigger = {
 		#		NOT = { has_ethic = ethic_gestalt_consciousness }
 		#		NOT = { has_ai_personality = fanatic_purifiers }
-		#		OR = {
-		#			has_ethic = ethic_pacifist
-		#			has_ethic = ethic_fanatic_pacifist
-		#		}
+		#		is_pacifist = yes
 		#	}
 		#}
 		#HM_PEACE_SELECT = {
@@ -18984,12 +18801,10 @@ action_offer_peace = {
 		01_PEACE_PROPOSE = {
 			trigger = {
 				from = {
-					NOR = {
-						has_ethic = ethic_gestalt_consciousness
-						has_ai_personality = fanatic_purifiers
-						is_same_species_class = ROOT
-					}
-					is_megacorp = no
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					NOT = { has_ai_personality = fanatic_purifiers }
+					NOT = { is_same_species_class = ROOT }
+					NOT = { is_megacorp = yes }
 					has_war_goal = yes
 				}
 			}
@@ -18997,11 +18812,9 @@ action_offer_peace = {
 		02_PEACE_PROPOSE = {
 			trigger = {
 				from = {
-					NOR = {
-						has_ethic = ethic_gestalt_consciousness
-						has_ai_personality = fanatic_purifiers
-					}
-					is_megacorp = no
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					NOT = { has_ai_personality = fanatic_purifiers }
+					NOT = { is_megacorp = yes }
 					is_same_species_class = ROOT
 					has_war_goal = yes
 				}
@@ -19010,12 +18823,10 @@ action_offer_peace = {
 		03_PEACE_PROPOSE = {
 			trigger = {
 				from = {
-					NOR = {
-						has_ethic = ethic_gestalt_consciousness
-						has_ai_personality = fanatic_purifiers
-						is_same_species_class = ROOT
-					}
-					is_megacorp = no
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					NOT = { has_ai_personality = fanatic_purifiers }
+					NOT = { is_same_species_class = ROOT }
+					NOT = { is_megacorp = yes }
 					has_war_goal = no
 				}
 			}
@@ -19023,11 +18834,9 @@ action_offer_peace = {
 		04_PEACE_PROPOSE = {
 			trigger = {
 				from = {
-					NOR = {
-						has_ethic = ethic_gestalt_consciousness
-						has_ai_personality = fanatic_purifiers
-					}
-					is_megacorp = no
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					NOT = { has_ai_personality = fanatic_purifiers }
+					NOT = { is_megacorp = yes }
 					is_same_species_class = ROOT
 					has_war_goal = no
 				}
@@ -19197,10 +19006,8 @@ action_offer_peace = {
 		# Accepted 1
 		01_PEACE_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				NOT = {
 					is_same_species = FROM
 					OR = {
@@ -19213,10 +19020,8 @@ action_offer_peace = {
 		# Accepted 2
 		02_PEACE_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				NOT = {
 					is_same_species = FROM
 					OR = {
@@ -19229,10 +19034,8 @@ action_offer_peace = {
 		# Accepted 3
 		03_PEACE_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				NOT = {
 					is_same_species = FROM
 					OR = {
@@ -19245,25 +19048,23 @@ action_offer_peace = {
 		# Accepted Same Species
 		04_PEACE_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				is_same_species = FROM
-				NOR = {
+				NOT = {
+					OR = {
 						is_pacifist = yes
 						is_megacorp = yes
-}
+					}
+				}
 			}
 		}
 		# Accepted Pacifist
 		05_PEACE_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = {	is_megacorp = yes }
 				is_pacifist = yes
 			}
 		}
@@ -19401,21 +19202,17 @@ action_offer_peace = {
 		}
 		01_PEACE_REFUSE = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-					is_same_species_class = FROM
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_same_species_class = FROM }
+				NOT = { is_megacorp = yes }
 			}
 		}
 		02_PEACE_REFUSE = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				is_same_species_class = FROM
 			}
 		}
@@ -19556,7 +19353,7 @@ action_offer_peace = {
 			trigger = {
 				exists = overlord
 				overlord = { is_same_value = FROM }
-				is_megacorp = no
+				NOT = { is_megacorp = yes }
 			}
 			weight = {
 				weight = 1000
@@ -19569,7 +19366,7 @@ action_offer_peace = {
 					overlord = { is_same_value = ROOT }
 				}
 				NOT = { has_authority = auth_machine_intelligence }
-				is_megacorp = no
+				NOT = { is_megacorp = yes }
 			}
 			weight = {
 				weight = 1000
@@ -19776,11 +19573,9 @@ action_invite_to_federation = {
 	select = {
 		01_ITOA_SELECT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				FROM = {
 					has_federation = yes
 				}
@@ -19788,11 +19583,9 @@ action_invite_to_federation = {
 		}
 		02_ITOA_SELECT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				FROM = {
 					has_federation = no
 				}
@@ -20161,11 +19954,9 @@ action_invite_to_federation = {
 	refuse = {
 		01_ITOA_REFUSE = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 			}
 		}
 		HM_ITOA_REFUSE = {
@@ -20512,11 +20303,9 @@ action_ask_to_join_federation = {
 	select = {
 		01_ASK_JOIN_A_SELECT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_same_species_class = FROM
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { is_same_species_class = FROM }
+				NOT = { is_megacorp = yes }
 			}
 		}
 		02_ASK_JOIN_A_SELECT = {
@@ -21064,7 +20853,7 @@ action_leave_federation = {
 	}
 }
 
-action_demand_vassalization = {
+action_demand_subjugation = {
 	consider = {
 		02_CONSIDER = {
 			trigger = {
@@ -21211,11 +21000,11 @@ action_demand_vassalization = {
 		# Vassalization Select
 		01_DEMAND_VASS_SELECT = {
 			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
 					is_xenophobe = yes
-						is_megacorp = yes
+					is_megacorp = yes
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -21227,11 +21016,13 @@ action_demand_vassalization = {
 		# Vassalization Select (Hostile)
 		02_DEMAND_VASS_SELECT = {
 			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
 					is_xenophobe = yes
-						is_megacorp = yes
+					is_megacorp = yes
+				}
+				NOT = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
 					is_protective_to = FROM
@@ -21241,14 +21032,10 @@ action_demand_vassalization = {
 		# Vassalization Select Xenophobe
 		03_DEMAND_VASS_SELECT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
-				OR = {
-					is_xenophobe = yes
-				}
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
+				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -21259,14 +21046,10 @@ action_demand_vassalization = {
 		# Vassalization Select Hostile Xenophobe
 		04_DEMAND_VASS_SELECT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
-				OR = {
-					is_xenophobe = yes
-				}
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
+				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -21346,11 +21129,9 @@ action_demand_vassalization = {
 		01_DEMAND_VASS_PROPOSE = {
 			trigger = {
 				from = {
-					NOR = {
-						has_ethic = ethic_gestalt_consciousness
-						has_ai_personality = fanatic_purifiers
-					}
-					is_megacorp = no
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					NOT = { has_ai_personality = fanatic_purifiers }
+					NOT = { is_megacorp = yes }
 					OR = {
 						is_friendly_to = ROOT
 						is_cordial_to = ROOT
@@ -21362,11 +21143,9 @@ action_demand_vassalization = {
 		02_DEMAND_VASS_PROPOSE = {
 			trigger = {
 				from = {
-					NOR = {
-						has_ethic = ethic_gestalt_consciousness
-						has_ai_personality = fanatic_purifiers
-					}
-					is_megacorp = no
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					NOT = { has_ai_personality = fanatic_purifiers }
+					NOT = { is_megacorp = yes }
 					NOR = {
 						is_friendly_to = ROOT
 						is_cordial_to = ROOT
@@ -21443,10 +21222,10 @@ action_demand_vassalization = {
 		# Accept
 		01_DEMAND_VASS_ACCEPT = {
 			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOR = {
-					has_ethic = ethic_gestalt_consciousness
 					is_xenophobe = yes
-						is_megacorp = yes
+					is_megacorp = yes
 				}
 			}
 		}
@@ -21457,9 +21236,7 @@ action_demand_vassalization = {
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
-				OR = {
-					is_xenophobe = yes
-				}
+				is_xenophobe = yes
 			}
 		}
 		HM_DEMAND_VASS_ACCEPT = {
@@ -21540,11 +21317,11 @@ action_demand_vassalization = {
 		# Refuse
 		01_DEMAND_VASS_REFUSE = {
 			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
 					is_xenophobe = yes
-						is_megacorp = yes
+					is_megacorp = yes
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -21556,11 +21333,13 @@ action_demand_vassalization = {
 		# Refuse Hostile
 		02_DEMAND_VASS_REFUSE = {
 			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
 					is_xenophobe = yes
-						is_megacorp = yes
+					is_megacorp = yes
+				}
+				NOT = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
 					is_protective_to = FROM
@@ -21577,10 +21356,8 @@ action_demand_vassalization = {
 					}
 				}
 				NOT = { has_ai_personality = fanatic_purifiers }
-				is_megacorp = no
-				OR = {
-					is_xenophobe = yes
-				}
+				NOT = { is_megacorp = yes }
+				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -21598,10 +21375,8 @@ action_demand_vassalization = {
 					}
 				}
 				NOT = { has_ai_personality = fanatic_purifiers }
-				is_megacorp = no
-				OR = {
-					is_xenophobe = yes
-				}
+				NOT = { is_megacorp = yes }
+				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -21675,7 +21450,7 @@ action_demand_vassalization = {
 	}
 }
 
-action_ask_to_become_vassalized = {
+action_ask_to_become_subjugated = {
 	consider = {
 		02_CONSIDER = {
 			trigger = {
@@ -22087,961 +21862,6 @@ action_ask_to_become_vassalized = {
 	}
 }
 
-action_demand_protectorate = {
-	consider = {
-		02_CONSIDER = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_megacorp = yes
-				}
-				OR = {
-					is_autocracy = yes
-					#has_government = military_dictatorship
-					#has_government = martial_empire
-					#has_government = divine_mandate
-					#has_government = transcendent_empire
-					#has_government = despotic_hegemony
-					#has_government = ai_overlordship
-					#has_government = enlightened_monarchy
-					#has_government = irenic_monarchy
-					#has_government = despotic_empire
-					#has_government = star_empire
-				}
-			}
-		}
-		03_CONSIDER = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_megacorp = yes
-				}
-				OR = {
-					has_authority = auth_oligarchic
-					#has_government = military_junta
-					#has_government = ordered_stratocracy
-					#has_government = theocratic_oligarchy
-					#has_government = transcendent_oligarchy
-					#has_government = science_directorate
-					#has_government = illuminated_technocracy
-					#has_government = peaceful_bureaucracy
-					#has_government = irenic_protectorate
-					#has_government = plutocratic_oligarchy
-					#has_government = mega_corporation
-				}
-			}
-		}
-		04_CONSIDER = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_megacorp = yes
-				}
-				OR = {
-					is_democracy = yes
-					#has_government = military_republic
-					#has_government = martial_demarchy
-					#has_government = theocratic_republic
-					#has_government = transcendent_republic
-					#has_government = direct_democracy
-					#has_government = subconscious_consensus
-					#has_government = moral_democracy
-					#has_government = irenic_democracy
-					#has_government = indirect_democracy
-					#has_government = democratic_utopia
-				}
-			}
-		}
-		HM_CONSIDER_02 = {
-			trigger = {
-				OR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = devouring_swarm
-				}
-			}		}
-		HM_CONSIDER_03 = {
-			trigger = {
-				OR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = devouring_swarm
-				}
-			}
-		}
-		HM_CONSIDER_04 = {
-			trigger = {
-				OR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = devouring_swarm
-				}
-			}
-		}
-		S_CONSIDER_01 = {
-			weight = { weight = 50 }
-			trigger = {
-				OR = {
-					has_ai_personality = servitors
-					has_ai_personality = assimilators
-					has_ai_personality = exterminators
-				}
-			}
-		}
-		S_CONSIDER_02 = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = servitors
-			}
-		}
-		A_CONSIDER_01 = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = assimilators
-			}
-		}
-		MECH_CONSIDER_01 = {
-			trigger = {
-				has_authority = auth_machine_intelligence
-			}
-		}
-		ORG_TO_MECH_CONSIDER_01 = {
-			weight = { weight = 50 }
-			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
-				FROM = {
-					OR = {
-						has_authority = auth_machine_intelligence
-						is_species_class = ROBOT
-					}
-				}
-			}
-		}
-		# Ketlings
-		KET_CONSIDER_01 = {
-			weight = { weight = 100000 }
-			trigger = {
-				exists = event_target:ratling_country
-				is_same_empire = event_target:ratling_country
-			}
-		}
-		# Corporate
-		CORP_CONSIDER_01 = {
-			trigger = {
-				is_megacorp = yes
-			}
-		}
-	}
-	select = {
-		# Protectoration Select
-		01_DEMAND_PROT_SELECT = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_xenophobe = yes
-						is_megacorp = yes
-				}
-				OR = {
-					is_friendly_to = FROM
-					is_cordial_to = FROM
-					is_protective_to = FROM
-				}
-			}
-		}
-		# Protectoration Select (Hostile)
-		02_DEMAND_PROT_SELECT = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_xenophobe = yes
-						is_megacorp = yes
-					is_friendly_to = FROM
-					is_cordial_to = FROM
-					is_protective_to = FROM
-				}
-			}
-		}
-		# Protectoration Select Xenophobe
-		03_DEMAND_PROT_SELECT = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_megacorp = yes
-				}
-				OR = {
-					is_xenophobe = yes
-				}
-				OR = {
-					is_friendly_to = FROM
-					is_cordial_to = FROM
-					is_protective_to = FROM
-				}
-			}
-		}
-		# Protectoration Select Hostile Xenophobe
-		04_DEMAND_PROT_SELECT = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_megacorp = yes
-				}
-				OR = {
-					is_xenophobe = yes
-				}
-				NOT = {
-					is_friendly_to = FROM
-					is_cordial_to = FROM
-					is_protective_to = FROM
-				}
-			}
-		}
-		HM_DEMAND_PROT_SELECT = {
-			trigger = {
-				OR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = devouring_swarm
-				}
-			}
-		}
-		S_DEMAND_PROT_SELECT = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = servitors
-			}
-		}
-		A_DEMAND_PROT_SELECT = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = assimilators
-			}
-		}
-		E_DEMAND_PROT_SELECT = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = exterminators
-			}
-		}
-		# Gen Machine Empire
-		MECH_DEMAND_PROT_SELECT = {
-			trigger = {
-				has_authority = auth_machine_intelligence
-			}
-		}
-		# Organics to Machines
-		ORG_TO_MECH_DEMAND_PROT_SELECT_01 = {
-			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
-				FROM = {
-					OR = {
-						has_authority = auth_machine_intelligence
-						is_species_class = ROBOT
-					}
-				}
-			}
-			weight = {
-				weight = 20
-			}
-		}
-		# Ketlings
-		KET_DEMAND_PROT_SELECT_01 = {
-			weight = { weight = 100000 }
-			trigger = {
-				exists = event_target:ratling_country
-				is_same_empire = event_target:ratling_country
-			}
-		}
-		# Corporate
-		CORP_DEMAND_PROT_SELECT_01 = {
-			trigger = {
-				is_megacorp = yes
-			}
-		}
-	}
-	propose = {
-		01_DEMAND_PROT_PROPOSE = {
-			trigger = {
-				from = {
-					NOR = {
-						has_ethic = ethic_gestalt_consciousness
-						is_megacorp = yes
-					}
-				}
-			}
-		}
-		HM_DEMAND_PROT_PROPOSE = {
-			trigger = {
-				from = {
-					OR = {
-						has_ai_personality = hive_mind
-						has_ai_personality = devouring_swarm
-					}
-				}
-			}
-		}
-		S_DEMAND_PROT_PROPOSE = {
-			weight = { weight = 50 }
-			trigger = {
-				from = { has_ai_personality = servitors }
-			}
-		}
-		A_DEMAND_PROT_PROPOSE = {
-			weight = { weight = 50 }
-			trigger = {
-				from = { has_ai_personality = assimilators }
-			}
-		}
-		E_DEMAND_PROT_PROPOSE = {
-			weight = { weight = 50 }
-			trigger = {
-				from = { has_ai_personality = exterminators }
-			}
-		}
-		# Gen Machine Empire
-		MECH_DEMAND_PROT_PROPOSE = {
-			trigger = {
-				from = {
-					has_authority = auth_machine_intelligence
-				}
-			}
-		}
-		# Organics to Machines
-		ORG_TO_MECH_DEMAND_PROT_PROPOSE_01 = {
-			trigger = {
-				has_authority = auth_machine_intelligence
-				FROM = {
-					NOT = { has_authority = auth_machine_intelligence }
-				}
-			}
-			weight = {
-				weight = 20
-			}
-		}
-		# Ketlings
-		KET_DEMAND_PROT_PROPOSE_01 = {
-			weight = { weight = 100000 }
-			trigger = {
-				exists = event_target:ratling_country
-				FROM = {
-					is_same_empire = event_target:ratling_country
-				}
-			}
-		}
-		# Corporate
-		CORP_DEMAND_PROT_PROPOSE_01 = {
-			trigger = {
-				FROM = { is_megacorp = yes }
-			}
-		}
-	}
-	accept = {
-		# Accept
-		01_DEMAND_PROT_ACCEPT = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_xenophobe = yes
-						is_megacorp = yes
-				}
-			}
-		}
-		# Accept Xenophobe
-		02_DEMAND_PROT_ACCEPT = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_megacorp = yes
-				}
-				OR = {
-					is_xenophobe = yes
-				}
-			}
-		}
-		HM_DEMAND_PROT_ACCEPT = {
-			trigger = {
-				OR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = devouring_swarm
-				}
-			}
-		}
-		S_DEMAND_PROT_ACCEPT = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = servitors
-			}
-		}
-		A_DEMAND_PROT_ACCEPT = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = assimilators
-			}
-		}
-		E_DEMAND_PROT_ACCEPT = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = exterminators
-			}
-		}
-		# Gen Machine Empire
-		MECH_DEMAND_PROT_ACCEPT = {
-			trigger = {
-				has_authority = auth_machine_intelligence
-			}
-		}
-		# Organics to Machines
-		ORG_TO_MECH_DEMAND_PROT_ACCEPT_01 = {
-			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
-				FROM = {
-					has_authority = auth_machine_intelligence
-					is_species_class = ROBOT
-				}
-			}
-			weight = {
-				weight = 20
-			}
-		}
-		# Ketlings
-		KET_DEMAND_PROT_ACCEPT_01 = {
-			weight = { weight = 100000 }
-			trigger = {
-				exists = event_target:ratling_country
-				is_same_empire = event_target:ratling_country
-			}
-		}
-		# Corporate
-		CORP_DEMAND_PROT_ACCEPT_01 = {
-			trigger = {
-				is_megacorp = yes
-			}
-		}
-	}
-	refuse = {
-		# Refuse
-		01_DEMAND_PROT_REFUSE = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_xenophobe = yes
-						is_megacorp = yes
-				}
-				OR = {
-					is_friendly_to = FROM
-					is_cordial_to = FROM
-					is_protective_to = FROM
-				}
-			}
-		}
-		# Refuse Hostile
-		02_DEMAND_PROT_REFUSE = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_xenophobe = yes
-						is_megacorp = yes
-					is_friendly_to = FROM
-					is_cordial_to = FROM
-					is_protective_to = FROM
-				}
-			}
-		}
-		# Refuse Xenophobe
-		03_DEMAND_PROT_REFUSE = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_megacorp = yes
-				}
-				OR = {
-					is_xenophobe = yes
-				}
-				OR = {
-					is_friendly_to = FROM
-					is_cordial_to = FROM
-					is_protective_to = FROM
-				}
-			}
-		}
-		# Refuse Xenophobe Hostile
-		04_DEMAND_PROT_REFUSE = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_megacorp = yes
-				}
-				OR = {
-					is_xenophobe = yes
-				}
-				NOT = {
-					is_friendly_to = FROM
-					is_cordial_to = FROM
-					is_protective_to = FROM
-				}
-			}
-		}
-		HM_DEMAND_PROT_REFUSE = {
-			trigger = {
-				OR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = devouring_swarm
-				}
-			}
-		}
-		S_DEMAND_PROT_REFUSE = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = servitors
-			}
-		}
-		A_DEMAND_PROT_REFUSE = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = assimilators
-			}
-		}
-		E_DEMAND_PROT_REFUSE = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = exterminators
-			}
-		}
-		# Gen Machine Empire
-		MECH_DEMAND_PROT_REFUSE = {
-			trigger = {
-				has_authority = auth_machine_intelligence
-			}
-		}
-		# Organics to Machines
-		ORG_TO_MECH_DEMAND_PROT_REFUSE_01 = {
-			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
-				FROM = {
-					has_authority = auth_machine_intelligence
-				}
-			}
-			weight = {
-				weight = 20
-			}
-		}
-		# Ketlings
-		KET_DEMAND_PROT_REFUSE_01 = {
-			weight = { weight = 100000 }
-			trigger = {
-				exists = event_target:ratling_country
-				is_same_empire = event_target:ratling_country
-			}
-		}
-		# Corporate
-		CORP_DEMAND_PROT_REFUSE_01 = {
-			trigger = {
-				is_megacorp = yes
-			}
-		}
-	}
-}
-
-action_ask_to_become_protectorate = {
-	consider = {
-		02_CONSIDER = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_megacorp = yes
-				}
-				OR = {
-					is_autocracy = yes
-					#has_government = military_dictatorship
-					#has_government = martial_empire
-					#has_government = divine_mandate
-					#has_government = transcendent_empire
-					#has_government = despotic_hegemony
-					#has_government = ai_overlordship
-					#has_government = enlightened_monarchy
-					#has_government = irenic_monarchy
-					#has_government = despotic_empire
-					#has_government = star_empire
-				}
-			}
-		}
-		03_CONSIDER = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_megacorp = yes
-				}
-				OR = {
-					has_authority = auth_oligarchic
-					#has_government = military_junta
-					#has_government = ordered_stratocracy
-					#has_government = theocratic_oligarchy
-					#has_government = transcendent_oligarchy
-					#has_government = science_directorate
-					#has_government = illuminated_technocracy
-					#has_government = peaceful_bureaucracy
-					#has_government = irenic_protectorate
-					#has_government = plutocratic_oligarchy
-					#has_government = mega_corporation
-				}
-			}
-		}
-		04_CONSIDER = {
-			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					is_megacorp = yes
-				}
-				OR = {
-					is_democracy = yes
-					#has_government = military_republic
-					#has_government = martial_demarchy
-					#has_government = theocratic_republic
-					#has_government = transcendent_republic
-					#has_government = direct_democracy
-					#has_government = subconscious_consensus
-					#has_government = moral_democracy
-					#has_government = irenic_democracy
-					#has_government = indirect_democracy
-					#has_government = democratic_utopia
-				}
-			}
-		}
-		HM_CONSIDER_02 = {
-			trigger = {
-				OR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = devouring_swarm
-				}
-			}
-		}
-		HM_CONSIDER_03 = {
-			trigger = {
-				OR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = devouring_swarm
-				}
-			}
-		}
-		HM_CONSIDER_04 = {
-			trigger = {
-				OR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = devouring_swarm
-				}
-			}
-		}
-		S_CONSIDER_01 = {
-			weight = { weight = 50 }
-			trigger = {
-				OR = {
-					has_ai_personality = servitors
-					has_ai_personality = assimilators
-					has_ai_personality = exterminators
-				}
-			}
-		}
-		S_CONSIDER_02 = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = servitors
-			}
-		}
-		A_CONSIDER_01 = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = assimilators
-			}
-		}
-		MECH_CONSIDER_01 = {
-			trigger = {
-				has_authority = auth_machine_intelligence
-			}
-		}
-		ORG_TO_MECH_CONSIDER_01 = {
-			weight = { weight = 50 }
-			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
-				FROM = {
-					OR = {
-						has_authority = auth_machine_intelligence
-						is_species_class = ROBOT
-					}
-				}
-			}
-		}
-		# Ketlings
-		KET_CONSIDER_01 = {
-			weight = { weight = 100000 }
-			trigger = {
-				exists = event_target:ratling_country
-				is_same_empire = event_target:ratling_country
-			}
-		}
-		# Corporate
-		CORP_CONSIDER_01 = {
-			trigger = {
-				is_megacorp = yes
-			}
-		}
-	}
-	select = {
-		01_ASK_FOR_PROT_SELECT = {
-			trigger = {
-				NOT = {
-					has_ethic = ethic_gestalt_consciousness
-				}
-			}
-		}
-		HM_ASK_FOR_PROT_SELECT = {
-			trigger = {
-				OR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = devouring_swarm
-				}
-			}
-		}
-		S_ASK_FOR_PROT_SELECT = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = servitors
-			}
-		}
-		A_ASK_FOR_PROT_SELECT = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = assimilators
-			}
-		}
-		E_ASK_FOR_PROT_SELECT = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = exterminators
-			}
-		}
-		# Gen Machine Empire
-		MECH_ASK_FOR_PROT_SELECT = {
-			trigger = {
-				has_authority = auth_machine_intelligence
-			}
-		}
-		# Organics to Machines
-		ORG_TO_MECH_ASK_FOR_PROT_SELECT_01 = {
-			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
-				FROM = {
-					has_authority = auth_machine_intelligence
-				}
-			}
-			weight = {
-				weight = 20
-			}
-		}
-		# Ketlings
-		KET_ASK_FOR_PROT_SELECT_01 = {
-			weight = { weight = 100000 }
-			trigger = {
-				exists = event_target:ratling_country
-				is_same_empire = event_target:ratling_country
-			}
-		}
-	}
-	propose = {
-		01_ASK_FOR_PROT_PROPOSE = {
-			trigger = {
-				from = {
-					NOR = {
-						has_ethic = ethic_gestalt_consciousness
-						is_megacorp = yes
-					}
-				}
-			}
-		}
-		HM_ASK_FOR_PROT_PROPOSE = {
-			trigger = {
-				from = {
-					OR = {
-						has_ai_personality = hive_mind
-						has_ai_personality = devouring_swarm
-					}
-				}
-			}
-		}
-		S_ASK_FOR_PROT_PROPOSE = {
-			weight = { weight = 50 }
-			trigger = {
-				from = { has_ai_personality = servitors }
-			}
-		}
-		A_ASK_FOR_PROT_PROPOSE = {
-			weight = { weight = 50 }
-			trigger = {
-				from = { has_ai_personality = assimilators }
-			}
-		}
-		E_ASK_FOR_PROT_PROPOSE = {
-			weight = { weight = 50 }
-			trigger = {
-				from = { has_ai_personality = exterminators }
-			}
-		}
-		# Gen Machine Empire
-		MECH_ASK_FOR_PROT_PROPOSE = {
-			trigger = {
-				from = {
-					has_authority = auth_machine_intelligence
-				}
-			}
-		}
-		# Organics to Machines
-		ORG_TO_MECH_ASK_FOR_PROT_PROPOSE_01 = {
-			trigger = {
-				has_authority = auth_machine_intelligence
-				FROM = {
-					NOT = { has_authority = auth_machine_intelligence }
-				}
-			}
-			weight = {
-				weight = 20
-			}
-		}
-		# Ketlings
-		KET_ASK_FOR_PROT_PROPOSE_01 = {
-			weight = { weight = 100000 }
-			trigger = {
-				exists = event_target:ratling_country
-				FROM = {
-					is_same_empire = event_target:ratling_country
-				}
-			}
-		}
-		# Corporate
-		CORP_ASK_FOR_PROT_PROPOSE_01 = {
-			trigger = {
-				FROM = { is_megacorp = yes }
-			}
-		}
-	}
-	accept = {
-		01_ASK_FOR_PROT_ACCEPT = {
-			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = devouring_swarm
-				}
-			}
-		}
-		HM_ASK_FOR_PROT_ACCEPT = {
-			trigger = {
-				OR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = devouring_swarm
-				}
-			}
-		}
-		S_ASK_FOR_PROT_ACCEPT = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = servitors
-			}
-		}
-		A_ASK_FOR_PROT_ACCEPT = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = assimilators
-			}
-		}
-		E_ASK_FOR_PROT_ACCEPT = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = exterminators
-			}
-		}
-		# Gen Machine Empire
-		MECH_ASK_FOR_PROT_ACCEPT = {
-			trigger = {
-				has_authority = auth_machine_intelligence
-			}
-		}
-		# Organics to Machines
-		ORG_TO_MECH_ASK_FOR_PROT_ACCEPT_01 = {
-			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
-				FROM = {
-					has_authority = auth_machine_intelligence
-				}
-			}
-			weight = {
-				weight = 20
-			}
-		}
-		# Ketlings
-		KET_ASK_FOR_PROT_ACCEPT_01 = {
-			weight = { weight = 100000 }
-			trigger = {
-				exists = event_target:ratling_country
-				is_same_empire = event_target:ratling_country
-			}
-		}
-	}
-	refuse = {
-		01_ASK_FOR_PROT_REFUSE = {
-			trigger = {
-				NOT = {
-					has_ethic = ethic_gestalt_consciousness
-				}
-			}
-		}
-		HM_ASK_FOR_PROT_REFUSE = {
-			trigger = {
-				OR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = devouring_swarm
-				}
-			}
-		}
-		S_ASK_FOR_PROT_REFUSE = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = servitors
-			}
-		}
-		A_ASK_FOR_PROT_REFUSE = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = assimilators
-			}
-		}
-		E_ASK_FOR_PROT_REFUSE = {
-			weight = { weight = 50 }
-			trigger = {
-				has_ai_personality = exterminators
-			}
-		}
-		# Gen Machine Empire
-		MECH_ASK_FOR_PROT_REFUSE = {
-			trigger = {
-				has_authority = auth_machine_intelligence
-			}
-		}
-		# Organics to Machines
-		ORG_TO_MECH_ASK_FOR_PROT_REFUSE_01 = {
-			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
-				FROM = {
-					has_authority = auth_machine_intelligence
-				}
-			}
-			weight = {
-				weight = 20
-			}
-		}
-		# Ketlings
-		KET_ASK_FOR_PROT_REFUSE_01 = {
-			weight = { weight = 100000 }
-			trigger = {
-				exists = event_target:ratling_country
-				is_same_empire = event_target:ratling_country
-			}
-		}
-	}
-}
-
 action_demand_subsidiary = {
 	consider = {
 		FALLEN_MACHINE_EMPIRE_CONSIDER = {
@@ -23131,7 +21951,7 @@ action_demand_subsidiary = {
 		# NON-CORP
 		DEMAND_SUBS_SELECT_01 = {
 			trigger = {
-				FROM = { is_megacorp = no }
+				FROM = { NOT = { is_megacorp = yes } }
 			}
 		}
 	}
@@ -23157,7 +21977,7 @@ action_demand_subsidiary = {
 		# NON-CORP
 		DEMAND_SUBS_ACCEPT_01 = {
 			trigger = {
-				is_megacorp = no
+				NOT = { is_megacorp = yes }
 			}
 		}
 	}
@@ -23171,7 +21991,7 @@ action_demand_subsidiary = {
 		# NON-CORP
 		DEMAND_SUBS_REFUSE_01 = {
 			trigger = {
-				is_megacorp = no
+				NOT = { is_megacorp = yes }
 			}
 		}
 	}
@@ -23203,7 +22023,7 @@ action_ask_to_become_subsidiary = {
 		# NON-CORP
 		ASK_FOR_SUBS_PROPOSE_01 = {
 			trigger = {
-				is_megacorp = no
+				NOT = { is_megacorp = yes }
 			}
 		}
 	}
@@ -23232,11 +22052,9 @@ action_release_subject = {
 	select = {
 		01_RELEASE_SUBJECT_SELECT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 			}
 		}
 		HM_RELEASE_SUBJECT_SELECT = {
@@ -23402,11 +22220,9 @@ action_release_subject = {
 	accept = {
 		01_RELEASE_SUBJECT_ACCEPT = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 			}
 		}
 		HM_RELEASE_SUBJECT_ACCEPT = {
@@ -23548,11 +22364,9 @@ action_ask_to_be_released_subject = {
 		01_ASK_TO_BE_RELEASED_SUBJECT_PROPOSE = {
 			trigger = {
 				from = {
-					NOR = {
-						has_ethic = ethic_gestalt_consciousness
-						has_ai_personality = fanatic_purifiers
-					}
-					is_megacorp = no
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					NOT = { has_ai_personality = fanatic_purifiers }
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -23580,7 +22394,7 @@ action_ask_to_be_released_subject = {
 		S_ASK_TO_BE_RELEASED_SUBJECT_PROPOSE = {
 			weight = { weight = 50 }
 			trigger = {
-				from = {  has_ai_personality = servitors }
+				from = { has_ai_personality = servitors }
 			}
 		}
 		A_ASK_TO_BE_RELEASED_SUBJECT_PROPOSE = {
@@ -24055,6 +22869,8 @@ action_offer_trade_deal = {
 					is_country_type = fallen_empire
 					has_authority = auth_machine_intelligence
 					is_megacorp = yes
+				}
+				NOR = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
 					is_unfriendly_to = FROM
@@ -24068,6 +22884,8 @@ action_offer_trade_deal = {
 					is_country_type = fallen_empire
 					has_authority = auth_machine_intelligence
 					is_megacorp = yes
+				}
+				NOR = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
 					is_unfriendly_to = FROM
@@ -24107,8 +22925,10 @@ action_offer_trade_deal = {
 		01_OFFER_TRADE_DEAL_GIFT_ACCEPT_FE = {
 			only_for_gift = yes
 			trigger = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				NOT = { has_authority = auth_machine_intelligence }
 			}
 		}
@@ -24151,8 +22971,10 @@ action_offer_trade_deal = {
 		01_OFFER_TRADE_DEAL_ACCEPT_FE = {
 			only_for_trade = yes
 			trigger = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				NOT = { has_authority = auth_machine_intelligence }
 			}
 		}
@@ -24167,7 +22989,8 @@ action_offer_trade_deal = {
 			only_for_trade = yes
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24177,7 +23000,8 @@ action_offer_trade_deal = {
 			only_for_trade = yes
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24187,7 +23011,8 @@ action_offer_trade_deal = {
 			only_for_trade = yes
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24197,7 +23022,8 @@ action_offer_trade_deal = {
 			only_for_trade = yes
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24207,7 +23033,8 @@ action_offer_trade_deal = {
 			only_for_trade = yes
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24217,7 +23044,8 @@ action_offer_trade_deal = {
 			only_for_trade = yes
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24227,7 +23055,8 @@ action_offer_trade_deal = {
 			only_for_trade = yes
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24237,7 +23066,8 @@ action_offer_trade_deal = {
 			only_for_trade = yes
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24320,22 +23150,27 @@ action_offer_trade_deal = {
 	refuse = {
 		01_OFFER_TRADE_DEAL_REFUSE_FE = {
 			trigger = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				NOT = { has_authority = auth_machine_intelligence }
 			}
 		}
 		01_OFFER_TRADE_DEAL_REFUSE_MACHINE_FE = {
 			trigger = {
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 				has_authority = auth_machine_intelligence
 			}
 		}
 		01_OFFER_TRADE_DEAL_REFUSE = {
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24344,7 +23179,8 @@ action_offer_trade_deal = {
 		02_OFFER_TRADE_DEAL_REFUSE = {
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24353,7 +23189,8 @@ action_offer_trade_deal = {
 		03_OFFER_TRADE_DEAL_REFUSE = {
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24362,7 +23199,8 @@ action_offer_trade_deal = {
 		04_OFFER_TRADE_DEAL_REFUSE = {
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24371,7 +23209,8 @@ action_offer_trade_deal = {
 		05_OFFER_TRADE_DEAL_REFUSE = {
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24380,7 +23219,8 @@ action_offer_trade_deal = {
 		06_OFFER_TRADE_DEAL_REFUSE = {
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24389,7 +23229,8 @@ action_offer_trade_deal = {
 		07_OFFER_TRADE_DEAL_REFUSE = {
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -24398,7 +23239,8 @@ action_offer_trade_deal = {
 		08_OFFER_TRADE_DEAL_REFUSE = {
 			trigger = {
 				NOR = {
-					is_fallen_empire = yes
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
 				}
@@ -25241,11 +24083,9 @@ action_make_rival = {
 	accept = {
 		01_MAKE_RIVAL_ACCEPT_FRIENDLY = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -25255,11 +24095,9 @@ action_make_rival = {
 		}
 		02_MAKE_RIVAL_ACCEPT_FRIENDLY = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -25269,11 +24107,9 @@ action_make_rival = {
 		}
 		03_MAKE_RIVAL_ACCEPT_FRIENDLY = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -25283,11 +24119,9 @@ action_make_rival = {
 		}
 		04_MAKE_RIVAL_ACCEPT_FRIENDLY = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -25398,11 +24232,9 @@ action_make_rival = {
 		}
 		01_MAKE_RIVAL_ACCEPT_NEUTRAL = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
@@ -25411,11 +24243,9 @@ action_make_rival = {
 		}
 		02_MAKE_RIVAL_ACCEPT_NEUTRAL = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
@@ -25424,11 +24254,9 @@ action_make_rival = {
 		}
 		03_MAKE_RIVAL_ACCEPT_NEUTRAL = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
@@ -25437,11 +24265,9 @@ action_make_rival = {
 		}
 		04_MAKE_RIVAL_ACCEPT_NEUTRAL = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
@@ -25459,11 +24285,9 @@ action_make_rival = {
 		}
 		01_MAKE_RIVAL_ACCEPT_HOSTILE = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				OR = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
@@ -25473,11 +24297,9 @@ action_make_rival = {
 		}
 		02_MAKE_RIVAL_ACCEPT_HOSTILE = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				OR = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
@@ -25487,11 +24309,9 @@ action_make_rival = {
 		}
 		03_MAKE_RIVAL_ACCEPT_HOSTILE = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				OR = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
@@ -25501,11 +24321,9 @@ action_make_rival = {
 		}
 		04_MAKE_RIVAL_ACCEPT_HOSTILE = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality = fanatic_purifiers
-				}
-				is_megacorp = no
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
+				NOT = { is_megacorp = yes }
 				OR = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
@@ -28963,7 +27781,7 @@ action_form_migration_pact = {
 						NOT = { is_same_empire = event_target:ratling_country }
 					}
 				}
-				is_megacorp = no
+				NOT = { is_megacorp = yes }
 			}
 		}
 	}
@@ -28991,7 +27809,7 @@ action_form_migration_pact = {
 						NOT = { is_same_empire = event_target:ratling_country }
 					}
 				}
-				is_megacorp = no
+				NOT = { is_megacorp = yes }
 			}
 		}
 	}
@@ -29005,7 +27823,7 @@ action_form_migration_pact = {
 						NOT = { is_same_empire = event_target:ratling_country }
 					}
 				}
-				is_megacorp = no
+				NOT = { is_megacorp = yes }
 			}
 		}
 	}
@@ -29092,7 +27910,7 @@ action_break_migration_pact = {
 						NOT = { is_same_empire = event_target:ratling_country }
 					}
 				}
-				is_megacorp = no
+				NOT = { is_megacorp = yes }
 			}
 		}
 	}
@@ -29120,7 +27938,7 @@ action_break_migration_pact = {
 						NOT = { is_same_empire = event_target:ratling_country }
 					}
 				}
-				is_megacorp = no
+				NOT = { is_megacorp = yes }
 			}
 		}
 	}
@@ -32014,7 +30832,7 @@ action_insult = {
 						}
 						NOT = { is_same_species = ROOT }
 						NOT = { is_subspecies = ROOT }
-						is_megacorp = no
+						NOT = { is_megacorp = yes }
 					}
 					has_authority = auth_machine_intelligence
 					is_species_class = ROBOT
@@ -32034,7 +30852,7 @@ action_insult = {
 						}
 						NOT = { is_same_species = ROOT }
 						NOT = { is_subspecies = ROOT }
-						is_megacorp = no
+						NOT = { is_megacorp = yes }
 					}
 				}
 			}
@@ -32051,7 +30869,7 @@ action_insult = {
 						}
 						NOT = { is_same_species = ROOT }
 						NOT = { is_subspecies = ROOT }
-						is_megacorp = no
+						NOT = { is_megacorp = yes }
 					}
 				}
 			}
@@ -32068,7 +30886,7 @@ action_insult = {
 						}
 						NOT = { is_same_species = ROOT }
 						NOT = { is_subspecies = ROOT }
-						is_megacorp = no
+						NOT = { is_megacorp = yes }
 					}
 				}
 			}
@@ -32085,7 +30903,7 @@ action_insult = {
 						}
 						NOT = { is_same_species = ROOT }
 						NOT = { is_subspecies = ROOT }
-						is_megacorp = no
+						NOT = { is_megacorp = yes }
 					}
 				}
 			}
@@ -32102,7 +30920,7 @@ action_insult = {
 						}
 						NOT = { is_same_species = ROOT }
 						NOT = { is_subspecies = ROOT }
-						is_megacorp = no
+						NOT = { is_megacorp = yes }
 					}
 				}
 			}
@@ -32116,11 +30934,9 @@ action_insult = {
 			trigger = {
 				FROM = {
 					is_xenophobe = yes
-					NOR = {
-						is_same_species = ROOT
-						is_subspecies = ROOT
-					}
-					is_megacorp = no
+					NOT = { is_same_species = ROOT }
+					NOT = { is_subspecies = ROOT }
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32131,7 +30947,7 @@ action_insult = {
 				FROM = {
 					is_xenophobe = yes
 					NOT = { is_same_species_class = ROOT }
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32147,10 +30963,8 @@ action_insult = {
 				}
 				FROM = {
 					is_xenophobe = yes
-					NOR = {
-						is_same_species = ROOT
-						is_subspecies = ROOT
-					}
+					NOT = { is_same_species = ROOT }
+					NOT = { is_subspecies = ROOT }
 				}
 			}
 		}
@@ -32166,10 +30980,8 @@ action_insult = {
 				}
 				FROM = {
 					is_xenophobe = yes
-					NOR = {
-						is_same_species = ROOT
-						is_subspecies = ROOT
-					}
+					NOT = { is_same_species = ROOT }
+					NOT = { is_subspecies = ROOT }
 				}
 			}
 		}
@@ -32238,9 +31050,7 @@ action_insult = {
 					}
 				}
 				is_militarist = yes
-				FROM = {
-					is_pacifist = yes
-				}
+				FROM = { is_pacifist = yes }
 			}
 		}
 	}
@@ -32254,9 +31064,7 @@ action_insult = {
 					}
 				}
 				is_militarist = yes
-				FROM = {
-					is_pacifist = yes
-				}
+				FROM = { is_pacifist = yes }
 			}
 		}
 	}
@@ -32270,9 +31078,7 @@ action_insult = {
 					}
 				}
 				is_militarist = yes
-				FROM = {
-					is_pacifist = yes
-				}
+				FROM = { is_pacifist = yes }
 			}
 		}
 	}
@@ -32286,9 +31092,7 @@ action_insult = {
 					}
 				}
 				is_militarist = yes
-				FROM = {
-					is_pacifist = yes
-				}
+				FROM = { is_pacifist = yes }
 			}
 		}
 	}
@@ -32303,9 +31107,7 @@ action_insult = {
 					}
 				}
 				is_pacifist = yes
-				FROM = {
-					is_militarist = yes
-				}
+				FROM = { is_militarist = yes }
 			}
 		}
 	}
@@ -32320,9 +31122,7 @@ action_insult = {
 				}
 				is_pacifist = yes
 				NOT = { is_species_class = ROBOT }
-				FROM = {
-					is_militarist = yes
-				}
+				FROM = { is_militarist = yes }
 			}
 		}
 	}
@@ -32336,9 +31136,7 @@ action_insult = {
 					}
 				}
 				is_pacifist = yes
-				FROM = {
-					is_militarist = yes
-				}
+				FROM = { is_militarist = yes }
 			}
 		}
 	}
@@ -32352,9 +31150,7 @@ action_insult = {
 					}
 				}
 				is_pacifist = yes
-				FROM = {
-					is_militarist = yes
-				}
+				FROM = { is_militarist = yes }
 			}
 		}
 	}
@@ -32369,9 +31165,7 @@ action_insult = {
 					}
 				}
 				is_spiritualist = yes
-				FROM = {
-					is_materialist = yes
-				}
+				FROM = { is_materialist = yes }
 			}
 		}
 	}
@@ -32385,9 +31179,7 @@ action_insult = {
 					}
 				}
 				is_spiritualist = yes
-				FROM = {
-					is_materialist = yes
-				}
+				FROM = { is_materialist = yes }
 			}
 		}
 	}
@@ -32401,9 +31193,7 @@ action_insult = {
 					}
 				}
 				is_spiritualist = yes
-				FROM = {
-					is_materialist = yes
-				}
+				FROM = { is_materialist = yes }
 			}
 		}
 	}
@@ -32417,9 +31207,7 @@ action_insult = {
 					}
 				}
 				is_spiritualist = yes
-				FROM = {
-					is_materialist = yes
-				}
+				FROM = { is_materialist = yes }
 			}
 		}
 	}
@@ -32434,9 +31222,7 @@ action_insult = {
 					}
 				}
 				is_materialist = yes
-				FROM = {
-					is_spiritualist = yes
-				}
+				FROM = { is_spiritualist = yes }
 			}
 		}
 	}
@@ -32450,9 +31236,7 @@ action_insult = {
 					}
 				}
 				is_materialist = yes
-				FROM = {
-					is_spiritualist = yes
-				}
+				FROM = { is_spiritualist = yes }
 			}
 		}
 	}
@@ -32466,9 +31250,7 @@ action_insult = {
 					}
 				}
 				is_materialist = yes
-				FROM = {
-					is_spiritualist = yes
-				}
+				FROM = { is_spiritualist = yes }
 			}
 		}
 	}
@@ -32482,9 +31264,7 @@ action_insult = {
 					}
 				}
 				is_materialist = yes
-				FROM = {
-					is_spiritualist = yes
-				}
+				FROM = { is_spiritualist = yes }
 			}
 		}
 	}
@@ -32495,7 +31275,7 @@ action_insult = {
 				is_egalitarian = yes
 				FROM = {
 					is_authoritarian = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32506,7 +31286,7 @@ action_insult = {
 				is_egalitarian = yes
 				FROM = {
 					is_authoritarian = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32517,7 +31297,7 @@ action_insult = {
 				is_egalitarian = yes
 				FROM = {
 					is_authoritarian = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32528,7 +31308,7 @@ action_insult = {
 				is_egalitarian = yes
 				FROM = {
 					is_authoritarian = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32540,7 +31320,7 @@ action_insult = {
 				is_authoritarian = yes
 				FROM = {
 					is_egalitarian = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32551,7 +31331,7 @@ action_insult = {
 				is_authoritarian = yes
 				FROM = {
 					is_egalitarian = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32562,7 +31342,7 @@ action_insult = {
 				is_authoritarian = yes
 				FROM = {
 					is_egalitarian = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32573,7 +31353,7 @@ action_insult = {
 				is_authoritarian = yes
 				FROM = {
 					is_egalitarian = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32585,7 +31365,7 @@ action_insult = {
 				is_xenophile = yes
 				FROM = {
 					is_xenophobe = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32596,7 +31376,7 @@ action_insult = {
 				is_xenophile = yes
 				FROM = {
 					is_xenophobe = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32607,7 +31387,7 @@ action_insult = {
 				is_xenophile = yes
 				FROM = {
 					is_xenophobe = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32618,7 +31398,7 @@ action_insult = {
 				is_xenophile = yes
 				FROM = {
 					is_xenophobe = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32627,12 +31407,10 @@ action_insult = {
 	propose = {
 		01_INSULT_PROPOSE_PHI_PHO = {
 			trigger = {
-				OR = {
-					is_xenophobe = yes
-				}
+				is_xenophobe = yes
 				FROM = {
 					is_xenophile = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32640,12 +31418,10 @@ action_insult = {
 	propose = {
 		02_INSULT_PROPOSE_PHI_PHO = {
 			trigger = {
-				OR = {
-					is_xenophobe = yes
-				}
+				is_xenophobe = yes
 				FROM = {
 					is_xenophile = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32653,12 +31429,10 @@ action_insult = {
 	propose = {
 		03_INSULT_PROPOSE_PHI_PHO = {
 			trigger = {
-				OR = {
-					is_xenophobe = yes
-				}
+				is_xenophobe = yes
 				FROM = {
 					is_xenophile = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -32666,12 +31440,10 @@ action_insult = {
 	propose = {
 		04_INSULT_PROPOSE_PHI_PHO = {
 			trigger = {
-				OR = {
-					is_xenophobe = yes
-				}
+				is_xenophobe = yes
 				FROM = {
 					is_xenophile = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -33110,7 +31882,7 @@ action_insult = {
 				is_megacorp = yes
 				FROM = {
 					is_egalitarian = yes
-					is_megacorp = no
+					NOT = { is_megacorp = yes }
 				}
 			}
 		}
@@ -33362,22 +32134,28 @@ action_insult = {
 		01_INSULT_ACCEPT_FE = {
 			trigger = {
 				is_fallen_machine_empire = no
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 			}
 		}
 		02_INSULT_ACCEPT_FE = {
 			trigger = {
 				is_fallen_machine_empire = no
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 			}
 		}
 		03_INSULT_ACCEPT_FE = {
 			trigger = {
 				is_fallen_machine_empire = no
-				
-					is_fallen_empire = yes
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
 			}
 		}
 		01_INSULT_ACCEPT_FALLEN_MACHINE_EMPIRE_BERSERK = {
@@ -33409,7 +32187,10 @@ action_insult = {
 				is_fallen_machine_empire = yes
 				NOT = { is_berserker_to = FROM }
 				from = {
-					is_synthetic_empire = no
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_country_flag = synthetic_empire
+					}
 				 }
 			}
 		}
@@ -33418,7 +32199,10 @@ action_insult = {
 				is_fallen_machine_empire = yes
 				NOT = { is_berserker_to = FROM }
 				from = {
-					is_synthetic_empire = yes
+					OR = {
+						has_authority = auth_machine_intelligence
+						has_country_flag = synthetic_empire
+					}
 				 }
 			}
 		}
@@ -33427,7 +32211,10 @@ action_insult = {
 				is_fallen_machine_empire = yes
 				NOT = { is_berserker_to = FROM }
 				from = {
-					is_synthetic_empire = yes
+					OR = {
+						has_authority = auth_machine_intelligence
+						has_country_flag = synthetic_empire
+					}
 				 }
 			}
 		}
@@ -33436,7 +32223,10 @@ action_insult = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
 					is_megacorp = yes
-					is_fallen_empire = yes
+				}
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
 				}
 				OR = {
 					is_neutral_to = FROM
@@ -34562,10 +33352,8 @@ action_embassy = {
 	select = {
 		01_EMBASSY_FRIENDLY = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -34575,10 +33363,8 @@ action_embassy = {
 		}
 		02_EMBASSY_FRIENDLY = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -34588,10 +33374,8 @@ action_embassy = {
 		}
 		03_EMBASSY_FRIENDLY = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -34601,10 +33385,8 @@ action_embassy = {
 		}
 		04_EMBASSY_FRIENDLY = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -34614,10 +33396,8 @@ action_embassy = {
 		}
 		01_EMBASSY_NEUTRAL = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
@@ -34626,10 +33406,8 @@ action_embassy = {
 		}
 		02_EMBASSY_NEUTRAL = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
@@ -34638,10 +33416,8 @@ action_embassy = {
 		}
 		03_EMBASSY_NEUTRAL = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
@@ -34650,10 +33426,8 @@ action_embassy = {
 		}
 		04_EMBASSY_NEUTRAL = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
@@ -34662,10 +33436,8 @@ action_embassy = {
 		}
 		01_EMBASSY_HOSTILE = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
@@ -34675,10 +33447,8 @@ action_embassy = {
 		}
 		02_EMBASSY_HOSTILE = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
@@ -34688,10 +33458,8 @@ action_embassy = {
 		}
 		03_EMBASSY_HOSTILE = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
@@ -34701,10 +33469,8 @@ action_embassy = {
 		}
 		04_EMBASSY_HOSTILE = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
@@ -34773,10 +33539,8 @@ action_embassy = {
 	accept = {
 		01_EMBASSY_ACCEPT_FRIENDLY = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -34786,10 +33550,8 @@ action_embassy = {
 		}
 		02_EMBASSY_ACCEPT_FRIENDLY = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -34799,10 +33561,8 @@ action_embassy = {
 		}
 		03_EMBASSY_ACCEPT_FRIENDLY = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -34812,10 +33572,8 @@ action_embassy = {
 		}
 		04_EMBASSY_ACCEPT_FRIENDLY = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -34825,10 +33583,8 @@ action_embassy = {
 		}
 		01_EMBASSY_ACCEPT_NEUTRAL = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
@@ -34837,10 +33593,8 @@ action_embassy = {
 		}
 		02_EMBASSY_ACCEPT_NEUTRAL = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
@@ -34849,10 +33603,8 @@ action_embassy = {
 		}
 		03_EMBASSY_ACCEPT_NEUTRAL = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
@@ -34861,10 +33613,8 @@ action_embassy = {
 		}
 		04_EMBASSY_ACCEPT_NEUTRAL = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
@@ -34873,10 +33623,8 @@ action_embassy = {
 		}
 		01_EMBASSY_ACCEPT_HOSTILE = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
@@ -34886,10 +33634,8 @@ action_embassy = {
 		}
 		02_EMBASSY_ACCEPT_HOSTILE = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
@@ -34899,10 +33645,8 @@ action_embassy = {
 		}
 		03_EMBASSY_ACCEPT_HOSTILE = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
@@ -34912,10 +33656,8 @@ action_embassy = {
 		}
 		04_EMBASSY_ACCEPT_HOSTILE = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				OR = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
@@ -35161,10 +33903,8 @@ action_recall_embassy = {
 	propose = {
 		01_RECALL_EMBASSY_PROPOSE = {
 			trigger = {
-				NOR = {
-					has_ai_personality = hive_mind
-					has_ai_personality = fanatic_purifiers
-				}
+				NOT = { has_ai_personality = hive_mind }
+				NOT = { has_ai_personality = fanatic_purifiers }
 			}
 		}
 		HM_RECALL_EMBASSY_PROPOSE = {
@@ -35343,3 +34083,1850 @@ action_recall_embassy = {
 	}
 }
 
+action_negotiate_existing_agreement = {
+	propose = {
+		# Generic
+		01_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT_FRIENDLY = {
+			trigger = {
+				FROM = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_friendly_to = ROOT
+						is_cordial_to = ROOT
+						is_protective_to = ROOT
+					}
+				}
+			}
+		}
+		02_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT_FRIENDLY = {
+			trigger = {
+				FROM = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_friendly_to = ROOT
+						is_cordial_to = ROOT
+						is_protective_to = ROOT
+					}
+				}
+			}
+		}
+		01_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT_NEUTRAL = {
+			trigger = {
+				FROM = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_neutral_to = ROOT
+						is_threatened_to = ROOT
+					}
+				}
+			}
+		}
+		02_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT_NEUTRAL = {
+			trigger = {
+				FROM = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_neutral_to = ROOT
+						is_threatened_to = ROOT
+					}
+				}
+			}
+		}
+		01_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT_UNFRIENDLY = {
+			trigger = {
+				FROM = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_hostile_to = ROOT
+						is_unfriendly_to = ROOT
+						is_domineering_to = ROOT
+					}
+				}
+			}
+		}
+		02_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT_UNFRIENDLY = {
+			trigger = {
+				FROM = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_hostile_to = ROOT
+						is_unfriendly_to = ROOT
+						is_domineering_to = ROOT
+					}
+				}
+			}
+		}
+		01_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT_FALLBACK = {
+			trigger = {
+				FROM = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+						is_friendly_to = ROOT
+						is_cordial_to = ROOT
+						is_protective_to = ROOT
+						is_hostile_to = ROOT
+						is_unfriendly_to = ROOT
+						is_domineering_to = ROOT
+					}
+				}
+			}
+		}
+		# Specific
+		01_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT_AUTHORITARIAN = {
+			trigger = {
+				FROM = { 
+					is_authoritarian = yes 
+					NOT = { has_ai_personality = fanatic_purifiers }
+				}
+			}
+		}
+		01_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT_EGALITARIAN = {
+			trigger = {
+				FROM = { 
+					is_egalitarian = yes 
+					NOT = { has_ai_personality = fanatic_purifiers }
+				}
+			}
+		}
+		01_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT_SPIRITUALIST = {
+			trigger = {
+				FROM = { 
+					is_spiritualist = yes 
+					NOT = { has_ai_personality = fanatic_purifiers }
+				}
+			}
+		}
+		02_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT_SPIRITUALIST = {
+			trigger = {
+				FROM = { 
+					is_spiritualist = yes 
+					NOT = { has_ai_personality = fanatic_purifiers }
+				}
+			}
+		}
+		01_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT_MATERIALIST = {
+			trigger = {
+				FROM = { 
+					is_materialist = yes 
+					NOT = { has_ai_personality = fanatic_purifiers }
+				}
+			}
+		}
+		CORP_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT = {
+			trigger = {
+				FROM = { is_megacorp = yes }
+			}
+		}
+		MI_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT = {
+			trigger = {
+				FROM = { has_authority = auth_machine_intelligence }
+			}
+		}
+		HM_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT = {
+			trigger = {
+				FROM = { has_ai_personality = hive_mind }
+			}
+		}
+		FP_PROPOSE_NEGOTIATE_EXISTING_AGREEMENT = {
+			trigger = {
+				FROM = { has_ai_personality = fanatic_purifiers }
+			}
+		}
+	}
+	accept = {
+		# Generic
+		01_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT_FRIENDLY = {
+			trigger = {
+				ROOT = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_friendly_to = FROM
+						is_cordial_to = FROM
+						is_protective_to = FROM
+					}
+				}
+			}
+		}
+		02_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT_FRIENDLY = {
+			trigger = {
+				ROOT = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_friendly_to = FROM
+						is_cordial_to = FROM
+						is_protective_to = FROM
+					}
+				}
+			}
+		}
+		01_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT_NEUTRAL = {
+			trigger = {
+				ROOT = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_neutral_to = FROM
+						is_threatened_to = FROM
+					}
+				}
+			}
+		}
+		02_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT_NEUTRAL = {
+			trigger = {
+				ROOT = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_neutral_to = FROM
+						is_threatened_to = FROM
+					}
+				}
+			}
+		}
+		01_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT_UNFRIENDLY = {
+			trigger = {
+				ROOT = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_hostile_to = FROM
+						is_unfriendly_to = FROM
+						is_domineering_to = FROM
+					}
+				}
+			}
+		}
+		02_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT_UNFRIENDLY = {
+			trigger = {
+				ROOT = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_hostile_to = FROM
+						is_unfriendly_to = FROM
+						is_domineering_to = FROM
+					}
+				}
+			}
+		}
+		01_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT_FALLBACK = {
+			trigger = {
+				ROOT = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+						is_friendly_to = FROM
+						is_cordial_to = FROM
+						is_protective_to = FROM
+						is_hostile_to = FROM
+						is_unfriendly_to = FROM
+						is_domineering_to = FROM
+					}
+				}
+			}
+		}
+		# Specific
+		01_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT_AUTHORITARIAN = {
+			trigger = {
+				ROOT = { 
+					is_authoritarian = yes 
+					NOT = { has_ai_personality = fanatic_purifiers }
+				}
+			}
+		}
+		01_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT_EGALITARIAN = {
+			trigger = {
+				ROOT = { 
+					is_egalitarian = yes 
+					NOT = { has_ai_personality = fanatic_purifiers }
+				}
+			}
+		}
+		01_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT_SPIRITUALIST = {
+			trigger = {
+				ROOT = { 
+					is_spiritualist = yes 
+					NOT = { has_ai_personality = fanatic_purifiers }
+				}
+			}
+		}
+		02_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT_SPIRITUALIST = {
+			trigger = {
+				ROOT = { 
+					is_spiritualist = yes 
+					NOT = { has_ai_personality = fanatic_purifiers }
+				}
+			}
+		}
+		01_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT_MATERIALIST = {
+			trigger = {
+				ROOT = { 
+					is_materialist = yes 
+					NOT = { has_ai_personality = fanatic_purifiers }
+				}
+			}
+		}
+		CORP_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT = {
+			trigger = {
+				FROM = { is_megacorp = yes }
+			}
+		}
+		MI_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT = {
+			trigger = {
+				FROM = { has_authority = auth_machine_intelligence }
+			}
+		}
+		HM_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT = {
+			trigger = {
+				FROM = { has_ai_personality = hive_mind }
+			}
+		}
+		FP_ACCEPT_NEGOTIATE_EXISTING_AGREEMENT = {
+			trigger = {
+				FROM = { has_ai_personality = fanatic_purifiers }
+			}
+		}
+	}
+	refuse = {
+		# Generic
+		01_DECLINE_NEGOTIATE_EXISTING_AGREEMENT_FRIENDLY = {
+			trigger = {
+				ROOT = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_friendly_to = FROM
+						is_cordial_to = FROM
+						is_protective_to = FROM
+					}
+				}
+			}
+		}
+		02_DECLINE_NEGOTIATE_EXISTING_AGREEMENT_FRIENDLY = {
+			trigger = {
+				ROOT = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_friendly_to = FROM
+						is_cordial_to = FROM
+						is_protective_to = FROM
+					}
+				}
+			}
+		}
+		01_DECLINE_NEGOTIATE_EXISTING_AGREEMENT_NEUTRAL = {
+			trigger = {
+				ROOT = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_neutral_to = FROM
+						is_threatened_to = FROM
+					}
+				}
+			}
+		}
+		02_DECLINE_NEGOTIATE_EXISTING_AGREEMENT_NEUTRAL = {
+			trigger = {
+				ROOT = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_neutral_to = FROM
+						is_threatened_to = FROM
+					}
+				}
+			}
+		}
+		01_DECLINE_NEGOTIATE_EXISTING_AGREEMENT_UNFRIENDLY = {
+			trigger = {
+				ROOT = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_hostile_to = FROM
+						is_unfriendly_to = FROM
+						is_domineering_to = FROM
+					}
+				}
+			}
+		}
+		02_DECLINE_NEGOTIATE_EXISTING_AGREEMENT_UNFRIENDLY = {
+			trigger = {
+				ROOT = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+					OR = {
+						is_hostile_to = FROM
+						is_unfriendly_to = FROM
+						is_domineering_to = FROM
+					}
+				}
+			}
+		}
+		01_DECLINE_NEGOTIATE_EXISTING_AGREEMENT_FALLBACK = {
+			trigger = {
+				ROOT = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+						is_friendly_to = FROM
+						is_cordial_to = FROM
+						is_protective_to = FROM
+						is_hostile_to = FROM
+						is_unfriendly_to = FROM
+						is_domineering_to = FROM
+					}
+				}
+			}
+		}
+		# Specific
+		01_DECLINE_NEGOTIATE_EXISTING_AGREEMENT_AUTHORITARIAN = {
+			trigger = {
+				ROOT = { 
+					is_authoritarian = yes 
+					NOT = { has_ai_personality = fanatic_purifiers }
+				}
+			}
+		}
+		01_DECLINE_NEGOTIATE_EXISTING_AGREEMENT_EGALITARIAN = {
+			trigger = {
+				ROOT = { 
+					is_egalitarian = yes 
+					NOT = { has_ai_personality = fanatic_purifiers }
+				}
+			}
+		}
+		01_DECLINE_NEGOTIATE_EXISTING_AGREEMENT_SPIRITUALIST = {
+			trigger = {
+				ROOT = { 
+					is_spiritualist = yes 
+					NOT = { has_ai_personality = fanatic_purifiers }
+				}
+			}
+		}
+		01_DECLINE_NEGOTIATE_EXISTING_AGREEMENT_MATERIALIST = {
+			trigger = {
+				ROOT = { 
+					is_materialist = yes 
+					NOT = { has_ai_personality = fanatic_purifiers }
+				}
+			}
+		}
+		CORP_DECLINE_NEGOTIATE_EXISTING_AGREEMENT = {
+			trigger = {
+				FROM = { is_megacorp = yes }
+			}
+		}
+		MI_DECLINE_NEGOTIATE_EXISTING_AGREEMENT = {
+			trigger = {
+				FROM = { has_authority = auth_machine_intelligence }
+			}
+		}
+		HM_DECLINE_NEGOTIATE_EXISTING_AGREEMENT = {
+			trigger = {
+				FROM = { has_ai_personality = hive_mind }
+			}
+		}
+		FP_DECLINE_NEGOTIATE_EXISTING_AGREEMENT = {
+			trigger = {
+				FROM = { has_ai_personality = fanatic_purifiers }
+			}
+		}
+	}
+}
+
+action_pledge_secret_fealty = {
+	select = {
+		01_SELECT_PLEDGE_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		02_SELECT_PLEDGE_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		01_SELECT_PLEDGE_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_SELECT_PLEDGE_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		01_SELECT_PLEDGE_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_SELECT_PLEDGE_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		CORP_SELECT_PLEDGE_SECRET_FEALTY = {
+			trigger = {
+				is_megacorp = yes
+			}
+		}
+		MI_SELECT_PLEDGE_SECRET_FEALTY = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+		HM_SELECT_PLEDGE_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = hive_mind
+			}
+		}
+		FP_SELECT_PLEDGE_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = fanatic_purifiers
+			}
+		}
+	}
+	propose = {
+		01_PROPOSE_PLEDGE_SECRET_FEALTY = {
+			trigger = {
+				from = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						is_megacorp = yes
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+				}
+			}
+		}
+		CORP_PROPOSE_PLEDGE_SECRET_FEALTY = {
+			trigger = {
+				from = { is_megacorp = yes }
+			}
+		}
+		MI_PROPOSE_PLEDGE_SECRET_FEALTY = {
+			trigger = {
+				from = { has_authority = auth_machine_intelligence }
+			}
+		}
+		HM_PROPOSE_PLEDGE_SECRET_FEALTY = {
+			trigger = {
+				from = { has_ai_personality = hive_mind }
+			}
+		}
+		FP_PROPOSE_PLEDGE_SECRET_FEALTY = {
+			trigger = {
+				from = { has_ai_personality = fanatic_purifiers }
+			}
+		}
+	}
+	accept = {
+		01_ACCEPT_PLEDGE_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		02_ACCEPT_PLEDGE_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		01_ACCEPT_PLEDGE_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_ACCEPT_PLEDGE_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		01_ACCEPT_PLEDGE_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_ACCEPT_PLEDGE_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		CORP_ACCEPT_PLEDGE_SECRET_FEALTY = {
+			trigger = {
+				is_megacorp = yes
+			}
+		}
+		MI_ACCEPT_PLEDGE_SECRET_FEALTY = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+		HM_ACCEPT_PLEDGE_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = hive_mind
+			}
+		}
+		FP_ACCEPT_PLEDGE_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = fanatic_purifiers
+			}
+		}
+	}
+}
+
+action_propose_secret_fealty = {
+	select = {
+		01_SELECT_PROPOSE_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		02_SELECT_PROPOSE_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		01_SELECT_PROPOSE_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_SELECT_PROPOSE_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		01_SELECT_PROPOSE_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_SELECT_PROPOSE_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		CORP_SELECT_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				is_megacorp = yes
+			}
+		}
+		MI_SELECT_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+		HM_SELECT_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = hive_mind
+			}
+		}
+		FP_SELECT_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = fanatic_purifiers
+			}
+		}
+	}
+	propose = {
+		01_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				from = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						is_megacorp = yes
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+				}
+			}
+		}
+		CORP_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				from = { is_megacorp = yes }
+			}
+		}
+		MI_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				from = { has_authority = auth_machine_intelligence }
+			}
+		}
+		HM_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				from = { has_ai_personality = hive_mind }
+			}
+		}
+		FP_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				from = { has_ai_personality = fanatic_purifiers }
+			}
+		}
+	}
+	accept = {
+		01_ACCEPT_PROPOSE_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		02_ACCEPT_PROPOSE_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		01_ACCEPT_PROPOSE_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_ACCEPT_PROPOSE_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		01_ACCEPT_PROPOSE_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_ACCEPT_PROPOSE_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		CORP_ACCEPT_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				is_megacorp = yes
+			}
+		}
+		MI_ACCEPT_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+		HM_ACCEPT_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = hive_mind
+			}
+		}
+		FP_ACCEPT_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = fanatic_purifiers
+			}
+		}
+	}
+	reject = {
+		01_REJECT_PROPOSE_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		02_REJECT_PROPOSE_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		01_REJECT_PROPOSE_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_REJECT_PROPOSE_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		01_REJECT_PROPOSE_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_REJECT_PROPOSE_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		CORP_REJECT_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				is_megacorp = yes
+			}
+		}
+		MI_REJECT_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+		HM_REJECT_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = hive_mind
+			}
+		}
+		FP_REJECT_PROPOSE_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = fanatic_purifiers
+			}
+		}
+	}
+}
+
+action_propose_to_break_secret_fealty = {
+	select = {
+		01_SELECT_REVOKE_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		02_SELECT_REVOKE_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		01_SELECT_REVOKE_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_SELECT_REVOKE_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		01_SELECT_REVOKE_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_SELECT_REVOKE_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		CORP_SELECT_REVOKE_SECRET_FEALTY = {
+			trigger = {
+				is_megacorp = yes
+			}
+		}
+		MI_SELECT_REVOKE_SECRET_FEALTY = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+		HM_SELECT_REVOKE_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = hive_mind
+			}
+		}
+		FP_SELECT_REVOKE_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = fanatic_purifiers
+			}
+		}
+	}
+	propose = {
+		01_PROPOSE_REVOKE_SECRET_FEALTY = {
+			trigger = {
+				from = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						is_megacorp = yes
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+				}
+			}
+		}
+		CORP_PROPOSE_REVOKE_SECRET_FEALTY = {
+			trigger = {
+				from = { is_megacorp = yes }
+			}
+		}
+		MI_PROPOSE_REVOKE_SECRET_FEALTY = {
+			trigger = {
+				from = { has_authority = auth_machine_intelligence }
+			}
+		}
+		HM_PROPOSE_REVOKE_SECRET_FEALTY = {
+			trigger = {
+				from = { has_ai_personality = hive_mind }
+			}
+		}
+		FP_PROPOSE_REVOKE_SECRET_FEALTY = {
+			trigger = {
+				from = { has_ai_personality = fanatic_purifiers }
+			}
+		}
+	}
+	accept = {
+		01_ACCEPT_REVOKE_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		02_ACCEPT_REVOKE_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		01_ACCEPT_REVOKE_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_ACCEPT_REVOKE_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		01_ACCEPT_REVOKE_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_ACCEPT_REVOKE_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		CORP_ACCEPT_REVOKE_SECRET_FEALTY = {
+			trigger = {
+				is_megacorp = yes
+			}
+		}
+		MI_ACCEPT_REVOKE_SECRET_FEALTY = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+		HM_ACCEPT_REVOKE_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = hive_mind
+			}
+		}
+		FP_ACCEPT_REVOKE_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = fanatic_purifiers
+			}
+		}
+	}
+}
+
+action_break_secret_fealty = {
+	select = {
+		01_SELECT_BREAK_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		02_SELECT_BREAK_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		01_SELECT_BREAK_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_SELECT_BREAK_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		01_SELECT_BREAK_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_SELECT_BREAK_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		CORP_SELECT_BREAK_SECRET_FEALTY = {
+			trigger = {
+				is_megacorp = yes
+			}
+		}
+		MI_SELECT_BREAK_SECRET_FEALTY = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+		HM_SELECT_BREAK_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = hive_mind
+			}
+		}
+		FP_SELECT_BREAK_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = fanatic_purifiers
+			}
+		}
+	}
+	propose = {
+		01_PROPOSE_BREAK_SECRET_FEALTY = {
+			trigger = {
+				from = {
+					NOR = {
+						has_authority = auth_machine_intelligence
+						is_megacorp = yes
+						has_ai_personality = hive_mind
+						has_ai_personality = fanatic_purifiers
+					}
+				}
+			}
+		}
+		CORP_PROPOSE_BREAK_SECRET_FEALTY = {
+			trigger = {
+				from = { is_megacorp = yes }
+			}
+		}
+		MI_PROPOSE_BREAK_SECRET_FEALTY = {
+			trigger = {
+				from = { has_authority = auth_machine_intelligence }
+			}
+		}
+		HM_PROPOSE_BREAK_SECRET_FEALTY = {
+			trigger = {
+				from = { has_ai_personality = hive_mind }
+			}
+		}
+		FP_PROPOSE_BREAK_SECRET_FEALTY = {
+			trigger = {
+				from = { has_ai_personality = fanatic_purifiers }
+			}
+		}
+	}
+	accept = {
+		01_ACCEPT_BREAK_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		02_ACCEPT_BREAK_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		01_ACCEPT_BREAK_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_ACCEPT_BREAK_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		01_ACCEPT_BREAK_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_ACCEPT_BREAK_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		CORP_ACCEPT_BREAK_SECRET_FEALTY = {
+			trigger = {
+				is_megacorp = yes
+			}
+		}
+		MI_ACCEPT_BREAK_SECRET_FEALTY = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+		HM_ACCEPT_BREAK_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = hive_mind
+			}
+		}
+		FP_ACCEPT_BREAK_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = fanatic_purifiers
+			}
+		}
+	}
+	reject = {
+		01_REJECT_BREAK_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		02_REJECT_BREAK_SECRET_FEALTY_FRIENDLY = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+				}
+			}
+		}
+		01_REJECT_BREAK_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_REJECT_BREAK_SECRET_FEALTY_NEUTRAL = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				NOR = {
+					is_friendly_to = FROM
+					is_cordial_to = FROM
+					is_protective_to = FROM
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		01_REJECT_BREAK_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		02_REJECT_BREAK_SECRET_FEALTY_HOSTILE = {
+			trigger = {
+				NOR = {
+					has_authority = auth_machine_intelligence
+					is_megacorp = yes
+					has_ai_personality = hive_mind
+					has_ai_personality = fanatic_purifiers
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_unfriendly_to = FROM
+					is_domineering_to = FROM
+				}
+			}
+		}
+		CORP_REJECT_BREAK_SECRET_FEALTY = {
+			trigger = {
+				is_megacorp = yes
+			}
+		}
+		MI_REJECT_BREAK_SECRET_FEALTY = {
+			trigger = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+		HM_REJECT_BREAK_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = hive_mind
+			}
+		}
+		FP_REJECT_BREAK_SECRET_FEALTY = {
+			trigger = {
+				has_ai_personality = fanatic_purifiers
+			}
+		}
+	}
+}

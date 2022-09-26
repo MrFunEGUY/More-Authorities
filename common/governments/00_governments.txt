@@ -1568,28 +1568,28 @@ gov_machine_research = {
 			factor = 10		
 			has_valid_civic = civic_machine_introspective
 			NOR = {
-					has_valid_civic = civic_machine_rockbreakers
-					has_valid_civic = civic_machine_builder
-					has_valid_civic = civic_machine_replication
-}
+				has_valid_civic = civic_machine_rockbreakers
+				has_valid_civic = civic_machine_builder
+				has_valid_civic = civic_machine_replication
+			}
 		}
 		modifier = {
 			factor = 10		
 			has_valid_civic = civic_machine_delegated_functions
 			NOR = {
-					has_valid_civic = civic_machine_rockbreakers
-					has_valid_civic = civic_machine_builder
-					has_valid_civic = civic_machine_replication
-}
+				has_valid_civic = civic_machine_rockbreakers
+				has_valid_civic = civic_machine_builder
+				has_valid_civic = civic_machine_replication
+			}
 		}
 		modifier = {
 			factor = 10		
 			has_valid_civic = civic_machine_predictive_analysis
 			NOR = {
-					has_valid_civic = civic_machine_rockbreakers
-					has_valid_civic = civic_machine_builder
-					has_valid_civic = civic_machine_replication
-}
+				has_valid_civic = civic_machine_rockbreakers
+				has_valid_civic = civic_machine_builder
+				has_valid_civic = civic_machine_replication
+			}
 		}
 	}
 }
@@ -1610,28 +1610,28 @@ gov_machine_industrial = {
 			factor = 10		
 			has_valid_civic = civic_machine_rockbreakers
 			NOR = {
-					has_valid_civic = civic_machine_introspective
-					has_valid_civic = civic_machine_delegated_functions
-					has_valid_civic = civic_machine_predictive_analysis
-}
+				has_valid_civic = civic_machine_introspective
+				has_valid_civic = civic_machine_delegated_functions
+				has_valid_civic = civic_machine_predictive_analysis
+			}
 		}
 		modifier = {
 			factor = 10		
 			has_valid_civic = civic_machine_builder
 			NOR = {
-					has_valid_civic = civic_machine_introspective
-					has_valid_civic = civic_machine_delegated_functions
-					has_valid_civic = civic_machine_predictive_analysis
-}
+				has_valid_civic = civic_machine_introspective
+				has_valid_civic = civic_machine_delegated_functions
+				has_valid_civic = civic_machine_predictive_analysis
+			}
 		}
 		modifier = {
 			factor = 10		
 			has_valid_civic = civic_machine_replication
 			NOR = {
-					has_valid_civic = civic_machine_introspective
-					has_valid_civic = civic_machine_delegated_functions
-					has_valid_civic = civic_machine_predictive_analysis
-}
+				has_valid_civic = civic_machine_introspective
+				has_valid_civic = civic_machine_delegated_functions
+				has_valid_civic = civic_machine_predictive_analysis
+			}
 		}
 	}
 }
@@ -1978,6 +1978,42 @@ gov_imperial_domain_megacorp = {
 		is_gestalt = no
 	}
 
+	weight = {
+		base = 100000
+	}
+}
+
+# Mercenary Enclave
+gov_mercenary_enclave = {
+	ruler_title = RT_HIGH_ADMIRAL
+	should_force_rename = yes
+	possible = {
+		has_valid_civic = civic_mercenary_enclave
+	}
+	weight = {
+		base = 100000
+	}
+}
+
+# Salvager Enclave
+gov_salvager_enclave = {
+	ruler_title = RT_PRINCIPAL_ENGINEER
+	should_force_rename = yes
+	possible = {
+		has_valid_civic = civic_salvager_enclave
+	}
+	weight = {
+		base = 100000
+	}
+}
+
+# Shroudwalker Enclave
+gov_shroudwalker_enclave = {
+	ruler_title = RT_ELDER
+	should_force_rename = yes
+	possible = {
+		has_valid_civic = civic_shroudwalker_enclave
+	}
 	weight = {
 		base = 100000
 	}

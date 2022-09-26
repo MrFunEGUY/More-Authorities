@@ -1,10 +1,12 @@
 # See wg_example.txt for an explanation
 
+@protectorate_tech_threshold = 0.4
 wg_subjugation = {
 	casus_belli = cb_subjugation
 
 	hide_if_no_cb = no
 	release_occupied_systems_on_status_quo = yes
+	show_agreement_terms = no
 
 	allowed_peace_offers = {
 		status_quo
@@ -18,19 +20,17 @@ wg_subjugation = {
 	potential = {
 		NOR = {
 			has_valid_civic = civic_inwards_perfection
+			FROM = { has_valid_civic = civic_inwards_perfection }
 			is_megacorp = yes
+			has_ascension_perk = ap_become_the_crisis
 		}
 		has_total_war_cb = no
-		NAND = {
-			is_galactic_emperor = yes
-			from = { is_galactic_community_member = yes }
-		}
 	}
 	possible = {
 		custom_tooltip = {
 			fail_text = has_claimed_all_systems
 			from = {
-				is_country_type = default
+				is_country_type_with_subjects = yes
 				any_owned_planet = {
 					is_colony = yes
 					root = {
@@ -80,9 +80,65 @@ wg_subjugation = {
 		if = {
 			limit = { from = { has_been_declared_crisis = no } }
 			from = {
-				set_subject_of = {
-					who = root
-					subject_type = vassal
+				if = {
+					limit = {
+						tech_unlocked_ratio = {
+							who = ROOT
+							ratio < @protectorate_tech_threshold
+						}
+					}
+					set_subject_of = {
+						who = ROOT
+						preset = preset_protectorate
+					}
+				}
+				else = {
+					ROOT = {
+						switch = {
+							trigger = has_policy_flag
+							oppressive_terms = {
+								if = {
+									limit = {
+										ROOT = { is_ai = yes }
+									}
+									FROM = {
+										set_subject_of = {
+											who = ROOT
+											preset = preset_vassal_oppressive_ai
+										}
+									}
+								}
+								else = {
+									FROM = {
+										set_subject_of = {
+											who = ROOT
+											preset = preset_vassal_oppressive
+										}
+									}
+								}
+							}
+							balanced_terms = {
+								FROM = {
+									set_subject_of = {
+										who = ROOT
+										preset = preset_vassal_balanced
+									}
+								}
+							}
+							benevolent_terms = {
+								FROM = {
+									set_subject_of = {
+										who = ROOT
+										preset = preset_vassal_benevolent
+									}
+								}
+							}
+						}
+					}
+				}
+				add_modifier = {
+					modifier = newly_subjugated_loyalty
+					years = 5
 				}
 			}
 		}
@@ -98,28 +154,76 @@ wg_subjugation = {
 			}
 
 			last_created_country = {
-				set_subject_of = {
-					who = root
-					subject_type = vassal
+				set_origin_effect = yes
+				if = {
+					limit = {
+						tech_unlocked_ratio = {
+							who = ROOT
+							ratio < @protectorate_tech_threshold
+						}
+					}
+					set_subject_of = {
+						who = ROOT
+						preset = preset_protectorate
+					}
+				}
+				else = {
+					ROOT = {
+						switch = {
+							trigger = has_policy_flag
+							oppressive_terms = {
+								if = {
+									limit = {
+										ROOT = { is_ai = yes }
+									}
+									PREV = {
+										set_subject_of = {
+											who = ROOT
+											preset = preset_vassal_oppressive_ai
+										}
+									}
+								}
+								else = {
+									PREV = {
+										set_subject_of = {
+											who = ROOT
+											preset = preset_vassal_oppressive
+										}
+									}
+								}
+							}
+							balanced_terms = {
+								PREV = {
+									set_subject_of = {
+										who = ROOT
+										preset = preset_vassal_balanced
+									}
+								}
+							}
+							benevolent_terms = {
+								PREV = {
+									set_subject_of = {
+										who = ROOT
+										preset = preset_vassal_benevolent
+									}
+								}
+							}
+						}
+					}
+				}
+				add_modifier = {
+					modifier = newly_subjugated_loyalty
+					years = 5
 				}
 			}
-		}
-	}
 
-	on_wargoal_set = {
-		random_war = {
-			limit = {
-				using_war_goal = {
-					type = wg_end_threat
-					owner = root
-				}
-			}
-			every_war_participant = {
+			if = {
 				limit = {
-					has_country_flag = empire_fed_no_war_subject
+					root = { is_megacorp = yes }
+					last_created_country = { is_megacorp = yes }
 				}
-				prev = {
-					remove_war_participant = prev
+				last_created_country = {
+					set_merchant_government_effect = yes
 				}
 			}
 		}
@@ -149,14 +253,17 @@ wg_tribute = {
 	surrender_acceptance = -75
 
 	potential = {
-		is_megacorp = no
+		NOR = {
+			is_megacorp = yes
+			has_ascension_perk = ap_become_the_crisis
+		}
 		has_total_war_cb = no
 	}
 	possible = {
 		custom_tooltip = {
 			fail_text = has_claimed_all_systems
 			from = {
-				is_country_type = default
+				is_country_type_with_subjects = yes
 				any_owned_planet = {
 					is_colony = yes
 					root = {
@@ -208,7 +315,11 @@ wg_tribute = {
 			from = {
 				set_subject_of = {
 					who = root
-					subject_type = tributary
+					preset = preset_tributary
+				}
+				add_modifier = {
+					modifier = newly_subjugated_loyalty
+					years = 5
 				}
 			}
 		}
@@ -224,9 +335,24 @@ wg_tribute = {
 			}
 
 			last_created_country = {
+				set_origin_effect = yes
 				set_subject_of = {
 					who = root
-					subject_type = tributary
+					preset = preset_tributary
+				}
+				add_modifier = {
+					modifier = newly_subjugated_loyalty
+					years = 5
+				}
+			}
+
+			if = {
+				limit = {
+					root = { is_megacorp = yes }
+					last_created_country = { is_megacorp = yes }
+				}
+				last_created_country = {
+					set_merchant_government_effect = yes
 				}
 			}
 		}
@@ -259,6 +385,7 @@ wg_megacorp_subjugate = {
 	potential = {
 		is_megacorp = yes
 		has_total_war_cb = no
+		NOT = { has_ascension_perk = ap_become_the_crisis }
 		NAND = {
 			is_galactic_emperor = yes
 			from = { is_galactic_community_member = yes }
@@ -268,7 +395,7 @@ wg_megacorp_subjugate = {
 		custom_tooltip = {
 			fail_text = has_claimed_all_systems
 			from = {
-				is_country_type = default
+				is_country_type_with_subjects = yes
 				any_owned_planet = {
 					is_colony = yes
 					root = {
@@ -315,12 +442,41 @@ wg_megacorp_subjugate = {
 				}
 			}
 		}
-		if = {
-			limit = { from = { has_been_declared_crisis = no } }
-			from = {
-				set_subject_of = {
-					who = root
-					subject_type = subsidiary
+		FROM = {
+			if = {
+				limit = { has_been_declared_crisis = no }
+				ROOT = {
+					switch = {
+						trigger = has_policy_flag
+						oppressive_terms = {
+							FROM = {
+								set_subject_of = {
+									who = ROOT
+									preset = preset_subsidiary_oppressive
+								}
+							}
+						}
+						balanced_terms = {
+							FROM = {
+								set_subject_of = {
+									who = ROOT
+									preset = preset_subsidiary_balanced
+								}
+							}
+						}
+						benevolent_terms = {
+							FROM = {
+								set_subject_of = {
+									who = ROOT
+									preset = preset_subsidiary_benevolent
+								}
+							}
+						}
+					}
+				}
+				add_modifier = {
+					modifier = newly_subjugated_loyalty
+					years = 5
 				}
 			}
 		}
@@ -336,9 +492,932 @@ wg_megacorp_subjugate = {
 			}
 
 			last_created_country = {
-				set_subject_of = {
+				set_origin_effect = yes
+				ROOT = {
+					switch = {
+						trigger = has_policy_flag
+						oppressive_terms = {
+							FROM = {
+								set_subject_of = {
+									who = ROOT
+									preset = preset_subsidiary_oppressive
+								}
+							}
+						}
+						balanced_terms = {
+							PREV = {
+								set_subject_of = {
+									who = ROOT
+									preset = preset_subsidiary_balanced
+								}
+							}
+						}
+						benevolent_terms = {
+							PREV = {
+								set_subject_of = {
+									who = ROOT
+									preset = preset_subsidiary_benevolent
+								}
+							}
+						}
+					}
+				}
+				add_modifier = {
+					modifier = newly_subjugated_loyalty
+					years = 5
+				}
+			}
+
+			if = {
+				limit = {
+					root = { is_megacorp = yes }
+					last_created_country = { is_megacorp = yes }
+				}
+				last_created_country = {
+					set_merchant_government_effect = yes
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+	}
+}
+
+wg_force_ideology = {
+	casus_belli = cb_ideology
+
+	hide_if_no_cb = no
+	release_occupied_systems_on_status_quo = yes
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+
+	surrender_acceptance = -100
+
+	war_exhaustion = 0.75
+
+	potential = {
+		has_policy_flag = liberation_wars
+		has_total_war_cb = no
+		from = { is_country_type_with_subjects = yes }
+		NOT = { is_in_federation_with = from }
+		NAND = {
+			is_galactic_emperor = yes
+			from = { is_galactic_community_member = yes }
+		}
+	}
+	possible = {
+		custom_tooltip = {
+			fail_text = has_claimed_all_systems
+			from = {
+				is_country_type_with_subjects = yes
+				any_owned_planet = {
+					is_colony = yes
+					root = {
+						NOT = { has_claim = prev.solar_system }
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = "cannot_use_against_emperor"
+			from = { is_galactic_emperor = no }
+		}
+		custom_tooltip = {
+			fail_text = pax_galactica_active
+			NAND = {
+				is_active_resolution = resolution_emperor_pax_galactica
+				is_galactic_community_member = yes
+				from = { is_galactic_community_member = yes }
+			}
+		}
+	}
+	on_status_quo = {
+		if = {
+			limit = {
+				exists = last_created_country
+				last_created_country = {
+					has_country_flag = released_empire
+				}
+			}
+
+			last_created_country = { add_modifier = { modifier = recently_liberated days = 7300 } }
+
+			root = { add_opinion_modifier = { modifier = opinion_we_liberated who = last_created_country } }
+			last_created_country = { add_opinion_modifier = { modifier = opinion_liberated_us who = root } }
+
+			last_created_country = {
+				set_origin_effect = yes
+			}
+
+			if = {
+				limit = {
+					root = { is_megacorp = yes }
+					last_created_country = { is_megacorp = yes }
+				}
+				last_created_country = {
+					set_merchant_government_effect = yes
+				}
+			}
+
+			every_country = {
+				limit = {
+					OR = {
+						is_in_federation_with = root
+						AND = {
+							is_subject = yes
+							exists = overlord
+							overlord = { is_same_value = root }
+						}
+					}
+				}
+
+				add_opinion_modifier = { modifier = opinion_we_liberated who = last_created_country }
+				last_created_country = { add_opinion_modifier = { modifier = opinion_liberated_us who = prev } }
+			}
+			from = {
+				add_threat = {
 					who = root
-					subject_type = subsidiary
+					amount = 0.10
+				}
+			}
+		}
+	}
+	on_accept = {
+
+		from = {
+			if = {
+				limit = {
+					is_gestalt = no
+				}
+				custom_tooltip = wg_force_ideology_accept
+				custom_tooltip = wg_force_ideology_accept_2
+			}
+
+			every_subject = {
+				limit = {
+					is_gestalt = no
+					any_war = {
+						is_war_participant = {
+							who = prev
+							side = prevprev
+						}
+					}
+				}
+				custom_tooltip = wg_force_ideology_accept_subject
+			}
+		}
+
+		if = {
+			limit = {
+				from = { has_federation = yes }
+			}
+			custom_tooltip = wg_force_ideology_accept_3
+		}
+
+		hidden_effect = {
+			from = {
+				if = {
+					limit = {
+						is_gestalt = no
+					}
+					impose_ideology_effect = yes
+				}
+	
+				every_subject = {
+					limit = {
+						is_gestalt = no
+					}
+					impose_ideology_effect = yes
+				}
+			}
+			end_rivalry = from
+			from = { end_rivalry = root }
+			every_system_within_border = {
+				limit = {
+					from = { has_claim = prev }
+				}
+				remove_claims = { who = from }
+			}
+			every_country = {
+				limit = {
+					OR = {
+						is_in_federation_with = root
+						AND = {
+							is_subject = yes
+							exists = overlord
+							overlord = { is_same_value = root }
+						}
+					}
+				}
+				end_rivalry = from
+				from = { end_rivalry = prev }
+				add_opinion_modifier = { modifier = opinion_we_liberated who = from }
+				from = { add_opinion_modifier = { modifier = opinion_liberated_us who = prev } }
+				every_system_within_border = {
+					limit = {
+						from = { has_claim = prev }
+					}
+					remove_claims = { who = from }
+				}
+			}
+			from = {
+				add_threat = {
+					who = root
+					amount = 0.10
+				}
+			}
+			from = {
+				leave_alliance = { override_requirements = yes }
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+wg_scion = {
+	casus_belli = cb_scion
+
+	hide_if_no_cb = yes
+	release_occupied_systems_on_status_quo = yes
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+
+	surrender_acceptance = -100
+
+
+	potential = {
+		has_total_war_cb = no
+	}
+	possible = {
+		custom_tooltip = {
+			fail_text = has_claimed_all_systems
+			from = {
+				is_country_type_with_subjects = yes
+				any_owned_planet = {
+					is_colony = yes
+					root = {
+						NOT = { has_claim = prev.solar_system }
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = cannot_subjugate_empire_member
+			NAND = {
+				has_galactic_emperor = yes
+				is_galactic_community_member = no
+				from = { is_galactic_community_member = yes }
+			}
+		}
+		custom_tooltip = {
+			fail_text = "cannot_use_against_custodian"
+			from = { is_galactic_custodian = no }
+		}
+		custom_tooltip = {
+			fail_text = "cannot_use_against_emperor"
+			from = { is_galactic_emperor = no }
+		}
+		custom_tooltip = {
+			fail_text = "cannot_use_against_btc"
+			from = { has_been_declared_crisis = no }
+		}
+		custom_tooltip = {
+			fail_text = pax_galactica_active
+			NAND = {
+				is_active_resolution = resolution_emperor_pax_galactica
+				is_galactic_community_member = yes
+				from = { is_galactic_community_member = yes }
+			}
+		}
+	}
+	on_accept = {
+		hidden_effect = {
+			from = {
+				save_event_target_as = scion_victim
+				add_threat = {
+					who = root
+					amount = 0.5
+				}
+			}
+			root = {
+				overlord = { save_event_target_as = scion_master }
+				country_event = { id = origin.6 days = 1 } # Delay is necessary, or game does not think war was won
+			}
+		}
+		tooltip = {
+			if = {
+				limit = { from = { has_been_declared_crisis = no } }
+				from = {
+					set_subject_of = {
+						who = event_target:scion_master
+						preset = preset_scion
+					}
+				}
+			}
+		}
+	}
+
+	on_status_quo = {
+		if = {
+			limit = {
+				exists = last_created_country
+				last_created_country = {
+					has_country_flag = released_empire
+				}
+			}
+			overlord = { save_event_target_as = scion_master }
+			last_created_country = {
+				set_origin_effect = yes
+				set_subject_of = {
+					who = event_target:scion_master
+					preset = preset_scion
+				}
+			}
+			
+			if = {
+				limit = {
+					root = { is_megacorp = yes }
+					last_created_country = { is_megacorp = yes }
+				}
+				last_created_country = {
+					set_merchant_government_effect = yes
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+	}
+}
+
+wg_hegemon = {
+	casus_belli = cb_hegemon
+
+	hide_if_no_cb = yes
+	release_occupied_systems_on_status_quo = yes
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+
+	surrender_acceptance = -100
+
+	potential = {
+		has_total_war_cb = no
+	}
+	possible = {
+		custom_tooltip = {
+			fail_text = has_claimed_all_systems
+			from = {
+				is_country_type_with_subjects = yes
+				any_owned_planet = {
+					is_colony = yes
+					root = {
+						NOT = { has_claim = prev.solar_system }
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = cannot_subjugate_empire_member
+			NAND = {
+				has_galactic_emperor = yes
+				is_galactic_community_member = no
+				from = { is_galactic_community_member = yes }
+			}
+		}
+		custom_tooltip = {
+			fail_text = "cannot_use_against_custodian"
+			from = { is_galactic_custodian = no }
+		}
+		custom_tooltip = {
+			fail_text = "cannot_use_against_emperor"
+			from = { is_galactic_emperor = no }
+		}
+	}
+	on_accept = {
+		hidden_effect = {
+			from = {
+				add_threat = {
+					who = root
+					amount = 0.5
+				}
+			}
+		}
+		from = {
+			join_alliance = { who = root override_requirements = yes }
+		}
+	}
+
+	on_status_quo = {
+		if = {
+			limit = {
+				exists = last_created_country
+				last_created_country = {
+					has_country_flag = released_empire
+				}
+			}
+
+			last_created_country = {
+				set_origin_effect = yes
+				join_alliance = { who = root override_requirements = yes }
+			}
+
+			if = {
+				limit = {
+					root = { is_megacorp = yes }
+					last_created_country = { is_megacorp = yes }
+				}
+				last_created_country = {
+					set_merchant_government_effect = yes
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+	}
+}
+
+#### Nemesis
+
+@protectorate_tech_threshold = 0.4
+wg_bring_into_the_fold = {
+	casus_belli = cb_imposed_inclusion
+
+	hide_if_no_cb = no
+	release_occupied_systems_on_status_quo = yes
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+
+	surrender_acceptance = -100
+
+	war_exhaustion = 0.5
+
+	potential = {
+		has_ascension_perk = ap_become_the_crisis
+		is_megacorp = no
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = has_claimed_all_systems
+			from = {
+				is_country_type_with_subjects = yes
+				any_owned_planet = {
+					is_colony = yes
+					root = {
+						NOT = { has_claim = prev.solar_system }
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = cannot_subjugate_empire_member
+			NAND = {
+				has_galactic_emperor = yes
+				is_galactic_community_member = no
+				from = { is_galactic_community_member = yes }
+			}
+		}
+		custom_tooltip = {
+			fail_text = "cannot_use_against_custodian"
+			from = { is_galactic_custodian = no }
+		}
+		custom_tooltip = {
+			fail_text = "cannot_use_against_emperor"
+			from = { is_galactic_emperor = no }
+		}
+		custom_tooltip = {
+			fail_text = "cannot_use_against_btc"
+			from = { has_been_declared_crisis = no }
+		}
+	}
+
+	on_accept = {
+		hidden_effect = {
+			from = {
+				add_threat = {
+					who = root
+					amount = 0.5
+				}
+			}
+		}
+		if = {
+			limit = { from = { has_been_declared_crisis = no } }
+			from = {
+				if = {
+					limit = {
+						tech_unlocked_ratio = {
+							who = ROOT
+							ratio < @protectorate_tech_threshold
+						}
+					}
+					set_subject_of = {
+						who = ROOT
+						preset = preset_protectorate
+					}
+				}
+				else = {
+					ROOT = {
+						switch = {
+							trigger = has_policy_flag
+							oppressive_terms = {
+								if = {
+									limit = {
+										ROOT = { is_ai = yes }
+									}
+									FROM = {
+										set_subject_of = {
+											who = ROOT
+											preset = preset_vassal_oppressive_ai
+										}
+									}
+								}
+								else = {
+									FROM = {
+										set_subject_of = {
+											who = ROOT
+											preset = preset_vassal_oppressive
+										}
+									}
+								}
+							}
+							balanced_terms = {
+								FROM = {
+									set_subject_of = {
+										who = ROOT
+										preset = preset_vassal_balanced
+									}
+								}
+							}
+							benevolent_terms = {
+								FROM = {
+									set_subject_of = {
+										who = ROOT
+										preset = preset_vassal_benevolent
+									}
+								}
+							}
+						}
+					}
+				}
+				add_modifier = {
+					modifier = newly_subjugated_loyalty
+					years = 5
+				}
+			}
+		}
+	}
+
+	on_status_quo = {
+		if = {
+			limit = {
+				exists = last_created_country
+				last_created_country = {
+					has_country_flag = released_empire
+				}
+			}
+
+			last_created_country = {
+				set_origin_effect = yes
+				if = {
+					limit = {
+						tech_unlocked_ratio = {
+							who = ROOT
+							ratio < @protectorate_tech_threshold
+						}
+					}
+					set_subject_of = {
+						who = ROOT
+						preset = preset_protectorate
+					}
+				}
+				else = {
+					ROOT = {
+						switch = {
+							trigger = has_policy_flag
+							oppressive_terms = {
+								if = {
+									limit = {
+										ROOT = { is_ai = yes }
+									}
+									PREV = {
+										set_subject_of = {
+											who = ROOT
+											preset = preset_vassal_oppressive_ai
+										}
+									}
+								}
+								else = {
+									PREV = {
+										set_subject_of = {
+											who = ROOT
+											preset = preset_vassal_oppressive
+										}
+									}
+								}
+							}
+							balanced_terms = {
+								PREV = {
+									set_subject_of = {
+										who = ROOT
+										preset = preset_vassal_balanced
+									}
+								}
+							}
+							benevolent_terms = {
+								PREV = {
+									set_subject_of = {
+										who = ROOT
+										preset = preset_vassal_benevolent
+									}
+								}
+							}
+						}
+					}
+				}
+				add_modifier = {
+					modifier = newly_subjugated_loyalty
+					years = 5
+				}
+			}
+
+			if = {
+				limit = {
+					root = { is_megacorp = yes }
+					last_created_country = { is_megacorp = yes }
+				}
+				last_created_country = {
+					set_merchant_government_effect = yes
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			has_ai_personality_behaviour = wants_tribute
+		}
+	}
+}
+
+wg_bring_into_the_fold_corporate = {
+	casus_belli = cb_imposed_inclusion
+
+	hide_if_no_cb = no
+	release_occupied_systems_on_status_quo = yes
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+
+	surrender_acceptance = -100
+
+	war_exhaustion = 0.5
+
+	potential = {
+		has_ascension_perk = ap_become_the_crisis
+		is_megacorp = yes
+	}
+
+	possible = {
+		custom_tooltip = {
+			fail_text = has_claimed_all_systems
+			from = {
+				is_country_type_with_subjects = yes
+				any_owned_planet = {
+					is_colony = yes
+					root = {
+						NOT = { has_claim = prev.solar_system }
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = cannot_subjugate_empire_member
+			NAND = {
+				has_galactic_emperor = yes
+				is_galactic_community_member = no
+				from = { is_galactic_community_member = yes }
+			}
+		}
+		custom_tooltip = {
+			fail_text = "cannot_use_against_custodian"
+			from = { is_galactic_custodian = no }
+		}
+		custom_tooltip = {
+			fail_text = "cannot_use_against_emperor"
+			from = { is_galactic_emperor = no }
+		}
+		custom_tooltip = {
+			fail_text = "cannot_use_against_btc"
+			from = { has_been_declared_crisis = no }
+		}
+	}
+
+	on_accept = {
+		hidden_effect = {
+			from = {
+				add_threat = {
+					who = root
+					amount = 0.5
+				}
+			}
+		}
+		FROM = {
+			if = {
+				limit = { has_been_declared_crisis = no }
+				ROOT = {
+					switch = {
+						trigger = has_policy_flag
+						oppressive_terms = {
+							FROM = {
+								set_subject_of = {
+									who = ROOT
+									preset = preset_subsidiary_oppressive
+								}
+							}
+						}
+						balanced_terms = {
+							FROM = {
+								set_subject_of = {
+									who = ROOT
+									preset = preset_subsidiary_balanced
+								}
+							}
+						}
+						benevolent_terms = {
+							FROM = {
+								set_subject_of = {
+									who = ROOT
+									preset = preset_subsidiary_benevolent
+								}
+							}
+						}
+					}
+				}
+				add_modifier = {
+					modifier = newly_subjugated_loyalty
+					years = 5
+				}
+			}
+		}
+	}
+
+	on_status_quo = {
+		if = {
+			limit = {
+				exists = last_created_country
+				last_created_country = {
+					has_country_flag = released_empire
+				}
+			}
+
+			last_created_country = {
+				set_origin_effect = yes
+				ROOT = {
+					switch = {
+						trigger = has_policy_flag
+						oppressive_terms = {
+							FROM = {
+								set_subject_of = {
+									who = ROOT
+									preset = preset_subsidiary_oppressive
+								}
+							}
+						}
+						balanced_terms = {
+							PREV = {
+								set_subject_of = {
+									who = ROOT
+									preset = preset_subsidiary_balanced
+								}
+							}
+						}
+						benevolent_terms = {
+							PREV = {
+								set_subject_of = {
+									who = ROOT
+									preset = preset_subsidiary_benevolent
+								}
+							}
+						}
+					}
+				}
+				add_modifier = {
+					modifier = newly_subjugated_loyalty
+					years = 5
+				}
+			}
+
+			if = {
+				limit = {
+					root = { is_megacorp = yes }
+					last_created_country = { is_megacorp = yes }
+				}
+				last_created_country = {
+					set_merchant_government_effect = yes
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			has_ai_personality_behaviour = wants_tribute
+		}
+	}
+}
+
+#### Overlord
+
+wg_imperial_crusade = {
+	casus_belli = cb_event
+
+	hide_if_no_cb = yes
+	release_occupied_systems_on_status_quo = yes
+
+	allowed_peace_offers = {
+		status_quo
+		surrender
+		demand_surrender
+	}
+
+	surrender_acceptance = -100
+
+
+	potential = {
+		always = no # event only
+	}
+	possible = {
+		custom_tooltip = {
+			fail_text = has_claimed_all_systems
+			from = {
+				is_country_type_with_subjects = yes
+				any_owned_planet = {
+					is_colony = yes
+					root = {
+						NOT = { has_claim = prev.solar_system }
+					}
+				}
+			}
+		}
+	}
+	on_accept = {
+		from = {
+			add_to_galactic_community = yes
+		}
+	}
+
+	on_status_quo = {
+		if = {
+			limit = {
+				exists = last_created_country
+				last_created_country = {
+					has_country_flag = released_empire
+				}
+			}
+
+			last_created_country = {
+				set_origin_effect = yes
+				add_to_galactic_community = yes
+			}
+
+			if = {
+				limit = {
+					root = { is_megacorp = yes }
+					last_created_country = { is_megacorp = yes }
+				}
+				last_created_country = {
+					set_merchant_government_effect = yes
 				}
 			}
 		}

@@ -11,9 +11,7 @@ event = {
 	fire_only_once = yes
 	is_triggered_only = yes
 	trigger = {
-		NOT = {
-			has_global_flag = more_authorities_activated
-		}
+		NOT = { has_global_flag = more_authorities_activated }
 	}
 	
 	
@@ -71,9 +69,7 @@ country_event = {
 				event_leader = yes
 			}
 		}
-		ruler = {
-			kill_leader = { show_notification = no }
-		}
+		ruler = { kill_leader = { show_notification = no } }
 	}
 }
 
@@ -89,12 +85,12 @@ country_event = {
 		name = moreauthorities.5.a
 		allow = {
 		custom_tooltip = {
-				fail_text = influencefail_text_ma_1
-				has_resource = { type = influence amount >= 450 }
+				fail_text = unity_fail_text_ma_1
+				has_resource = { type = unity amount >= 2000 }
 			}
 		}
 		hidden_effect = {
-			add_resource = { influence = -450 }
+			add_resource = { unity = -2000 }
 			country_add_ethic = ethic_egalitarian
 			change_government = {
 				authority = auth_strict_democratic
@@ -122,12 +118,12 @@ country_event = {
 		name = moreauthorities.6.a
 		allow = {
 		custom_tooltip = {
-				fail_text = influencefail_text_ma_2
-				has_resource = { type = influence amount >= 1000 }
+				fail_text = unity_fail_text_ma_2
+				has_resource = { type = unity amount >= 10000 }
 			}
 		}
 		hidden_effect = {
-			add_resource = { influence = -1000 }
+			add_resource = { unity = -10000 }
 			change_government = {
 				authority = auth_democratic
 				remove_invalid_civics = yes
@@ -176,65 +172,35 @@ country_event = {
 		switch = {
 			trigger = has_event_chain
 			
-			mandate_separatist_chain = {
-				end_event_chain = mandate_separatist_chain
-			}
+			mandate_separatist_chain = { end_event_chain = mandate_separatist_chain }
 			
-			mandate_emancipation_chain = {
-				end_event_chain = mandate_emancipation_chain
-			}
+			mandate_emancipation_chain = { end_event_chain = mandate_emancipation_chain }
 			
-			mandate_emancipation2_chain = {
-				end_event_chain = mandate_emancipation2_chain
-			}
+			mandate_emancipation2_chain = { end_event_chain = mandate_emancipation2_chain }
 			
-			mandate_orbresearch_chain = {
-				end_event_chain = mandate_orbresearch_chain
-			}
+			mandate_orbresearch_chain = { end_event_chain = mandate_orbresearch_chain }
 			
-			mandate_miner_chain = {
-				end_event_chain = mandate_miner_chain
-			}
+			mandate_miner_chain = { end_event_chain = mandate_miner_chain }
 			
-			mandate_shipwright_chain = {
-				end_event_chain = mandate_shipwright_chain
-			}
+			mandate_shipwright_chain = { end_event_chain = mandate_shipwright_chain }
 			
-			mandate_peacemaker_chain = {
-				end_event_chain = mandate_peacemaker_chain
-			}
+			mandate_peacemaker_chain = { end_event_chain = mandate_peacemaker_chain }
 			
-			mandate_slaver_chain = {
-				end_event_chain = mandate_slaver_chain
-			}
+			mandate_slaver_chain = { end_event_chain = mandate_slaver_chain }
 			
-			mandate_xenopurge_chain = {
-				end_event_chain = mandate_xenopurge_chain
-			}
+			mandate_xenopurge_chain = { end_event_chain = mandate_xenopurge_chain }
 			
-			mandate_nationalist_chain = {
-				end_event_chain = mandate_nationalist_chain
-			}
+			mandate_nationalist_chain = { end_event_chain = mandate_nationalist_chain }
 
-			mandate_monthly_energy_chain = {
-				end_event_chain = mandate_monthly_energy_chain
-			}
+			mandate_monthly_energy_chain = { end_event_chain = mandate_monthly_energy_chain }
 
-			mandate_monthly_minerals_chain = {
-				end_event_chain = mandate_monthly_minerals_chain
-			}
+			mandate_monthly_minerals_chain = { end_event_chain = mandate_monthly_minerals_chain }
 
-			mandate_monthly_alloys_chain = {
-				end_event_chain = mandate_monthly_alloys_chain
-			}
+			mandate_monthly_alloys_chain = { end_event_chain = mandate_monthly_alloys_chain }
 
-			mandate_monthly_food_chain = {
-				end_event_chain = mandate_monthly_food_chain
-			}
+			mandate_monthly_food_chain = { end_event_chain = mandate_monthly_food_chain }
 
-			mandate_monthly_consumer_goods_chain = {
-				end_event_chain = mandate_monthly_consumer_goods_chain
-			}
+			mandate_monthly_consumer_goods_chain = { end_event_chain = mandate_monthly_consumer_goods_chain }
 
 			mandate_district_city_chain = { end_event_chain = mandate_district_city_chain }
 
@@ -248,20 +214,18 @@ country_event = {
 }
 
 # Democratic Autocracy - Kill ruler on election (to simulate retirement)
-country_event = {
-	id = moreauthorities.20
-	hide_window = yes
-	is_triggered_only = yes
+# country_event = {
+# 	id = moreauthorities.20
+# 	hide_window = yes
+# 	is_triggered_only = yes
 
-	trigger = {
-		has_authority = auth_democratic_dictatorship
-		exists = ruler
-	}
+# 	trigger = {
+# 		has_authority = auth_democratic_dictatorship
+# 		exists = ruler
+# 	}
 	
 	
-	immediate = {
-		ruler = {
-			kill_leader = { show_notification = no }
-		}
-	}
-}
+# 	immediate = {
+# 		ruler = { kill_leader = { show_notification = no } }
+# 	}
+# }

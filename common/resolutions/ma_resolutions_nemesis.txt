@@ -72,11 +72,12 @@ resolution_custodian_gto = {
 	}
 
 	ai_weight = {
-		weight = @resolution_weight_normal
+		base = @resolution_weight_normal
 
 		modifier = {
 			factor = 1.5
 			is_megacorp = yes
+			desc = auth_corporate
 		}
 
 		modifier = {
@@ -85,25 +86,31 @@ resolution_custodian_gto = {
 				has_ai_personality = peaceful_traders
 				has_ai_personality = ruthless_capitalists
 			}
+			desc = gal_com_trader_ai_personality
 		}
 
 		modifier = {
 			factor = 0.7
 			is_xenophobe = yes
+			desc = ethic_xenophobe
 		}
 
 		modifier = {
 			factor = 0.5
 			has_ai_personality = xenophobic_isolationists
+			desc = personality_xenophobic_isolationists
 		}
 
 		modifier = {
 			factor = 0.2
 			is_gestalt = yes
+			desc = ethic_gestalt_consciousness
 		}
+
 		modifier = {
 			factor = 4
 			is_galactic_custodian = yes
+			desc = gal_com_is_the_custodian
 		}
 	}
 }
@@ -137,11 +144,12 @@ resolution_custodian_disband_gto = {
 	}
 
 	ai_weight = {
-		weight = @resolution_weight_disliked
+		base = @resolution_weight_disliked
 
 		modifier = {
 			factor = 0.6
 			is_megacorp = yes
+			desc = auth_corporate
 		}
 
 		modifier = {
@@ -150,26 +158,31 @@ resolution_custodian_disband_gto = {
 				has_ai_personality = peaceful_traders
 				has_ai_personality = ruthless_capitalists
 			}
+			desc = gal_com_trader_ai_personality
 		}
 
 		modifier = {
 			factor = 1.3
 			is_xenophobe = yes
+			desc = ethic_xenophobe
 		}
 
 		modifier = {
 			factor = 1.8
 			has_ai_personality = xenophobic_isolationists
+			desc = personality_xenophobic_isolationists
 		}
 
 		modifier = {
 			factor = 2
 			is_gestalt = yes
+			desc = ethic_gestalt_consciousness
 		}
 
 		modifier = {
 			factor = 0
 			is_galactic_custodian = yes
+			desc = gal_com_is_the_custodian
 		}
 	}
 }
@@ -213,11 +226,12 @@ resolution_emperor_gto = {
 	}
 
 	ai_weight = {
-		weight = @resolution_weight_normal
+		base = @resolution_weight_normal
 
 		modifier = {
 			factor = 1.5
 			is_megacorp = yes
+			desc = auth_corporate
 		}
 
 		modifier = {
@@ -226,25 +240,31 @@ resolution_emperor_gto = {
 				has_ai_personality = peaceful_traders
 				has_ai_personality = ruthless_capitalists
 			}
+			desc = gal_com_trader_ai_personality
 		}
 
 		modifier = {
 			factor = 0.7
 			is_xenophobe = yes
+			desc = ethic_xenophobe
 		}
 
 		modifier = {
 			factor = 0.5
 			has_ai_personality = xenophobic_isolationists
+			desc = personality_xenophobic_isolationists
 		}
 
 		modifier = {
 			factor = 0.2
 			is_gestalt = yes
+			desc = ethic_gestalt_consciousness
 		}
+
 		modifier = {
 			factor = 4
 			is_galactic_emperor = yes
+			desc = galactic_emperor
 		}
 	}
 }
@@ -282,11 +302,12 @@ resolution_emperor_disband_gto = {
 	}
 
 	ai_weight = {
-		weight = @resolution_weight_disliked
+		base = @resolution_weight_disliked
 
 		modifier = {
 			factor = 0.6
 			is_megacorp = yes
+			desc = auth_corporate
 		}
 
 		modifier = {
@@ -295,26 +316,31 @@ resolution_emperor_disband_gto = {
 				has_ai_personality = peaceful_traders
 				has_ai_personality = ruthless_capitalists
 			}
+			desc = gal_com_trader_ai_personality
 		}
 
 		modifier = {
 			factor = 1.3
 			is_xenophobe = yes
+			desc = ethic_xenophobe
 		}
 
 		modifier = {
 			factor = 1.8
 			has_ai_personality = xenophobic_isolationists
+			desc = personality_xenophobic_isolationists
 		}
 
 		modifier = {
 			factor = 2
 			is_gestalt = yes
+			desc = ethic_gestalt_consciousness
 		}
 
 		modifier = {
 			factor = 0
 			is_galactic_emperor = yes
+			desc = galactic_emperor
 		}
 	}
 }

@@ -17,11 +17,14 @@
 #	}
 #	is_origin = yes / no						# default: no, set to yes if civic should be treated as an Origin
 #
-#	swap_type = {								# triggered name/desc/custom desc based on species class, no scope
+#	swap_type = {								# triggered name, desc, custom desc and modifiers
 #		name = ...
 #		description = ...
-#		trigger = {
-#			local_human_species_class = ..
+#		trigger = {								# In empire creation / galaxy setup, this has no scope. During the game, when there are actual countries existing, it is set to country scope.
+#			local_human_species_class = ..		# If you want to use country scope here, you must always check is_scope_valid first (see civic_devouring_swarm), or you will get errors or it won't work as intended.
+#		}
+#		modifier = {							# modifier that is applied to the country when triggers are evaluated as true
+#			...
 #		}
 #	}
 #	ai_playable = {}							# Similar to "playable", for AI
@@ -87,7 +90,7 @@ civic_imperial_cult = {
 	}
 	random_weight = { base = 5 }
 	modifier = {
-		country_edict_cap_add = 2
+		country_edict_fund_add = 100
 	}
 }
 
@@ -164,6 +167,9 @@ civic_exalted_priesthood = {
 			}
 		}
 	}
+	modifier = {
+		planet_priests_unity_produces_add = 1
+	}
 	random_weight = { base = 5 }
 }
 
@@ -218,12 +224,11 @@ civic_meritocracy = {
 	random_weight = { base = 5 }
 	modifier = {
 		leader_skill_levels = 1
-		planet_jobs_productive_specialist_produces_mult = 0.10
+		planet_jobs_specialist_produces_mult = 0.10
 	}
 }
 
 civic_citizen_service = {
-	description = "civic_tooltip_citizen_service_effects"
 	potential = {
 		ethics = { NOT = { value = ethic_gestalt_consciousness } }
 		authority = {
@@ -261,7 +266,9 @@ civic_citizen_service = {
 	random_weight = { base = 5 }
 	modifier = {
 		country_naval_cap_mult = 0.15
+		planet_soldiers_unity_produces_add = 2
 	}
+	description = "civic_tooltip_citizen_service_effects"
 }
 
 civic_technocracy = {
@@ -277,7 +284,11 @@ civic_technocracy = {
 	}
 	possible = {
 		ethics = {
-			value = ethic_fanatic_materialist
+			OR = {
+				text = civic_tooltip_materialist
+				value = ethic_materialist
+				value = ethic_fanatic_materialist
+			}
 		}
 		civics = {
 			NOR = {
@@ -286,6 +297,9 @@ civic_technocracy = {
 				value = civic_aristocratic_elite
 			}
 		}
+	}
+	modifier = {
+		num_tech_alternatives_add = 1
 	}
 	random_weight = { base = 5 }
 }
@@ -307,14 +321,13 @@ civic_feudal_realm = {
 	}
 	random_weight = { base = 5 }
 
-	description = "civic_tooltip_feudal_realm_effects"
 	modifier = {
-		country_subject_power_penalty_mult = -0.5
+		leaders_cost_mult = -0.5
 	}
+	description = "civic_tooltip_feudal_realm_effects"
 }
 
 civic_police_state = {
-	description = "civic_tooltip_police_state_effects"
 	potential = {
 		ethics = { NOT = { value = ethic_gestalt_consciousness } }
 		authority = {
@@ -324,15 +337,17 @@ civic_police_state = {
 			}
 		}
 	}
-	modifier = {
-		planet_stability_add = 5
-	}
 	possible = {
 		ethics = {
 			NOT = {
 				value = ethic_fanatic_egalitarian
 			}
 		}
+	}
+	modifier = {
+		planet_stability_add = 5
+		planet_enforcers_unity_produces_add = 1
+		planet_telepaths_unity_produces_add = 1
 	}
 	random_weight = { base = 5 }
 }
@@ -372,10 +387,16 @@ civic_environmentalist = {
 			}
 		}
 	}
+	possible = {
+		civics = {
+			NOT = { value = civic_relentless_industrialists }
+		}
+	}
 	random_weight = { base = 5 }
 	modifier = {
 		planet_pops_consumer_goods_upkeep_mult = -0.20
 	}
+	description = "civic_tooltip_environmentalist_effects"
 }
 
 civic_slaver_guilds = {
@@ -400,7 +421,7 @@ civic_slaver_guilds = {
 	}
 	random_weight = { base = 5 }
 	modifier = {
-		planet_jobs_productive_slave_produces_mult = 0.10
+		planet_jobs_slave_produces_mult = 0.10
 		country_pop_enslaved_mult = 0.35
 	}
 }
@@ -446,7 +467,7 @@ civic_inwards_perfection = {
 	modifier = {
 		country_unity_produces_mult = 0.20
 		pop_growth_speed = 0.10
-		country_edict_cap_add = 1
+		country_edict_fund_add = 50
 		pop_citizen_happiness = 0.05
 		envoys_add = -1
 		intel_encryption_add = 1
@@ -483,9 +504,19 @@ civic_warrior_culture = {
 	modifier = {
 		army_damage_mult = 0.20
 	}
+	swap_type = {
+		description = "civic_tooltip_warrior_culture_effects"
+		trigger = {
+			host_has_dlc = "Overlord"
+		}
+		modifier = {
+			country_enclave_capacity_add = 1
+		}
+	}
 }
 
 civic_distinguished_admiralty = {
+	description = civic_tooltip_distinguished_admiralty_effects
 	potential = {
 		ethics = { NOT = { value = ethic_gestalt_consciousness } }
 		authority = {
@@ -555,7 +586,7 @@ civic_cutthroat_politics = {
 	}
 	random_weight = { base = 5 }
 	modifier = {
-		edicts_cost_mult = -0.20
+		edicts_upkeep_mult = -0.20
 		intel_decryption_add = 1
 	}
 }
@@ -625,10 +656,20 @@ civic_agrarian_idyll = {
 				value = origin_remnants
 			}
 		}
-		civics = { NOT = { value = civic_anglers } }
+		civics = {
+			NOT = {
+				value = civic_relentless_industrialists
+			}
+		}
 	}
 	random_weight = { base = 5 }
-	modifier = {}
+	swap_type = {
+		description = "civic_tooltip_agrarian_anglers_effects"
+		trigger = {
+			is_scope_valid = yes
+			has_civic = civic_anglers
+		}
+	}
 }
 
 civic_shadow_council = {
@@ -655,8 +696,8 @@ civic_shadow_council = {
 	}
 	random_weight = { base = 5 }
 	modifier = {
-		country_election_influence_cost_mult = -0.75
-		planet_jobs_productive_ruler_produces_mult = 0.10
+		country_election_cost_mult = -0.75
+		planet_jobs_ruler_produces_mult = 0.10
 		intel_decryption_add = 1
 	}
 }
@@ -696,6 +737,7 @@ civic_parliamentary_system = {
 		}
 	}
 	random_weight = { base = 5 }
+	description = "civic_tooltip_parliamentary_system_effects"
 	modifier = {
 		pop_factions_produces_mult = 0.40
 	}
@@ -713,7 +755,7 @@ civic_efficient_bureaucracy = {
 	}
 	random_weight = { base = 5 }
 	modifier = {
-		country_admin_cap_mult = 0.20
+		planet_administrators_upkeep_mult = -0.20
 	}
 }
 
@@ -1106,6 +1148,15 @@ civic_barbaric_despoilers = {
 		}
 	}
 	description = "civic_tooltip_barbaric_despoilers_effects"
+	swap_type = {
+		description = "civic_tooltip_barbaric_despoilers_effects"
+		trigger = {
+			host_has_dlc = "Overlord"
+		}
+		modifier = {
+			country_enclave_capacity_add = 1
+		}
+	}
 }
 
 # New for MegaCorp
@@ -1122,10 +1173,19 @@ civic_byzantine_bureaucracy = {
 		}
 	}
 	possible = {
-		always = yes
+		ethics = {
+			NOR = {
+				text = civic_tooltip_not_spiritualist
+				value = ethic_spiritualist
+				value = ethic_fanatic_spiritualist
+			}
+		}
 	}
 	random_weight = {
 		base = 2
+	}
+	modifier = {
+		planet_administrators_unity_produces_add = 1
 	}
 	description = "civic_tooltip_byzantine_bureaucracy_effects"
 }
@@ -1227,11 +1287,11 @@ civic_death_cult = {
 	potential = {
 		ethics = { NOT = { value = ethic_gestalt_consciousness } }
 		authority = {
-			NOR = {
-				value = auth_corporate
+			NOR = { 
+				value = auth_corporate 			#Corps get their own version
 				value = auth_corporate_imperial
 			}
-		} #Corps get their own version
+		}
 	}
 	possible = {
 		origin = {
@@ -1240,12 +1300,13 @@ civic_death_cult = {
 		civics = {
 			NOR = {
 				value = civic_fanatic_purifiers
-				value = civic_inwards_perfection
+				value = civic_inwards_perfectioncivic_anglers
 				value = civic_ancient_preservers
 			}
 		}
 		ethics = {
 			OR = {
+				text = civic_tooltip_spiritualist
 				value = ethic_spiritualist
 				value = ethic_fanatic_spiritualist
 			}
@@ -1268,8 +1329,9 @@ civic_memorialist = {
 	}
 	possible = {
 		civics = {
-			NOT = {
+			NOR = {
 				value = civic_fanatic_purifiers
+				value = civic_relentless_industrialists
 			}
 		}
 	}
@@ -1373,12 +1435,12 @@ civic_idyllic_bloom = {
 			}
 		}
 		origin = {
-			NOR = {
-				text = civic_tooltip_not_origin_non_standard_habitability_preference
-				value = origin_life_seeded
+			NOT = {
 				value = origin_void_dwellers
-				value = origin_shattered_ring
 			}
+		}
+		civics = {
+			NOT = { value = civic_relentless_industrialists }
 		}
 	}
 }
@@ -1448,3 +1510,68 @@ civic_pompous_purists = {
 	}
 }
 
+civic_toxic_baths = {
+	playable = { has_toxoids = yes }
+	ai_playable = { has_toxoids = yes }
+	description = "civic_tooltip_toxic_baths_effects"
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = {
+			NOR = {
+				value = auth_corporate
+				value = auth_corporate_imperial
+			}
+		}
+	}
+	possible = {
+		origin = { NOT = { value = origin_life_seeded } }
+	}
+}
+
+civic_relentless_industrialists = {
+	playable = { has_toxoids = yes }
+	ai_playable = { has_toxoids = yes }
+	description = "civic_tooltip_relentless_industrialists_effects"
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = {
+			NOR = {
+				value = auth_corporate
+				value = auth_corporate_imperial
+			}
+		}
+	}
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_materialist
+				value = ethic_materialist
+				value = ethic_fanatic_materialist
+			}
+		}
+		origin = { NOT = { value = origin_life_seeded } }
+		civics = {
+			NOR = {
+				value = civic_environmentalist
+				value = civic_agrarian_idyll
+				value = civic_idyllic_bloom
+				value = civic_memorialist
+			}
+		}
+	}
+}
+
+civic_scavengers = {
+	playable = { has_toxoids = yes }
+	ai_playable = { has_toxoids = yes }
+	description = "civic_scavengers_effects"
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = {
+			NOR = {
+				value = auth_corporate
+				value = auth_corporate_imperial
+			}
+		}
+	}
+}

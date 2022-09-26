@@ -85,7 +85,7 @@ resolution_galactic_market_form = {
 		is_homicidal = no
 		count_relation = {
 			limit = {
-				is_country_type = default
+				is_country_type_with_subjects = yes
 				is_homicidal = no
 			}
 			count >= 3
@@ -93,11 +93,12 @@ resolution_galactic_market_form = {
 	}
 
 	ai_weight = {
-		weight = @resolution_weight_popular
+		base = @resolution_weight_popular
 
 		modifier = {
 			factor = 2
 			is_megacorp = yes
+			desc = auth_corporate
 		}
 
 		modifier = {
@@ -106,31 +107,37 @@ resolution_galactic_market_form = {
 				has_ai_personality = peaceful_traders
 				has_ai_personality = ruthless_capitalists
 			}
+			desc = gal_com_trader_ai_personality
 		}
 
 		modifier = {
 			factor = 0.5
 			has_ai_personality = xenophobic_isolationists
+			desc = personality_xenophobic_isolationists
 		}
 
 		modifier = {
 			factor = 0.8
 			is_xenophobe = yes
+			desc = ethic_xenophobe
 		}
 
 		modifier = {
 			factor = 2
 			years_passed > 50
+			desc = gal_com_years_passed
 		}
 
 		modifier = {
 			factor = 2
 			years_passed > 100
+			desc = gal_com_years_passed
 		}
 
 		modifier = {
 			factor = 2
 			years_passed > 150
+			desc = gal_com_years_passed
 		}
 	}
 }
@@ -185,20 +192,21 @@ resolution_galactic_market_relocate = {
 		has_federations_dlc = yes
 		host_has_dlc = "Megacorp"
 		has_global_flag = galactic_market_founded
-		NOR = {
+		NOT = {
 			has_global_flag = ongoing_market_relocation_nomination
-			has_modifier = galactic_market_founder
 		}
+		NOT = { has_modifier = galactic_market_founder }
 		is_gestalt = no
 		is_homicidal = no
 	}
 
 	ai_weight = {
-		weight = @resolution_weight_disliked
+		base = @resolution_weight_disliked
 
 		modifier = {
 			factor = 0
 			has_modifier = galactic_market_founder
+			desc = gal_com_is_galactic_market_founder
 		}
 
 		modifier = {
@@ -206,24 +214,28 @@ resolution_galactic_market_relocate = {
 			any_federation_ally = {
 				has_modifier = galactic_market_founder
 			}
+			desc = gal_com_federation_ally_is_galactic_market_founder
 		}
 
 		modifier = {
 			factor = 0.5
 			is_gestalt = no
 			has_resource = { type = influence amount < 400 }
+			desc = gal_com_low_influence
 		}
 
 		modifier = {
 			factor = 1.5
 			is_gestalt = no
 			has_resource = { type = influence amount > 700 }
+			desc = gal_com_high_influence
 		}
 
 		modifier = {
 			factor = 2
 			is_megacorp = yes
 			NOT = { has_modifier = galactic_market_founder }
+			desc = gal_com_is_not_galactic_market_founder
 		}
 
 		modifier = {
@@ -233,6 +245,7 @@ resolution_galactic_market_relocate = {
 				has_ai_personality = ruthless_capitalists
 			}
 			NOT = { has_modifier = galactic_market_founder }
+			desc = gal_com_trader_ai_personality
 		}
 	}
 }

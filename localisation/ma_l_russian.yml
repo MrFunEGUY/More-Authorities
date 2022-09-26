@@ -185,3 +185,18 @@ l_russian:
 
  lrsk_gov_var_gov_private_military_contractor_fam:0 "Private Military Contractor"
  lrsk_gov_var_gov_private_military_contractor_fam_desc:0 "This government is actually a mercenary company that has been contracted by local and regional governments to provide police, national defense, and foreign relations services for the empire. Rank in government typically requires enlistment as a soldier for hire, but the internal structure of the company may be fairly democratic."
+
+  # Empire Names
+
+ format.adjective: "[This.GetAdj"
+
+ format.monopolistic_trade_crime_fam.1: "[This.GetSpeciesName] <criminal_league>"
+ prefix_format.monopolistic_trade_crime_fam.1: "[This.GetSpeciesName] <criminal_league>"
+
+ format.monopolistic_trade_crime_fam.2: "[This.GetAdj] <criminal_league>"
+ prefix_format.monopolistic_trade_crime_fam.2: "[This.GetAdj] <criminal_league>"
+
+ format.monopolistic_trade_crime_fam.3: "<criminal_league> of [This.Capital.GetName]"
+ prefix_format.monopolistic_trade_crime_fam.3: "[This.Capital.System.GetName] <criminal_league>"
+ 
+ format.monopolistic_trade_crime_fam.4: "<criminal_league> of [This.Capital.System.GetName]"

@@ -1,0 +1,116 @@
+
+##################
+#
+# Utopia Events
+#
+##################
+
+#ID 1 - 1999#
+
+namespace = utopia
+
+### Hyper Relays
+# Connected to another capital | this = Hyper Relay owner; from = Hyper Relay partner (country)
+country_event = {
+	id = over.100
+	title = over.100.title
+	desc = {
+		trigger = {
+			NOR = {
+				is_xenophobe = yes
+				is_authoritarian = yes
+				is_overlord_to = from
+				is_gestalt = yes
+			}
+		}
+		text = over.100.a.desc
+	}
+	desc = {
+		trigger = {
+			OR = {
+				is_authoritarian = yes
+				AND = {
+					is_overlord_to = from
+					is_gestalt = no
+				}
+			}
+			is_xenophobe = no
+		}
+		text = over.100.b.desc
+	}
+	desc = {
+		trigger = {
+			OR = {
+				is_gestalt = yes
+				is_xenophobe = yes
+			}
+		}
+		text = over.100.c.desc
+	}
+	picture = {
+		trigger = {
+			is_machine_empire = no
+			NAND = {
+				is_gestalt = yes
+				from = { is_gestalt = yes }
+			}
+		}
+		picture = GFX_evt_hyper_relay_conjunction
+	}
+	picture = {
+		trigger = {
+			OR = {
+				is_machine_empire = yes
+				AND = {
+					is_gestalt = yes
+					from = { is_gestalt = yes }
+				}
+			}
+		}
+		picture = GFX_evt_inhabited_solar_system
+	}
+	show_sound = evn_ove_relay_conjunction
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type_with_subjects = yes
+		FROM = { is_country_type_with_subjects = yes }
+		NOR = {
+			has_country_flag = hyper_relay_flag
+			has_origin = origin_separatists
+			from = {
+				has_origin = origin_separatists
+			}
+		}
+	}
+
+	immediate = {
+		set_country_flag = hyper_relay_flag
+	}
+
+	option = {
+		name = over.100.a
+		trigger = {
+			NOR = {
+				is_xenophobe = yes
+				is_gestalt = yes
+			}
+		}
+	}
+	option = {
+		name = over.100.b
+		trigger = {
+			is_megacorp = yes
+		}
+	}
+	option = {
+		name = over.100.c
+		trigger = {
+			OR = {
+				is_xenophobe = yes
+				is_gestalt = yes
+			}
+		}
+	}
+}

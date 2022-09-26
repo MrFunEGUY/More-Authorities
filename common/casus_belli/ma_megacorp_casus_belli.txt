@@ -8,105 +8,76 @@
 # 								# notification when a claim CB is generated)
 #}
 
-cb_galatron = {
-	show_in_diplomacy = yes
-	show_notification = yes
-	potential = {
-		is_country_type = default
-		is_subject = no
-		NOR = { 
-			is_berserk_fallen_machine_empire = yes
-			is_homicidal = yes	
-			has_valid_civic = civic_machine_assimilator	
-		}
-	}
-	is_valid = {
-		from = {
-			OR = {
-				has_modifier = galatron_modifier
-				has_relic = r_galatron
-			}
-			has_closed_borders = prev
-		}
-		has_total_war_cb = no
-		NOT = { is_overlord_to = FROM }
-	}
-}
-
 cb_megacorp_subjugate = {
 	show_in_diplomacy = yes
-	show_notification = yes
+	show_notification = no
 	potential = {
-		is_country_type = default
+		is_country_type_with_subjects = yes
 		is_megacorp = yes
 		is_subject = no
 	}
-	is_valid = { 
-		always = no # triggered only
-	}	
+	is_valid = {
+		NOT = { is_overlord_to = FROM }
+		from = { is_subject = no }
+		relative_power = {
+			who = FROM
+			category = all
+			value > equivalent
+		}
+	}
+	destroy_if = {
+		relative_power = {
+			who = FROM
+			category = all
+			value < superior
+		}
+	}
 }
 
 cb_hostile_takeover = {
 	show_in_diplomacy = yes
 	show_notification = yes
 	potential = {
-		is_country_type = default
+		is_country_type_with_subjects = yes
 		is_megacorp = yes
 		NOT = { has_valid_civic = civic_criminal_heritage }
-		is_subject = no
 	}
-	is_valid = { 
+	is_valid = {
 		from = { is_megacorp = yes }
 		NOT = { is_in_federation_with = from }
+		NOT = { from = { is_overlord_to = root } }
 		any_country = {
 			OR = {
 				has_commercial_pact = root
 				is_in_federation_with = root
-			}			
+			}
 			any_owned_planet = {
 				has_branch_office = from
 			}
 		}
-	}	
+	}
 }
 
 cb_expel_corp = {
 	show_in_diplomacy = yes
 	show_notification = yes
 	potential = {
-		is_country_type = default
-		is_megacorp = no
-		is_subject = no
+		is_country_type_with_subjects = yes
+		NOT = { is_megacorp = yes }
 	}
-	is_valid = { 
-		NOR = {
-			has_commercial_pact = from
-			is_in_federation_with = from
+	is_valid = {
+		NOT = { has_commercial_pact = from }
+		NOT = { is_in_federation_with = from }
+		NOT = { from = { is_overlord_to = root } }
+		NOT = { root = { is_overlord_to = from } }
+		if = {
+			limit = {
+				exists = from.overlord
+			}
+				NOT = { from.overlord = { is_same_value = root.overlord } }
 		}
 		any_owned_planet = {
 			has_branch_office = from
 		}
-	}	
-}
-
-cb_steal_galatron = {
-	show_in_diplomacy = yes
-	show_notification = yes
-	potential = {
-		is_country_type = default
-		is_subject = no
-		NOT = { has_ethic = ethic_gestalt_consciousness }
-		has_policy_flag = unrestricted_wars
-	}
-	is_valid = {
-		from = {
-			OR = {
-				has_modifier = galatron_modifier
-				has_relic = r_galatron
-			}
-			NOT = { has_closed_borders = prev }
-		}
-		has_total_war_cb = no
-		NOT = { is_overlord_to = FROM }
 	}
 }

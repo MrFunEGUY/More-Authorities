@@ -75,9 +75,10 @@ empire_name_format = {
 			is_fallen_empire = no
 		}
 	}
-	format = "format.monopolistic_trade_crime_fam.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <criminal_league>"
+	lookups = "[This.GetSpeciesName] <criminal_league>"
+	format = format.monopolistic_trade_crime_fam.1
+	noun = format.species
+	prefix_format = prefix_format.monopolistic_trade_crime_fam.1
 	# Human Empire
 }
 
@@ -93,9 +94,10 @@ empire_name_format = {
 			is_fallen_empire = no
 		}
 	}
-	format = "format.monopolistic_trade_crime_fam.2"
-	noun = "[This.GetAdj]"
-	prefix_format = "[This.GetAdj] <criminal_league>"
+	lookups = "[This.GetAdj] <criminal_league>"
+	format = format.monopolistic_trade_crime_fam.2
+	noun = format.adjective
+	prefix_format = prefix_format.monopolistic_trade_crime_fam.2
 	# Terran Empire
 }
 
@@ -111,9 +113,10 @@ empire_name_format = {
 			is_fallen_empire = no
 		}
 	}
-	format = "format.monopolistic_trade_crime_fam.3"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <criminal_league>"
+	lookups = "<criminal_league> of [This.Capital.GetName]"
+	format = format.monopolistic_trade_crime_fam.3
+	noun = format.species
+	prefix_format = prefix_format.monopolistic_trade_crime_fam.3
 	# Empire of Earth
 }
 
@@ -129,9 +132,10 @@ empire_name_format = {
 			is_fallen_empire = no
 		}
 	}
-	format = "format.monopolistic_trade_crime_fam.4"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <criminal_league>"
+	lookups = "<criminal_league> of [This.Capital.System.GetName]"
+	format = format.monopolistic_trade_crime_fam.4
+	noun = format.species
+	prefix_format = prefix_format.monopolistic_trade_crime_fam.3
 	# Empire of Sol
 }
 

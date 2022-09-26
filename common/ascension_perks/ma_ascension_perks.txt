@@ -1,51 +1,60 @@
-ap_shared_destiny = {
+ap_imperial_prerogative = {
 	modifier = {
-		envoys_add = 2
-		subject_integration_influence_cost_mult = -0.5
-		country_subject_trust_cap_add = 100
+		empire_size_colonies_mult = -0.50
 	}
 
 	potential = {
+		NOT = { has_ascension_perk = ap_imperial_prerogative }
+		is_megacorp = no
+	}
+
+	ai_weight = {
+		factor = 15
+	}
+
+	on_enabled = {
+		run_ai_strategic_data = yes
+	}
+}
+
+
+#################
+# OVERLORD ASCENSION PERKS
+#################
+
+ap_lord_of_war = {
+	potential = {
+		host_has_dlc = "Overlord"
+		NOT = { has_ascension_perk = ap_lord_of_war }
 		NOR = {
+			has_ethic = ethic_gestalt_consciousness
 			has_valid_civic = civic_fanatic_purifiers
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_inwards_perfection
-			has_valid_civic = civic_machine_terminator
-			is_megacorp = yes
-			has_ascension_perk = ap_shared_destiny
 		}
+	}
+
+	on_enabled ={
+		custom_tooltip = ap_lord_of_war_tooltip
+	}
+
+	modifier = {
+		country_enclave_capacity_add = 1
+		diplo_weight_naval_mult = 0.25
+		#Bonus to dividends frequency handled in the dividends situation.
 	}
 
 	ai_weight = {
 		factor = 5
 		modifier = {
-			factor = 0
-			NOT = {
-				any_subject = {
-					is_subject_type = vassal
-				}
-			}
+			factor = 2
+			has_ethic = ethic_militarist
 		}
-	}
-}
-
-ap_imperial_prerogative = {
-	modifier = {
-		country_admin_cap_mult = 0.20
-	}
-
-	potential = {
-		NOT = {
-			has_ascension_perk = ap_imperial_prerogative
+		modifier = {
+			factor = 3
+			has_ethic = ethic_fanatic_militarist
 		}
-		is_megacorp = no
-	}
-
-	ai_weight = {
-		factor = 10
-	}
-
-	on_enabled = {
-		run_ai_strategic_data = yes
+		modifier = {
+			factor = 2
+			is_megacorp = yes
+		}
 	}
 }

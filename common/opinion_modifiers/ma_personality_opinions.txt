@@ -10,12 +10,25 @@ opinion_dc_vs_autocracy = {
 	}
 }
 
+opinion_dc_vs_oligarchic = {
+	opinion = {
+		modifier = {
+			add = -50
+			has_ai_personality = democratic_crusaders
+			OR = {
+				FROM = { has_authority = auth_oligarchic }
+				FROM = { is_megacorp = yes }
+			}
+		}
+	}
+}
+
 triggered_opinion_democratic_authority = {
 	trigger = {
-		is_country_type = default
+		is_country_type_with_subjects = yes
 		is_democracy = yes
 		FROM = {
-			is_country_type = default
+			is_country_type_with_subjects = yes
 			is_democracy = yes
 		}
 	}
@@ -37,17 +50,11 @@ opinion_dc_vs_democratic = {
 
 triggered_opinion_dictatorial_authority = {
 	trigger = {
-		is_country_type = default
-		OR = {
-			has_authority = auth_dictatorial
-			AND = {
-				has_authority = auth_democratic_dictatorship
-				is_authoritarian = yes
-			}
-		}
+		is_country_type_with_subjects = yes
+		is_dictatorial = yes
 		FROM = {
-			is_country_type = default
-			has_authority = auth_dictatorial
+			is_country_type_with_subjects = yes
+			is_dictatorial = yes
 		}
 	}
 
@@ -58,17 +65,11 @@ triggered_opinion_dictatorial_authority = {
 
 triggered_opinion_imperial_authority = {
 	trigger = {
-		is_country_type = default
-		OR = {
-			has_authority = auth_imperial
-			has_authority = auth_corporate_imperial
-		}
+		is_country_type_with_subjects = yes
+		is_imperial = yes
 		FROM = {
-			is_country_type = default
-			OR = {
-				has_authority = auth_imperial
-				has_authority = auth_corporate_imperial
-			}
+			is_country_type_with_subjects = yes
+			is_imperial = yes
 		}
 	}
 

@@ -30,3 +30,27 @@ get_leader_clone = {
     set_skill = event_target:current_president.trigger:has_skill # or has_level
     add_experience = event_target:current_president.trigger:has_experience
 }
+
+impose_ideology_effect = {
+	copy_ethos_and_authority = root
+	if = {
+		limit = { has_civic = civic_galactic_sovereign }
+		force_remove_civic = civic_galactic_sovereign
+	}
+	if = {
+		limit = { has_civic = civic_galactic_sovereign_megacorp }
+		force_remove_civic = civic_galactic_sovereign_megacorp
+	}
+	if = {
+		limit = {
+			root = { is_megacorp = yes }
+			is_megacorp = yes
+		}
+		set_merchant_government_effect = yes
+	}
+	add_modifier = { modifier = recently_liberated days = 7300 }
+	add_opinion_modifier = { modifier = opinion_liberated_us who = root }
+	root = {
+		add_opinion_modifier = { modifier = opinion_we_liberated who = from }
+	}
+}

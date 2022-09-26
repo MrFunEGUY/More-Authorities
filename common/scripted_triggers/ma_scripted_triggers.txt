@@ -1,11 +1,11 @@
 # My mods that use these triggers, ie this file.
 ################################################
-# More Authorites
 # Civil Wars
+# More Authorites
+# Useful Heirs
 # Vassals Expanded and Reworked
 # Viable Feudalism
 # We Require Borders
-# Banned - ECA Patch
 
 is_megacorp = {
 	OR = {
@@ -15,9 +15,12 @@ is_megacorp = {
 		has_government = gov_imperial_domain_megacorp
 		# Other Mods
 		has_authority = auth_corporate_democratic
+		has_authority = auth_bugged_corporate_democratic
 		has_authority = auth_cooperative
 		has_authority = auth_corporate_fiefdom
 		has_authority = auth_tec_patrocorporate
+		has_authority = auth_tec_ai_corporate
+		has_authority = auth_private
 	}
 }
 
@@ -44,6 +47,7 @@ is_autocracy = { #Power of one
 		# Other Mods
 		has_authority = auth_corporate_fiefdom
 		has_authority = auth_tec_patrocorporate
+		has_authority = auth_bugged_corporate_imperial
 	}
 }
 
@@ -67,6 +71,8 @@ is_democracy = { #Power of many
 		}
 		# Other Mods
 		has_authority = auth_direct_democratic
+		has_authority = auth_bugged_direct_democratic
+		has_authority = auth_bugged_corporate_democratic
 		has_authority = auth_corporate_democratic
 		has_authority = auth_cooperative
 	}

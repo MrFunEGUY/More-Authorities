@@ -157,12 +157,8 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		NOT = {
-			has_authority = auth_democratic_dictatorship
-		}
-		from = {
-			is_same_value = root.ruler
-		}
+		NOT = { has_authority = auth_democratic_dictatorship }
+		from = { is_same_value = root.ruler }
 	}
 
 	immediate = {

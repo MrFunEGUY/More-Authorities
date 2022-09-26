@@ -12,21 +12,27 @@ progressive = {
 	resources = {
 		category = pop_factions
 		produces = {
-			influence = 2
+			unity = 0.5
 		}
 	}
 
 	is_potential = {
-		years_passed > 10
-		has_encountered_other_species = yes
-		NOR = {
-			has_authority = auth_hive_mind
-			has_country_flag = suppress_vanilla_factions
-		}
-		count_owned_pop = {
-			count >= 5
+		is_faction_allowed = yes
+		if = {
 			limit = {
-				has_ethic = ethic_egalitarian
+				has_faction = progressive
+				any_pop_faction = {
+					is_pop_faction_type = progressive
+					num_pops >= 5
+				}
+			}
+		}
+		else = {
+			count_owned_pop = {
+				count >= 5
+				limit = {
+					has_ethic = ethic_egalitarian
+				}
 			}
 		}
 	}
@@ -47,8 +53,7 @@ progressive = {
 
 	can_join_faction = {
 		is_shackled_robot = no
-		NOT = { has_trait = trait_nerve_stapled }
-		is_egalitarian = yes
+		can_think = yes
 	}
 
 	attraction = {
@@ -84,12 +89,7 @@ progressive = {
 		modifier = {
 			factor = 0
 			leader_class = ruler
-			owner = {
-				OR = {
-					has_authority = auth_imperial
-					has_authority = auth_corporate_imperial
-				}
-			}
+			owner = { is_imperial = yes }
 		}
 
 		modifier = {
@@ -134,9 +134,7 @@ progressive = {
 
 		trigger = {
 			owner = {
-				NOT = {
-					is_autocracy = yes
-				}
+				is_autocracy = no
 			}
 		}
 	}
@@ -157,6 +155,7 @@ progressive = {
 		trigger = {
 			owner = {
 				NOR = {
+					has_policy_flag = resettlement_allowed
 					any_owned_pop = {
 						has_migration_control = { value = yes }
 						is_sapient = yes
@@ -165,7 +164,6 @@ progressive = {
 						is_shackled_robot = no
 						is_robot_pop = no
 					}
-					has_policy_flag = resettlement_allowed
 				}
 			}
 		}
@@ -205,8 +203,8 @@ progressive = {
 		trigger = {
 			owner = {
 				NOT = {
-					any_owned_pop = {
-						has_living_standard = { type = living_standard_stratified }
+					any_owned_species = {
+						has_living_standard = { type = living_standard_stratified country = prev }
 					}
 				}
 			}
@@ -253,7 +251,7 @@ progressive = {
 			exists = owner
 			owner = {
 				is_homicidal = no
-				is_country_type = default
+				is_country_type_with_subjects = yes
 				has_policy_flag = diplo_stance_cooperative
 			}
 		}
@@ -261,6 +259,26 @@ progressive = {
 		trigger = {
 			owner = {
 				has_policy_flag = diplo_stance_cooperative
+			}
+		}
+	}
+
+	demand = {
+		title = "PROGRESSIVE_BENEVOLENT_SUBJUGATION_POLICY"
+		unfulfilled_title = "PROGRESSIVE_BENEVOLENT_NO_OPPRESSIVE_SUBJUGATION_POLICY"
+		desc = "PROGRESSIVE_BENEVOLENT_NO_OPPRESSIVE_SUBJUGATION_POLICY_DESC"
+
+		unfulfilled_effect = -0.001
+		fulfilled_effect = 5
+
+		potential = {
+			exists = owner
+			owner = { is_subject = no }
+		}
+
+		trigger = {
+			owner = {
+				has_policy_flag = benevolent_terms
 			}
 		}
 	}
@@ -290,7 +308,7 @@ progressive = {
 			description = "EMBRACE_FACTION_DESC"
 
 			cost = {
-				influence = 500
+				unity = 5000
 			}
 
 			potential = {
@@ -298,7 +316,7 @@ progressive = {
 				owner = {
 					OR = {
 						is_subject = no
-						NOT = { is_subject_type = dominion }
+						NOT = { any_agreement = { agreement_preset = preset_dominion } }
 					}
 				}
 			}
@@ -334,7 +352,7 @@ progressive = {
 						every_relation = {
 							limit = {
 								is_ai = no
-								is_country_type = default
+								is_country_type_with_subjects = yes
 								has_communications = prev
 								has_intel_level = {
 									who = prev

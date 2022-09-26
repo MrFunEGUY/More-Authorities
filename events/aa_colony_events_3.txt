@@ -1,0 +1,95 @@
+##############################
+# Colony Events
+##############################
+
+namespace = colony_mod
+
+planet_event = { # Ending - grand opening and the last opportunity
+	id = colony.9290
+	title = "colony.9290.name"
+	desc = "colony.9290.desc"
+	picture = GFX_evt_announcement
+	show_sound = event_celebration
+	location = ROOT
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		original_owner = yes
+		is_occupied_flag = no
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	option = { # casual - timed happiness boost
+		name = colony.9290.a
+		trigger = {
+			owner = {
+				is_gestalt = no
+			}
+		}
+		owner = {
+			add_modifier = {
+				modifier = media_coverage_positive_medium
+				days = 720
+			}
+		}
+		remove_deposit = d_ancient_manufactorium_vaultexploration
+		add_deposit = d_ancient_manufactorium_working
+	}
+	option = { # memorialists civic - adding 1 death/drone chronicler job
+		name = colony.9290.b
+		custom_tooltip = colony.9290.b.desc
+		trigger = {
+			owner = {
+				OR = {
+					has_civic = civic_memorialist
+					has_civic = civic_machine_memorialist
+					has_civic = civic_hive_memorialist
+				}
+			}
+		}
+		set_planet_flag = manufactorium_memorialists
+		remove_deposit = d_ancient_manufactorium_vaultexploration
+		add_deposit = d_ancient_manufactorium_working
+	}
+	option = { # aristocratic elite - adding 1 noble job
+		name = colony.9290.c
+		custom_tooltip = colony.9290.c.desc
+		trigger = {
+			owner = {
+				has_civic = civic_aristocratic_elite
+			}
+		}
+		set_planet_flag = manufactorium_aristocrats
+		remove_deposit = d_ancient_manufactorium_vaultexploration
+		add_deposit = d_ancient_manufactorium_working
+	}
+	option = { # free traders - adding 1 executive job
+		name = colony.9290.d
+		custom_tooltip = colony.9290.d.desc
+		trigger = {
+			owner = { is_megacorp = yes }
+		}
+		set_planet_flag = manufactorium_traders
+		remove_deposit = d_ancient_manufactorium_vaultexploration
+		add_deposit = d_ancient_manufactorium_working
+	}
+	option = { # casual - gestalt, nothing
+		name = colony.9290.e
+		trigger = {
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		remove_deposit = d_ancient_manufactorium_vaultexploration
+		add_deposit = d_ancient_manufactorium_working
+	}
+}
