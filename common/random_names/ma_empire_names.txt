@@ -1,29 +1,112 @@
-##############
-# NAME PARTS #
-##############
+####################
+# More Authorities #
+####################
 
 # Criminal Trade League
 empire_name_parts_list = {
 	key = "criminal_league"
 	parts = {
-		"Mercantile Cartel" = 1
-		"Oligopoly" = 1
-		"Mercantile Concern" = 1
-		"Trade Consortium" = 1
-		"Trading Coalition" = 1
-		"Trading Combine" = 1
-		"High Merchants" = 1
-		"Trade Confederacy" = 1
+		MercantileCartel = 1
+		Oligopoly = 1
+		MercantileConcern = 1
+		TradeConsortium = 1
+		TradingCoalition = 1
+		TradingCombine = 1
+		HighMerchants = 1
+		TradeConfederacy = 1
+	}
+}
+
+# Megacorporation - 2
+# Uses: xxx of Earth/Sol
+empire_name_parts_list = {
+	key = "oligarchic_corp_2_ma"
+	parts = {
+		Conglomerate = 2
+		Corporation = 4
+		Corporate_Union = 1
+		Corporate_Alliance = 1
+		Corporate_Holdings = 1
+		Star_Conglomerate = 1
+		Partnership = 1
+		Stellar_Industries = 1
+		StarCorp = 1
+		Concern = 1
+	}
+}
+
+# Megacorporation - 3
+# Uses: Earth xxx
+empire_name_parts_list = {
+	key = "oligarchic_corp_3_ma"
+	parts = {
+		Conglomerate = 2
+		Corporation = 4
+		Enterprises = 2
+		Stellar_Industries = 1
+		Company = 2
+		StarCorp = 1
+		Synergetics = 1
+		Incorporated = 1
+		TransStellar = 1
+		Industries = 1
+		Dynamics = 1
+		Intersolar = 1
+	}
+}
+
+# Megacorporation - 4 - Unused
+### Uses: xxx oligarchic_corp_2_ma of Earth
+empire_name_parts_list = {
+	key = "oligarchic_corp_4_ma"
+	parts = {
+		Incorporated = 1
+		Manufacturing = 1
+		Multistellar = 1
+		TransStellar = 1
+		Intersolar = 1
+	}
+}
+
+# Megachurch
+empire_name_parts_list = {
+	key = "oligarchic_megachurch_2_ma"
+	parts = {
+		Communion = 1
+		Star_Church = 1
+		First_Church = 1
+		Messianic_Union = 1
+		Sacred_Conglomerate = 1
+		Holy_Enterprise = 1
+		New_Ascensionists = 1
+		Denomination = 1
+		Fellowship_Temple = 1
+		Golden_Foundation = 1
+	}
+}
+
+# Trade League
+empire_name_parts_list = {
+	key = "trade_league_2_ma"
+	parts = {
+		Mercantile_Union = 1
+		Commerce_Guild = 1
+		Commerce_League = 1
+		Trading_Consortium = 1
+		Mercantile_Guilds = 1
+		Trade_Commission = 1
+		Trade_Union = 1
+		Free_Traders = 1
+		Trading_Coalition = 1
+		Bonded_Merchants = 1
+		Shipping_Alliance = 1
+		Trade_Association = 1
 	}
 }
 
 ################
 # NAME FORMATS #
 ################
-
-####################
-# More Authorities #
-####################
 
 # Generic
 
@@ -39,9 +122,9 @@ empire_name_format = {
 			is_fallen_empire = no
 		}
 	}
-	format = "format.dem_gen.1"
-	noun = "[This.Capital.System.GetName]"
-	prefix_format = "[This.Capital.System.GetName] <democratic_gen>"
+	format = "{AofB{<democratic_gen> [This.Capital.System.GetName]}}"
+	noun = "{[This.Capital.System.GetName]}"
+	prefix_format = "{AofBpfx{[This.Capital.System.GetName] <democratic_gen>}}"
 	# Empire of Sol
 }
 
@@ -57,29 +140,30 @@ empire_name_format = {
 			is_fallen_empire = no
 		}
 	}
-	format = "format.dem_gen.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <democratic_gen>"
+	format = "{AofB{<democratic_gen> [This.Capital.System.GetName]}}"
+	noun = "{[This.Capital.System.GetName]}"
+	prefix_format = "{AofBpfx{[This.Capital.System.GetName] <democratic_gen>}}"
 	# Empire of Sol
 }
+
+# Special Megacorp
 
 # Imperial Criminal Trade League 1
 empire_name_format = {
 	random_weight = {
 		factor = 0
 		modifier = {
-			add = 5
+			add = 50
 			has_government = "gov_trade_league_crime_fam"
 			is_pirate = no
 			is_primitive = no
 			is_fallen_empire = no
 		}
 	}
-	lookups = "[This.GetSpeciesName] <criminal_league>"
-	format = format.monopolistic_trade_crime_fam.1
-	noun = format.species
-	prefix_format = prefix_format.monopolistic_trade_crime_fam.1
-	# Human Empire
+	format = "{[This.GetAdj] {<criminal_league>}}"
+	adjective = "{[This.GetAdj]}"
+	prefix_format = "{[This.GetAdj] {<criminal_league>}}"
+	# Terran Empire
 }
 
 # Imperial Criminal Trade League 2
@@ -87,18 +171,17 @@ empire_name_format = {
 	random_weight = {
 		factor = 0
 		modifier = {
-			add = 5
+			add = 100
 			has_government = "gov_trade_league_crime_fam"
 			is_pirate = no
 			is_primitive = no
 			is_fallen_empire = no
 		}
 	}
-	lookups = "[This.GetAdj] <criminal_league>"
-	format = format.monopolistic_trade_crime_fam.2
-	noun = format.adjective
-	prefix_format = prefix_format.monopolistic_trade_crime_fam.2
-	# Terran Empire
+	format = "{AofB{<criminal_league> [This.Capital.GetName]}}"
+	noun = "{[This.Capital.System.GetName]}"
+	prefix_format = "{AofBpfx{[This.Capital.GetName] <criminal_league>}}"
+	# Empire of Earth
 }
 
 # Imperial Criminal Trade League 3
@@ -106,436 +189,22 @@ empire_name_format = {
 	random_weight = {
 		factor = 0
 		modifier = {
-			add = 5
+			add = 100
 			has_government = "gov_trade_league_crime_fam"
 			is_pirate = no
 			is_primitive = no
 			is_fallen_empire = no
 		}
 	}
-	lookups = "<criminal_league> of [This.Capital.GetName]"
-	format = format.monopolistic_trade_crime_fam.3
-	noun = format.species
-	prefix_format = prefix_format.monopolistic_trade_crime_fam.3
-	# Empire of Earth
-}
-
-# Imperial Criminal Trade League 4
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 5
-			has_government = "gov_trade_league_crime_fam"
-			is_pirate = no
-			is_primitive = no
-			is_fallen_empire = no
-		}
-	}
-	lookups = "<criminal_league> of [This.Capital.System.GetName]"
-	format = format.monopolistic_trade_crime_fam.4
-	noun = format.species
-	prefix_format = prefix_format.monopolistic_trade_crime_fam.3
+	format = "{AofB{<criminal_league> [This.Capital.System.GetName]}}"
+	noun = "{[This.Capital.System.GetName]}"
+	prefix_format = "{AofBpfx{[This.Capital.System.GetName] <criminal_league>}}"
 	# Empire of Sol
 }
 
-############################################
-# More Authorities Government Variety Pack #
-############################################
-
-
-# Rationalist Managerial Firm
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_rationalist_managerial_firm_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_rmf_corp.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesAdj] <lrsk_rmf_corp>"
-	# Human Empire
-}
-
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_rationalist_managerial_firm_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_rmf_corp.2"
-	noun = "[This.Capital.System.GetName]"
-	prefix_format = "[This.Capital.System.GetName] <lrsk_rmf_corp>"
-	# Sol Empire
-}
-
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_rationalist_managerial_firm_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_rmf_corp.3"
-	noun = "[This.Capital.GetName]"
-	prefix_format = "[This.Capital.GetName] <lrsk_rmf_corp>"
-	# Earth Empire
-}
-
-###
-
-# Private Intelligence Agency
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_private_military_contractor_fam"
-				has_government = "lrsk_gov_var_gov_private_intel_agency_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_pmc_corp.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <lrsk_pmc_corp>"
-	# Human Empire
-}
-
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_private_military_contractor_fam"
-				has_government = "lrsk_gov_var_gov_private_intel_agency_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_pmc_corp.2"
-	noun = "[This.Capital.System.GetName]"
-	prefix_format = "[This.Capital.System.GetName] <lrsk_pmc_desc>"
-	# Human Empire
-}
-
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_private_military_contractor_fam"
-				has_government = "lrsk_gov_var_gov_private_intel_agency_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_pmc_corp.3"
-	noun = "[This.Capital.GetName]"
-	prefix_format = "[This.Capital.GetName] <lrsk_pmc_desc>"
-	# Human Empire
-}
-
-###
-
-# Protection Racket
-# Criminal Organization 1
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 30
-			OR = {
-				has_government = "lrsk_gov_var_gov_protection_racket_fam"
-			}			
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_crimeorg.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <lrsk_criminal>"
-	# Human Empire
-}
-
-# Criminal Organization 2
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 30
-			OR = {
-				has_government = "lrsk_gov_var_gov_protection_racket_fam"
-			}	
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_crimeorg.2"
-	noun = "[This.Capital.System.GetName]"
-	prefix_format = "[This.Capital.System.GetName] <lrsk_criminal>"
-	# Human Empire
-}
-
-# Criminal Organization 3
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 30
-			OR = {
-				has_government = "lrsk_gov_var_gov_protection_racket_fam"
-			}	
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_crimeorg.3"
-	noun = "[This.Capital.GetName]"
-	prefix_format = "[This.Capital.GetName] <lrsk_criminal>"
-	# Human Empire
-}
-
-###
-
-# Crusading Company
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_crusading_company_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_crus_comp.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <lrsk_cruscomp>"
-	# Human Empire
-}
-
-# Crusading Company
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_crusading_company_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_crus_comp.2"
-	noun = "[This.Capital.System.GetName]"
-	prefix_format = "[This.Capital.System.GetName] <lrsk_cruscomp>"
-	# Human Empire
-}
-
-# Crusading Company
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_crusading_company_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_crus_comp.3"
-	noun = "[This.Capital.GetName]"
-	prefix_format = "[This.Capital.GetName] <lrsk_cruscomp>"
-	# Human Empire
-}
-
-###
-
-# Evangelical Franchise
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_evangelical_franchise_fam"
-				has_government = "lrsk_gov_var_gov_occult_franchise_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_megachurch.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesAdj] <lrsk_megachurch>"
-	# Human Empire
-}
-
-# Evangelical Franchise
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_evangelical_franchise_fam"
-				has_government = "lrsk_gov_var_gov_occult_franchise_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_megachurch.2"
-	noun = "[This.Capital.System.GetName]"
-	prefix_format = "[This.Capital.System.GetName] <lrsk_megachurch>"
-	# Sol Empire
-}
-
-# Evangelical Franchise
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_evangelical_franchise_fam"
-				has_government = "lrsk_gov_var_gov_occult_franchise_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_megachurch.3"
-	noun = "[This.Capital.GetName]"
-	prefix_format = "[This.Capital.GetName] <lrsk_megachurch>"
-	# Earth Empire
-}
-
-###
-
-# Innovation Initiative
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_innovation_initiative_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_inno_corp.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesAdj] <lrsk_inno_corp>"
-	# Human Empire
-}
-
-# Innovation Initiative
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_innovation_initiative_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_inno_corp.2"
-	noun = "[This.Capital.System.GetName]"
-	prefix_format = "[This.Capital.System.GetName] <lrsk_inno_corp>"
-	# Sol Empire
-}
-
-# Innovation Initiative
-empire_name_format = {
-	random_weight = {
-		factor = 0
-		modifier = {
-			add = 20
-			OR = {
-				has_government = "lrsk_gov_var_gov_innovation_initiative_fam"
-			}
-			is_pirate = no
-			is_primitive = no
-			NOT = { is_country_type = fallen_empire }
-			NOT = { is_country_type = awakened_fallen_empire }
-		}
-	}
-	format = "format.lrsk_inno_corp.3"
-	noun = "[This.Capital.GetName]"
-	prefix_format = "[This.Capital.GetName] <lrsk_inno_corp>"
-	# Earth Empire
-}
-
-###
+######################
+# Vanilla Overwrites #
+######################
 
 # Megacorporation
 empire_name_format = {
@@ -563,18 +232,158 @@ empire_name_format = {
 			}
 			is_pirate = no
 			is_primitive = no
-			NOT = {
-				is_country_type = fallen_empire
-			}
-			NOT = {
-				is_country_type = awakened_fallen_empire
-			}
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
 		}
 	}
-	format = "format.olig_corp.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <oligarchic_corp>"
+	format = "{[This.GetSpeciesAdj] {<oligarchic_corp>}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{[This.GetSpeciesAdj] {<oligarchic_corp>}}"
 	# Human Empire
+}
+
+# Megacorporation 2 - MA
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			OR = {
+				has_government = "gov_megacorporation"
+				# More Authorities
+				has_government = "gov_megacorporation_fam"
+				# Venture Politics
+				has_government = "gov_megacooperative"
+				has_government = "gov_optimized_venture"
+				has_government = "gov_industrial_consortium"
+				has_government = "gov_stellar_bancorp" 
+				has_government = "gov_optimized_monopoly"
+				has_government = "gov_industrial_monopoly"
+				# More Authorities Venture Politics
+				has_government = "gov_optimized_venture_fam"
+				has_government = "gov_industrial_consortium_fam"
+				has_government = "gov_stellar_bancorp_fam"
+				has_government = "gov_industrial_monopoly_fam"
+				has_government = "gov_optimized_monopoly_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "{AofB{<oligarchic_corp_2_ma> [This.Capital.System.GetName]}}"
+	noun = "{[This.Capital.System.GetName]}"
+	prefix_format = "{AofBpfx{[This.Capital.System.GetName] <oligarchic_corp_2_ma>}}"
+	# Empire of Sol
+}
+
+# Megacorporation 2_2 - MA
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			OR = {
+				has_government = "gov_megacorporation"
+				# More Authorities
+				has_government = "gov_megacorporation_fam"
+				# Venture Politics
+				has_government = "gov_megacooperative"
+				has_government = "gov_optimized_venture"
+				has_government = "gov_industrial_consortium"
+				has_government = "gov_stellar_bancorp" 
+				has_government = "gov_optimized_monopoly"
+				has_government = "gov_industrial_monopoly"
+				# More Authorities Venture Politics
+				has_government = "gov_optimized_venture_fam"
+				has_government = "gov_industrial_consortium_fam"
+				has_government = "gov_stellar_bancorp_fam"
+				has_government = "gov_industrial_monopoly_fam"
+				has_government = "gov_optimized_monopoly_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "{AofB{<oligarchic_corp_3_ma> [This.Capital.GetName]}}"
+	noun = "{[This.Capital.GetName]}"
+	prefix_format = "{AofBpfx{[This.Capital.GetName] <oligarchic_corp_3_ma>}}"
+	# Empire of Earth
+}
+
+# Megacorporation 3 - MA
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			OR = {
+				has_government = "gov_megacorporation"
+				# More Authorities
+				has_government = "gov_megacorporation_fam"
+				# Venture Politics
+				has_government = "gov_megacooperative"
+				has_government = "gov_optimized_venture"
+				has_government = "gov_industrial_consortium"
+				has_government = "gov_stellar_bancorp" 
+				has_government = "gov_optimized_monopoly"
+				has_government = "gov_industrial_monopoly"
+				# More Authorities Venture Politics
+				has_government = "gov_optimized_venture_fam"
+				has_government = "gov_industrial_consortium_fam"
+				has_government = "gov_stellar_bancorp_fam"
+				has_government = "gov_industrial_monopoly_fam"
+				has_government = "gov_optimized_monopoly_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "{[This.Capital.System.GetName] {<oligarchic_corp_3_ma>}}"
+	adjective = "{[This.Capital.System.GetName]}"
+	prefix_format = "{[This.Capital.System.GetName] {<oligarchic_corp_3_ma>}}"
+	# Sol Corporation
+}
+
+# Megacorporation 3_2 - MA
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			OR = {
+				has_government = "gov_megacorporation"
+				# More Authorities
+				has_government = "gov_megacorporation_fam"
+				# Venture Politics
+				has_government = "gov_megacooperative"
+				has_government = "gov_optimized_venture"
+				has_government = "gov_industrial_consortium"
+				has_government = "gov_stellar_bancorp" 
+				has_government = "gov_optimized_monopoly"
+				has_government = "gov_industrial_monopoly"
+				# More Authorities Venture Politics
+				has_government = "gov_optimized_venture_fam"
+				has_government = "gov_industrial_consortium_fam"
+				has_government = "gov_stellar_bancorp_fam"
+				has_government = "gov_industrial_monopoly_fam"
+				has_government = "gov_optimized_monopoly_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "{[This.Capital.GetName] {<oligarchic_corp_3_ma>}}"
+	adjective = "{[This.Capital.GetName]}"
+	prefix_format = "{[This.Capital.GetName] {<oligarchic_corp_3_ma>}}"
+	# Earth Corporation
 }
 
 # Megachurch
@@ -595,10 +404,58 @@ empire_name_format = {
 			NOT = { is_country_type = awakened_fallen_empire }
 		}
 	}
-	format = "format.olig_megachurch.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <oligarchic_megachurch>"
+	format = "{[This.GetSpeciesAdj] {<oligarchic_megachurch>}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{[This.GetSpeciesAdj] {<oligarchic_megachurch>}}"
 	# Human Empire
+}
+
+# Megachurch 2 - MA
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			OR = {
+				has_government = "gov_megachurch"
+				has_government = "gov_sacrificial_megachurch"
+				# More Authorities
+				has_government = "gov_megachurch_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "{AofB{<oligarchic_megachurch_2_ma> [This.Capital.System.GetName]}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{AofBpfx{[This.Capital.System.GetName] <oligarchic_megachurch_2_ma>}}"
+	# Communion of Sol
+}
+
+# Megachurch 2_2 - MA
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			OR = {
+				has_government = "gov_megachurch"
+				has_government = "gov_sacrificial_megachurch"
+				# More Authorities
+				has_government = "gov_megachurch_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "{AofB{<oligarchic_megachurch_2_ma> [This.Capital.GetName]}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{AofBpfx{[This.Capital.GetName] <oligarchic_megachurch_2_ma>}}"
+	# Communion of Earth
 }
 
 # Trade League
@@ -618,20 +475,64 @@ empire_name_format = {
 			NOT = { is_country_type = awakened_fallen_empire }
 		}
 	}
-	format = "format.trade_league.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <trade_league>"
+	format = "{[This.GetSpeciesAdj] {<trade_league>}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{[This.GetSpeciesAdj] {<trade_league>}}"
 	# Human Empire
 }
 
-###
+# Trade League 2 - MA
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			OR = {
+				has_government = "gov_trade_league"
+				# More Authorities
+				has_government = "gov_trade_league_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "{AofB{<trade_league_2_ma> [This.Capital.System.GetName]}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{AofBpfx{[This.Capital.System.GetName] <trade_league_2_ma>}}"
+	# Commerce Guild of Sol
+}
+
+# Trade League 2_2 - MA
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			OR = {
+				has_government = "gov_trade_league"
+				# More Authorities
+				has_government = "gov_trade_league_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "{AofB{<trade_league_2_ma> [This.Capital.GetName]}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{AofBpfx{[This.Capital.GetName] <trade_league_2_ma>}}"
+	# Commerce Guild of Earth
+}
 
 # Criminal Syndicate
 empire_name_format = {
 	random_weight = {
 		factor = 0
 		modifier = {
-			add = 5
+			add = 4
 			OR = {
 				has_government = "gov_criminal_syndicate"
 				# More Authorities
@@ -643,13 +544,13 @@ empire_name_format = {
 			NOT = { is_country_type = awakened_fallen_empire }
 		}
 	}
-	format = "format.monopolistic_syndicate.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <monopolistic_syndicate>"
+	format = "{[This.GetSpeciesAdj] {<monopolistic_syndicate>}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{[This.GetSpeciesAdj] {<monopolistic_syndicate>}}"
 	# Human Empire
 }
 
-# Criminal Syndicate 3
+# Criminal Syndicate 2 - MA
 empire_name_format = {
 	random_weight = {
 		factor = 0
@@ -666,13 +567,13 @@ empire_name_format = {
 			NOT = { is_country_type = awakened_fallen_empire }
 		}
 	}
-	format = "format.monopolistic_syndicate.3"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <monopolistic_syndicate>"
-	# Empire of Earth
+	format = "{AofB{<monopolistic_syndicate> [This.Capital.System.GetName]}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{AofBpfx{[This.Capital.System.GetName] <monopolistic_syndicate>}}"
+	# Commerce Guild of Sol
 }
 
-# Criminal Syndicate 4
+# Criminal Syndicate 2_2 - MA
 empire_name_format = {
 	random_weight = {
 		factor = 0
@@ -689,13 +590,11 @@ empire_name_format = {
 			NOT = { is_country_type = awakened_fallen_empire }
 		}
 	}
-	format = "format.monopolistic_syndicate.4"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <monopolistic_syndicate>"
-	# Empire of Sol
+	format = "{AofB{<monopolistic_syndicate> [This.Capital.GetName]}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{AofBpfx{[This.Capital.GetName] <monopolistic_syndicate>}}"
+	# Commerce Guild of Earth
 }
-
-###
 
 # Subversive Cult 1
 empire_name_format = {
@@ -715,9 +614,9 @@ empire_name_format = {
 			NOT = { is_country_type = awakened_fallen_empire }
 		}
 	}
-	format = "format.subversive_cult.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <subversive_cult_1>"
+	format = "{[This.GetSpeciesAdj] {<subversive_cult_1>}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{[This.GetSpeciesAdj] {<subversive_cult_1>}}"
 	# Human Cult
 }
 
@@ -739,13 +638,13 @@ empire_name_format = {
 			NOT = { is_country_type = awakened_fallen_empire }
 		}
 	}
-	format = "format.subversive_cult.2"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <subversive_cult_2>"
+	format = "{AofB{<subversive_cult_2> [This.Capital.GetName]}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{[This.GetSpeciesAdj] {<subversive_cult_2>}}"
 	# Prophets of Earth
 }
 
-# Subversive Cult 4
+# Subversive Cult 3 - MA
 empire_name_format = {
 	random_weight = {
 		factor = 0
@@ -763,8 +662,421 @@ empire_name_format = {
 			NOT = { is_country_type = awakened_fallen_empire }
 		}
 	}
-	format = "format.subversive_cult.4"
+	format = "{AofB{<subversive_cult_2> [This.Capital.System.GetName]}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{[This.GetSpeciesAdj] {<subversive_cult_2>}}"
+	# Prophets of Sol
+}
+
+###########################
+# Government Variety Pack #
+###########################
+
+# Rationalist Managerial Firm
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_rationalist_managerial_firm_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_rmf_corp.1"
+	format = "format.lrsk_rmf_corp.1"
 	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <subversive_cult_2>"
-	# Prophets of [System Name]
+	prefix_format = "[This.GetSpeciesAdj] <lrsk_rmf_corp>"
+	# Human Empire
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_rationalist_managerial_firm_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_rmf_corp.2"
+	format = "format.lrsk_rmf_corp.2"
+	noun = "[This.Capital.System.GetName]"
+	prefix_format = "[This.Capital.System.GetName] <lrsk_rmf_corp>"
+	# Sol Empire
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_rationalist_managerial_firm_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_rmf_corp.3"
+	format = "format.lrsk_rmf_corp.3"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <lrsk_rmf_corp>"
+	# Earth Empire
+}
+
+###
+
+# Private Intelligence Agency
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_private_military_contractor_fam"
+				has_government = "lrsk_gov_var_gov_private_intel_agency_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_pmc_corp.1"
+	format = "format.lrsk_pmc_corp.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <lrsk_pmc_corp>"
+	# Human Empire
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_private_military_contractor_fam"
+				has_government = "lrsk_gov_var_gov_private_intel_agency_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_pmc_corp.2"
+	format = "format.lrsk_pmc_corp.2"
+	noun = "[This.Capital.System.GetName]"
+	prefix_format = "[This.Capital.System.GetName] <lrsk_pmc_desc>"
+	# Human Empire
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_private_military_contractor_fam"
+				has_government = "lrsk_gov_var_gov_private_intel_agency_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_pmc_corp.3"
+	format = "format.lrsk_pmc_corp.3"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <lrsk_pmc_desc>"
+	# Human Empire
+}
+
+###
+
+# Protection Racket
+# Criminal Organization 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 30
+			OR = {
+				has_government = "lrsk_gov_var_gov_protection_racket_fam"
+			}			
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_crimeorg.1"
+	format = "format.lrsk_crimeorg.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <lrsk_criminal>"
+	# Human Empire
+}
+
+# Criminal Organization 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 30
+			OR = {
+				has_government = "lrsk_gov_var_gov_protection_racket_fam"
+			}	
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_crimeorg.2"
+	format = "format.lrsk_crimeorg.2"
+	noun = "[This.Capital.System.GetName]"
+	prefix_format = "[This.Capital.System.GetName] <lrsk_criminal>"
+	# Human Empire
+}
+
+# Criminal Organization 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 30
+			OR = {
+				has_government = "lrsk_gov_var_gov_protection_racket_fam"
+			}	
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_crimeorg.3"
+	format = "format.lrsk_crimeorg.3"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <lrsk_criminal>"
+	# Human Empire
+}
+
+###
+
+# Crusading Company
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_crusading_company_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_crus_comp.1"
+	format = "format.lrsk_crus_comp.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <lrsk_cruscomp>"
+	# Human Empire
+}
+
+# Crusading Company
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_crusading_company_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_crus_comp.2"
+	format = "format.lrsk_crus_comp.2"
+	noun = "[This.Capital.System.GetName]"
+	prefix_format = "[This.Capital.System.GetName] <lrsk_cruscomp>"
+	# Human Empire
+}
+
+# Crusading Company
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_crusading_company_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_crus_comp.3"
+	format = "format.lrsk_crus_comp.3"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <lrsk_cruscomp>"
+	# Human Empire
+}
+
+###
+
+# Evangelical Franchise
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_evangelical_franchise_fam"
+				has_government = "lrsk_gov_var_gov_occult_franchise_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_megachurch.1"
+	format = "format.lrsk_megachurch.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesAdj] <lrsk_megachurch>"
+	# Human Empire
+}
+
+# Evangelical Franchise
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_evangelical_franchise_fam"
+				has_government = "lrsk_gov_var_gov_occult_franchise_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_megachurch.2"
+	format = "format.lrsk_megachurch.2"
+	noun = "[This.Capital.System.GetName]"
+	prefix_format = "[This.Capital.System.GetName] <lrsk_megachurch>"
+	# Sol Empire
+}
+
+# Evangelical Franchise
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_evangelical_franchise_fam"
+				has_government = "lrsk_gov_var_gov_occult_franchise_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_megachurch.3"
+	format = "format.lrsk_megachurch.3"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <lrsk_megachurch>"
+	# Earth Empire
+}
+
+###
+
+# Innovation Initiative
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_innovation_initiative_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_inno_corp.1"
+	format = "format.lrsk_inno_corp.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesAdj] <lrsk_inno_corp>"
+	# Human Empire
+}
+
+# Innovation Initiative
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_innovation_initiative_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_inno_corp.2"
+	format = "format.lrsk_inno_corp.2"
+	noun = "[This.Capital.System.GetName]"
+	prefix_format = "[This.Capital.System.GetName] <lrsk_inno_corp>"
+	# Sol Empire
+}
+
+# Innovation Initiative
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 20
+			OR = {
+				has_government = "lrsk_gov_var_gov_innovation_initiative_fam"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	lookups = "format.lrsk_inno_corp.3"
+	format = "format.lrsk_inno_corp.3"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <lrsk_inno_corp>"
+	# Earth Empire
 }

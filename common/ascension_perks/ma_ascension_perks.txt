@@ -27,7 +27,7 @@ ap_lord_of_war = {
 		host_has_dlc = "Overlord"
 		NOT = { has_ascension_perk = ap_lord_of_war }
 		NOR = {
-			has_ethic = ethic_gestalt_consciousness
+			is_gestalt = yes
 			has_valid_civic = civic_fanatic_purifiers
 		}
 	}

@@ -142,7 +142,7 @@ espionage_operation_event = {
 					1 = {
 						modifier = {
 							factor = 0
-							NOT = { is_megacorp = yes }
+							is_megacorp = no
 						}
 						espionage_smear_campaign_corporate = yes
 					}
@@ -150,7 +150,7 @@ espionage_operation_event = {
 			}
 			else = {
 				if = {
-					limit = { has_authority = auth_hive_mind }
+					limit = { is_hive_empire = yes }
 					espionage_smear_campaign_hive = yes
 				}
 				else = { espionage_smear_campaign_machine = yes }

@@ -1462,7 +1462,7 @@ country_event = {
 			NOT = { is_same_species = event_target:contact_empire }
 			event_target:contact_empire = {
 				is_country_type_with_subjects = yes
-				has_authority = auth_hive_mind
+				is_hive_empire = yes
 				NOT = { has_valid_civic = civic_hive_devouring_swarm }
 				NOT = { has_country_flag = special_intro_for@root }
 			}
@@ -1495,7 +1495,7 @@ country_event = {
 			NOT = { is_same_species = event_target:contact_empire }
 			event_target:contact_empire = {
 				is_country_type_with_subjects = yes
-				has_authority = auth_hive_mind
+				is_hive_empire = yes
 				has_valid_civic = civic_hive_devouring_swarm
 				NOT = { has_country_flag = special_intro_for@root }
 			}
@@ -1510,7 +1510,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOR = {
 				is_same_species = event_target:contact_empire
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -1532,7 +1532,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOT = { is_same_species = event_target:contact_empire }
 			OR = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -1554,7 +1554,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOR = {
 				is_same_species = event_target:contact_empire
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -1572,7 +1572,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOT = { is_same_species = event_target:contact_empire }
 			OR = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -1590,7 +1590,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOR = {
 				is_same_species = event_target:contact_empire
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -1608,7 +1608,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOT = { is_same_species = event_target:contact_empire }
 			OR = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -1626,7 +1626,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOR = {
 				is_same_species = event_target:contact_empire
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -1644,7 +1644,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOT = { is_same_species = event_target:contact_empire }
 			OR = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -1662,12 +1662,12 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOR = {
 				is_same_species = event_target:contact_empire
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
 				is_country_type = fallen_empire
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				NOT = { has_country_flag = special_intro_for@root }
 			}
 		}
@@ -1680,12 +1680,12 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOT = { is_same_species = event_target:contact_empire }
 			OR = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
 				is_country_type = fallen_empire
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				NOT = { has_country_flag = special_intro_for@root }
 			}
 		}
@@ -1731,7 +1731,7 @@ country_event = {
 		trigger = {
 			event_target:contact_empire = {
 				is_country_type = fallen_empire
-				NOT = { has_ethic = ethic_gestalt_consciousness }
+				is_gestalt = no
 				NOT = { has_ethic = ethic_fanatic_xenophobe }
 				NOT = { has_ethic = ethic_fanatic_xenophile }
 				NOT = { has_ethic = ethic_fanatic_materialist }
@@ -2042,7 +2042,7 @@ country_event = {
 			text = action.1.n
 			trigger = {
 				is_spiritualist = yes
-				event_target:contact_empire = { NOT = { has_authority = auth_machine_intelligence } }
+				event_target:contact_empire = { is_machine_empire = no }
 			}
 		}
 		name = {
@@ -2129,14 +2129,14 @@ country_event = {
 		name = {
 			text = action.1.hm
 			trigger = {
-				has_authority = auth_hive_mind
+				is_hive_empire = yes
 				NOT = { has_valid_civic = civic_hive_devouring_swarm }
 			}
 		}
 		name = {
 			text = action.1.me
 			trigger = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				NOT = { has_valid_civic = civic_machine_terminator }
 			}
 		}
@@ -2144,14 +2144,14 @@ country_event = {
 			text = action.1.mtm
 			trigger = {
 				has_valid_civic = civic_machine_terminator
-				event_target:contact_empire = { has_authority = auth_machine_intelligence }
+				event_target:contact_empire = { is_machine_empire = yes }
 			}
 		}
 		name = {
 			text = action.1.o
 			trigger = {
 				is_spiritualist = yes
-				event_target:contact_empire = { NOT = { has_authority = auth_machine_intelligence } }
+				event_target:contact_empire = { is_machine_empire = no }
 			}
 		}
 		name = {
@@ -2223,13 +2223,13 @@ country_event = {
 				is_homicidal = no
 				AND = {
 					has_valid_civic = civic_machine_terminator
-					event_target:contact_empire = { has_authority = auth_machine_intelligence }
+					event_target:contact_empire = { is_machine_empire = yes }
 				}
 			}
 			NOT = { has_valid_civic = civic_inwards_perfection }
 			NAND = {
 				has_ethic = ethic_fanatic_spiritualist
-				event_target:contact_empire = { has_authority = auth_machine_intelligence }
+				event_target:contact_empire = { is_machine_empire = yes }
 			}
 			OR = {
 				NOT = { has_ethic = ethic_fanatic_xenophobe }
@@ -2315,7 +2315,7 @@ country_event = {
 			text = action.1.r
 			trigger = {
 				is_spiritualist = yes
-				event_target:contact_empire = { has_authority = auth_machine_intelligence }
+				event_target:contact_empire = { is_machine_empire = yes }
 			}
 		}
 		name = {
@@ -2476,7 +2476,7 @@ country_event = {
 			text = action.1.s
 			trigger = {
 				is_spiritualist = yes
-				event_target:contact_empire = { has_authority = auth_machine_intelligence }
+				event_target:contact_empire = { is_machine_empire = yes }
 			}
 		}
 		name = {
@@ -4101,7 +4101,7 @@ country_event = {
 			NOT = { is_same_species = event_target:contact_empire }
 			event_target:contact_empire = {
 				is_country_type_with_subjects = yes
-				has_authority = auth_hive_mind
+				is_hive_empire = yes
 				NOT = { has_valid_civic = civic_hive_devouring_swarm }
 				NOT = { has_country_flag = special_intro_for@root }
 			}
@@ -4134,7 +4134,7 @@ country_event = {
 			NOT = { is_same_species = event_target:contact_empire }
 			event_target:contact_empire = {
 				is_country_type_with_subjects = yes
-				has_authority = auth_hive_mind
+				is_hive_empire = yes
 				has_valid_civic = civic_hive_devouring_swarm
 				NOT = { has_country_flag = special_intro_for@root }
 			}
@@ -4149,7 +4149,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOR = {
 				is_same_species = event_target:contact_empire
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -4171,7 +4171,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOT = { is_same_species = event_target:contact_empire }
 			OR = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -4193,7 +4193,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOR = {
 				is_same_species = event_target:contact_empire
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -4211,7 +4211,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOT = { is_same_species = event_target:contact_empire }
 			OR = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -4229,7 +4229,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOR = {
 				is_same_species = event_target:contact_empire
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -4247,7 +4247,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOT = { is_same_species = event_target:contact_empire }
 			OR = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -4265,7 +4265,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOR = {
 				is_same_species = event_target:contact_empire
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -4283,7 +4283,7 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOT = { is_same_species = event_target:contact_empire }
 			OR = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
@@ -4301,12 +4301,12 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOR = {
 				is_same_species = event_target:contact_empire
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
 				is_country_type = fallen_empire
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				NOT = { has_country_flag = special_intro_for@root }
 			}
 		}
@@ -4319,12 +4319,12 @@ country_event = {
 			first_contact_custom_greeting = no
 			NOT = { is_same_species = event_target:contact_empire }
 			OR = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				has_country_flag = synthetic_empire
 			}
 			event_target:contact_empire = {
 				is_country_type = fallen_empire
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				NOT = { has_country_flag = special_intro_for@root }
 			}
 		}
@@ -4370,7 +4370,7 @@ country_event = {
 		trigger = {
 			event_target:contact_empire = {
 				is_country_type = fallen_empire
-				NOT = { has_ethic = ethic_gestalt_consciousness }
+				is_gestalt = no
 				NOT = { has_ethic = ethic_fanatic_xenophobe }
 				NOT = { has_ethic = ethic_fanatic_xenophile }
 				NOT = { has_ethic = ethic_fanatic_materialist }
@@ -4675,7 +4675,7 @@ country_event = {
 			text = action.1.n
 			trigger = {
 				is_spiritualist = yes
-				event_target:contact_empire = { NOT = { has_authority = auth_machine_intelligence } }
+				event_target:contact_empire = { is_machine_empire = no }
 			}
 		}
 		name = {
@@ -4762,14 +4762,14 @@ country_event = {
 		name = {
 			text = action.1.hm
 			trigger = {
-				has_authority = auth_hive_mind
+				is_hive_empire = yes
 				NOT = { has_valid_civic = civic_hive_devouring_swarm }
 			}
 		}
 		name = {
 			text = action.1.me
 			trigger = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				NOT = { has_valid_civic = civic_machine_terminator }
 			}
 		}
@@ -4777,14 +4777,14 @@ country_event = {
 			text = action.1.mtm
 			trigger = {
 				has_valid_civic = civic_machine_terminator
-				event_target:contact_empire = { has_authority = auth_machine_intelligence }
+				event_target:contact_empire = { is_machine_empire = yes }
 			}
 		}
 		name = {
 			text = action.1.o
 			trigger = {
 				is_spiritualist = yes
-				event_target:contact_empire = { NOT = { has_authority = auth_machine_intelligence } }
+				event_target:contact_empire = { is_machine_empire = no }
 			}
 		}
 		name = {
@@ -4856,13 +4856,13 @@ country_event = {
 				is_homicidal = no
 				AND = {
 					has_valid_civic = civic_machine_terminator
-					event_target:contact_empire = { has_authority = auth_machine_intelligence }
+					event_target:contact_empire = { is_machine_empire = yes }
 				}
 			}
 			NOT = { has_valid_civic = civic_inwards_perfection }
 			NAND = {
 				has_ethic = ethic_fanatic_spiritualist
-				event_target:contact_empire = { has_authority = auth_machine_intelligence }
+				event_target:contact_empire = { is_machine_empire = yes }
 			}
 			OR = {
 				NOT = { has_ethic = ethic_fanatic_xenophobe }
@@ -4948,7 +4948,7 @@ country_event = {
 			text = action.1.r
 			trigger = {
 				is_spiritualist = yes
-				event_target:contact_empire = { has_authority = auth_machine_intelligence }
+				event_target:contact_empire = { is_machine_empire = yes }
 			}
 		}
 		name = {
@@ -5109,7 +5109,7 @@ country_event = {
 			text = action.1.s
 			trigger = {
 				is_spiritualist = yes
-				event_target:contact_empire = { has_authority = auth_machine_intelligence }
+				event_target:contact_empire = { is_machine_empire = yes }
 			}
 		}
 		name = {
@@ -5608,7 +5608,7 @@ country_event = {
 
 	option = {
 		name = action.96.b
-		trigger = { NOT = { is_megacorp = yes } }
+		trigger = { is_megacorp = no }
 	}
 }
 
@@ -5659,7 +5659,7 @@ country_event = {
 
 	option = {
 		name = action.96.b
-		trigger = { NOT = { is_megacorp = yes } }
+		trigger = { is_megacorp = no }
 		custom_tooltip = enable_decision_market_nomination
 	}
 }
@@ -5735,7 +5735,7 @@ country_event = {
 					}
 					modifier = {
 						factor = 0.75
-						has_ethic = ethic_gestalt_consciousness
+						is_gestalt = yes
 					}
 				}
 				capital_scope = {

@@ -13,7 +13,7 @@ country_event = {
 	id = espionage.1060
 	title = espionage.1060.name
 	desc = {
-		trigger = { NOT = { is_megacorp = yes } }
+		trigger = { is_megacorp = no }
 		text = espionage.1060.desc
 	}
 	desc = {
@@ -101,7 +101,7 @@ country_event = {
 	option = { #Sack a politician
 		name = espionage.1060.a
 		trigger = {
-			NOT = { is_megacorp = yes }
+			is_megacorp = no
 			capital_scope = {
 				any_owned_pop = { has_job = politician }
 			}

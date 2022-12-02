@@ -295,6 +295,7 @@ civic_technocracy = {
 				value = civic_merchant_guilds
 				value = civic_exalted_priesthood
 				value = civic_aristocratic_elite
+				value = civic_shared_burden
 			}
 		}
 	}
@@ -1000,6 +1001,7 @@ civic_fanatic_purifiers = {
 				value = origin_syncretic_evolution
 				value = origin_common_ground
 				value = origin_hegemon
+				value = origin_toxic_knights
 			}
 		}
 	}
@@ -1300,7 +1302,7 @@ civic_death_cult = {
 		civics = {
 			NOR = {
 				value = civic_fanatic_purifiers
-				value = civic_inwards_perfectioncivic_anglers
+				value = civic_inwards_perfection
 				value = civic_ancient_preservers
 			}
 		}
@@ -1465,9 +1467,9 @@ civic_anglers = {
 				value = origin_post_apocalyptic
 				value = origin_shattered_ring
 				value = origin_void_dwellers
+				value = origin_subterranean
 			}
 		}
-		civics = { NOT = { value = civic_agrarian_idyll } }
 	}
 	traits = {
 		trait = trait_aquatic

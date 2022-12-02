@@ -80,7 +80,7 @@ decision_market_nomination = {
 					}
 					modifier = {
 						factor = 1.5
-						from = { has_ethic = ethic_gestalt_consciousness }
+						from = { is_gestalt = yes }
 					}
 				}
 				6 = {
@@ -114,7 +114,7 @@ decision_market_nomination = {
 					}
 					modifier = {
 						factor = 0.75
-						from = { has_ethic = ethic_gestalt_consciousness }
+						from = { is_gestalt = yes }
 					}
 					add_modifier = {
 						modifier = market_nominee_level_3

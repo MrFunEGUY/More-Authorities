@@ -16,7 +16,7 @@ subjugation_war_terms = {
 		}
 
 		potential = {
-			NOT = { is_megacorp = yes }
+			is_megacorp = no
 		}
 
 		on_enabled = {
@@ -83,7 +83,7 @@ subjugation_war_terms = {
 		}
 
 		potential = {
-			NOT = { is_megacorp = yes }
+			is_megacorp = no
 		}
 
 		on_enabled = {
@@ -132,7 +132,7 @@ subjugation_war_terms = {
 		}
 
 		potential = {
-			NOT = { is_megacorp = yes }
+			is_megacorp = no
 		}
 
 		on_enabled = {

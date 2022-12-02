@@ -157,7 +157,7 @@ country_event = {
 	option = {
 		name = crisis.18.h
 		trigger = {
-			has_ethic = ethic_gestalt_consciousness
+			is_gestalt = yes
 		}
 	}
 }
@@ -318,7 +318,7 @@ country_event = {
 	option = {
 		name = crisis.18.h
 		trigger = {
-			has_ethic = ethic_gestalt_consciousness
+			is_gestalt = yes
 		}
 	}
 }
@@ -424,7 +424,7 @@ country_event = {
 				has_government = gov_successor_khanate
 				has_government = gov_diadochi
 				is_fallen_empire = yes
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 			}
 			NOR = {
 				has_ethic = "ethic_fanatic_xenophile"

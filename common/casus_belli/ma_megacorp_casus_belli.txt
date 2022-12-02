@@ -63,7 +63,7 @@ cb_expel_corp = {
 	show_notification = yes
 	potential = {
 		is_country_type_with_subjects = yes
-		NOT = { is_megacorp = yes }
+		is_megacorp = no
 	}
 	is_valid = {
 		NOT = { has_commercial_pact = from }

@@ -1939,7 +1939,7 @@ gov_imperial_domain_machines = {
 
 	possible = {
 		has_valid_civic = civic_galactic_sovereign
-		is_machine_empire = yes
+		has_authority = auth_machine_intelligence
 	}
 
 	weight = {
@@ -1955,7 +1955,7 @@ gov_imperial_domain_hives = {
 
 	possible = {
 		has_valid_civic = civic_galactic_sovereign
-		is_hive_empire = yes
+		has_authority = auth_hive_mind
 	}
 
 	weight = {
