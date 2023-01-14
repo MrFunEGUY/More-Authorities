@@ -4,7 +4,7 @@ opinion_dc_vs_autocracy = {
 			add = -100
 			has_ai_personality = democratic_crusaders	
 			FROM = { 
-				is_autocracy = yes
+				is_imp_or_dict = yes
 			}
 		}
 	}

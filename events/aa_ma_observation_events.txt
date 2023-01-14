@@ -29,7 +29,7 @@ country_event = {
 				every_owned_pop = { pop_change_ethic = "ethic_egalitarian" }
 				if = {
 					limit = {
-						is_autocracy = yes
+						is_imp_or_dict = yes
 					}
 					random_list = {
 						50 = { change_government = { authority = auth_democratic } }
@@ -90,7 +90,7 @@ country_event = {
 		shift_ethic = "ethic_egalitarian"
 		if = {
 			limit = {
-				is_autocracy = yes
+				is_imp_or_dict = yes
 			}
 			random_list = {
 				50 = { change_government = { authority = auth_democratic } }

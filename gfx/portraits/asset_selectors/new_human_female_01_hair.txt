@@ -307,7 +307,7 @@ new_human_female_hair_01 = {
 					OR = {
 						has_authority = auth_oligarchic
 						is_democracy = yes
-						is_autocracy = yes
+						is_imp_or_dict = yes
 						has_primitive_government = yes
 						has_government = gov_stagnant_ascendancy
 					}

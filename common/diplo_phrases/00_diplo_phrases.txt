@@ -19441,7 +19441,7 @@ action_invite_to_federation = {
 					is_megacorp = yes
 				}
 				OR = {
-					is_autocracy = yes
+					is_imp_or_dict = yes
 					#has_government = military_dictatorship
 					#has_government = martial_empire
 					#has_government = divine_mandate
@@ -20158,7 +20158,7 @@ action_ask_to_join_federation = {
 					is_megacorp = yes
 				}
 				OR = {
-					is_autocracy = yes
+					is_imp_or_dict = yes
 					#has_government = military_dictatorship
 					#has_government = martial_empire
 					#has_government = divine_mandate
@@ -20862,7 +20862,7 @@ action_demand_subjugation = {
 					is_megacorp = yes
 				}
 				OR = {
-					is_autocracy = yes
+					is_imp_or_dict = yes
 					#has_government = military_dictatorship
 					#has_government = martial_empire
 					#has_government = divine_mandate
@@ -21458,7 +21458,7 @@ action_ask_to_become_subjugated = {
 					is_gestalt = yes
 				}
 				OR = {
-					is_autocracy = yes
+					is_imp_or_dict = yes
 					#has_government = military_dictatorship
 					#has_government = martial_empire
 					#has_government = divine_mandate
@@ -26237,7 +26237,7 @@ action_form_defensive_pact = {
 					is_megacorp = yes
 				}
 				OR = {
-					is_autocracy = yes
+					is_imp_or_dict = yes
 					#has_government = military_dictatorship
 					#has_government = martial_empire
 					#has_government = divine_mandate
@@ -26657,7 +26657,7 @@ action_form_non_aggression_pact = {
 					is_megacorp = yes
 				}
 				OR = {
-					is_autocracy = yes
+					is_imp_or_dict = yes
 					#has_government = military_dictatorship
 					#has_government = martial_empire
 					#has_government = divine_mandate
@@ -27638,7 +27638,7 @@ action_form_migration_pact = {
 					is_megacorp = yes
 				}
 				OR = {
-					is_autocracy = yes
+					is_imp_or_dict = yes
 					#has_government = military_dictatorship
 					#has_government = martial_empire
 					#has_government = divine_mandate
@@ -28343,7 +28343,7 @@ action_offer_federation_association_status = {
 					is_megacorp = yes
 				}
 				OR = {
-					is_autocracy = yes
+					is_imp_or_dict = yes
 					#has_government = military_dictatorship
 					#has_government = martial_empire
 					#has_government = divine_mandate
@@ -28752,7 +28752,7 @@ action_ask_for_federation_association_status = {
 					is_megacorp = yes
 				}
 				OR = {
-					is_autocracy = yes
+					is_imp_or_dict = yes
 					#has_government = military_dictatorship
 					#has_government = martial_empire
 					#has_government = divine_mandate
@@ -29150,7 +29150,7 @@ action_demand_tributary = {
 					is_megacorp = yes
 				}
 				OR = {
-					is_autocracy = yes
+					is_imp_or_dict = yes
 					#has_government = military_dictatorship
 					#has_government = martial_empire
 					#has_government = divine_mandate
@@ -32684,7 +32684,7 @@ action_form_commercial_pact = {
 					is_megacorp = yes
 				}
 				OR = {
-					is_autocracy = yes
+					is_imp_or_dict = yes
 					#has_government = military_dictatorship
 					#has_government = martial_empire
 					#has_government = divine_mandate
@@ -32928,7 +32928,7 @@ action_form_research_agreement = {
 					is_megacorp = yes
 				}
 				OR = {
-					is_autocracy = yes
+					is_imp_or_dict = yes
 				}
 			}
 		}

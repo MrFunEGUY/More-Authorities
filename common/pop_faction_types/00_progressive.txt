@@ -117,7 +117,7 @@ progressive = {
 
 		trigger = {
 			owner = {
-				is_autocracy = no
+				is_imp_or_dict = no
 			}
 		}
 	}

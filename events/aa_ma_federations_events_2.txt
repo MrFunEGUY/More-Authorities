@@ -80,7 +80,7 @@ ship_event = {
 		if = {
 			limit = {
 				owner = {
-					is_autocracy = yes
+					is_imp_or_dict = yes
 				}
 			}
 			custom_tooltip = federations2.1.B.tooltip

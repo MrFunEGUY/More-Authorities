@@ -393,11 +393,7 @@ border_policy = {
 		}
 
 		valid = {
-			NOR = {
-				has_valid_civic = civic_machine_terminator
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_fanatic_purifiers
-			}
+			is_homicidal = no
 		}
 	}
 
@@ -418,6 +414,7 @@ border_policy = {
 			modifier = {
 				factor = 0
 				is_megacorp = yes
+				NOT = { has_crisis_level = crisis_level_5 }
 			}
 			modifier = {
 				factor = 0
@@ -426,6 +423,7 @@ border_policy = {
 					has_ai_personality_behaviour = isolationist
 					has_ai_personality_behaviour = attack_neutrals
 				}
+				NOT = { has_crisis_level = crisis_level_5 }
 			}
 			modifier = {
 				factor = 0
@@ -434,6 +432,7 @@ border_policy = {
 					has_ethic = ethic_xenophobe
 					has_ethic = ethic_fanatic_xenophobe
 				}
+				NOT = { has_crisis_level = crisis_level_5 }
 			}
 			modifier = {
 				factor = 10

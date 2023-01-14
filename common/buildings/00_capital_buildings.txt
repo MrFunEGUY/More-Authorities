@@ -2277,6 +2277,19 @@ building_hab_major_capital = {
 		trigger = {
 			exists = owner
 			owner = {
+				has_civic = civic_technocracy
+			}
+			OR = {
+				NOT = { has_planet_flag = toxic_knights_habitat }
+				NOT = { owner = { has_origin = origin_toxic_knights } }
+			}
+		}
+		text = job_head_researcher_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
 				has_civic = civic_merchant_guilds
 			}
 			OR = {
@@ -2436,7 +2449,10 @@ building_resort_capital = {
 	category = government
 
 	potential = {
-		has_modifier = resort_colony
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = resort_colony_pd_hab
+		}
 	}
 
 	convert_to = {
@@ -2561,7 +2577,10 @@ building_resort_major_capital = {
 	category = government
 
 	potential = {
-		has_modifier = resort_colony
+		OR = {
+			has_modifier = resort_colony
+			has_modifier = resort_colony_pd_hab
+		}
 	}
 
 	convert_to = {

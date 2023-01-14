@@ -101,7 +101,7 @@ manifesti = {
 			factor = 0
 			leader_class = ruler
 			owner = {
-				is_autocracy = yes
+				is_imp_or_dict = yes
 			}
 		}
 		modifier = {
