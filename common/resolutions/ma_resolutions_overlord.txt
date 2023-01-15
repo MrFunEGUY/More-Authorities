@@ -41,7 +41,7 @@ resolution_defenseprivatization_defense_contracts = {
 			set_timed_country_flag = { flag = galactic_community_resolution_passed_defenseprivatization days = @resolution_flag_timer }
 			add_modifier = {
 				modifier = resolution_passed_diplomatic_weight
-				days = 2200
+				years = 6
 			}
 			every_country = {
 				limit = {
@@ -59,7 +59,7 @@ resolution_defenseprivatization_defense_contracts = {
 			set_timed_country_flag = { flag = galactic_community_resolution_failed_defenseprivatization days = @resolution_flag_timer }
 			add_modifier = {
 				modifier = resolution_failed_diplomatic_weight
-				days = 2200
+				years = 6
 			}
 		}
 	}
@@ -134,7 +134,7 @@ resolution_defenseprivatization_private_support_troops = {
 			set_timed_country_flag = { flag = galactic_community_resolution_passed_defenseprivatization days = @resolution_flag_timer }
 			add_modifier = {
 				modifier = resolution_passed_diplomatic_weight
-				days = 2200
+				years = 6
 			}
 			every_country = {
 				limit = {
@@ -152,7 +152,7 @@ resolution_defenseprivatization_private_support_troops = {
 			set_timed_country_flag = { flag = galactic_community_resolution_failed_defenseprivatization days = @resolution_flag_timer }
 			add_modifier = {
 				modifier = resolution_failed_diplomatic_weight
-				days = 2200
+				years = 6
 			}
 		}
 	}

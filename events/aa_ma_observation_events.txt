@@ -63,10 +63,8 @@ country_event = {
 			has_observation_outpost = yes
 			observation_outpost = { has_mission = native_indoctrination }
 			observation_outpost_owner = {
-				OR = {
-					has_ethic = ethic_fanatic_egalitarian
-					has_ethic = ethic_egalitarian
-				}
+				
+				is_egalitarian = yes
 			}
 			any_owned_pop = {
 				has_ethic = ethic_egalitarian
@@ -86,7 +84,7 @@ country_event = {
 	}
 
 	immediate = {
-		set_timed_country_flag = { flag = indoctrination_cooldown days = 540 }
+		set_timed_country_flag = { flag = indoctrination_cooldown months = 18 }
 		shift_ethic = "ethic_egalitarian"
 		if = {
 			limit = {
@@ -158,10 +156,8 @@ country_event = {
 			has_observation_outpost = yes
 			observation_outpost = { has_mission = native_indoctrination }
 			observation_outpost_owner = {
-				OR = {
-					has_ethic = ethic_fanatic_authoritarian
-					has_ethic = ethic_authoritarian
-				}
+				
+				is_authoritarian = yes
 			}
 			any_owned_pop = {
 				has_ethic = ethic_authoritarian
@@ -181,7 +177,7 @@ country_event = {
 	}
 
 	immediate = {
-		set_timed_country_flag = { flag = indoctrination_cooldown days = 540 }
+		set_timed_country_flag = { flag = indoctrination_cooldown months = 18 }
 		shift_ethic = "ethic_authoritarian"
 		if = {
 			limit = {

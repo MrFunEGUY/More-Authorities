@@ -22,10 +22,7 @@ can_build_branch_offices = {
 can_support_branch_offices = {
 	custom_tooltip = {
 		fail_text = BRANCH_OFFICE_NOT_FALLEN_EMPIRES
-		NOR = {
-			is_country_type = fallen_empire
-			is_country_type = awakened_fallen_empire
-		}
+		is_fallen_empire = no
 	}
 	custom_tooltip = {
 		fail_text = BRANCH_OFFICE_NOT_ON_MEGACORP_PLANET
@@ -77,8 +74,8 @@ can_build_branch_office_on_planet = {
 				}
 				overlord = {
 					OR = {
-						is_same_value = prevprev.owner
-						is_same_value = prevprev.owner.overlord
+						is_same_empire = prevprev.owner
+						is_same_empire = prevprev.owner.overlord
 					}
 				}
 			}

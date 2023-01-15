@@ -56,7 +56,7 @@ resolution_galactic_market_form = {
 
 			add_modifier = {
 				modifier = resolution_passed_diplomatic_weight
-				days = 2200
+				years = 6
 			}
 		}
 	}
@@ -66,7 +66,7 @@ resolution_galactic_market_form = {
 			set_timed_country_flag = { flag = galactic_community_resolution_failed_general days = @resolution_flag_timer }
 			add_modifier = {
 				modifier = resolution_failed_diplomatic_weight
-				days = 2200
+				years = 6
 			}
 		}
 	}
@@ -171,10 +171,10 @@ resolution_galactic_market_relocate = {
 
 			add_modifier = {
 				modifier = resolution_passed_diplomatic_weight
-				days = 2200
+				years = 6
 			}
 
-			set_timed_global_flag = { flag = resolution_galactic_market_relocated_recently days = 18000 }
+			set_timed_global_flag = { flag = resolution_galactic_market_relocated_recently years = 50 }
 		}
 	}
 
@@ -183,7 +183,7 @@ resolution_galactic_market_relocate = {
 			set_timed_country_flag = { flag = galactic_community_resolution_failed_general days = @resolution_flag_timer }
 			add_modifier = {
 				modifier = resolution_failed_diplomatic_weight
-				days = 2200
+				years = 6
 			}
 		}
 	}
@@ -192,10 +192,10 @@ resolution_galactic_market_relocate = {
 		has_federations_dlc = yes
 		host_has_dlc = "Megacorp"
 		has_global_flag = galactic_market_founded
-		NOT = {
+		NOR = {
 			has_global_flag = ongoing_market_relocation_nomination
+			has_modifier = galactic_market_founder
 		}
-		NOT = { has_modifier = galactic_market_founder }
 		is_gestalt = no
 		is_homicidal = no
 	}

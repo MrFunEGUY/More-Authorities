@@ -90,7 +90,7 @@ country_event = {
 		root = {
 			add_modifier = {
 				modifier = espionage_straycomm
-				days = 360
+				years = 1
 			}
 		}
 		ai_chance = {

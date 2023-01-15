@@ -99,10 +99,7 @@ action_invite_to_federation = {
 				AND = {
 					has_civic = civic_machine_terminator
 					from = {
-						OR = {
-							has_country_flag = synthetic_empire
-							is_machine_empire = yes
-						}
+						is_synthetic_empire = yes
 					}
 				}
 			}
@@ -115,10 +112,7 @@ action_invite_to_federation = {
 				from = { NOT = { has_civic = civic_machine_terminator } }
 				AND = {
 					from = { has_civic = civic_machine_terminator }
-					OR = {
-						has_country_flag = synthetic_empire
-						is_machine_empire = yes
-					}
+					is_synthetic_empire = yes
 				}
 			}
 		}

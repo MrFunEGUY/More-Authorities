@@ -10,21 +10,21 @@
 
 ----
 
-[b]Single Term:[/b]
+[b]Term Limited:[/b]
 
 - This government form elects a ruler for a single 15-year term.After their term, leaders will go back to whatever job they had before (scientist, governor, admiral, general). However, their portrait may be changed. This is an issue in 3.2 right now that may be resolved in the future.
 
 - This government cannot be reformed out of easily. Read more about that farther down. My logic with this was that I wanted a government with such tight checks on power that it would be stupidly difficult for any one leader to remove term limits within their 15-year term.
 
-- The only way to reform out of a Single Term government is to use another new edict. It'll cost you 1000 Influence.
+- The only way to reform out of a Term Limited government is to use another new edict. It'll cost you 10000 Unity.
 
-- The reason I had to make an edict for the ability to reform into and out of this government type is because Stellaris doesn't let you determine how much influence it costs to reform your government.
+- The reason I had to make an edict for the ability to reform into and out of this government type is because Stellaris doesn't let you determine how much it costs to reform your government.
 
 - You'll lose any invalid civics.
 
 - You'll have to wait 5 years after this to reform your government. Consider this the price you have to pay to political allies and opponents alike in order to get these massive reforms through.
 
-- You can still reform a single term government to add more civics.
+- You can still reform a Term Limited government to add more civics.
 
 ----
 
@@ -39,13 +39,11 @@
 
 [hr][/hr]
 
-[h1]Patches:[/h1]
+[h1]Patches: Will be updated over the next month, hopefully[/h1]
 
 - Please ask me if you would like me to make a patch for this and another mod. I will likely do it.
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2725772362]- Planetary Diversity: More Arcologies[/url]
-
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2626671579]- Fatherland: Colonial Empires[/url]
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2461883517]- Ethics and Civics Alternative[/url]
 
@@ -129,6 +127,8 @@ Let me know about any bugs or anything else, this took way longer to make than I
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2732567565]- No More Exclaves[/url]
 
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=2801992671]- Occupied Resources[/url]
+
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2183551683]- Vassals Expanded and Reworked - FunEFork[/url]
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2177145527]- Intervene: Help Friendly Nations - FunEFork[/url]
@@ -145,4 +145,4 @@ Let me know about any bugs or anything else, this took way longer to make than I
 
 For the best support, find me at [b]#mrfuneguys-mods[/b] on the Stellaris Modding Den Discord:
 
-[url=https://discord.gg/REvVK2fjJF][img]https://i.imgur.com/4Und3QN.png[/img][/url]
+[url=https://discord.gg/REvVK2fjJF][img]https://i.imgur.com/jZkBbLR.png[/img][/url]

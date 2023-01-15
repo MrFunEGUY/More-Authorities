@@ -274,6 +274,7 @@ preset_protectorate = {
 				key = subject_loyalty
 				value = subject_loyalty_effects
 			}
+			{ key = protectorate value = subject_is_not_protectorate }
 		}
 	}
 

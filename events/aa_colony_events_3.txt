@@ -38,7 +38,7 @@ planet_event = { # Ending - grand opening and the last opportunity
 		owner = {
 			add_modifier = {
 				modifier = media_coverage_positive_medium
-				days = 720
+				years = 2
 			}
 		}
 		remove_deposit = d_ancient_manufactorium_vaultexploration

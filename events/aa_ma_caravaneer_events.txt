@@ -40,7 +40,7 @@ country_event = {
 		}
 		set_timed_country_flag = {
 			flag = caravan_recent_event
-			days = 720 
+			years = 2 
 		}
 		random_system_within_border = {
 			limit = { caravaneer_fleet_in_system = yes }
