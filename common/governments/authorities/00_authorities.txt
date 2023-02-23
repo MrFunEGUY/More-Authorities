@@ -66,19 +66,19 @@ auth_strict_democratic = {
 	re_election_allowed = no
 	election_type = democratic
 	
-	can_reform = no
+	can_reform = yes
 
 	uses_mandates = yes
 
 	possible = {
 		ethics = {
-			OR = {
-				value = ethic_egalitarian
-				value = ethic_fanatic_egalitarian
-			}
-			NOR = {
-				value = ethic_gestalt_consciousness
-			}
+			NOT = {
+                value = ethic_gestalt_consciousness
+            }
+            OR = {
+                value = ethic_egalitarian
+                value = ethic_fanatic_egalitarian
+            }
 		}
 	}
 
@@ -184,7 +184,7 @@ auth_dictatorial = {
 
 	random_weight = {
 		modifier = {
-            factor = 0.85
+            factor = 0.8
         }
 	}
 
@@ -214,7 +214,7 @@ auth_imperial = {
 
 	random_weight = {
 		modifier = {
-			factor = 2
+			factor = 1.25
 		}
 	}
 
@@ -234,7 +234,7 @@ auth_corporate_imperial = {
 	}
 	random_weight = {
 		modifier = {
-            factor = 0.3
+            factor = 0.1
         }
 		modifier = {
 			factor = 0
@@ -308,7 +308,7 @@ auth_corporate = {
 	}
 }
 
-### Not Touched
+### Only Changed Frequency Modifier
 
 auth_hive_mind = {
 	has_heir = no
@@ -331,7 +331,8 @@ auth_hive_mind = {
 			NOT = { host_has_dlc = "Utopia" }
 		}
 		modifier = {
-			factor = 2
+			# factor = 2
+			factor = 1
 			host_has_dlc = "Utopia"
 		}
 	}
@@ -377,7 +378,8 @@ auth_machine_intelligence = {
 			NOT = { host_has_dlc = "Synthetic Dawn Story Pack" }
 		}
 		modifier = {
-			factor = 2
+			# factor = 2
+			factor = 1
 			host_has_dlc = "Synthetic Dawn Story Pack"
 		}
 	}
@@ -404,6 +406,8 @@ auth_machine_intelligence = {
 		AUTH_MACHINE_ASCENSION_RESTRICTIONS
 	}
 }
+
+## Untouched
 
 auth_ancient_machine_intelligence = {
 	has_heir = no

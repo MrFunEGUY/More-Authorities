@@ -68,7 +68,20 @@ country_event = {
 				event_leader = yes
 			}
 		}
-		ruler = { kill_leader = { show_notification = no } }
+
+		last_created_leader = {
+			add_random_leader_trait = yes
+			add_random_leader_trait = yes
+			set_saved_date = { key = ruler_stint_start_date_1 days_from_present = -5400 }
+			set_saved_date = { key = ruler_stint_end_date_1 days_from_present = 0 }
+			# Honor Leaders Compat
+			set_leader_flag = honor_leader_was_ruler
+		}
+
+		ruler = {
+			set_leader_flag = switch_ruler
+			kill_leader = { show_notification = no }
+		}
 	}
 }
 
@@ -164,6 +177,26 @@ country_event = {
 			has_event_chain = mandate_district_generator_chain
 			has_event_chain = mandate_district_mining_chain
 			has_event_chain = mandate_district_farming_chain
+			### NEW ###
+			has_event_chain = mandate_colonize_planet_chain
+			has_event_chain = mandate_hyper_relay_chain
+			has_event_chain = mandate_explore_system_chain
+			has_event_chain = mandate_uplift_chain
+			has_event_chain = mandate_ai_outlaw_chain
+			has_event_chain = mandate_ai_allow_chain
+			has_event_chain = mandate_ai_emancipation_chain
+			has_event_chain = mandate_army_recruitment_chain
+			has_event_chain = mandate_alliance_chain
+			has_event_chain = mandate_isolation_chain
+			has_event_chain = mandate_allow_war_chain
+			has_event_chain = mandate_no_war_chain
+			has_event_chain = mandate_warmonger_chain
+			has_event_chain = mandate_rival_chain
+			has_event_chain = mandate_migration_chain
+			has_event_chain = mandate_tech_sharing_chain
+			has_event_chain = mandate_individual_freedom_chain
+			has_event_chain = mandate_no_xeno_citizens_chain
+			has_event_chain = mandate_no_crime_chain
 		}
 	}
 	
@@ -208,6 +241,42 @@ country_event = {
 			mandate_district_mining_chain = { end_event_chain = mandate_district_mining_chain }
 
 			mandate_district_farming_chain = { end_event_chain = mandate_district_farming_chain }
+
+			### New ###
+			mandate_colonize_planet_chain = { end_event_chain = mandate_colonize_planet_chain }
+			mandate_hyper_relay_chain = { end_event_chain = mandate_hyper_relay_chain }
+			mandate_explore_system_chain = { end_event_chain = mandate_explore_system_chain }
+			mandate_uplift_chain = { end_event_chain = mandate_uplift_chain }
+			mandate_ai_outlaw_chain = { end_event_chain = mandate_ai_outlaw_chain }
+			mandate_ai_allow_chain = { end_event_chain = mandate_ai_allow_chain }
+			mandate_ai_emancipation_chain = { end_event_chain = mandate_ai_emancipation_chain }
+			mandate_army_recruitment_chain = { end_event_chain = mandate_army_recruitment_chain }
+			mandate_alliance_chain = { end_event_chain = mandate_alliance_chain }
+			mandate_isolation_chain = { end_event_chain = mandate_isolation_chain }
+			mandate_allow_war_chain = { end_event_chain = mandate_allow_war_chain }
+			mandate_no_war_chain = { end_event_chain = mandate_no_war_chain }
+			mandate_warmonger_chain = { end_event_chain = mandate_warmonger_chain }
+			mandate_rival_chain = {
+				end_event_chain = mandate_rival_chain
+				remove_country_flag = no_rival
+				remove_country_flag = one_rival
+				remove_country_flag = two_rivals
+			}
+			mandate_migration_chain = {
+				end_event_chain = mandate_migration_chain
+				remove_country_flag = no_migration
+				remove_country_flag = one_migration
+				remove_country_flag = two_migrations
+			}
+			mandate_tech_sharing_chain = {
+				end_event_chain = mandate_tech_sharing_chain
+				remove_country_flag = no_tech
+				remove_country_flag = one_tech
+				remove_country_flag = two_techs
+			}
+			mandate_individual_freedom_chain = { end_event_chain = mandate_individual_freedom_chain }
+			mandate_no_xeno_citizens_chain = { end_event_chain = mandate_no_xeno_citizens_chain }
+			mandate_no_crime_chain = { end_event_chain = mandate_no_crime_chain }
 		}
 	}
 }

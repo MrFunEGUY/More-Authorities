@@ -3,17 +3,17 @@
 # l_german:
 # l_french:
 # l_polish:
-l_russian:
+# l_russian:
 # l_braz_por:
 # l_simp_chinese:
 # l_japanese:
-# l_korean:
+l_korean:
 
  auth_democratic_dictatorship: "Democratic Autocracy"
  auth_democratic_dictatorship_desc: "Democratic Autocracies are ruled by a single, democratically-elected, individual that wields absolute control over the state until their death."
  
- auth_strict_democratic: "Single Term"
- auth_strict_democratic_desc: "Single Term governments elect a ruler for one 15-year term."
+ auth_strict_democratic: "Term Limited"
+ auth_strict_democratic_desc: "Term Limited governments elect a ruler for one 15-year term."
 
  AUTHORITY_ELECTION_STRICT_DEMOCRATIC: "Holds an election every §H15§! years to select a new ruler. Rulers are limited to one term."
  AUTHORITY_HAS_HEIR_CORP: "Upon Ruler death, a designated successor takes over the family business."
@@ -24,10 +24,10 @@ l_russian:
  gov_democratic_dictatorship: "Elective Dictatorship"
  gov_democratic_dictatorship_desc: "This government is a dictatorship where a single individual has been democratically granted absolute powers to preserve the state."
  
- gov_strict_democracy: "Single Term Democracy"
+ gov_strict_democracy: "Term Limited Democracy"
  gov_strict_democracy_desc: "This government is a representative democracy, where citizens vote on officials who are elected to represent them. Most offices have term limits, with the Head of State being limited to one term."
 
- moreauthorities.5.title: "Reform Government: Single Term"
+ moreauthorities.5.title: "Reform Government: Term Limited"
  moreauthorities.5.desc: "This decision will reform our system of government into one where the ruler is elected for a single 15-year term. The political capital required to implment term limits into our society means that once this action is taken, it it will be very difficult to undo. Are you sure?"
 
  moreauthorities.5.a: "I'm sure."
@@ -55,7 +55,7 @@ l_russian:
  gov_criminal_syndicate_fam_desc: "This government is an enormous and ruthless business syndicate, owned and operated by one family. It shares many of its operating practises with organized crime."
 
  gov_trade_league_crime_fam: "Criminal Clans"
- gov_trade_league_crime_fam_desc: "This is a feudalistic state run by multiple crime families. The head family rules indirectly, with their rule enforced through racketeering and the granting of territory to other smaller criminal clans. In exchange, these clans agree to provide both stability in their territory and military support to the head family."
+ gov_trade_league_crime_fam_desc: "This is a feudalistic state run by multiple crime families. The head family rules indirectly, with their rule enforced through smaller criminal clans who are granted territory to govern in their name. In exchange, these smaller clans agree to ensure the stability of their territory and to provide military support to the head family."
 
  gov_trade_league_fam: "Trading Clans"
  gov_trade_league_fam_desc: "This government operates under a form of corporate feudalism, where almost all businesses are family-owned. The monarch rules indirectly, granting business licenses and properties to a myriad of merchants, guilds, and smaller corporations in exchange for obligations in the form of taxes and military provisions."
@@ -181,12 +181,18 @@ l_russian:
  lrsk_gov_var_gov_private_military_contractor_fam: "Private Military Contractor"
  lrsk_gov_var_gov_private_military_contractor_fam_desc: "This government is actually a mercenary company that has been contracted by local and regional governments to provide police, national defense, and foreign relations services for the empire. Rank in government typically requires enlistment as a soldier for hire, but the internal structure of the company may be fairly democratic."
 
-  # Empire Names
+ # Empire Names
 
- format.adjective: "[This.GetAdj"
+ format.adjective: "[This.GetAdj]"
 
- format.monopolistic_trade_crime_fam.1: "[This.GetSpeciesName] <criminal_league>"
- prefix_format.monopolistic_trade_crime_fam.1: "[This.GetSpeciesName] <criminal_league>"
+ format.ma_monopolistic_syndicate.1: "[This.Capital.System.GetName] <monopolistic_syndicate>"
+ format_prefix.ma_monopolistic_syndicate.1: "[This.GetAdj] <monopolistic_syndicate>"
+ 
+ format.ma_subversive_cult.1: "<subversive_cult_2> of [This.Capital.System.GetName]"
+ format_prefix.ma_subversive_cult.1: "[This.GetAdj] <subversive_cult_2>"
+
+ # format.monopolistic_trade_crime_fam.1: "[This.GetSpeciesName] <criminal_league>"
+ # prefix_format.monopolistic_trade_crime_fam.1: "[This.GetSpeciesName] <criminal_league>"
 
  format.monopolistic_trade_crime_fam.2: "[This.GetAdj] <criminal_league>"
  prefix_format.monopolistic_trade_crime_fam.2: "[This.GetAdj] <criminal_league>"

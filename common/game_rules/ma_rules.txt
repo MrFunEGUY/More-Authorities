@@ -11,8 +11,10 @@
 can_build_branch_offices = {
 	custom_tooltip = {
 		fail_text = BRANCH_OFFICE_NOT_MEGACORP
+		is_exile_country = no
 		 OR = {
 		    is_megacorp = yes
+            has_civic = civic_galactic_sovereign_megacorp
             has_valid_civic = civic_mutualistic_behavior
         }
 	}
@@ -26,10 +28,7 @@ can_support_branch_offices = {
 	}
 	custom_tooltip = {
 		fail_text = BRANCH_OFFICE_NOT_ON_MEGACORP_PLANET
-		NOR = {
-			is_megacorp = yes
-			has_civic = civic_galactic_sovereign_megacorp
-		}
+		is_megacorp = no
 	}
 	custom_tooltip = {
 		fail_text = BRANCH_OFFICE_NOT_REGULAR_EMPIRE
