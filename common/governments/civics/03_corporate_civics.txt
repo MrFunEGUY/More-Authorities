@@ -631,3 +631,47 @@ civic_corporate_ascensionists = {
 	}
 }
 
+civic_privatized_exploration = {
+	playable = { has_first_contact_dlc = yes }
+
+	description = "civic_privatized_exploration_effects"
+	
+	potential = {
+		OR = {
+			authority = {
+				OR = {
+					value = auth_corporate
+					value = auth_corporate_imperial
+				}
+			}
+			civics = { value = civic_galactic_sovereign_megacorp }
+		}
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+	}
+	modification = no
+	possible = {
+		origin = {
+			NOR = {
+				# No FC origins.
+				value = origin_payback
+				value = origin_broken_shackles
+				value = origin_fear_of_the_dark
+			}
+		}
+	}
+
+	modifier = {
+		starbase_building_build_speed_mult = 0.3
+		starbase_module_build_speed_mult = 0.3
+		starbase_upgrade_speed_mult = 0.3
+		stations_produces_mult = 0.25
+	}
+
+	random_weight = {
+		base = 0
+	}
+}

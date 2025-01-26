@@ -41,8 +41,6 @@
 
  civic_tooltip_oli_imp_dict: "Is an §YOligarchic§!, §YImperial§!, or §YDictatorial§! Authority"
 
- ACTION_RECIPIENT_NOT_YOUR_CORP: "$TRIGGER_FAIL$§RBranch Offices can only be built on Megacorporations if they are our subsidiary.§!"
-
  ### Governments
 
  gov_military_corp_fam: "Private Military Corporation"

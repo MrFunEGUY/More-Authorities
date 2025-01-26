@@ -1,0 +1,305 @@
+################################
+#
+# First Contact DLC Events
+#
+################################
+
+namespace = fircon
+
+# Conflict! What is it Good For?
+country_event = {
+	id = fircon.1445
+	title = "fircon.1445.name"
+	desc = "fircon.1445.desc"
+	picture = GFX_evt_victorious_army
+	show_sound = evn_fc_observation
+	location = event_target:pre_ftl_planet
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:pre_ftl_planet
+		exists = event_target:pre_ftl_species
+		exists = event_target:pre_ftl_country
+	}
+
+	immediate = {
+		set_country_flag = society_insights
+		set_predictive_observation_insight = {
+			VALUE = 10
+		}
+		set_observation_events_locked = yes
+	}
+	
+	option = {
+		name = "fircon.1445.a"
+		trigger = {
+			OR = {
+				is_egalitarian = yes 
+			}
+		}
+		add_monthly_resource_mult = {
+			resource = unity
+			value = @tier2unityreward
+			min = @tier2unitymin
+			max = @tier2unitymax
+		}
+		
+		add_observation_insight_effect = {
+			VALUE = 10
+			OUTPOST = event_target:pre_ftl_planet.observation_outpost 
+		}
+		hidden_effect = {
+			country_event = { id = fircon.1450 days = 100 }
+		}
+	}
+	option = {
+		name = "fircon.1445.b"
+		trigger = { is_megacorp = no }
+		add_modifier = {
+			modifier = hands_off_approach
+			days = 720
+		}
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier2researchreward
+			min = @tier2researchmin
+			max = @tier2researchmax
+		}
+		hidden_effect = { 
+			country_event = { id = fircon.1451 days = 100 }
+		}
+	}
+	option = {
+		name = "fircon.1445.c"
+		trigger = { is_megacorp = yes }
+		random_list = {
+			80 = {
+				country_event = { id = fircon.1452 days = 100 }
+			}
+			20 = {
+				country_event = { id = fircon.1453 days = 100 }
+			}
+		}
+	}
+}
+
+## Fircon 7500 - 7999 Written by Victor Haeggman
+
+# We are NOT cute
+country_event = {
+	id = fircon.7500
+	title = fircon.7500.name
+	desc = fircon.7500.desc
+	picture = GFX_evt_alien_segregation
+	show_sound = event_administrative_work
+	is_triggered_only = yes
+	location = event_target:pre_ftl_planet
+
+	trigger = {
+		has_first_contact_dlc = yes
+		is_country_type = default
+		NOR = {
+			has_country_flag = fircon_7500_fired
+			has_country_flag = recent_preftl_diplomatic_event
+		}
+		has_active_observation_post = yes
+		any_observed_pre_ftl_within_border = {
+			NOR = {
+				has_authority = auth_hive_mind
+				is_broken_shackles_pre_ftl_to_scope = { SCOPE = root }
+			}
+			current_awareness_level = full
+		}
+	}
+
+	immediate = {
+		random_planet_within_border = {
+			limit = {
+				has_observation_outpost = yes
+				exists = observation_outpost_owner
+				owner = {
+					NOR = {
+						has_authority = auth_hive_mind
+						is_broken_shackles_pre_ftl_to_scope = { SCOPE = root }
+					}
+				}
+			}
+			save_event_target_as = pre_ftl_planet
+			owner = { save_event_target_as = pre_ftl_country }
+		}
+		set_timed_country_flag = {
+			flag = fircon_7500_fired
+			days = 5400
+		}
+		set_timed_country_flag = {
+			flag = recent_preftl_diplomatic_event
+			days = 1800
+		}
+	}
+
+	option = { # They are not wrong
+		name = fircon.7500.a
+		trigger = {
+			species = {
+				NOR = {
+					has_trait = trait_repugnant
+					has_trait = trait_robot_uncanny
+				}
+			}
+		}
+		add_monthly_resource_mult = {
+			resource = unity
+			value = @tier2unityreward
+			min = @tier2unitymin
+			max = @tier2unitymax
+		}
+	}
+	option = { # They ARE wrong
+		trigger = {
+			is_xenophobe = yes
+		}
+		name = fircon.7500.b
+		add_resource = { influence = 200 }
+	}
+	option = { # Really? Us!?
+		trigger = {
+			species = {
+				OR = {
+					has_trait = trait_repugnant
+					has_trait = trait_robot_uncanny
+				}
+			}
+		}
+		name = fircon.7500.c
+		add_monthly_resource_mult = {
+			resource = unity
+			value = @tier3unityreward
+			min = @tier3unitymin
+			max = @tier3unitymax
+		}
+	}
+	option = { # What a waste of time
+		trigger = {
+			values_others = no
+		}
+		name = fircon.7500.d
+		from = {
+			random_owned_pop = {
+				limit = {
+					NOT = { pop_has_ethic = ethic_xenophile }
+				}
+				pop_change_ethic = ethic_xenophobe
+			}
+		}
+	}
+
+	option = { # Can we have some of those plushies?
+		trigger = {
+			is_megacorp = no
+			values_others = yes
+		}
+		name = fircon.7500.e
+		add_modifier = {
+			modifier = stuffed_toy
+			days = -1
+		}
+	}
+
+	option = { # Where is our cut?
+		trigger = { is_megacorp = yes }
+		name = fircon.7500.f
+		event_target:pre_ftl_planet = {
+			observation_outpost = {
+				add_modifier = {
+					modifier = plushie_tariff
+					days = -1
+				}
+			}
+		}
+	}
+}
+
+# Trigger event for Different Flavors of Government
+country_event = {
+	id = fircon.8530
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_first_contact_dlc = yes
+		has_pre_ftl_societal_enlightenment_agreement = yes
+		NOR = {
+			has_country_flag = fircon.8530_fired
+			has_country_flag = recent_preftl_diplomatic_event
+			is_megacorp = yes
+			has_ethic = ethic_gestalt_consciousness
+		}
+		any_observed_pre_ftl_within_border = {
+			NOT = { is_broken_shackles_pre_ftl_to_scope = { SCOPE = root } }
+		}
+	}
+
+	immediate = {
+		random_observed_pre_ftl_within_border = {
+			limit = {
+				is_under_societal_enlightenment = root
+				NOT = { is_broken_shackles_pre_ftl_to_scope = { SCOPE = root } }
+			}
+			save_event_target_as = preftl_different_flavors_country
+			set_country_flag = preftl_different_flavors_flag
+			species = {
+				save_event_target_as = preftl_different_flavors_species
+			}
+			home_planet = {
+				save_event_target_as = preftl_different_flavors_planet
+			}
+		}
+		set_country_flag = fircon.8530_fired
+		set_timed_country_flag = {
+			flag = recent_preftl_diplomatic_event
+			days = 5400
+		}
+		random_list = {
+			0 = {
+				modifier = {
+					add = 1
+					has_authority = auth_democratic
+					event_target:preftl_different_flavors_country = {
+						NOT = { has_authority = auth_democratic }
+					}
+				}
+				country_event = { id = fircon.8531 } #democracy option
+			}
+			0 = {
+				modifier = {
+					add = 1 
+					has_authority = auth_imperial
+					event_target:preftl_different_flavors_country = {
+						NOT = { has_authority = auth_imperial }
+					}
+				}
+				country_event = { id = fircon.8535 } #imperialism option
+			}
+			0 = {
+				modifier = {
+					add = 1
+					has_authority = auth_dictatorial
+					event_target:preftl_different_flavors_country = {
+						NOT = { has_authority = auth_dictatorial }
+					}
+				}
+				country_event = { id = fircon.8540 } #dictatorship option
+			}
+			0 = {
+				modifier = {
+					add = 1
+					has_authority = auth_oligarchic
+					event_target:preftl_different_flavors_country = {
+						NOT = { has_authority = auth_oligarchic }
+					}
+				}
+				country_event = { id = fircon.8545 } #oligarchy option
+			}
+		}
+	}
+}

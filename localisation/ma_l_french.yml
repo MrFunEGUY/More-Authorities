@@ -47,8 +47,6 @@ l_french:
  unity_fail_text_ma_1: "§RRequires§! §Y2000§! £unity£ §HUnity§!"
  unity_fail_text_ma_2: "§RRequires§! §Y10000§! £unity£ §HUnity§!"
 
- ACTION_RECIPIENT_NOT_YOUR_CORP: "$TRIGGER_FAIL$§RBranch Offices can only be built on Megacorporations if they are our subsidiary.§!"
-
  ### Governments
 
  gov_military_corp_fam: "Private Military Corporation"

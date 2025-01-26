@@ -12,19 +12,7 @@
 
 [b]Term Limited:[/b]
 
-- This government form elects a ruler for a single 15-year term.After their term, leaders will go back to whatever job they had before (scientist, governor, admiral, general). However, their portrait may be changed. This is an issue in 3.2 right now that may be resolved in the future.
-
-- This government cannot be reformed out of easily. Read more about that farther down. My logic with this was that I wanted a government with such tight checks on power that it would be stupidly difficult for any one leader to remove term limits within their 15-year term.
-
-- The only way to reform out of a Term Limited government is to use another new edict. It'll cost you 10000 Unity.
-
-- The reason I had to make an edict for the ability to reform into and out of this government type is because Stellaris doesn't let you determine how much it costs to reform your government.
-
-- You'll lose any invalid civics.
-
-- You'll have to wait 5 years after this to reform your government. Consider this the price you have to pay to political allies and opponents alike in order to get these massive reforms through.
-
-- You can still reform a Term Limited government to add more civics.
+- This government form elects a ruler for a single 15-year term.After their term, leaders will go back to whatever job they had before (scientist, governor, admiral, general). However, their portrait may be changed. This is still an issue in 3.6, and may yet be resolved in the future.
 
 ----
 
@@ -34,7 +22,7 @@
 
 - This authority is the one most likely to not play well with some mods, but seeing as how I play with around 180 mods, I'm doing my best to make patches that work for the biggest mods. This mod is easy to patch for though, so please ask me if you need a patch for a specific mod. I will likely be able to provide it.
 
-- For ethics, you must be some form of competitive, no form of egalitarian/libertarian, and not a gestalt consciousness. If you have ECA and the patch installed, you need to be some form of authoritarian and some form of competitive.
+- For ethics, you must not be egalitarian, and not a gestalt consciousness. If you have ECA and the patch installed, you need to be some form of authoritarian and some form of competitive.
 
 
 [hr][/hr]
@@ -133,13 +121,15 @@ Let me know about any bugs or anything else, this took way longer to make than I
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2177145527]- Intervene: Help Friendly Nations - FunEFork[/url]
 
-===
-
-[url=https://ko-fi.com/mrfuneguy][img]https://i.imgur.com/EEyEFg6.png[/img][/url]
+[hr][/hr]
 
 [url=https://www.patreon.com/mrfuneguy][img]https://i.imgur.com/pdV33j3.png[/img][/url]
 
-===
+[url=https://paypal.me/Abreuhaha][img]https://i.imgur.com/OwoGCrW.png[/img][/url]
+
+[url=https://ko-fi.com/mrfuneguy][img]https://i.imgur.com/EEyEFg6.png[/img][/url]
+
+[hr][/hr]
 
 [h1]Support:[/h1]
 

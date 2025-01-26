@@ -1,0 +1,90 @@
+
+# Broken Shackles
+part = {
+	location = 0
+	localization = "START_SCREEN_BROKEN_SHACKLES"
+
+	trigger = {
+		has_origin = origin_broken_shackles
+		is_megacorp = no
+	}
+}
+
+part = {
+	location = 0
+	localization = "START_SCREEN_BROKEN_SHACKLES_MEGACORP"
+
+	trigger = {
+		has_origin = origin_broken_shackles
+		is_megacorp = yes
+	}
+}
+
+# Payback - Standard
+part = {
+	location = 0
+	localization = "START_SCREEN_PAYBACK"
+	
+	trigger = {
+		has_origin = origin_payback
+		is_megacorp = no
+		NOR = {
+			has_authority = auth_hive_mind
+			has_authority = auth_machine_intelligence
+		}
+	}
+}
+
+# Payback - Megacorp
+part = {
+	location = 0
+	localization = "START_SCREEN_PAYBACK" # TODO: custom start screen
+	
+	trigger = {
+		has_origin = origin_payback
+		is_megacorp = yes
+	}
+}
+
+# Fear of the Dark
+part = {
+	location = 0
+	localization = "START_SCREEN_FEAR_OF_THE_DARK_REGULAR"
+
+	trigger = {
+		has_origin = origin_fear_of_the_dark
+		is_megacorp = no
+	}
+}
+
+part = {
+	location = 0
+	localization = "START_SCREEN_FEAR_OF_THE_DARK_MEGACORP"
+
+	trigger = {
+		has_origin = origin_fear_of_the_dark
+		is_megacorp = yes
+	}
+}
+
+# Knights of the Toxic God
+part = {
+	location = 0
+	localization = "START_SCREEN_TOXIC_KNIGHTS"
+
+	trigger = {
+		has_origin = origin_toxic_knights
+		is_megacorp = no
+	}
+}
+
+# Knights of the Toxic God - Corpo
+part = {
+	location = 0
+	localization = "START_SCREEN_TOXIC_KNIGHTS_CORPORATE"
+
+	trigger = {
+		has_origin = origin_toxic_knights
+		is_megacorp = yes
+	}
+}

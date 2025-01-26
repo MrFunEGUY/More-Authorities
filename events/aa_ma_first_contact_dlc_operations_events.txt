@@ -1,0 +1,180 @@
+############################################
+#
+# First Contact Espionage Events
+# Written by Giada Zavarise, Gemma Thomson,
+# Niamh Calderwood & Victor Haeggman
+#
+############################################
+
+namespace = preftl_operation
+
+@RandomPreFTLOperationEventTimerLong = 1000
+
+### ACADEMIC SHENANIGANS
+# from = operation
+# Note that some of these events use strings with outdated IDs, around the preftl_operation.1100 range.
+espionage_operation_event = {
+	id = preftl_operation.3040
+	title = preftl_operation.1100.name
+	desc = preftl_operation.1100.desc
+	picture = GFX_evt_acquire_asset
+	show_sound = event_default
+	is_triggered_only = yes
+	espionage_operation = yes
+
+	trigger = {
+		from = {
+			NOT = { has_espionage_operation_flag = fired_preftl_espionage_academic }
+		}
+	}
+
+	immediate = {
+		from = {
+			set_espionage_operation_progress_locked = yes
+			set_espionage_operation_flag = fired_preftl_espionage_academic # prevent firing again for this instance of an Operation
+			owner = {
+				set_timed_country_flag = { # discourage (not prevent) firing again during any Operation, for a while
+					flag = recent_op_academia
+					days = @RandomPreFTLOperationEventTimerLong
+				}
+			}
+		}
+	}
+
+	# Eliminate the competition
+	option = {
+		name = preftl_operation.1100.a
+		allow = {
+			from.spynetwork = {
+				has_available_spy_power > 5
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				1 = { # Failure
+					espionage_operation_event = {
+						id = preftl_operation.3041
+						days = 30 random = 15
+					}
+				}
+				1 = { # Success (especially for those familiar with assassination)
+					modifier = {
+						factor = 3
+						from.owner = {
+							OR = {
+								has_tradition = tr_subterfuge_adopt
+								has_valid_civic = civic_cutthroat_politics
+							}
+						}
+					}
+					espionage_operation_event = {
+						id = preftl_operation.3042
+						days = 30 random = 15
+					}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				from.owner = {
+					OR = {
+						has_ai_personality_behaviour = dominator
+						AND = {
+							has_ai_personality_behaviour = infiltrator
+							has_tradition = tr_subterfuge_adopt
+						}
+					}
+				}
+			}
+		}
+	}
+	# Offer funding
+	option = {
+		name = preftl_operation.1100.b
+		allow = {
+			from.owner = {
+				resource_stockpile_compare = {
+					resource = energy
+					value >= 300
+				}
+			}
+		}
+		from.owner = {
+			add_resource = { energy = -300 }
+		}
+		hidden_effect = {
+			random_list = {
+				1 = { # Failure
+					espionage_operation_event = {
+						id = preftl_operation.3043
+						days = 20 random = 10
+					}
+				}
+				1 = { # Success (especially for those familiar with bribery)
+					modifier = {
+						factor = 3
+						from.owner = {
+							OR = {
+								is_megacorp = yes
+								has_valid_civic = civic_corporate_dominion
+								has_valid_civic = civic_cutthroat_politics
+								has_tradition = tr_mercantile_insider_trading
+							}
+						}
+					}
+					espionage_operation_event = {
+						id = preftl_operation.3044
+						days = 20 random = 10
+					}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 5
+				from.owner = {
+					OR = {
+						has_ai_personality_behaviour = uplifter
+						has_ai_personality_behaviour = infiltrator
+					}
+				}
+			}
+		}
+	}
+	# Let them bicker
+	option = {
+		name = preftl_operation.1100.c
+		hidden_effect = {
+			random_list = {
+				1 = { # Setback
+					espionage_operation_event = {
+						id = preftl_operation.3045
+						days = 15 random = 10
+					}
+				}
+				1 = { # Breakthrough
+					modifier = {
+						factor = 2
+						from.target = {
+							is_materialist = yes
+						}
+					}
+					espionage_operation_event = {
+						id = preftl_operation.3046
+						days = 15 random = 10
+					}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	after = {
+		set_espionage_operation_progress_locked = no
+	}
+}

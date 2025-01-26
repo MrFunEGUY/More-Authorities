@@ -32,7 +32,7 @@ ap_lord_of_war = {
 		}
 	}
 
-	on_enabled ={
+	on_enabled = {
 		custom_tooltip = ap_lord_of_war_tooltip
 	}
 

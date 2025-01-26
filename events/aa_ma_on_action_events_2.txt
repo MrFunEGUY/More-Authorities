@@ -1,0 +1,303 @@
+#########################################
+#
+# on_action_events
+#
+#########################################
+
+namespace = action
+
+# Market Founder event
+country_event = {
+	id = action.96
+	title = action.96.name
+	desc = {
+		text = action.96.desc
+		trigger = { is_xenophobe = no }
+	}
+	desc = {
+		text = action.96.desc.phobe
+		trigger = { is_xenophobe = yes }
+	}
+	picture = GFX_evt_financial_instruments
+	show_sound = event_galactic_market
+
+	is_triggered_only = yes
+
+	fire_only_once = yes # failsafe
+
+	immediate = {
+		set_global_flag = ongoing_market_nomination
+		set_country_flag = market_nomination_eligible
+		event_target:global_event_country = {
+			country_event = { id = action.98 days = 1800 }
+		}
+		begin_event_chain = {
+			event_chain = market_founding_chain
+			target = this
+		}
+		every_playable_country = {
+			limit = {
+				NOT = { is_same_value = root }
+				is_galactic_community_member = yes
+			}
+			begin_event_chain = {
+				event_chain = market_founding_chain
+				target = this
+			}
+			country_event = { id = action.97 }
+		}
+	}
+
+	after = {
+		custom_tooltip = enable_decision_market_nomination
+		# Notification
+		tooltip = {
+			begin_event_chain = {
+				event_chain = market_founding_chain
+				target = this
+			}
+		}
+	}
+
+	option = {
+		name = action.96.a
+		trigger = { is_megacorp = yes }
+	}
+
+	option = {
+		name = action.96.b
+		trigger = { is_megacorp = no }
+	}
+}
+
+# Market Nomination started notification event
+country_event = {
+	id = action.97
+	title = action.97.name
+	desc = {
+		text = action.97.desc
+		trigger = {
+			NOR = {
+				is_xenophobe = yes
+				is_megacorp = yes
+			}
+		}
+	}
+	desc = {
+		text = action.97.desc.phobe
+		trigger = { is_xenophobe = yes }
+	}
+	desc = {
+		text = action.97.desc.corp
+		trigger = { is_megacorp = yes }
+	}
+	picture = GFX_evt_financial_instruments
+	show_sound = event_galactic_market
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = market_nomination_eligible
+	}
+
+	after = {
+		tooltip = {
+			begin_event_chain = {
+				event_chain = market_founding_chain
+				target = this
+			}
+		}
+	}
+
+	option = {
+		name = action.96.a
+		trigger = { is_megacorp = yes }
+		custom_tooltip = enable_decision_market_nomination
+	}
+
+	option = {
+		name = action.96.b
+		trigger = { is_megacorp = no }
+		custom_tooltip = enable_decision_market_nomination
+	}
+}
+
+# Market station lost, is conquered or moved
+country_event = {
+	id = action.102
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:galactic_market_station
+		from = {
+			any_system_ambient_object = {
+				is_same_value = event_target:galactic_market_station
+			}
+		}
+	}
+
+	immediate = {
+		if = { # no new owner or homicidal empire
+			limit = {
+				OR = {
+					NOT = { exists = fromfrom }
+					AND = {
+						exists = fromfrom
+						fromfrom = {
+							OR = {
+								is_homicidal = yes
+								is_galactic_community_member = yes
+							}
+						}
+					}
+				}
+			}
+			# transfer to contact
+			event_target:galactic_market_station = {
+				destroy_ambient_object = this
+			}
+			clear_global_event_target = galactic_market_station
+			clear_global_event_target = market_founder_planet
+			remove_modifier = galactic_market_founder
+
+			random_playable_country = {
+				limit = {
+					is_homicidal = no
+					is_galactic_community_member = yes
+				}
+				weights = {
+					base = 1
+					modifier = {
+						factor = 999
+						has_communications = root
+						has_country_flag = market_nomination_eligible
+					}
+					modifier = {
+						factor = 20
+						capital_scope = {
+							is_planet_class = pc_city
+						}
+					}
+					modifier = {
+						factor = 9
+						is_megacorp = yes
+					}
+					modifier = {
+						factor = 2
+						trade_income >= 120
+					}
+					modifier = {
+						factor = 0.5
+						trade_income <= 50
+					}
+					modifier = {
+						factor = 0.75
+						is_gestalt = yes
+					}
+				}
+				capital_scope = {
+					create_ambient_object = {
+						type = "galactic_market_station"
+						location = this
+					}
+					save_global_event_target_as = market_founder_planet
+					last_created_ambient_object = {
+						save_global_event_target_as = galactic_market_station
+						set_ambient_object_flag = galactic_market_station_flag
+						set_location = {
+							target = event_target:market_founder_planet.solar_system.star
+							angle = random
+							distance = 40
+						}
+					}
+				}
+				add_modifier = {
+					modifier = galactic_market_founder
+					days = -1
+				}
+				set_market_leader = yes
+
+				country_event = { id = action.103 }
+			}
+			create_message = {
+				type = MESSAGE_TYPE_LOST_MARKET_STATION
+				localization = MESSAGE_LOST_MARKET_STATION
+				days = 30
+				target = root.from # the Go To
+				variable = {
+					type = name
+					localization = SYSTEM
+					scope = root.from
+				}
+			}
+		}
+		else_if = { # lost to valid empire without market access (somehow)
+			limit = {
+				exists = fromfrom
+				fromfrom = {
+					is_country_type_with_subjects = yes
+					NOT = { has_country_flag = has_market_access }
+				}
+			}
+			fromfrom = {
+				set_country_flag = has_market_access
+				enable_galactic_market = yes
+				add_modifier = {
+					modifier = galactic_market_founder
+					days = -1
+				}
+				set_market_leader = yes
+			}
+			remove_modifier = galactic_market_founder
+			create_message = {
+				type = MESSAGE_TYPE_LOST_MARKET_STATION
+				localization = MESSAGE_LOST_MARKET_STATION
+				days = 30
+				target = root.from # the Go To
+				variable = {
+					type = name
+					localization = SYSTEM
+					scope = root.from
+				}
+			}
+		}
+		else = {
+			remove_modifier = galactic_market_founder
+			fromfrom = {
+				add_modifier = {
+					modifier = galactic_market_founder
+					days = -1
+				}
+				set_market_leader = yes
+			}
+			create_message = {
+				type = MESSAGE_TYPE_LOST_MARKET_STATION
+				localization = MESSAGE_LOST_MARKET_STATION
+				days = 30
+				target = root.from # the Go To
+				variable = {
+					type = name
+					localization = SYSTEM
+					scope = root.from
+				}
+			}
+		}
+	}
+}
+
+# Convert sectors released as subjects by megacorps into oligarchies
+country_event = {
+	id = action.230
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_megacorp = yes
+		from = { is_megacorp = yes }
+	}
+
+	immediate = {
+		set_merchant_government_effect = yes
+	}
+}

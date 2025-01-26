@@ -201,7 +201,13 @@ civic_philosopher_king = {
 
 civic_meritocracy = {
 	potential = {
-		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		# MA
+		ethics = {
+			NOR = {
+				value = ethic_gestalt_consciousness
+				value = ethic_authoritarian
+			}
+		}
 		authority = {
 			NOR = {
 				value = auth_corporate
@@ -1454,5 +1460,54 @@ civic_ascensionists = {
 		planetary_ascension_effect_mult = 0.25
 		planetary_ascension_cost_mult = -0.1
 		tradition_cost_empire_size_mult = -0.25
+	}
+}
+
+civic_eager_explorers = {
+	playable = {
+		has_first_contact_dlc = yes
+	}
+
+	description = "civic_eager_explorers_effects"
+	modification = no
+	potential = {
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+
+		authority = {
+			NOT = {
+				value = auth_corporate
+				value = auth_corporate_imperial
+			}
+		}
+	}
+
+	possible = {
+		origin = {
+			NOR = {
+				# No FC origins.
+				value = origin_payback
+				value = origin_broken_shackles
+				value = origin_fear_of_the_dark
+			}
+		}
+		civics = {
+			NOT = {
+				value = civic_inwards_perfection
+			}
+		}
+	}
+
+	modifier = {
+		ship_speed_mult = 0.15
+		science_ship_survey_speed = 0.2
+		ship_anomaly_generation_chance_mult = 0.05
+	}
+
+	random_weight = {
+		base = 0
 	}
 }

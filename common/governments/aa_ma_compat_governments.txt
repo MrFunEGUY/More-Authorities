@@ -1,0 +1,8 @@
+
+# Compat
+gov_optimized_venture = { possible = { always = no } weight = { base = 0 } }
+gov_stellar_bancorp = { possible = { always = no } weight = { base = 0 } }
+gov_megacooperative = { possible = { always = no } weight = { base = 0 } }
+gov_industrial_monopoly = { possible = { always = no } weight = { base = 0 } }
+gov_industrial_consortium = { possible = { always = no } weight = { base = 0 } }
+gov_optimized_monopoly = { possible = { always = no } weight = { base = 0 } }

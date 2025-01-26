@@ -1,3 +1,22 @@
+is_domineering_federation_type = {
+	has_federation_type = hegemony_federation
+}
+
+is_exile_country = {
+	OR = {
+		is_country_type = exile_country
+		is_country_type = enclave_exiled_gov
+	}
+}
+
+is_socialist = { is_socialism = yes }
+
+is_socialism = { always = no }
+
+is_capitalism = { always = no }
+
+##########
+
 has_civic_organic_zealots_active = {
 	optimize_memory
 	always = no

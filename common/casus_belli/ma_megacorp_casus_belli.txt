@@ -63,6 +63,7 @@ cb_expel_corp = {
 	show_notification = yes
 	potential = {
 		is_country_type_with_subjects = yes
+		from = { is_megacorp = yes }
 		is_megacorp = no
 	}
 	is_valid = {
