@@ -2,12 +2,7 @@ is_domineering_federation_type = {
 	has_federation_type = hegemony_federation
 }
 
-is_exile_country = {
-	OR = {
-		is_country_type = exile_country
-		is_country_type = enclave_exiled_gov
-	}
-}
+is_exile_country = { always = no }
 
 is_socialist = { is_socialism = yes }
 
